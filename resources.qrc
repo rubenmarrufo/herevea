@@ -1,0 +1,5 @@
+<RCC> 
+  <qresource prefix="/plugins/Herevea" > 
+    <file>icon.png</file> 
+  </qresource> 
+</RCC> 
