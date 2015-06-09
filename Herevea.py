@@ -26,6 +26,7 @@ import resources
 # Import the code for the dialog
 from HereveaDialog import HereveaDialog
 from HereveaMapTool import HereveaMapTool
+from CatastroService import CatastroService
 
 class Herevea: 
 
