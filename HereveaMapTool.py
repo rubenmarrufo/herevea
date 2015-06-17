@@ -3,6 +3,7 @@ from qgis.core import QgsMapLayer, QgsMapToPixel, QgsFeature, QgsFeatureRequest,
 from PyQt4.QtGui import QCursor, QPixmap
 from PyQt4.QtCore import Qt
 from CatastroService import CatastroService
+from Ui_MainWindowDialog import Ui_MainWindowDialog
 
 class HereveaMapTool(QgsMapTool):
     
@@ -41,4 +42,8 @@ class HereveaMapTool(QgsMapTool):
         layers = QgsMapLayerRegistry.instance().mapLayers()        
         for name, layer in layers.iteritems():
             layerPoint = self.toLayerCoordinates( layer, mouseEvent.pos() )
-            self.catastroService.getInfo(layerPoint.x(), layerPoint.y())
+            numcatastro = self.catastroService.getNumCatastro(layerPoint.x(), layerPoint.y())
+            direccion = self.catastroService.getDireccion(layerPoint.x(), layerPoint.y())
+            ui_MainWindow=Ui_MainWindowDialog(direccion, numcatastro)
+            ui_MainWindow.show()
+            result = ui_MainWindow.exec_() 

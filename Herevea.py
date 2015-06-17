@@ -52,14 +52,14 @@ class Herevea:
     
     self.HereveaMapTool = HereveaMapTool(self.iface.mapCanvas())
         
-    action = self.add_action(
-                icon_path,
-                text='Seleccione una parcela del catastro.',
-                callback=self.run,
-                parent=self.iface.mainWindow())
+    #action = self.add_action(
+    #            icon_path,
+    #            text='Seleccione una parcela del catastro.',
+    #            callback=self.run,
+    #            parent=self.iface.mainWindow())
     
-    action.setCheckable(True)
-    self.HereveaMapTool.setAction(action)
+    #action.setCheckable(True)
+    self.HereveaMapTool.setAction(self.action)
 
   def unload(self):
     # Remove the plugin menu item and icon
