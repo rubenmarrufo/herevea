@@ -3,7 +3,8 @@ from qgis.core import QgsMapLayer, QgsMapToPixel, QgsFeature, QgsFeatureRequest,
 from PyQt4.QtGui import QCursor, QPixmap
 from PyQt4.QtCore import Qt
 from CatastroService import CatastroService
-from Ui_MainWindowDialog import Ui_MainWindowDialog
+from Ui_ProyectoFormDialog import Ui_ProyectoFormDialog
+from Ui_ActuacionFormDialog import Ui_ActuacionFormDialog
 
 class HereveaMapTool(QgsMapTool):
     
@@ -11,8 +12,7 @@ class HereveaMapTool(QgsMapTool):
         
         super(QgsMapTool, self).__init__(canvas)
         self.canvas = canvas
-        self.cursor = QCursor(Qt.CrossCursor)
-        self.catastroService = CatastroService()
+        self.cursor = QCursor(Qt.CrossCursor)        
         
     def activate(self):
         self.canvas.setCursor(self.cursor)
@@ -42,8 +42,12 @@ class HereveaMapTool(QgsMapTool):
         layers = QgsMapLayerRegistry.instance().mapLayers()        
         for name, layer in layers.iteritems():
             layerPoint = self.toLayerCoordinates( layer, mouseEvent.pos() )
-            numcatastro = self.catastroService.getNumCatastro(layerPoint.x(), layerPoint.y())
-            direccion = self.catastroService.getDireccion(layerPoint.x(), layerPoint.y())
-            ui_MainWindow=Ui_MainWindowDialog(direccion, numcatastro)
-            ui_MainWindow.show()
-            result = ui_MainWindow.exec_() 
+            self.catastroService = CatastroService(layerPoint.x(),layerPoint.y())
+            numcatastro = self.catastroService.getNumCatastro()
+            direccion = self.catastroService.getDireccion()
+            ui_Proyecto=Ui_ProyectoFormDialog(direccion, numcatastro)
+            ui_Proyecto.show()
+            result = ui_Proyecto.exec_()
+            ui_Actuacion=Ui_ActuacionFormDialog(direccion, numcatastro)
+            ui_Actuacion.show()
+            result = ui_Actuacion.exec_()  

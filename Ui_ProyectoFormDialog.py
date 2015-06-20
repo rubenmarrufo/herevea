@@ -17,11 +17,11 @@ email                : ruben_marrufo@hotmail.com
  ***************************************************************************/
 """
 from PyQt4 import QtCore, QtGui 
-from Ui_Herevea_Form import Ui_Herevea_Form
-# create the dialog for Herevea
-class Ui_MainWindowDialog(QtGui.QDialog):
+from Ui_ProyectoForm import Ui_ProyectoForm
+
+class Ui_ProyectoFormDialog(QtGui.QDialog):
   def __init__(self, direccion, numcatastro): 
     QtGui.QDialog.__init__(self) 
     # Set up the user interface from Designer. 
-    self.ui = Ui_Herevea_Form()
+    self.ui = Ui_ProyectoForm()
     self.ui.setupUi(self,direccion, numcatastro)
