@@ -26,7 +26,10 @@ import resources
 # Import the code for the dialog
 from HereveaDialog import HereveaDialog
 from HereveaMapTool import HereveaMapTool
-from CatastroService import CatastroService
+
+#from xlutils.copy import copy # http://pypi.python.org/pypi/xlutils
+#from xlrd import open_workbook # http://pypi.python.org/pypi/xlrd
+#from xlwt import easyxf # http://pypi.python.org/pypi/xlwt
 
 class Herevea: 
 
@@ -58,8 +61,14 @@ class Herevea:
     #            callback=self.run,
     #            parent=self.iface.mainWindow())
     
-    #action.setCheckable(True)
-    self.HereveaMapTool.setAction(self.action)
+    #rb = open_workbook(resolve('test.xls'))
+    #rs = rb.sheet_by_index(0)
+    
+    #wb = copy(rb)
+    #w_sheet = wb.get_sheet(0)
+    #w_sheet.write(0, 0, 'Early')
+    
+    #wb.save(resolve('test.xls'))
 
   def unload(self):
     # Remove the plugin menu item and icon
@@ -153,4 +162,9 @@ class Herevea:
 
     self.actions.append(action)
 
-    return action        
+    return action 
+
+def resolve(name, basepath=None):
+    if not basepath:
+      basepath = os.path.dirname(os.path.realpath(__file__))
+    return os.path.join(basepath, name)       

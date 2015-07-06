@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:\Repositories\QGisPlugins\Herevea\Ui_ActuacionForm.ui'
 #
-# Created: Sat Jun 20 13:14:01 2015
+# Created: Sun Jun 21 10:29:42 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,10 @@ except AttributeError:
 class Ui_ActuacionForm(object):
     def setupUi(self, ActuacionForm, direccion, numcatastro):
         ActuacionForm.setObjectName(_fromUtf8("ActuacionForm"))
-        ActuacionForm.resize(1070, 696)
+        ActuacionForm.resize(1170, 696)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("Herevea.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        ActuacionForm.setWindowIcon(icon)
         self.buttonBox = QtGui.QDialogButtonBox(ActuacionForm)
         self.buttonBox.setGeometry(QtCore.QRect(700, 650, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -47,7 +50,7 @@ class Ui_ActuacionForm(object):
         self.label_32.setGeometry(QtCore.QRect(540, 20, 101, 20))
         self.label_32.setObjectName(_fromUtf8("label_32"))
         self.tabWidget = QtGui.QTabWidget(ActuacionForm)
-        self.tabWidget.setGeometry(QtCore.QRect(20, 60, 1031, 561))
+        self.tabWidget.setGeometry(QtCore.QRect(20, 60, 1131, 561))
         self.tabWidget.setObjectName(_fromUtf8("tabWidget"))
         self.tab = QtGui.QWidget()
         self.tab.setObjectName(_fromUtf8("tab"))
@@ -1265,14 +1268,4 @@ class Ui_ActuacionForm(object):
         self.cmbBarandillas_2.setItemText(1, _translate("ActuacionForm", "Sustitución y reposición", None))
         self.label_76.setText(_translate("ActuacionForm", "%", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate("ActuacionForm", "Carpintería y elementos de seguridad y protección", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    ActuacionForm = QtGui.QDialog()
-    ui = Ui_ActuacionForm()
-    ui.setupUi(ActuacionForm)
-    ActuacionForm.show()
-    sys.exit(app.exec_())
 

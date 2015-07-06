@@ -17,11 +17,11 @@ email                : ruben_marrufo@hotmail.com
  ***************************************************************************/
 """
 from PyQt4 import QtCore, QtGui 
-from Ui_ProyectoForm import Ui_ProyectoForm
+from Ui_InmueblesList import Ui_InmueblesList
 
-class Ui_ProyectoFormDialog(QtGui.QDialog):
-  def __init__(self, direccion, numcatastro, superficie): 
+class Ui_InmueblesListDialog(QtGui.QDialog):
+  def __init__(self, direccion, numcatastro): 
     QtGui.QDialog.__init__(self) 
     # Set up the user interface from Designer. 
-    self.ui = Ui_ProyectoForm()
-    self.ui.setupUi(self,direccion, numcatastro, superficie)
+    self.ui = Ui_InmueblesList()
+    self.ui.setupUi(self, inmuebles, numcatastro)

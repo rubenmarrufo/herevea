@@ -7,17 +7,21 @@
     <x>0</x>
     <y>0</y>
     <width>872</width>
-    <height>520</height>
+    <height>567</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Herevea</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Herevea.png</normaloff>Herevea.png</iconset>
+  </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>460</y>
+     <y>510</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -87,7 +91,7 @@
      <x>20</x>
      <y>80</y>
      <width>831</width>
-     <height>351</height>
+     <height>411</height>
     </rect>
    </property>
    <property name="title">
@@ -97,7 +101,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>290</y>
+      <y>368</y>
       <width>231</width>
       <height>25</height>
      </rect>
@@ -117,7 +121,7 @@
     <property name="geometry">
      <rect>
       <x>369</x>
-      <y>146</y>
+      <y>224</y>
       <width>119</width>
       <height>23</height>
      </rect>
@@ -130,7 +134,7 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>244</y>
+      <y>322</y>
       <width>141</width>
       <height>19</height>
      </rect>
@@ -143,7 +147,7 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>96</y>
+      <y>174</y>
       <width>171</width>
       <height>25</height>
      </rect>
@@ -153,7 +157,7 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>196</y>
+      <y>274</y>
       <width>141</width>
       <height>19</height>
      </rect>
@@ -166,7 +170,7 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>46</y>
+      <y>124</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -179,7 +183,7 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>146</y>
+      <y>224</y>
       <width>119</width>
       <height>23</height>
      </rect>
@@ -187,12 +191,15 @@
     <property name="text">
      <string>Viviendas</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>292</y>
+      <y>370</y>
       <width>141</width>
       <height>19</height>
      </rect>
@@ -205,7 +212,7 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>196</y>
+      <y>274</y>
       <width>231</width>
       <height>25</height>
      </rect>
@@ -230,7 +237,7 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>243</y>
+      <y>321</y>
       <width>231</width>
       <height>25</height>
      </rect>
@@ -245,7 +252,7 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>146</y>
+      <y>224</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -258,7 +265,7 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>46</y>
+      <y>124</y>
       <width>45</width>
       <height>25</height>
      </rect>
@@ -271,13 +278,62 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>96</y>
+      <y>174</y>
       <width>181</width>
       <height>19</height>
      </rect>
     </property>
     <property name="text">
      <string>Superficie construida</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>40</y>
+      <width>141</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Año construcción</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_2">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>40</y>
+      <width>101</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>141</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tipo de inmueble</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_4">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>80</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
     </property>
    </widget>
   </widget>

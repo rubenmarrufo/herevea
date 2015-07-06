@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Herevea</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Herevea.png</normaloff>Herevea.png</iconset>
+  </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>

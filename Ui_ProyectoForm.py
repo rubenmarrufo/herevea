@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:\Repositories\QGisPlugins\Herevea\Ui_ProyectoForm.ui'
 #
-# Created: Sat Jun 20 13:39:48 2015
+# Created: Sun Jun 21 10:28:24 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -24,9 +24,12 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_ProyectoForm(object):
-    def setupUi(self, ProyectoForm, direccion, numcatastro):
+    def setupUi(self, ProyectoForm, direccion, numcatastro, superficie):
         ProyectoForm.setObjectName(_fromUtf8("ProyectoForm"))
         ProyectoForm.resize(872, 520)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("Herevea.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        ProyectoForm.setWindowIcon(icon)
         self.buttonBox = QtGui.QDialogButtonBox(ProyectoForm)
         self.buttonBox.setGeometry(QtCore.QRect(510, 460, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -63,6 +66,7 @@ class Ui_ProyectoForm(object):
         self.tbxSuperficie = QtGui.QDoubleSpinBox(self.groupBox)
         self.tbxSuperficie.setGeometry(QtCore.QRect(229, 96, 171, 25))
         self.tbxSuperficie.setObjectName(_fromUtf8("tbxSuperficie"))
+        self.tbxSuperficie.setMaximum(100000)
         self.label_4 = QtGui.QLabel(self.groupBox)
         self.label_4.setGeometry(QtCore.QRect(29, 196, 141, 19))
         self.label_4.setObjectName(_fromUtf8("label_4"))
@@ -71,6 +75,7 @@ class Ui_ProyectoForm(object):
         self.label.setObjectName(_fromUtf8("label"))
         self.radioButton = QtGui.QRadioButton(self.groupBox)
         self.radioButton.setGeometry(QtCore.QRect(229, 146, 119, 23))
+        self.radioButton.setChecked(True)
         self.radioButton.setObjectName(_fromUtf8("radioButton"))
         self.label_6 = QtGui.QLabel(self.groupBox)
         self.label_6.setGeometry(QtCore.QRect(29, 292, 141, 19))
@@ -96,6 +101,7 @@ class Ui_ProyectoForm(object):
         self.label_2.setGeometry(QtCore.QRect(29, 96, 181, 19))
         self.label_2.setObjectName(_fromUtf8("label_2"))
         
+        self.tbxSuperficie.setValue(superficie)
         self.tbxDireccion.setText(direccion)
         self.tbxRefCatastral.setText(numcatastro)
 
@@ -120,17 +126,7 @@ class Ui_ProyectoForm(object):
         self.comboBox.setItemText(0, _translate("ProyectoForm", "Losa armada", None))
         self.comboBox.setItemText(1, _translate("ProyectoForm", "Zapatas aisladas", None))
         self.comboBox.setItemText(2, _translate("ProyectoForm", "Pilotes", None))
-        self.comboBox_2.setItemText(0, _translate("ProyectoForm", "Hormigón armada", None))
+        self.comboBox_2.setItemText(0, _translate("ProyectoForm", "Hormigón armado", None))
         self.label_3.setText(_translate("ProyectoForm", "Planta baja", None))
         self.label_2.setText(_translate("ProyectoForm", "Superficie construida", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    ProyectoForm = QtGui.QDialog()
-    ui = Ui_ProyectoForm()
-    ui.setupUi(ProyectoForm)
-    ProyectoForm.show()
-    sys.exit(app.exec_())
 
