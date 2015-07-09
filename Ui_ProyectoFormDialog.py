@@ -20,8 +20,8 @@ from PyQt4 import QtCore, QtGui
 from Ui_ProyectoForm import Ui_ProyectoForm
 
 class Ui_ProyectoFormDialog(QtGui.QDialog):
-  def __init__(self, direccion, numcatastro, superficie): 
+  def __init__(self, catastroService): 
     QtGui.QDialog.__init__(self) 
     # Set up the user interface from Designer. 
     self.ui = Ui_ProyectoForm()
-    self.ui.setupUi(self,direccion, numcatastro, superficie)
+    self.ui.setupUi(self, catastroService)

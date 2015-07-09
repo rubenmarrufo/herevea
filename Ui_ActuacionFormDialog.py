@@ -20,8 +20,8 @@ from PyQt4 import QtCore, QtGui
 from Ui_ActuacionForm import Ui_ActuacionForm
 
 class Ui_ActuacionFormDialog(QtGui.QDialog):
-  def __init__(self, direccion, numcatastro): 
+  def __init__(self, catastroService): 
     QtGui.QDialog.__init__(self) 
     # Set up the user interface from Designer. 
     self.ui = Ui_ActuacionForm()
-    self.ui.setupUi(self,direccion, numcatastro)
+    self.ui.setupUi(self, catastroService)

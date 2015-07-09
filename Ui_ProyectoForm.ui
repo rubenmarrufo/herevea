@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>872</width>
-    <height>567</height>
+    <height>627</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>510</y>
+     <y>570</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -89,9 +89,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>80</y>
+     <y>70</y>
      <width>831</width>
-     <height>411</height>
+     <height>471</height>
     </rect>
    </property>
    <property name="title">
@@ -101,7 +101,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>368</y>
+      <y>410</y>
       <width>231</width>
       <height>25</height>
      </rect>
@@ -117,11 +117,11 @@
      </property>
     </item>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="radLocales">
     <property name="geometry">
      <rect>
       <x>369</x>
-      <y>224</y>
+      <y>266</y>
       <width>119</width>
       <height>23</height>
      </rect>
@@ -134,7 +134,7 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>322</y>
+      <y>364</y>
       <width>141</width>
       <height>19</height>
      </rect>
@@ -147,7 +147,7 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>174</y>
+      <y>173</y>
       <width>171</width>
       <height>25</height>
      </rect>
@@ -157,7 +157,7 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>274</y>
+      <y>316</y>
       <width>141</width>
       <height>19</height>
      </rect>
@@ -169,8 +169,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>29</x>
-      <y>124</y>
+      <x>30</x>
+      <y>222</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -179,11 +179,11 @@
      <string>Nº plantas bajo rasante</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="radViviendas">
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>224</y>
+      <y>266</y>
       <width>119</width>
       <height>23</height>
      </rect>
@@ -199,7 +199,7 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>370</y>
+      <y>412</y>
       <width>141</width>
       <height>19</height>
      </rect>
@@ -212,7 +212,7 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>274</y>
+      <y>316</y>
       <width>231</width>
       <height>25</height>
      </rect>
@@ -237,7 +237,7 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>321</y>
+      <y>363</y>
       <width>231</width>
       <height>25</height>
      </rect>
@@ -252,7 +252,7 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>224</y>
+      <y>266</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -261,11 +261,11 @@
      <string>Planta baja</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox">
+   <widget class="QSpinBox" name="tbxPlantasBajoRasante">
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>124</y>
+      <y>222</y>
       <width>45</width>
       <height>25</height>
      </rect>
@@ -278,7 +278,7 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>174</y>
+      <y>175</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -291,7 +291,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>40</y>
+      <y>37</y>
       <width>141</width>
       <height>19</height>
      </rect>
@@ -300,11 +300,11 @@
      <string>Año construcción</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_2">
+   <widget class="QSpinBox" name="tbxAntiguedad">
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>40</y>
+      <y>36</y>
       <width>101</width>
       <height>25</height>
      </rect>
@@ -317,7 +317,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>80</y>
+      <y>84</y>
       <width>141</width>
       <height>19</height>
      </rect>
@@ -326,14 +326,50 @@
      <string>Tipo de inmueble</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_4">
+   <widget class="QComboBox" name="cbTipoInmueble">
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>80</y>
+      <y>81</y>
       <width>231</width>
       <height>25</height>
      </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Inmueble único</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>División horizontal</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>68</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Uso</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tbxUso">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>127</y>
+      <width>171</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

@@ -24,7 +24,7 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_ActuacionForm(object):
-    def setupUi(self, ActuacionForm, direccion, numcatastro):
+    def setupUi(self, ActuacionForm, catastroService):
         ActuacionForm.setObjectName(_fromUtf8("ActuacionForm"))
         ActuacionForm.resize(1170, 696)
         icon = QtGui.QIcon()
@@ -888,8 +888,8 @@ class Ui_ActuacionForm(object):
         self.label_76.setObjectName(_fromUtf8("label_76"))
         self.tabWidget.addTab(self.tab_5, _fromUtf8(""))
         
-        self.tbxDireccion.setText(direccion)
-        self.tbxRefCatastral.setText(numcatastro)
+        self.tbxDireccion.setText(catastroService.getDireccion())
+        self.tbxRefCatastral.setText(catastroService.getNumCatastro())
 
         self.retranslateUi(ActuacionForm)
         self.tabWidget.setCurrentIndex(0)

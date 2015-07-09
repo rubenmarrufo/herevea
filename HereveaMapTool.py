@@ -39,23 +39,22 @@ class HereveaMapTool(QgsMapTool):
         return QgsGeometry.fromPoint(layerPoint)
 
 
-    def canvasReleaseEvent(self, mouseEvent):  
-        if mouseEvent.type == QtCore.QEvent.Drop:
-            pass
-        else:
-            layers = QgsMapLayerRegistry.instance().mapLayers()        
-            for name, layer in layers.iteritems():
+    def canvasReleaseEvent(self, mouseEvent):
+        print("adios")
+        layers = QgsMapLayerRegistry.instance().mapLayers()        
+        for name, layer in layers.iteritems():
+            print(name)
+            if name.startswith('Catastro'):
+                print("hola")
                 layerPoint = self.toLayerCoordinates( layer, mouseEvent.pos() )
-                self.parcelaService = ParcelaService(layerPoint.x(),layerPoint.y())
-                #numcatastro = self.catastroService.getNumCatastro()
-                #direccion = self.catastroService.getDireccion()
+                self.parcelaService = ParcelaService(layerPoint.x(),layerPoint.y())                
                 #inmueblesList = self.catastroService.getInmueblesList(numcatastro)
                 #ui_InmueblesList=Ui_InmueblesListDialog(inmueblesList, numcatastro)
-                ##ui_Proyecto.show()
-                #result = ui_Proyecto.exec_()
-                #ui_Proyecto=Ui_ProyectoFormDialog(direccion, numcatastro, superficie)
                 #ui_Proyecto.show()
                 #result = ui_Proyecto.exec_()
-                #ui_Actuacion=Ui_ActuacionFormDialog(direccion, numcatastro)
-                #ui_Actuacion.show()
-                #result = ui_Actuacion.exec_()  
+                ui_Proyecto=Ui_ProyectoFormDialog(self.parcelaService)
+                ui_Proyecto.show()
+                result = ui_Proyecto.exec_()
+                ui_Actuacion=Ui_ActuacionFormDialog(self.parcelaService)
+                ui_Actuacion.show()
+                result = ui_Actuacion.exec_()  

@@ -1,16 +1,19 @@
 import xmltodict
 from LocalizacionUrbana import LocalizacionUrbana
+from collections import OrderedDict
+from UnidadConstructiva import UnidadConstructiva
 
 class Inmueble:
     def __init__(self, inmuebleInfo):
-        if(any("bi" in item for item in inmuebleInfo.keys())):
+        if any("bi" in item for item in inmuebleInfo.keys()):
             if(any("idbi" in item for item in inmuebleInfo['bi'].keys())): 
                 self.setIdbi(inmuebleInfo['bi']['idbi'])
             if(any("dt" in item for item in inmuebleInfo['bi'].keys())): 
                 self.setDt(inmuebleInfo['bi']['dt'])
             if(any("debi" in item for item in inmuebleInfo['bi'].keys())): 
-                self.setDebi(inmuebleInfo['bi']['debi'])            
-    
+                self.setDebi(inmuebleInfo['bi']['debi'])
+        if any("lcons" in item for item in inmuebleInfo.keys()):           
+            self.setLcons(inmuebleInfo['lcons'])
     def setIdbi(self, idbi):
         self.tipoInmueble = idbi['cn']
         if(any("rc" in item for item in idbi.keys())): 
@@ -42,4 +45,10 @@ class Inmueble:
         if(any("cpt" in item for item in debi.keys())):
             self.coeficienteParticipacion = debi['cpt']
         if(any("ant" in item for item in debi.keys())):
-            self.antiguedad = debi['ant']    
+            self.antiguedad = debi['ant']
+    
+    def setLcons(self, lcons):
+        consList = lcons['cons'] if type(lcons) == OrderedDict else [lcons['cons']]
+        self.unidadesConstructivas = []
+        for cons in consList:
+            self.unidadesConstructivas.append(UnidadConstructiva(cons))
