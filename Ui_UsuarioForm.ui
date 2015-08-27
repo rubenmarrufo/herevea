@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ProyectoForm</class>
- <widget class="QDialog" name="ProyectoForm">
+ <class>UsuarioForm</class>
+ <widget class="QDialog" name="UsuarioForm">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>872</width>
-    <height>586</height>
+    <width>957</width>
+    <height>455</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,8 +20,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>530</y>
+     <x>600</x>
+     <y>400</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -51,7 +51,7 @@
     <rect>
      <x>96</x>
      <y>20</y>
-     <width>411</width>
+     <width>501</width>
      <height>25</height>
     </rect>
    </property>
@@ -62,7 +62,7 @@
   <widget class="QLineEdit" name="tbxRefCatastral">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>730</x>
      <y>20</y>
      <width>211</width>
      <height>25</height>
@@ -75,7 +75,7 @@
   <widget class="QLabel" name="label_32">
    <property name="geometry">
     <rect>
-     <x>533</x>
+     <x>623</x>
      <y>20</y>
      <width>101</width>
      <height>20</height>
@@ -90,239 +90,159 @@
     <rect>
      <x>20</x>
      <y>70</y>
-     <width>831</width>
-     <height>441</height>
+     <width>921</width>
+     <height>311</height>
     </rect>
    </property>
    <property name="title">
-    <string>Informacion catastral</string>
+    <string>Informacion usuario</string>
    </property>
-   <widget class="QRadioButton" name="radOtrosUsos">
-    <property name="geometry">
-     <rect>
-      <x>369</x>
-      <y>327</y>
-      <width>119</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Otros usos</string>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="tbxSuperficie">
-    <property name="geometry">
-     <rect>
-      <x>229</x>
-      <y>173</y>
-      <width>171</width>
-      <height>25</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>222</y>
-      <width>181</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Nº plantas bajo rasante</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radViviendas">
-    <property name="geometry">
-     <rect>
-      <x>229</x>
-      <y>327</y>
-      <width>119</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Viviendas</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>327</y>
-      <width>181</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Planta baja</string>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="tbxPlantasBajoRasante">
-    <property name="geometry">
-     <rect>
-      <x>229</x>
-      <y>222</y>
-      <width>51</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="maximum">
-     <number>10</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>29</x>
-      <y>175</y>
-      <width>181</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Superficie construida</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>37</y>
+      <y>149</y>
       <width>141</width>
       <height>19</height>
      </rect>
     </property>
     <property name="text">
-     <string>Año construcción</string>
+     <string>Cubierta</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="tbxAntiguedad">
+   <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>36</y>
-      <width>101</width>
+      <x>30</x>
+      <y>53</y>
+      <width>141</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cimentación</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbCubierta">
+    <property name="geometry">
+     <rect>
+      <x>231</x>
+      <y>147</y>
+      <width>231</width>
       <height>25</height>
      </rect>
     </property>
-    <property name="maximum">
-     <number>1</number>
+    <item>
+     <property name="text">
+      <string>Horizontal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Inclinada</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="cbCimentacion">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>53</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Losa armada</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Zapatas aisladas</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Pilotes</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>101</y>
+      <width>141</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Estructura</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbEstructura">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>100</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Hormigón armada</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>200</y>
+      <width>181</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Altura media por planta</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>84</y>
+      <y>250</y>
       <width>141</width>
       <height>19</height>
      </rect>
     </property>
     <property name="text">
-     <string>Tipo de inmueble</string>
+     <string>Altura del edificio</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="cbTipoInmueble">
+   <widget class="QDoubleSpinBox" name="doubleSpinBox">
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>81</y>
-      <width>231</width>
+      <y>198</y>
+      <width>101</width>
       <height>25</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>Inmueble único</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>División horizontal</string>
-     </property>
-    </item>
    </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>130</y>
-      <width>68</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Uso</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="tbxUso">
+   <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>127</y>
-      <width>231</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="tbxPlantasSobreRasante">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>275</y>
-      <width>51</width>
+      <y>247</y>
+      <width>101</width>
       <height>25</height>
      </rect>
     </property>
     <property name="maximum">
-     <number>100</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>31</x>
-      <y>275</y>
-      <width>181</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Nº plantas sobre rasante</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>380</y>
-      <width>181</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Nº de inmuebles</string>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="tbxNInmuebles">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>380</y>
-      <width>51</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="maximum">
-     <number>100</number>
+     <double>9999.989999999999782</double>
     </property>
    </widget>
   </widget>
@@ -332,7 +252,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ProyectoForm</receiver>
+   <receiver>UsuarioForm</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -348,7 +268,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ProyectoForm</receiver>
+   <receiver>UsuarioForm</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

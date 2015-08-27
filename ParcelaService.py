@@ -35,15 +35,25 @@ class ParcelaService:
     def isInmuebleUnico(self):
         return True if len(self.inmueblesList) == 1 else False
     
-    def plantasBajoRasante(self):
-        plantas = 0
+    def plantas(self):
+        plantasBajo = 0
+        plantasSobre = 0
         for inmueble in self.inmueblesList:
+            if hasattr(inmueble, 'localizacionUrbana') and hasattr(inmueble.localizacionUrbana, 'localizacionInterna') \
+            and hasattr(inmueble.localizacionUrbana.localizacionInterna,'planta') and inmueble.localizacionUrbana.localizacionInterna.planta.isdigit():
+                if int(float(inmueble.localizacionUrbana.localizacionInterna.planta)) < plantasBajo:
+                    plantasBajo = int(float(inmueble.localizacionUrbana.localizacionInterna.planta))
+                if int(float(inmueble.localizacionUrbana.localizacionInterna.planta)) > plantasSobre:
+                    plantasSobre = int(float(inmueble.localizacionUrbana.localizacionInterna.planta))
             if hasattr(inmueble, 'unidadesConstructivas'):
                 for cons in inmueble.unidadesConstructivas:
                     if hasattr(cons, 'localizacionUrbana') and hasattr(cons.localizacionUrbana, 'localizacionInterna') \
-                    and hasattr(cons.localizacionUrbana.localizacionInterna,'planta') and int(float(cons.localizacionUrbana.localizacionInterna.planta)) < 0:
-                        plantas += 1
-        return plantas
+                    and hasattr(cons.localizacionUrbana.localizacionInterna,'planta') and cons.localizacionUrbana.localizacionInterna.planta.isdigit():
+                        if int(float(cons.localizacionUrbana.localizacionInterna.planta)) > plantasSobre:                        
+                            plantasSobre = int(float(cons.localizacionUrbana.localizacionInterna.planta))
+                        if int(float(cons.localizacionUrbana.localizacionInterna.planta)) < plantasBajo:
+                            plantasBajo = int(float(cons.localizacionUrbana.localizacionInterna.planta))
+        return { 'plantasBajo':abs(plantasBajo) ,'plantasSobre':plantasSobre + 1 }
     
     def plantaBajoViviendas(self):
         for inmueble in self.inmueblesList:
@@ -54,6 +64,9 @@ class ParcelaService:
                     and hasattr(cons, uso) and cons.uso != 'Residencial':
                         return False;
         return True;
+    
+    def numeroInmuebles(self):
+        return self.inmueblesList.length
     
     def uso(self):
         return self.inmueblesList[0].uso

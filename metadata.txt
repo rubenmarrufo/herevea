@@ -1,5 +1,6 @@
 [general]
-name=Hereveadescription=Herevea
+name=Herevea
+description=Herevea
 category=Web
 version=0.3.3
 qgisMinimumVersion=2.0
