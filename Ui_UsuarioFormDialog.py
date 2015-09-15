@@ -24,4 +24,13 @@ class Ui_UsuarioFormDialog(QtGui.QDialog):
     QtGui.QDialog.__init__(self) 
     # Set up the user interface from Designer. 
     self.ui = Ui_UsuarioForm()
-    self.ui.setupUi(self, catastroService)
+    self.ui.setupUi(self)    
+    self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).setText('Siguiente >')
+    
+    self.ui.tbxDireccion.setText(catastroService.getDireccion())
+    self.ui.tbxRefCatastral.setText(catastroService.getNumCatastro())
+    self.ui.pushButton.clicked.connect(self.backButton)
+    
+  def backButton(self):
+    self.back=True
+    self.close()

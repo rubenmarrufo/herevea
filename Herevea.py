@@ -23,6 +23,7 @@ from qgis.core import *
 
 # Initialize Qt resources from file resources.py
 import resources
+import os
 # Import the code for the dialog
 from HereveaDialog import HereveaDialog
 from HereveaMapTool import HereveaMapTool
@@ -41,13 +42,14 @@ class Herevea:
     # TODO: We are going to let the user set this up in a future iteration
     #self.toolbar = self.iface.addToolBar(u'Herevea')
     #self.toolbar.setObjectName(u'Herevea')
-  def initGui(self):  
-    icon_path = ":/plugins/Herevea/icon.png"
+  def initGui(self): 
+    dir = os.path.dirname(__file__)
+    icon_path = os.path.join(dir,'Herevea.png')    
     # Create action that will start plugin configuration
-    self.action = QAction(QIcon(icon_path), \
-        "Agregar capa catastro", self.iface.mainWindow())
+    #self.action = QAction(QIcon(icon_path), \
+    #    "Agregar capa catastro", self.iface.mainWindow())
     # connect the action to the run method
-    QObject.connect(self.action, SIGNAL("activated()"), self.run)
+    #QObject.connect(self.action, SIGNAL("activated()"), self.run)
     
     self.action2 = QAction(QIcon(icon_path), \
         "Analizar parcela", self.iface.mainWindow())    
@@ -55,27 +57,25 @@ class Herevea:
     QObject.connect(self.action2, SIGNAL("activated()"), self.selection) 
 
     # Add toolbar button and menu item
-    self.iface.addToolBarIcon(self.action)
-    self.iface.addPluginToMenu("&Herevea", self.action)
+    #self.iface.addToolBarIcon(self.action)
+    #self.iface.addPluginToMenu("&Herevea", self.action)
     self.iface.addPluginToMenu("&Herevea", self.action2)
     
     self.HereveaMapTool = HereveaMapTool(self.iface.mapCanvas())
             
   def unload(self):
     # Remove the plugin menu item and icon
-    self.iface.removePluginMenu("&Herevea",self.action)
+    #self.iface.removePluginMenu("&Herevea",self.action)
     self.iface.removePluginMenu("&Herevea",self.action2)
-    self.iface.removeToolBarIcon(self.action)
-
-  # run method that performs all the real work
-  def run(self):    
+    #self.iface.removeToolBarIcon(self.action)
+        
+  def selection(self):
     layers = QgsMapLayerRegistry.instance().mapLayers()
     if not any("Catastro" in name for name, layer in layers.iteritems()):
         urlWithParams='contextualWMSLegend=0&crs=EPSG:4326&dpiMode=7&featureCount=10&format=image/png&layers=Catastro&styles=&url=http://ovc.catastro.meh.es/Cartografia/WMS/ServidorWMS.aspx?format%3Dimage/png%26layers%3DCatastro%26styles%3D%26CRS%3DEPSG:4326'
         rlayer = QgsRasterLayer(urlWithParams, 'Catastro', 'wms')
         QgsMapLayerRegistry.instance().addMapLayer(rlayer)
         
-  def selection(self):
     # create and show the dialog 
     dlg = HereveaDialog() 
     # show the dialog

@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ResultForm</class>
+ <widget class="QDialog" name="ResultForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1165</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Herevea</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Herevea.png</normaloff>Herevea.png</iconset>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>773</x>
+     <y>690</y>
+     <width>341</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="tbxDireccion">
+   <property name="geometry">
+    <rect>
+     <x>96</x>
+     <y>20</y>
+     <width>561</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_32">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>20</y>
+     <width>101</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ref. Catastral</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="tbxRefCatastral">
+   <property name="geometry">
+    <rect>
+     <x>807</x>
+     <y>20</y>
+     <width>211</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_31">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Direccion</string>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>13</x>
+     <y>70</y>
+     <width>1141</width>
+     <height>601</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>HE rehabilitación</string>
+    </attribute>
+    <widget class="QTableWidget" name="tabHERehParcial">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>1101</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>151</number>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>59</number>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>46</number>
+     </attribute>
+     <row>
+      <property name="text">
+       <string>HE Parcial (hag/m2)</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>HE Parcial (hag)</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Energía</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Bosques</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Pastos</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Mar</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Cultivos</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Superficie cons.</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QTableWidget" name="tabHERehTotal">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>240</y>
+       <width>491</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>310</number>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>46</number>
+     </attribute>
+     <row>
+      <property name="text">
+       <string>HE Total (hag/m2)</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>HE Total (hag)</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Total</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>HE demolición y construcción</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>6</y>
+       <width>1111</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Demolición</string>
+     </property>
+     <widget class="QTableWidget" name="tabHEDemParcial">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>1091</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>150</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>57</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>34</number>
+      </attribute>
+      <row>
+       <property name="text">
+        <string>HE Parcial (hag/m2)</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>HE Parcial (hag)</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Energía</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Bosques</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Pastos</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mar</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Cultivos</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Supeficie cons.</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QTableWidget" name="tabHEDemTotal">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>150</y>
+        <width>481</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>307</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>46</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>34</number>
+      </attribute>
+      <row>
+       <property name="text">
+        <string>HE Total (hag/m2)</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>HE Total (hag)</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Total</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>280</y>
+       <width>1111</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Nueva construcción</string>
+     </property>
+     <widget class="QTableWidget" name="tabHEConsParcial">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>1091</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>150</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>59</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>34</number>
+      </attribute>
+      <row>
+       <property name="text">
+        <string>HE Parcial (hag/m2)</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>HE Parcial (hag)</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Energía</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Bosques</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Pastos</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mar</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Cultivos</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Supeficie cons.</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QTableWidget" name="tabHEConsTotal">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>150</y>
+        <width>481</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>307</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>46</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>34</number>
+      </attribute>
+      <row>
+       <property name="text">
+        <string>HE Total (hag/m2)</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>HE Total (hag)</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Total</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="ComparativadeHuella">
+    <attribute name="title">
+     <string>Comparativa de HE</string>
+    </attribute>
+    <widget class="QTableWidget" name="tabHEComp">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>80</y>
+       <width>991</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>408</number>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>76</number>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>44</number>
+     </attribute>
+     <row>
+      <property name="text">
+       <string>HE Total (hag/m2)</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>HE Total (hag)</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Rehabilitación</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Demolición + Nueva Construcción</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>PEM Rehabilitacion</string>
+    </attribute>
+    <widget class="QTableWidget" name="tabPEMReh">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>110</y>
+       <width>801</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>670</number>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>230</number>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>40</number>
+     </attribute>
+     <row>
+      <property name="text">
+       <string>PEM Total (€)</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Rehabilitación</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>PEM demolición y construcción</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>290</y>
+       <width>1091</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Nueva Construcción</string>
+     </property>
+     <widget class="QTableWidget" name="tabPEMCons">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>50</y>
+        <width>801</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>635</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>220</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>45</number>
+      </attribute>
+      <row>
+       <property name="text">
+        <string>PEM Total (€/m2)</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>PEM Total (€)</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Nueva construcción</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>1091</width>
+       <height>211</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Demolición</string>
+     </property>
+     <widget class="QTableWidget" name="tabPEMDem">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>50</y>
+        <width>801</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>670</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>230</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>40</number>
+      </attribute>
+      <row>
+       <property name="text">
+        <string>PEM Total (€)</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Demolición</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_5">
+    <attribute name="title">
+     <string>Comparativa de PEM</string>
+    </attribute>
+    <widget class="QTableWidget" name="tabPEMComp">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>110</y>
+       <width>941</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>400</number>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>120</number>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>46</number>
+     </attribute>
+     <row>
+      <property name="text">
+       <string>PEM Total (€)</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Rehabilitación</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Demolición + Nueva construcción</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ResultForm</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ResultForm</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

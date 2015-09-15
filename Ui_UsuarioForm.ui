@@ -94,8 +94,13 @@
      <height>311</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="title">
-    <string>Informacion usuario</string>
+    <string>Información usuario</string>
    </property>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
@@ -105,6 +110,11 @@
       <width>141</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Cubierta</string>
@@ -119,6 +129,11 @@
       <height>19</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Cimentación</string>
     </property>
@@ -131,6 +146,11 @@
       <width>231</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -151,6 +171,11 @@
       <width>231</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -177,6 +202,11 @@
       <height>19</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Estructura</string>
     </property>
@@ -190,9 +220,14 @@
       <height>25</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
     <item>
      <property name="text">
-      <string>Hormigón armada</string>
+      <string>Hormigón armado</string>
      </property>
     </item>
    </widget>
@@ -204,6 +239,11 @@
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Altura media por planta</string>
@@ -218,11 +258,16 @@
       <height>19</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Altura del edificio</string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox">
+   <widget class="QDoubleSpinBox" name="spbAlturaMedia">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -231,8 +276,13 @@
       <height>25</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+   <widget class="QDoubleSpinBox" name="spbAlturaTotal">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -241,10 +291,28 @@
       <height>25</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
     <property name="maximum">
      <double>9999.989999999999782</double>
     </property>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>399</y>
+     <width>112</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt; Atrás</string>
+   </property>
   </widget>
  </widget>
  <resources/>

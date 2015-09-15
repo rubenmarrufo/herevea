@@ -20,9 +20,9 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>610</x>
      <y>530</y>
-     <width>341</width>
+     <width>241</width>
      <height>32</height>
     </rect>
    </property>
@@ -94,17 +94,27 @@
      <height>441</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="title">
-    <string>Informacion catastral</string>
+    <string>Información catastral</string>
    </property>
    <widget class="QRadioButton" name="radOtrosUsos">
     <property name="geometry">
      <rect>
       <x>369</x>
-      <y>327</y>
+      <y>337</y>
       <width>119</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Otros usos</string>
@@ -114,20 +124,30 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>173</y>
+      <y>183</y>
       <width>171</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>222</y>
+      <y>232</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Nº plantas bajo rasante</string>
@@ -137,10 +157,15 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>327</y>
+      <y>337</y>
       <width>119</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Viviendas</string>
@@ -153,10 +178,15 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>327</y>
+      <y>337</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Planta baja</string>
@@ -166,10 +196,15 @@
     <property name="geometry">
      <rect>
       <x>229</x>
-      <y>222</y>
+      <y>232</y>
       <width>51</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="maximum">
      <number>10</number>
@@ -179,10 +214,15 @@
     <property name="geometry">
      <rect>
       <x>29</x>
-      <y>175</y>
+      <y>185</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Superficie construida</string>
@@ -192,10 +232,15 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>37</y>
+      <y>47</y>
       <width>141</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Año construcción</string>
@@ -205,10 +250,15 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>36</y>
+      <y>46</y>
       <width>101</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="maximum">
      <number>1</number>
@@ -218,10 +268,15 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>84</y>
+      <y>94</y>
       <width>141</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Tipo de inmueble</string>
@@ -231,10 +286,15 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>81</y>
+      <y>91</y>
       <width>231</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -251,10 +311,15 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>130</y>
+      <y>140</y>
       <width>68</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Uso</string>
@@ -264,10 +329,15 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>127</y>
+      <y>137</y>
       <width>231</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -277,10 +347,15 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>275</y>
+      <y>285</y>
       <width>51</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="maximum">
      <number>100</number>
@@ -290,10 +365,15 @@
     <property name="geometry">
      <rect>
       <x>31</x>
-      <y>275</y>
+      <y>285</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Nº plantas sobre rasante</string>
@@ -303,10 +383,15 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>380</y>
+      <y>390</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Nº de inmuebles</string>
@@ -316,10 +401,15 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>380</y>
+      <y>390</y>
       <width>51</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="maximum">
      <number>100</number>

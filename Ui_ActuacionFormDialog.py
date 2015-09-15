@@ -24,7 +24,17 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
     QtGui.QDialog.__init__(self) 
     # Set up the user interface from Designer. 
     self.ui = Ui_ActuacionForm()
-    self.ui.setupUi(self, catastroService)
+    self.ui.setupUi(self)
+    self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).setText('Calculo de huella')
+    self.ui.tbxDireccion.setText(catastroService.getDireccion())
+    self.ui.tbxRefCatastral.setText(catastroService.getNumCatastro())
+    self.ui.tabWidget.setCurrentIndex(0)
+    self.ui.pushButton.clicked.connect(self.backButton)    
+
+  def backButton(self):
+    self.back=True
+    self.close()
+      
   def getValues(self):
     return {'Pilotes': self.ui.cmbPilotes.currentText(),'PilotesAct' : self.ui.cmbPilotesAct.currentText(), \
             'Arquetas': self.ui.cmbArquetas.currentText(), 'ArquetasAct': self.ui.cmbArquetasAct.currentText(), \
@@ -36,7 +46,7 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
             'LadFisuras': self.ui.cmbLadFisuras.currentText(), 'LadFisurasAct': self.ui.cmbLadFisurasAct.currentText(), \
             'LadGrietas': self.ui.cmbLadGrietas.currentText(), 'LadGrietasAct': self.ui.cmbLadGrietasAct.currentText(), \
             'LadHumSuelo': self.ui.cmbLadHumSuelo.currentText(), 'LadHumSueloAct': self.ui.cmbLadHumSueloAct.currentText(), \
-            'LadHumTecho': self.ui.cmbLadHumTecho.currentText(), 'LadHumTechoAct': self.ui.cmbLadHumTecho_2.currentText(), \
+            'LadHumTecho': self.ui.cmbLadHumTecho.currentText(), 'LadHumTechoAct': self.ui.cmbLadHumTechoAct.currentText(), \
             'IntFisuras': self.ui.cmbIntFisuras.currentText(), 'IntFisurasAct': self.ui.cmbIntFisurasAct.currentText(), \
             'IntGrietas': self.ui.cmbIntGrietas.currentText(), 'IntGrietasAct': self.ui.cmbIntGrietasAct.currentText(), \
             'HumSuelo': self.ui.cmbHumSuelo.currentText(), 'HumSueloAct': self.ui.cmbHumSueloAct.currentText(), \
@@ -52,18 +62,18 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
             'Climatizacion': self.ui.cmbClimatizacion.currentText(), 'ClimatizacionAct': self.ui.cmbClimatizacionAct.currentText(), \
             'Conductos': self.ui.cmbConductos.currentText(), 'ConductosAct': self.ui.cmbConductosAct.currentText(), \
             'Radiadores': self.ui.cmbRadiadores.currentText(), 'RadiadoresAct': self.ui.cmbRadiadoresAct.currentText(), \
-            'Circuitos': self.ui.cmbCircuitos.currentText(), 'CircuitosAct': self.ui.cmbCircuitos_2.currentText(), \
+            'Circuitos': self.ui.cmbCircuitos.currentText(), 'CircuitosAct': self.ui.cmbCircuitosAct.currentText(), \
             'LineasYDerivaciones': self.ui.cmbLineasYDerivaciones.currentText(), 'LineasYDerivacionesAct': self.ui.cmbLineasYDerivacionesAct.currentText(), \
             'PuntosLuz': self.ui.cmbPuntosLuz.currentText(), 'PuntosLuzAct': self.ui.cmbPuntosLuzAct.currentText(), \
             'TomaCorriente': self.ui.cmbTomaCorriente.currentText(), 'TomaCorrienteAct': self.ui.cmbTomaCorrienteAct.currentText(), \
-            'ConductorPuestaTierra': self.ui.cmbConductorPuestaTierra.currentText(), 'ConductorPuestaTierraAct': self.ui.cmbConductorPuestaTierra_2.currentText(), \
+            'ConductorPuestaTierra': self.ui.cmbConductorPuestaTierra.currentText(), 'ConductorPuestaTierraAct': self.ui.cmbConductorPuestaTierraAct.currentText(), \
             'CanalizacionesCal': self.ui.cmbCanalizacionesCal.currentText(), 'CanalizacionesCalAct': self.ui.cmbCanalizacionesCalAct.currentText(), \
             'Desagues': self.ui.cmbDesagues.currentText(), 'DesaguesAct': self.ui.cmbDesaguesAct.currentText(), \
             'CanalizacionesAguaFria': self.ui.cmbCanalizacionesAguaFria.currentText(), 'CanalizacionesAguaFriaAct': self.ui.cmbCanalizacionesAguaFriaAct.currentText(), \
             'Griferia': self.ui.cmbGriferia.currentText(), 'GriferiaAct': self.ui.cmbGriferiaAct.currentText(), \
             'Sanitarios': self.ui.cmbSanitarios.currentText(), 'SanitariosAct': self.ui.cmbSanitariosAct.currentText(), \
             'Termos': self.ui.cmbTermos.currentText(), 'TermosAct': self.ui.cmbTermosAct.currentText(), \
-            'Ascensores': self.ui.cmbAscensores.currentText(), 'AscensoresAct': self.ui.spinBox.value(), \
+            'Ascensores': self.ui.cmbAscensores.currentText(), 'AscensoresAct': self.ui.spbNumAscensores.value(), \
             'CarpLigera': self.ui.cmbCarpLigera.currentText(), 'CarpLigeraAct': self.ui.cmbCarpLigeraAct.currentText(), \
             'CarpMadera': self.ui.cmbCarpMadera.currentText(), 'CarpMaderaAct': self.ui.cmbCarpMaderaAct.currentText(), \
             'Rejas': self.ui.cmbRejas.currentText(), 'RejasAct': self.ui.cmbRejasAct.currentText()
