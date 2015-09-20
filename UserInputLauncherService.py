@@ -68,9 +68,11 @@ class UserInputLauncherService():
             self.showUsuarioForm()
             
     def showResults(self):
-        values = self.ui_Actuacion.getValues()
+        proyValues=self.ui_Proyecto.getValues()
+        userValues=self.ui_Usuario.getValues()
+        actValues = self.ui_Actuacion.getValues()
         huellaService = HuellaService()
-        huellaResult = huellaService.Calculate(values)
+        huellaResult = huellaService.Calculate(proyValues,userValues,actValues)
         ui_Result=Ui_ResultFormDialog(self.parcelaService,huellaResult)
         ui_Result.show()
         ui_Result.exec_()                         

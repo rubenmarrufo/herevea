@@ -44,4 +44,4 @@ class Ui_ProyectoFormDialog(QtGui.QDialog):
   def getValues(self):
     return {'PlantasBajo': self.ui.tbxPlantasBajoRasante.text(), \
             'PlantasSobre': self.ui.tbxPlantasSobreRasante.text(), \
-            'PlantaBajaViviendas': 'si' if radViviendas.isChecked() else 'no' }
+            'PlantaBajaViviendas': 'si' if self.ui.radViviendas.isChecked() else 'no' }
