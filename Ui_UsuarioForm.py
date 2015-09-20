@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Ui_UsuarioForm.ui'
 #
-# Created: Sun Sep 06 11:02:44 2015
+# Created: Sat Sep 19 11:46:29 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -97,6 +97,7 @@ class Ui_UsuarioForm(object):
         self.cbEstructura.setFont(font)
         self.cbEstructura.setObjectName(_fromUtf8("cbEstructura"))
         self.cbEstructura.addItem(_fromUtf8(""))
+        self.cbEstructura.addItem(_fromUtf8(""))
         self.label_7 = QtGui.QLabel(self.groupBox)
         self.label_7.setGeometry(QtCore.QRect(30, 200, 181, 19))
         font = QtGui.QFont()
@@ -145,6 +146,7 @@ class Ui_UsuarioForm(object):
         self.cbCimentacion.setItemText(2, _translate("UsuarioForm", "Pilotes", None))
         self.label_5.setText(_translate("UsuarioForm", "Estructura", None))
         self.cbEstructura.setItemText(0, _translate("UsuarioForm", "Hormigón armado", None))
+        self.cbEstructura.setItemText(1, _translate("UsuarioForm", "Muros de carga", None))
         self.label_7.setText(_translate("UsuarioForm", "Altura media por planta", None))
         self.label_8.setText(_translate("UsuarioForm", "Altura del edificio", None))
         self.pushButton.setText(_translate("UsuarioForm", "< Atrás", None))

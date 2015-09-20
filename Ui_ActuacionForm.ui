@@ -152,7 +152,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Recalce de zapata mediante pilotes</string>
+        <string>Recalce de zapata mediante micropilotes</string>
        </property>
       </item>
      </widget>
@@ -3340,11 +3340,6 @@
          <string>Aparatos sanitarios</string>
         </property>
        </item>
-       <item>
-        <property name="text">
-         <string>Termos/calentadores</string>
-        </property>
-       </item>
       </widget>
       <widget class="QLabel" name="label_73">
        <property name="geometry">
@@ -3961,12 +3956,12 @@
        </property>
        <item>
         <property name="text">
-         <string>Sí</string>
+         <string>No</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>No</string>
+         <string>Sí</string>
         </property>
        </item>
       </widget>

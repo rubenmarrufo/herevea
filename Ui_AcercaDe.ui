@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Herevea</class>
- <widget class="QDialog" name="Herevea">
+ <class>AcercaDe</class>
+ <widget class="QDialog" name="AcercaDe">
   <property name="windowModality">
    <enum>Qt::WindowModal</enum>
   </property>
@@ -9,33 +9,36 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>509</width>
-    <height>431</height>
+    <width>825</width>
+    <height>381</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
-    <width>509</width>
-    <height>431</height>
+    <width>825</width>
+    <height>381</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>509</width>
-    <height>431</height>
+    <width>825</width>
+    <height>381</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Herevea</string>
   </property>
-  <property name="modal">
-   <bool>true</bool>
-  </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>370</y>
+     <x>420</x>
+     <y>320</y>
      <width>381</width>
      <height>41</height>
     </rect>
@@ -47,45 +50,69 @@
     <set>QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>20</x>
      <y>20</y>
-     <width>401</width>
-     <height>41</height>
+     <width>359</width>
+     <height>271</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Verdana</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Bienvenido al programa HEREVEA...</string>
-   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Verdana</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>HEREVEA ha sido desarrollado por:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <family>Verdana</family>
+         </font>
+        </property>
+        <property name="text">
+         <string>Investigador Principal:
+Madelyn Marrero Meléndez.
+
+Investigadores:
+Jaime Solís Guzmán
+Rafael Llácer Pantión
+Rafael Lucas Ruiz
+Antonio Ramírez de Arellano Agudo
+Alejandro Martínez Rocamora
+Mª Desirée Alba Rodríguez
+Patricia González Vallejo
+Rocío Ruíz Pérez</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>60</y>
+     <x>360</x>
+     <y>0</y>
      <width>471</width>
      <height>301</height>
     </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>471</width>
-     <height>301</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>471</width>
-     <height>301</height>
-    </size>
    </property>
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
@@ -93,11 +120,11 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="herevea">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>0</y>
+      <y>10</y>
       <width>421</width>
       <height>131</height>
      </rect>
@@ -112,7 +139,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="us">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -143,7 +170,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="consejeria">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -162,7 +189,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="feder">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -181,7 +208,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="andalucia">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -219,7 +246,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>Herevea</receiver>
+   <receiver>AcercaDe</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -235,7 +262,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>Herevea</receiver>
+   <receiver>AcercaDe</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

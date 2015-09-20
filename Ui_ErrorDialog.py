@@ -17,25 +17,17 @@ email                : ruben_marrufo@hotmail.com
  ***************************************************************************/
 """
 from PyQt4 import QtCore, QtGui 
-from Ui_Herevea import Ui_Herevea
+from Ui_Error import Ui_Error
 import os
 
-# create the dialog for Herevea
-class HereveaDialog(QtGui.QDialog):
-  def __init__(self): 
+class Ui_ErrorDialog(QtGui.QDialog):
+  def __init__(self, error): 
     QtGui.QDialog.__init__(self) 
     # Set up the user interface from Designer. 
-    self.ui = Ui_Herevea()
+    self.ui = Ui_Error()
     self.ui.setupUi(self)
     dir = os.path.dirname(__file__)
-    icon_path = os.path.join(dir,'img\Herevea.png')  
-    self.ui.label_2.setPixmap(QtGui.QPixmap(icon_path))
-    icon_path = os.path.join(dir,'img\FEDER.png')
-    self.ui.label_3.setPixmap(QtGui.QPixmap(icon_path))
-    icon_path = os.path.join(dir,'img\logoConsejeria.png')
-    self.ui.label_4.setPixmap(QtGui.QPixmap(icon_path))
-    icon_path = os.path.join(dir,'img\LogoAndalucia.png')
-    self.ui.label_5.setPixmap(QtGui.QPixmap(icon_path))
-    icon_path = os.path.join(dir,'img\us.png')
-    self.ui.label_7.setPixmap(QtGui.QPixmap(icon_path))
-    self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).setText('Continuar >')
+    icon_path = os.path.join(dir,'img\Warning.png')  
+    self.ui.image.setPixmap(QtGui.QPixmap(icon_path))
+    
+    self.ui.label.setText(error)    

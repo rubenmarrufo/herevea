@@ -230,6 +230,11 @@
       <string>Hormigón armado</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Muros de carga</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">

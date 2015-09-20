@@ -5,9 +5,11 @@ from collections import OrderedDict
 
 class InmueblesService:
     
-    def __init__(self):        
+    def __init__(self, provincia, municipio):        
         self.catastroService = CatastroService()
         self.inmueblesList = []
+        self.provincia = provincia
+        self.municipio = municipio
             
     def getInmueblesList(self, parcelaInfo):                       
         if any("lrcdnp" in item for item in parcelaInfo.keys()):            
@@ -28,4 +30,4 @@ class InmueblesService:
                     inmuebleRefCat += inmueble['rc']['cc1']
                 if any("cc2" in item for item in inmueble['rc'].keys()):
                     inmuebleRefCat += inmueble['rc']['cc2']
-                self.getInmueblesList(self.catastroService.getParcelaInfo(inmuebleRefCat))              
+                self.getInmueblesList(self.catastroService.getParcelaInfo(inmuebleRefCat, self.provincia, self.municipio))              

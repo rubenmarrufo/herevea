@@ -40,3 +40,8 @@ class Ui_ProyectoFormDialog(QtGui.QDialog):
     self.ui.radViviendas.setChecked(parcelaService.plantaBajoViviendas())
     self.ui.radOtrosUsos.setChecked(not parcelaService.plantaBajoViviendas())
     self.ui.tbxNInmuebles.setValue(parcelaService.numeroInmuebles())
+    
+  def getValues(self):
+    return {'PlantasBajo': self.ui.tbxPlantasBajoRasante.text(), \
+            'PlantasSobre': self.ui.tbxPlantasSobreRasante.text(), \
+            'PlantaBajaViviendas': 'si' if radViviendas.isChecked() else 'no' }

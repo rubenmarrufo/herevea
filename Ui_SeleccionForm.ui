@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>UsuarioForm</class>
- <widget class="QDialog" name="UsuarioForm">
+ <class>SeleccionForm</class>
+ <widget class="QDialog" name="SeleccionForm">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>751</width>
-    <height>520</height>
+    <height>650</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>751</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>751</width>
+    <height>920</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Herevea</string>
@@ -21,7 +33,7 @@
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>458</y>
+     <y>590</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -42,6 +54,11 @@
      <height>61</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Verdana</family>
+    </font>
+   </property>
    <property name="text">
     <string>Para iniciar el análisis introduza los datos catastrales de la parcela o seleccione la parcela en el mapa:</string>
    </property>
@@ -58,6 +75,11 @@
      <height>141</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Verdana</family>
+    </font>
+   </property>
    <property name="title">
     <string>Localización de la parcela</string>
    </property>
@@ -69,6 +91,11 @@
       <width>181</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+     </font>
     </property>
     <property name="text">
      <string>Provincia</string>
@@ -83,6 +110,11 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+     </font>
+    </property>
     <property name="text">
      <string>Municipio</string>
     </property>
@@ -96,11 +128,6 @@
       <height>25</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>Sevilla</string>
-     </property>
-    </item>
    </widget>
    <widget class="QComboBox" name="cmbMunicipio">
     <property name="geometry">
@@ -111,21 +138,24 @@
       <height>25</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>Sevilla</string>
-     </property>
-    </item>
    </widget>
   </widget>
   <widget class="QRadioButton" name="radCatastro">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>78</x>
      <y>321</y>
-     <width>371</width>
+     <width>611</width>
      <height>23</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Verdana</family>
+    </font>
    </property>
    <property name="text">
     <string>Selección mediante información catastral</string>
@@ -136,15 +166,26 @@
     <rect>
      <x>76</x>
      <y>270</y>
-     <width>371</width>
+     <width>631</width>
      <height>23</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Verdana</family>
+    </font>
    </property>
    <property name="text">
     <string>Selección manual de la parcela en el mapa</string>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -159,27 +200,146 @@
    <widget class="QLineEdit" name="tbxRefCatastral">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>24</y>
-      <width>381</width>
+      <x>220</x>
+      <y>21</y>
+      <width>351</width>
       <height>25</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+     </font>
+    </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_32">
     <property name="geometry">
      <rect>
-      <x>32</x>
+      <x>30</x>
       <y>24</y>
       <width>181</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+     </font>
+    </property>
     <property name="text">
      <string>Referencia Catastral</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QRadioButton" name="radCoordenadas">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>78</x>
+     <y>454</y>
+     <width>371</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Verdana</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Selección mediante coordenadas</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>492</y>
+     <width>631</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLineEdit" name="tbxLat">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>21</y>
+      <width>171</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+     </font>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_35">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>24</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Latitud</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_36">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>23</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Longitud</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tbxLong">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>20</y>
+      <width>171</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+     </font>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
@@ -189,13 +349,16 @@
   <zorder>groupBox</zorder>
   <zorder>radCatastro</zorder>
   <zorder>radMapa</zorder>
+  <zorder>radCoordenadas</zorder>
+  <zorder>groupBox_3</zorder>
+  <zorder>tbxRefCatastral</zorder>
  </widget>
  <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>UsuarioForm</receiver>
+   <receiver>SeleccionForm</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -211,7 +374,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>UsuarioForm</receiver>
+   <receiver>SeleccionForm</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

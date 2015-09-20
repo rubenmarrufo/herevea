@@ -22,7 +22,9 @@ from Ui_ActuacionForm import Ui_ActuacionForm
 class Ui_ActuacionFormDialog(QtGui.QDialog):
   def __init__(self, catastroService): 
     QtGui.QDialog.__init__(self) 
-    # Set up the user interface from Designer. 
+    
+    # Set up the user interface from Designer.
+    self.back=False 
     self.ui = Ui_ActuacionForm()
     self.ui.setupUi(self)
     self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).setText('Calculo de huella')

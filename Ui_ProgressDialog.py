@@ -1,34 +1,31 @@
 import time
 from PyQt4 import QtCore, QtGui
 from ParcelaService import ParcelaService
+from PyQt4.QtGui import QProgressBar
+from PyQt4.QtCore import *
 
-class Ui_ProgressDialog(QtGui.QDialog):
+class Ui_ProgressDialog():
     
-    def __init__(self, x, y, parent=None):
-        super(Ui_ProgressDialog, self).__init__(parent)
-        
-        self.thread = ParcelaService(x,y)
-        
-        self.nameLabel = QtGui.QLabel("Obteniendo informacion del catastro...   ")
-        self.nameLine = QtGui.QLineEdit()
-        
-        self.progressbar = QtGui.QProgressBar()
-        self.progressbar.setMinimum(0)
-        self.progressbar.setMaximum(0)
-        
-        mainLayout = QtGui.QGridLayout()
-        mainLayout.addWidget(self.progressbar, 1, 0)
-        mainLayout.addWidget(self.nameLabel, 0, 0)
-        
-        self.setLayout(mainLayout)
-        self.setWindowTitle("Procesando")
-                
+    def __init__(self, iface, provincia,municipio,x,y,callback):
+        #super(Ui_ProgressDialog, self).__init__(parent)
+        self.thread = ParcelaService(provincia,municipio)
+        self.thread.initCoords(x,y)
+        self.iface = iface
+        progressMessageBar = iface.messageBar().createMessage("Obteniendo informacion del catastro...   ")
+        progress = QProgressBar()
+        progress.setMaximum(0)
+        progress.setMinimum(0)
+        progress.setAlignment(Qt.AlignLeft|Qt.AlignVCenter)
+        progressMessageBar.layout().addWidget(progress)
+        iface.messageBar().pushWidget(progressMessageBar, iface.messageBar().INFO)
+                    
         self.thread.procDone.connect(self.fin)        
         self.thread.start()
-        
-    def fin(self):
-        self.close()    
-    
+            
     def getParcelaService(self):
-        return self.thread    
+        pass
+    
+    def fin(self, result):
+        a=result
+        #return self.thread    
  ##self.hide()           

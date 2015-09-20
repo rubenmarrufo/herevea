@@ -1,30 +1,52 @@
 import xmltodict
 import operator
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtCore
 from CatastroService import CatastroService
 from InmueblesService import InmueblesService
+from PyQt4.QtCore import *
+from qgis.core import *
 
-class ParcelaService(QtCore.QThread):
+class ParcelaService(QThread):
     procDone = QtCore.pyqtSignal(bool)  
-    def __init__(self, x, y):
-        super(ParcelaService, self).__init__()
+    def __init__(self, parentThread, provincia, municipio):
+        QThread.__init__(self, parentThread )
+        self.provincia=provincia
+        self.municipio=municipio  
+        self.numCatastro=None     
+          
+    def initCoords(self, x, y):
         self.x=x
         self.y=y
+        print x 
         
+    def initRefCatastral(self, refCatastro):        
+        self.numCatastro=refCatastro
+                
     def run(self):
-        catastroService = CatastroService()
-        self.coordsInfo = catastroService.getCoordsInfo(self.x,self.y)
-        self.parcelaInfo = catastroService.getParcelaInfo(self.getNumCatastro())
-        inmueblesService = InmueblesService()
-        self.inmueblesList = inmueblesService.getInmueblesList(self.parcelaInfo)
-        self.procDone.emit(True)
-              
+        try:
+            print "running"
+            catastroService = CatastroService()
+            if self.numCatastro == None:
+                self.coordsInfo = catastroService.getCoordsInfo(self.x,self.y)
+                pc = self.coordsInfo['pc']
+                self.numCatastro = pc['pc1'] + pc['pc2']
+            self.parcelaInfo = catastroService.getParcelaInfo(self.numCatastro,self.provincia,self.municipio)
+            inmueblesService = InmueblesService(self.provincia,self.municipio)
+            self.inmueblesList = inmueblesService.getInmueblesList(self.parcelaInfo)
+            print "running 2"
+            if len(self.inmueblesList) == 0:
+                self.procDone.emit(False)
+            else:
+                self.procDone.emit(True)                                 
+        except Exception as ex:  
+            print ex
+            self.procDone.emit(False)              
+            
     def getDireccion(self):  
-        return self.coordsInfo['ldt']               
+        return self.inmueblesList[0].direccion
     
-    def getNumCatastro(self):
-        pc = self.coordsInfo['pc']
-        return pc['pc1'] + pc['pc2']
+    def getNumCatastro(self):        
+        return self.numCatastro
     
     def getAntiguedad(self):
         antiguedad = 9999
@@ -81,6 +103,8 @@ class ParcelaService(QtCore.QThread):
     
     def uso(self):
         usos=dict([])
+        if len(self.inmueblesList) == 0:
+            return ''
         for inmueble in self.inmueblesList:
             if inmueble.uso in usos:
                 usos[inmueble.uso]+=float(inmueble.superficie)

@@ -10,6 +10,8 @@ class Inmueble:
                 self.setIdbi(inmuebleInfo['bi']['idbi'])
             if(any("dt" in item for item in inmuebleInfo['bi'].keys())): 
                 self.setDt(inmuebleInfo['bi']['dt'])
+            if(any("ldt" in item for item in inmuebleInfo['bi'].keys())): 
+                self.direccion = inmuebleInfo['bi']['ldt']
             if(any("debi" in item for item in inmuebleInfo['bi'].keys())): 
                 self.setDebi(inmuebleInfo['bi']['debi'])
         if any("lcons" in item for item in inmuebleInfo.keys()):           
@@ -36,7 +38,7 @@ class Inmueble:
             if(any("lous" in item for item in dt['locs'].keys())):
                 if(any("lourb" in item for item in dt['locs']['lous'].keys())):
                     self.localizacionUrbana = LocalizacionUrbana(dt['locs']['lous']['lourb'])
-    
+        
     def setDebi(self, debi):
         if(any("luso" in item for item in debi.keys())):
             self.uso = debi['luso']
