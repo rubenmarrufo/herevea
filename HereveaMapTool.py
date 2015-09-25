@@ -1,5 +1,6 @@
-from qgis.gui import QgsMapTool
-from qgis.core import QgsMapLayer, QgsMapToPixel, QgsFeature, QgsFeatureRequest, QgsGeometry, QgsMapLayerRegistry
+# coding=utf-8
+from qgis.gui import *
+from qgis.core import *
 from PyQt4.QtGui import QCursor, QPixmap, QProgressBar
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtCore import Qt
@@ -11,18 +12,22 @@ import json
 import os
 import subprocess
 
-class HereveaMapTool(QgsMapTool):
+class HereveaMapTool(QgsMapToolEmitPoint):
     
     def __init__(self, iface, provincia, municipio):        
-        super(QgsMapTool, self).__init__(iface.mapCanvas())
+        super(QgsMapToolEmitPoint, self).__init__(iface.mapCanvas())
         self.iface = iface
         self.provincia = provincia
         self.municipio = municipio
         self.canvas = iface.mapCanvas()
-        self.cursor = QCursor(Qt.CrossCursor)        
+        self.cursor = QCursor(Qt.CrossCursor)   
+        self.showMessage()    
         
     def activate(self):
         self.canvas.setCursor(self.cursor)
+        
+    def showMessage(self):
+        self.iface.messageBar().pushMessage("Seleccion", "Haz clic sobre la parcela a analizar", level=QgsMessageBar.INFO, duration=3)      
     
     def screenToLayerCoords(self, screenPos, layer):
         
@@ -42,9 +47,10 @@ class HereveaMapTool(QgsMapTool):
             layerPoint = canvasPoint
         
         # Convert this point (QgsPoint) to a QgsGeometry
-        return QgsGeometry.fromPoint(layerPoint)
+        return QgsGeometry.fromPoint(layerPoint)    
 
-    def canvasReleaseEvent(self, mouseEvent):
+    def canvasPressEvent(self, mouseEvent):
+        print "clicked"
         layers = QgsMapLayerRegistry.instance().mapLayers()        
         for name, layer in layers.iteritems():
             if name.startswith('Catastro'):

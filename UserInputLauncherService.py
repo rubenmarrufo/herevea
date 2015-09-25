@@ -59,7 +59,8 @@ class UserInputLauncherService():
         if result == 1:
             self.showUsuarioForm()
             
-    def showActuacionForm(self):        
+    def showActuacionForm(self):
+        self.ui_Actuacion.setDatosUsuario(self.ui_Usuario.getValues())        
         self.ui_Actuacion.show()
         result = self.ui_Actuacion.exec_()
         if result == 1:

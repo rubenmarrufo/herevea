@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -17,11 +18,19 @@ namespace HereveaForm
 {
     public partial class Form1 : Form
     {
-        BackgroundWorker worker = new BackgroundWorker();
-
+        private BackgroundWorker worker = new BackgroundWorker();
+        private Microsoft.Office.Interop.Excel.Application xlApp = null;
+        private Workbook wb = null;
+        private Image image;
+        private int angle = 0;
+        private string path;
         public Form1()
         {
             InitializeComponent();
+            path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            image = Image.FromFile(Path.Combine(path,"huellaPie.png"));
+            pictureBox1.Image = image;
+
             worker.DoWork += (sender,args) => Interop();
             worker.WorkerReportsProgress = true;
             worker.ProgressChanged += worker_ProgressChanged;
@@ -35,23 +44,64 @@ namespace HereveaForm
 
         private void Interop()
         {
-            var path = Assembly.GetExecutingAssembly().Location;
-            var xlApp = new Microsoft.Office.Interop.Excel.Application { Visible = false };
-            var file = new FileInfo(Path.Combine(Path.GetDirectoryName(path), "Huella.xlsx"));
-            var wb = xlApp.Workbooks.Open(file.FullName);
-            worker.ReportProgress(25);
-            Console.WriteLine("Calculando huella total...");
+            try
+            {
+                var file = new FileInfo(Path.Combine(path, "Huella.xlsx"));
+                xlApp = new Microsoft.Office.Interop.Excel.Application { Visible = false };
+                wb = xlApp.Workbooks.Open(file.FullName);
+                worker.ReportProgress(25);
+                Console.WriteLine("Calculando huella total...");
 
-            var data = File.ReadAllText(Path.Combine(Path.GetDirectoryName(path), "data.txt"));
-            dynamic dataObj = JsonConvert.DeserializeObject(data);
+                var data = File.ReadAllText(Path.Combine(path, "data.txt"));
+                dynamic dataObj = JsonConvert.DeserializeObject(data);
 
-            var sheet = (Worksheet) wb.Sheets["Características_proyectos"];
-            var project = CalculateProject(dataObj, sheet);
+                var sheet = (Worksheet) wb.Sheets["Características_proyectos"];
+                var project = CalculateProject(dataObj, sheet);
 
-            sheet = (Worksheet) wb.Sheets["Seleccion proyecto HEREVEA02"];
-            worker.ReportProgress(50);
+                sheet = (Worksheet) wb.Sheets["Seleccion proyecto HEREVEA02"];
+                worker.ReportProgress(50);
 
+                InsertData(sheet, project, dataObj);
+
+                var sheetHuella = (Worksheet) wb.Sheets["HE Total"];
+                var sheetPEM = (Worksheet) wb.Sheets["PEM Proyecto"];
+                sheetPEM.Calculate();
+                sheetHuella.Calculate();
+                worker.ReportProgress(75);
+                var result = new Dictionary<string, object>()
+                {
+                    {"Total", sheetHuella.Cells[49, 3].Value},
+                    {"Energia", sheetHuella.Cells[47, 3].Value},
+                    {"Bosques", sheetHuella.Cells[47, 4].Value},
+                    {"Pastos", sheetHuella.Cells[47, 5].Value},
+                    {"Mar", sheetHuella.Cells[47, 6].Value},
+                    {"Cultivos", sheetHuella.Cells[47, 7].Value},
+                    {"SuperficieConsumida", sheetHuella.Cells[47, 8].Value},
+                    {"Rehabilitacion", sheetPEM.Cells[58, 7].Value},
+                    {"Demolicion", sheetPEM.Cells[65, 7].Value},
+                    {"Construccion", sheetPEM.Cells[76, 6].Value}
+                };
+
+                string resultJson = JsonConvert.SerializeObject(result);
+                File.WriteAllText(Path.Combine(Path.GetDirectoryName(path), "result.txt"), resultJson);
+                Console.WriteLine("Huella total: " + sheetHuella.Cells[49, 3].Value.ToString());
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error:" + ex);
+            }
+            finally
+            {
+                worker.ReportProgress(100);
+                Application.Exit();    
+            }
+        }
+
+        private static void InsertData(Worksheet sheet, dynamic project, dynamic dataObj)
+        {
             sheet.Cells[6, 12].Value = project;
+            Console.WriteLine("Proyecto: " + project);
 
             sheet.Cells[14, 7].Value = dataObj.Pilotes;
             sheet.Cells[14, 8].Value = dataObj.PilotesAct;
@@ -133,34 +183,6 @@ namespace HereveaForm
             sheet.Cells[69, 8].Value = dataObj.RejasAct;
             sheet.Cells[65, 7].Value = dataObj.Ascensores;
             sheet.Cells[65, 8].Value = dataObj.AscensoresAct;
-
-            var sheetHuella = (Worksheet)wb.Sheets["HE Total"];
-            var sheetPEM = (Worksheet)wb.Sheets["PEM Proyecto"];
-            sheetPEM.Calculate();
-            sheetHuella.Calculate();
-            worker.ReportProgress(75);
-            var result = new Dictionary<string, object>()
-            {
-                {"Total", sheetHuella.Cells[49, 3].Value},
-                {"Energia", sheetHuella.Cells[47, 3].Value},
-                {"Bosques", sheetHuella.Cells[47, 4].Value},
-                {"Pastos", sheetHuella.Cells[47, 5].Value},
-                {"Mar", sheetHuella.Cells[47, 6].Value},
-                {"Cultivos", sheetHuella.Cells[47, 7].Value},
-                {"SuperficieConsumida", sheetHuella.Cells[47, 8].Value},
-                {"Rehabilitacion", sheetPEM.Cells[58, 7].Value},
-                {"Demolicion", sheetPEM.Cells[65, 7].Value},
-                {"Construccion", sheetPEM.Cells[76, 6].Value}
-            };
-            
-            string resultJson = JsonConvert.SerializeObject(result);
-            File.WriteAllText(Path.Combine(Path.GetDirectoryName(path), "result.txt"), resultJson);
-            Console.WriteLine("Huella total: " + sheet.Cells[47, 3].Value);
-
-            wb.Close(true);
-            xlApp.Quit();
-            worker.ReportProgress(100);
-            Application.Exit();
         }
 
         private string CalculateProject(dynamic dataObj, Worksheet sheet)
@@ -179,8 +201,9 @@ namespace HereveaForm
                 {
                     matchCaracteristicas[i]++;
                 }
-                if (dataObj.PlantaBajaViviendas != null && sheet.Cells[i, 7].Value != null && 
-                    dataObj.PlantaBajaViviendas.ToString().Equals(sheet.Cells[i, 7].Value.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                if (dataObj.PlantaBajaViviendas != null && 
+                    (sheet.Cells[i, 7].Value == null && dataObj.PlantaBajaViviendas.ToString().Equals("no", StringComparison.InvariantCultureIgnoreCase)
+                    || (sheet.Cells[i, 7].Value != null && dataObj.PlantaBajaViviendas.ToString().Equals(sheet.Cells[i, 7].Value.ToString(), StringComparison.InvariantCultureIgnoreCase))))
                 {
                     matchCaracteristicas[i]++;
                 }
@@ -216,5 +239,35 @@ namespace HereveaForm
             }
             return false;
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            image = RotateImage(image);
+            pictureBox1.Image = image;
+        }
+
+        public Image RotateImage(Image img)
+        {
+            var bmp = new Bitmap(img);
+
+            using (Graphics gfx = Graphics.FromImage(bmp))
+            {
+                gfx.Clear(Color.Transparent);
+                gfx.DrawImage(img, 0, 0, img.Width, img.Height);
+            }
+
+            bmp.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            return bmp;
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (wb != null)
+            {
+                wb.Close(false);
+                xlApp.Quit();
+            }
+        }
+
     }
 }

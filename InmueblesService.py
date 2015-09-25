@@ -8,6 +8,7 @@ class InmueblesService:
     def __init__(self, provincia, municipio):        
         self.catastroService = CatastroService()
         self.inmueblesList = []
+        
         self.provincia = provincia
         self.municipio = municipio
             

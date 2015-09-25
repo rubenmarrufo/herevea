@@ -23,8 +23,7 @@ class ParcelaService(QThread):
         self.numCatastro=refCatastro
                 
     def run(self):
-        try:
-            print "running"
+        try:            
             catastroService = CatastroService()
             if self.numCatastro == None:
                 self.coordsInfo = catastroService.getCoordsInfo(self.x,self.y)
@@ -32,8 +31,7 @@ class ParcelaService(QThread):
                 self.numCatastro = pc['pc1'] + pc['pc2']
             self.parcelaInfo = catastroService.getParcelaInfo(self.numCatastro,self.provincia,self.municipio)
             inmueblesService = InmueblesService(self.provincia,self.municipio)
-            self.inmueblesList = inmueblesService.getInmueblesList(self.parcelaInfo)
-            print "running 2"
+            self.inmueblesList = inmueblesService.getInmueblesList(self.parcelaInfo)            
             if len(self.inmueblesList) == 0:
                 self.procDone.emit(False)
             else:
@@ -43,7 +41,11 @@ class ParcelaService(QThread):
             self.procDone.emit(False)              
             
     def getDireccion(self):  
-        return self.inmueblesList[0].direccion
+        inmueble=self.inmueblesList[0]
+        if hasattr(inmueble, 'localizacionUrbana') and hasattr(inmueble.localizacionUrbana, 'direccion'):
+            return str(inmueble.localizacionUrbana.direccion)
+        else:            
+            return str(inmueble.direccion)
     
     def getNumCatastro(self):        
         return self.numCatastro

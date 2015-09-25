@@ -20,7 +20,9 @@ from PyQt4 import QtCore, QtGui
 from Ui_SeleccionForm import Ui_SeleccionForm
 from Ui_ErrorDialog import Ui_ErrorDialog
 from ParcelaService import ParcelaService
-
+import csv
+import os
+from qgis.core import * 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -36,7 +38,8 @@ class Ui_SeleccionFormDialog(QtGui.QDialog):
     self.parcelaService = None
     self.ui = Ui_SeleccionForm()
     self.ui.setupUi(self)    
-    self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).clicked.connect(self.dialogOk)
+    self.ui.btnAccept.clicked.connect(self.dialogOk)
+    self.ui.btnCancel.clicked.connect(self.dialogOk)
     provincias = ['SEVILLA','HUELVA','CADIZ', 'CORDOBA', 'MALAGA','JAEN','GRANADA','ALMERIA']
     self.ui.cmbProvincia.addItems(provincias)
     self.onProvinciaSelected()
@@ -47,36 +50,29 @@ class Ui_SeleccionFormDialog(QtGui.QDialog):
 
   def municipio(self):
     return self.ui.cmbMunicipio.currentText()
-    
-  def dialogOk(self):
-    isValid=True 
-    if self.ui.radCatastro.isChecked():
-        try:
-            self.parcelaService = ParcelaService(self,self.ui.cmbProvincia.currentText(), self.ui.cmbMunicipio.currentText())
-            self.parcelaService.initRefCatastral(self.ui.tbxRefCatastral.text())            
-        except Exception as ex:
-            print ex
-            error = Ui_ErrorDialog('No se pudo encontrar una parcela con la referencia catastral ' + self.ui.tbxRefCatastral.text() + ' en la localidad seleccionado')
-            error.show()
-            error.exec_()
-            isValid=False
-    elif self.ui.radCoordenadas.isChecked():
-        try:
-            self.parcelaService = ParcelaService(self,self.ui.cmbProvincia.currentText(), self.ui.cmbMunicipio.currentText())
-            self.parcelaService.initCoords(self.ui.tbxLong.text().replace(',','.'), self.ui.tbxLat.text().replace(',','.'))
-        except Exception as ex:
-            print ex
-            error = Ui_ErrorDialog('No se pudo encontrar una parcela en las coordenadas introducidas en la localidad seleccionada')
-            error.show()
-            error.exec_()
-            isValid=False            
 
-  def closeEvent(self, evnt):
-    if self.isValid:
-        super(MyDialog, self).closeEvent(evnt)
+  def coordenadas(self): 
+      try: 
+          dir = os.path.dirname(__file__)
+          filename = os.path.join(dir,'coordenadas.csv')    
+          with open(filename, 'rb') as csvfile:
+              data = [row for row in csv.reader(csvfile.read().splitlines(), delimiter=';')]          
+              row = next(x for x in data if x[0].lower() == self.municipio().lower())
+              print row
+              return QgsPoint(float(row[2].replace(',','.')),float(row[1].replace(',','.')))
+      except Exception as ex:  
+            return None  
+    
+  def dialogOk(self):    
+    if self.ui.radCatastro.isChecked():
+        self.parcelaService = ParcelaService(self,self.ui.cmbProvincia.currentText(), self.ui.cmbMunicipio.currentText())
+        self.parcelaService.initRefCatastral(self.ui.tbxRefCatastral.text())                 
+    elif self.ui.radCoordenadas.isChecked():
+        self.parcelaService = ParcelaService(self,self.ui.cmbProvincia.currentText(), self.ui.cmbMunicipio.currentText())
+        self.parcelaService.initCoords(self.ui.tbxLong.text().replace(',','.'), self.ui.tbxLat.text().replace(',','.'))
     else:
-        evnt.ignore()   
-        isValid=True     
+        self.parcelaService = None        
+    self.accept()
         
   def onProvinciaSelected(self):
     self.ui.cmbMunicipio.clear()

@@ -95,11 +95,11 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>HE rehabilitación</string>
+     <string>Huella Ecológica rehabilitación</string>
     </attribute>
     <widget class="QTableWidget" name="tabHERehParcial">
      <property name="geometry">
@@ -111,7 +111,7 @@
       </rect>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>151</number>
+      <number>133</number>
      </attribute>
      <attribute name="horizontalHeaderMinimumSectionSize">
       <number>59</number>
@@ -121,12 +121,12 @@
      </attribute>
      <row>
       <property name="text">
-       <string>HE Parcial (hag/m2)</string>
+       <string>Huella Ecológica Parcial (hag/m2)</string>
       </property>
      </row>
      <row>
       <property name="text">
-       <string>HE Parcial (hag)</string>
+       <string>Huella Ecológica Parcial (hag)</string>
       </property>
      </row>
      <column>
@@ -194,7 +194,7 @@
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
-     <string>HE demolición y construcción</string>
+     <string>Huella Ecológica demolición y construcción</string>
     </attribute>
     <widget class="QGroupBox" name="groupBox">
      <property name="geometry">
@@ -208,70 +208,11 @@
      <property name="title">
       <string>Demolición</string>
      </property>
-     <widget class="QTableWidget" name="tabHEDemParcial">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>1091</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>150</number>
-      </attribute>
-      <attribute name="horizontalHeaderMinimumSectionSize">
-       <number>57</number>
-      </attribute>
-      <attribute name="verticalHeaderDefaultSectionSize">
-       <number>34</number>
-      </attribute>
-      <row>
-       <property name="text">
-        <string>HE Parcial (hag/m2)</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>HE Parcial (hag)</string>
-       </property>
-      </row>
-      <column>
-       <property name="text">
-        <string>Energía</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Bosques</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Pastos</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Mar</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Cultivos</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Supeficie cons.</string>
-       </property>
-      </column>
-     </widget>
      <widget class="QTableWidget" name="tabHEDemTotal">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>150</y>
+        <x>310</x>
+        <y>70</y>
         <width>481</width>
         <height>111</height>
        </rect>
@@ -314,70 +255,11 @@
      <property name="title">
       <string>Nueva construcción</string>
      </property>
-     <widget class="QTableWidget" name="tabHEConsParcial">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>1091</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>150</number>
-      </attribute>
-      <attribute name="horizontalHeaderMinimumSectionSize">
-       <number>59</number>
-      </attribute>
-      <attribute name="verticalHeaderDefaultSectionSize">
-       <number>34</number>
-      </attribute>
-      <row>
-       <property name="text">
-        <string>HE Parcial (hag/m2)</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>HE Parcial (hag)</string>
-       </property>
-      </row>
-      <column>
-       <property name="text">
-        <string>Energía</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Bosques</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Pastos</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Mar</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Cultivos</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Supeficie cons.</string>
-       </property>
-      </column>
-     </widget>
      <widget class="QTableWidget" name="tabHEConsTotal">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>150</y>
+        <x>310</x>
+        <y>80</y>
         <width>481</width>
         <height>111</height>
        </rect>
@@ -411,7 +293,7 @@
    </widget>
    <widget class="QWidget" name="ComparativadeHuella">
     <attribute name="title">
-     <string>Comparativa de HE</string>
+     <string>Comparativa de Huella Ecológica</string>
     </attribute>
     <widget class="QTableWidget" name="tabHEComp">
      <property name="geometry">
