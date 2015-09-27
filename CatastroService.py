@@ -10,6 +10,7 @@ class CatastroService:
     defaultSRS = "EPSG:4326"
     
     consulta_RCOOR_Url = "/OVCCoordenadas.asmx/Consulta_RCCOOR"
+    consulta_CPMRC_Url = "/OVCCoordenadas.asmx/Consulta_CPMRC"    
     consulta_DNPRC_Url = "/OVCCallejero.asmx/Consulta_DNPRC"
     consulta_Provincia_Url = "/OVCCallejero.asmx/ConsultaProvincia"
     consulta_Municipio_Url = "/OVCCallejero.asmx/ConsultaMunicipio"
@@ -21,8 +22,18 @@ class CatastroService:
         url = self.baseUrl + self.consulta_RCOOR_Url
         
         response = requests.post(url, data=params, headers=headers)  
-        responseDict = xmltodict.parse(response.content, process_namespaces=False, xml_attribs=False)
+        responseDict = xmltodict.parse(response.content, process_namespaces=False, xml_attribs=False)        
         return responseDict['consulta_coordenadas']['coordenadas']['coord']
+    
+    def getParcelaCoords(self, numCatastro, provincia, municipio):
+        my_http_proxy = {'http':'http://127.0.0.1:8888'}
+        params = { "Provincia": provincia, "Municipio": municipio, "RC": numCatastro, "SRS": self.defaultSRS  }   
+        headers={'SOAPAction': self.baseSoapAction + '/OVCCoordenadas/Consulta_CPMRC'}        
+        url = self.baseUrl + self.consulta_CPMRC_Url
+        
+        response = requests.post(url, data=params, headers=headers)  
+        responseDict = xmltodict.parse(response.content, process_namespaces=False, xml_attribs=False)
+        return responseDict['consulta_coordenadas']['coordenadas']['coord']['geo']
     
     def getParcelaInfo(self, numCatastro, provincia, municipio):
         my_http_proxy = {'http':'http://127.0.0.1:8888'}        

@@ -33,6 +33,7 @@ from Ui_SeleccionFormDialog import Ui_SeleccionFormDialog
 from Ui_AcercaDeDialog import Ui_AcercaDeDialog 
 from CatastroService import CatastroService
 from UserInputLauncherService import UserInputLauncherService 
+from Ui_ResultFormDialog import Ui_ResultFormDialog
 
 class Herevea: 
 
@@ -61,7 +62,8 @@ class Herevea:
     QObject.connect(self.seleccionAction, SIGNAL("activated()"), self.setMapTool)
     self.iface.addPluginToMenu("&Herevea", self.hereveaAction)
     self.iface.addPluginToMenu("&Herevea", self.acercaDeAction)  
-    self.iface.addToolBarIcon(self.hereveaAction)  
+    self.iface.addToolBarIcon(self.hereveaAction)
+
             
   def unload(self):
     # Remove the plugin menu item and icon
@@ -70,26 +72,30 @@ class Herevea:
     self.iface.removeToolBarIcon(self.seleccionAction)
     self.iface.removeToolBarIcon(self.hereveaAction)    
         
-  def selection(self):       
+  def selection(self):
+    #uiResult = Ui_ResultFormDialog()  
+    #uiResult.show()
+    #uiResult.exec_()      
     # create and show the dialog 
     dlg = HereveaDialog() 
     # show the dialog
     dlg.show()
     result = dlg.exec_() 
     # See if OK was pressed
-    if result == 1: 
+    if result == 1:
+        self.addCatastroMap() 
         if self.seleccionForm == None:
             self.seleccionForm = Ui_SeleccionFormDialog(CatastroService())
         self.seleccionForm.show()
         result = self.seleccionForm.exec_()
-        if result == 1:            
-            if self.seleccionForm.parcelaService == None: 
-                self.addCatastroMap()
-                self.addMapToolIcon()                
+        if result == 1:
+            self.centrarMapa()
+            self.addMapToolIcon()             
+            if self.seleccionForm.parcelaService == None:                                
                 if hasattr(self, 'HereveaMapTool'):
                     self.HereveaMapTool.provincia=self.seleccionForm.provincia()
                     self.HereveaMapTool.municipio=self.seleccionForm.municipio()
-            else:                
+            else:             
                 self.launcher=UserInputLauncherService(self.iface, self.seleccionForm.parcelaService, self.fin)
                 self.launcher.launch()
 
@@ -114,13 +120,13 @@ class Herevea:
     if not any("Catastro" in name for name, layer in layers.iteritems()):
         urlWithParams='contextualWMSLegend=0&crs=EPSG:4326&dpiMode=7&featureCount=10&format=image/png&layers=Catastro&styles=&url=http://ovc.catastro.meh.es/Cartografia/WMS/ServidorWMS.aspx?format%3Dimage/png%26layers%3DCatastro%26styles%3D%26CRS%3DEPSG:4326'
         rlayer = QgsRasterLayer(urlWithParams, 'Catastro', 'wms')
-        QgsMapLayerRegistry.instance().addMapLayer(rlayer)
-    self.centrarMapa()
+        QgsMapLayerRegistry.instance().addMapLayer(rlayer)    
         
   def centrarMapa(self):
     coord=self.seleccionForm.coordenadas()
+    zoom = self.seleccionForm.zoom()
     self.iface.actionZoomToSelected().trigger()
-    self.iface.mapCanvas().zoomScale(50000)
+    self.iface.mapCanvas().zoomScale(zoom)
     self.iface.mapCanvas().setCenter(coord)
     
   def fin(self, result):

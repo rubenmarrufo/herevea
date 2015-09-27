@@ -80,11 +80,12 @@
    </property>
    <property name="font">
     <font>
+     <family>Verdana</family>
      <pointsize>10</pointsize>
     </font>
    </property>
    <property name="title">
-    <string>Actuaciones a realizar</string>
+    <string>Intervenciones de rehabilitación</string>
    </property>
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
@@ -101,397 +102,397 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
       <string>Cimentaciones</string>
      </attribute>
-     <widget class="QComboBox" name="cmbPilotes">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>35</y>
-        <width>521</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>No hay actuaciones</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Recalce de zapata mediante micropilotes</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="cmbPilotesAct">
-      <property name="geometry">
-       <rect>
-        <x>930</x>
-        <y>36</y>
-        <width>81</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>0</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>1 a 30</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>31 a 60</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>61 a 100</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_78">
-      <property name="geometry">
-       <rect>
-        <x>780</x>
-        <y>38</y>
-        <width>151</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Grado de actuación</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_5">
+     <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>37</y>
-        <width>211</width>
-        <height>19</height>
+        <y>20</y>
+        <width>811</width>
+        <height>91</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Reparación por micropilotes</string>
+      <property name="title">
+       <string>Actuaciones</string>
       </property>
+      <widget class="QComboBox" name="cmbPilotes">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>38</y>
+         <width>481</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Recalce de zapata mediante micropilotes</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>40</y>
+         <width>281</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Reparación con micropilotes</string>
+       </property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="label_56">
+     <widget class="QGroupBox" name="groupBox_7">
       <property name="geometry">
        <rect>
-        <x>1020</x>
-        <y>40</y>
-        <width>31</width>
-        <height>19</height>
+        <x>840</x>
+        <y>20</y>
+        <width>261</width>
+        <height>91</height>
        </rect>
       </property>
-      <property name="text">
-       <string>%</string>
+      <property name="title">
+       <string>Grado de actuación</string>
       </property>
+      <widget class="QLabel" name="label_56">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>40</y>
+         <width>31</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>%</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbPilotesAct">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>36</y>
+         <width>91</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 a 30</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>31 a 60</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>61 a 100</string>
+        </property>
+       </item>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>Saneamiento</string>
      </attribute>
-     <widget class="QLabel" name="label_58">
+     <widget class="QGroupBox" name="groupBox_8">
       <property name="geometry">
        <rect>
-        <x>940</x>
-        <y>80</y>
-        <width>31</width>
-        <height>19</height>
+        <x>30</x>
+        <y>30</y>
+        <width>801</width>
+        <height>181</height>
        </rect>
       </property>
-      <property name="text">
-       <string>%</string>
+      <property name="title">
+       <string>Actuaciones</string>
       </property>
+      <widget class="QComboBox" name="cmbBajantes">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>120</y>
+         <width>581</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sustitución y reposición en polipropileno</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sustitución y reposición en fibrocemento NT</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="cmbArquetas">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>40</y>
+         <width>581</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Reparación de impermeabilización</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sustitución y reposición</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Arqueta nueva (% de incremento en inst. existente)</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>120</y>
+         <width>231</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Bajantes</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>80</y>
+         <width>231</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Colectores</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>40</y>
+         <width>131</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Arquetas</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbColectores">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>80</y>
+         <width>581</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sustitución y reposición en polietileno</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sustitución y reposición en hormigón</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sustitución y reposición en fibrocemento NT</string>
+        </property>
+       </item>
+      </widget>
      </widget>
-     <widget class="QComboBox" name="cmbArquetasAct">
+     <widget class="QGroupBox" name="groupBox_9">
       <property name="geometry">
        <rect>
         <x>850</x>
-        <y>37</y>
-        <width>81</width>
-        <height>25</height>
+        <y>30</y>
+        <width>251</width>
+        <height>181</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>0</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>1 a 30</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>31 a 60</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>61 a 100</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_59">
-      <property name="geometry">
-       <rect>
-        <x>940</x>
-        <y>120</y>
-        <width>31</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>%</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbColectores">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>77</y>
-        <width>511</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>No hay actuaciones</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sustitución y reposición en polietileno</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sustitución y reposición en hormigón</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sustitución y reposición en fibrocemento NT</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_80">
-      <property name="geometry">
-       <rect>
-        <x>690</x>
-        <y>79</y>
-        <width>151</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
+      <property name="title">
        <string>Grado de actuación</string>
       </property>
-     </widget>
-     <widget class="QLabel" name="label_57">
-      <property name="geometry">
-       <rect>
-        <x>940</x>
-        <y>41</y>
-        <width>31</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>%</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbBajantesAct">
-      <property name="geometry">
-       <rect>
-        <x>850</x>
-        <y>116</y>
-        <width>81</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>0</string>
+      <widget class="QLabel" name="label_59">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>123</y>
+         <width>31</width>
+         <height>19</height>
+        </rect>
        </property>
-      </item>
-      <item>
        <property name="text">
-        <string>1 a 30</string>
+        <string>%</string>
        </property>
-      </item>
-      <item>
+      </widget>
+      <widget class="QComboBox" name="cmbColectoresAct">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>79</y>
+         <width>81</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 a 30</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>31 a 60</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>61 a 100</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_57">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>44</y>
+         <width>31</width>
+         <height>19</height>
+        </rect>
+       </property>
        <property name="text">
-        <string>31 a 60</string>
+        <string>%</string>
        </property>
-      </item>
-      <item>
+      </widget>
+      <widget class="QComboBox" name="cmbArquetasAct">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>40</y>
+         <width>81</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 a 30</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>31 a 60</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>61 a 100</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="cmbBajantesAct">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>119</y>
+         <width>81</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 a 30</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>31 a 60</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>61 a 100</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_58">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>83</y>
+         <width>31</width>
+         <height>19</height>
+        </rect>
+       </property>
        <property name="text">
-        <string>61 a 100</string>
+        <string>%</string>
        </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>37</y>
-        <width>101</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Arquetas</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>117</y>
-        <width>231</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Bajantes</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbColectoresAct">
-      <property name="geometry">
-       <rect>
-        <x>850</x>
-        <y>76</y>
-        <width>81</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>0</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>1 a 30</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>31 a 60</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>61 a 100</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_79">
-      <property name="geometry">
-       <rect>
-        <x>690</x>
-        <y>40</y>
-        <width>151</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Grado de actuación</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_81">
-      <property name="geometry">
-       <rect>
-        <x>690</x>
-        <y>118</y>
-        <width>151</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Grado de actuación</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbBajantes">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>117</y>
-        <width>511</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>No hay actuaciones</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sustitución y reposición en polipropileno</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sustitución y reposición en fibrocemento NT</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>77</y>
-        <width>231</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Colectores</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbArquetas">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>37</y>
-        <width>511</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>No hay actuaciones</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Reparación de impermeabilización</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sustitución y reposición</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Arqueta nueva</string>
-       </property>
-      </item>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="Estructuras">
@@ -503,17 +504,17 @@
        <rect>
         <x>20</x>
         <y>20</y>
-        <width>1111</width>
+        <width>821</width>
         <height>91</height>
        </rect>
       </property>
       <property name="title">
-       <string>Estructuras</string>
+       <string>Actuaciones</string>
       </property>
       <widget class="QLabel" name="label_11">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>30</x>
          <y>36</y>
          <width>231</width>
          <height>19</height>
@@ -526,9 +527,9 @@
       <widget class="QComboBox" name="cmbForjados">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>190</x>
          <y>36</y>
-         <width>531</width>
+         <width>591</width>
          <height>25</height>
         </rect>
        </property>
@@ -543,10 +544,36 @@
         </property>
        </item>
       </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_10">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>20</y>
+        <width>231</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Grado de actuación</string>
+      </property>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>40</y>
+         <width>31</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>%</string>
+       </property>
+      </widget>
       <widget class="QComboBox" name="cmbForjadosAct">
        <property name="geometry">
         <rect>
-         <x>970</x>
+         <x>50</x>
          <y>36</y>
          <width>81</width>
          <height>25</height>
@@ -573,37 +600,11 @@
         </property>
        </item>
       </widget>
-      <widget class="QLabel" name="label_2">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>40</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_82">
-       <property name="geometry">
-        <rect>
-         <x>819</x>
-         <y>38</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
-      <string>Albañilería</string>
+      <string>Albañilería I</string>
      </attribute>
      <widget class="QGroupBox" name="groupBox_11">
       <property name="geometry">
@@ -611,943 +612,826 @@
         <x>20</x>
         <y>20</y>
         <width>1111</width>
-        <height>101</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Distr. Tabiquería (Partic.)</string>
-      </property>
-      <widget class="QLabel" name="label_18">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>65</y>
-         <width>201</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Reparación grietas</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbGrietas">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>63</y>
-         <width>531</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación grietas en superficie ≤60%</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación grietas en superficie &gt;60% (sustitución y reposición)</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_33">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>35</y>
-         <width>231</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Reparación fisuras</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbFisuras">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>33</y>
-         <width>531</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación de fisuras</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_3">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>40</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbFisurasAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>36</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_4">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>70</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbGrietasAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>66</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_83">
-       <property name="geometry">
-        <rect>
-         <x>819</x>
-         <y>37</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_84">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>67</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_13">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>310</y>
-        <width>1111</width>
         <height>161</height>
        </rect>
       </property>
       <property name="title">
-       <string>Fcas. Interiores de Ladrillo</string>
+       <string>Distr. Tabiquería (Particiones)</string>
       </property>
-      <widget class="QLabel" name="label_38">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>60</y>
-         <width>201</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Reparación grietas</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbIntGrietas">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>56</y>
-         <width>531</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación grietas en superficie ≤60%</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación grietas en superficie &gt;60% (sustitución y reposición)</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_39">
+      <widget class="QGroupBox" name="groupBox_14">
        <property name="geometry">
         <rect>
          <x>20</x>
          <y>30</y>
-         <width>231</width>
-         <height>19</height>
+         <width>841</width>
+         <height>111</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Reparación fisuras</string>
+       <property name="title">
+        <string>Actuaciones</string>
        </property>
+       <widget class="QComboBox" name="cmbGrietas">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>70</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación grietas en superficie ≤60%</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación grietas en superficie &gt;60% (sustitución y reposición)</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>72</y>
+          <width>241</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Grietas</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbFisuras">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>30</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación de fisuras</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_33">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>32</y>
+          <width>231</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Fisuras</string>
+        </property>
+       </widget>
       </widget>
-      <widget class="QComboBox" name="cmbIntFisuras">
+      <widget class="QGroupBox" name="groupBox_15">
        <property name="geometry">
         <rect>
-         <x>250</x>
-         <y>26</y>
-         <width>531</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación de fisuras</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbHumTecho">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>116</y>
-         <width>531</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación humedades filtraciones encuentro de forjado con cerramiento</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_40">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>120</y>
-         <width>221</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Reparación humedades techo</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_41">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>90</y>
-         <width>231</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Reparación humedades suelo</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbHumSuelo">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>86</y>
-         <width>531</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación humedades capilaridad</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbIntFisurasAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>26</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_14">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
+         <x>870</x>
          <y>30</y>
-         <width>31</width>
-         <height>19</height>
+         <width>191</width>
+         <height>111</height>
         </rect>
        </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbIntGrietasAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>56</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_15">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>60</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbHumSueloAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>86</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_16">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>90</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbHumTechoAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>116</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_17">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>120</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_89">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>28</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
+       <property name="title">
         <string>Grado de actuación</string>
        </property>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>74</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>34</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbGrietasAct">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>70</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbFisurasAct">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
       </widget>
-      <widget class="QLabel" name="label_90">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>56</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_91">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>86</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_92">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>116</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
+      <zorder>groupBox_15</zorder>
+      <zorder>groupBox_14</zorder>
      </widget>
      <widget class="QGroupBox" name="groupBox_12">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>130</y>
+        <y>190</y>
         <width>1111</width>
-        <height>171</height>
+        <height>251</height>
        </rect>
       </property>
       <property name="title">
        <string>Cerramientos de Ladrillo</string>
       </property>
-      <widget class="QLabel" name="label_34">
+      <widget class="QGroupBox" name="groupBox_16">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>60</y>
-         <width>201</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Reparación grietas</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbLadGrietas">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>60</y>
-         <width>531</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación grietas en superficie ≤60%</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación grietas en superficie &gt;60% (sustitución y reposición)</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_35">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
+         <x>30</x>
          <y>30</y>
-         <width>231</width>
-         <height>19</height>
+         <width>831</width>
+         <height>201</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Reparación fisuras</string>
+       <property name="title">
+        <string>Actuaciones</string>
        </property>
+       <widget class="QComboBox" name="cmbLadFisuras">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>30</y>
+          <width>531</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación de fisuras</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_35">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>34</y>
+          <width>231</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Fisuras</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbLadGrietas">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>70</y>
+          <width>531</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación grietas en superficie ≤60%</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación grietas (&gt;60% superf. fach.). Rehab.energ. ext. Fach. Revest. continuo, aisl. EPS</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación grietas (&gt;60% superf. fach.). Rehab.energ. ext. Fach. Ventilada, aisl. EPS</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación grietas (&gt;60% superf. fach.). Rehab.energ. ext. Fach. Ventilada, aisl. lana oveja</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbLadHumTecho">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>150</y>
+          <width>531</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación humedades filtraciones encuentro de forjado con cerramiento</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_36">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>152</y>
+          <width>261</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Humedades en techo</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_37">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>112</y>
+          <width>261</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Humedades en suelo</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_34">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>73</y>
+          <width>241</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Grietas</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbLadHumSuelo">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>110</y>
+          <width>531</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación humedades capilaridad</string>
+         </property>
+        </item>
+       </widget>
       </widget>
-      <widget class="QComboBox" name="cmbLadFisuras">
+      <widget class="QGroupBox" name="groupBox_17">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>870</x>
          <y>30</y>
-         <width>531</width>
-         <height>25</height>
+         <width>191</width>
+         <height>201</height>
         </rect>
        </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación de fisuras</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbLadHumTecho">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>120</y>
-         <width>531</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación humedades filtraciones encuentro de forjado con cerramiento</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_36">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>120</y>
-         <width>221</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Reparación humedades techo</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_37">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>90</y>
-         <width>231</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Reparación humedades suelo</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbLadHumSuelo">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>90</y>
-         <width>531</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación humedades capilaridad</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbLadFisurasAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>31</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_6">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>35</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbLadGrietasAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>61</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_10">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>65</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbLadHumSueloAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>91</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_12">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>95</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbLadHumTechoAct">
-       <property name="geometry">
-        <rect>
-         <x>970</x>
-         <y>120</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>1060</x>
-         <y>124</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_85">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>31</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
+       <property name="title">
         <string>Grado de actuación</string>
        </property>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>34</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbLadFisurasAct">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbLadHumTechoAct">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>149</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_12">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>114</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_13">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>153</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbLadHumSueloAct">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>110</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbLadGrietasAct">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>70</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>hasta 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_10">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>74</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
       </widget>
-      <widget class="QLabel" name="label_86">
+      <zorder>groupBox_17</zorder>
+      <zorder>groupBox_16</zorder>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_6">
+     <attribute name="title">
+      <string>Albañilería II</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_13">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>1111</width>
+        <height>241</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Fábricas Interiores de Ladrillo</string>
+      </property>
+      <widget class="QGroupBox" name="groupBox_18">
        <property name="geometry">
         <rect>
-         <x>820</x>
-         <y>61</y>
-         <width>151</width>
-         <height>19</height>
+         <x>30</x>
+         <y>37</y>
+         <width>841</width>
+         <height>181</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Grado de actuación</string>
+       <property name="title">
+        <string>Actuaciones</string>
        </property>
+       <widget class="QComboBox" name="cmbIntFisuras">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>30</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación de fisuras</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_38">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>80</y>
+          <width>201</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Grietas</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_41">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>129</y>
+          <width>231</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Humedades suelo</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbHumSuelo">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>125</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación humedades capilaridad</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_39">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>34</y>
+          <width>231</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Fisuras</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbIntGrietas">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>78</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación grietas en superficie ≤60%</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación grietas en superficie &gt;60% (sustitución y reposición)</string>
+         </property>
+        </item>
+       </widget>
       </widget>
-      <widget class="QLabel" name="label_87">
+      <widget class="QGroupBox" name="groupBox_19">
        <property name="geometry">
         <rect>
-         <x>820</x>
-         <y>91</y>
-         <width>151</width>
-         <height>19</height>
+         <x>890</x>
+         <y>37</y>
+         <width>181</width>
+         <height>181</height>
         </rect>
        </property>
-       <property name="text">
+       <property name="title">
         <string>Grado de actuación</string>
        </property>
+       <widget class="QComboBox" name="cmbIntGrietasAct">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>77</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>hasta 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_15">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>81</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>129</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbIntFisurasAct">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_14">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>34</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbHumSueloAct">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>125</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
       </widget>
-      <widget class="QLabel" name="label_88">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>121</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
+      <zorder>groupBox_19</zorder>
+      <zorder>groupBox_18</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
@@ -1558,360 +1442,328 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>240</y>
+        <y>260</y>
         <width>1121</width>
-        <height>211</height>
+        <height>231</height>
        </rect>
       </property>
       <property name="title">
        <string>Cubiertas inclinadas</string>
       </property>
-      <widget class="QLabel" name="label_46">
+      <widget class="QGroupBox" name="groupBox_22">
        <property name="geometry">
         <rect>
-         <x>11</x>
-         <y>73</y>
-         <width>201</width>
-         <height>19</height>
+         <x>20</x>
+         <y>30</y>
+         <width>881</width>
+         <height>191</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Faldón</string>
+       <property name="title">
+        <string>Actuaciones</string>
        </property>
+       <widget class="QComboBox" name="cmbCubIncCompleta">
+        <property name="geometry">
+         <rect>
+          <x>321</x>
+          <y>30</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación faldón (superf.&gt;60%). Sustitución y reposición faldón completo. Rehab. energ. aislm. plancha EPS</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación faldón (superf.&gt;60%). Sustitución y reposición faldón completo. Rehab. energ. aislm. lana de oveja</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_46">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>69</y>
+          <width>201</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Faldón</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbCubIncRemates">
+        <property name="geometry">
+         <rect>
+          <x>321</x>
+          <y>109</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación remates</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbCubIncEncParamVer">
+        <property name="geometry">
+         <rect>
+          <x>321</x>
+          <y>146</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación encuentros paramentos verticales</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbCubIncFaldon">
+        <property name="geometry">
+         <rect>
+          <x>321</x>
+          <y>69</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación faldón ≤60%</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_49">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>146</y>
+          <width>311</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Encuentros paramentos verticales</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_48">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>109</y>
+          <width>221</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Remates</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_47">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>231</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Completa</string>
+        </property>
+       </widget>
       </widget>
-      <widget class="QComboBox" name="cmbCubIncFaldon">
+      <widget class="QGroupBox" name="groupBox_23">
        <property name="geometry">
         <rect>
-         <x>270</x>
-         <y>73</y>
-         <width>521</width>
-         <height>25</height>
+         <x>930</x>
+         <y>29</y>
+         <width>181</width>
+         <height>191</height>
         </rect>
        </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación faldón &lt;60%
-</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_47">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>34</y>
-         <width>231</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Completa</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubIncCompleta">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>34</y>
-         <width>521</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación faldón ≥60%, sustitución y reposición con mejora energética.</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbCubIncRemates">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>113</y>
-         <width>521</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación remates</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_48">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>113</y>
-         <width>221</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Remates</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_49">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>150</y>
-         <width>241</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Encuentros paramentos verticales</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubIncEncParamVer">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>150</y>
-         <width>521</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación encuentros paramentos verticales</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbCubIncCompletaAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>40</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_60">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>44</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubIncFaldonAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>79</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_61">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>83</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubIncRematesAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>119</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_62">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>123</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubIncEncParamVerAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>156</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_63">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>160</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_97">
-       <property name="geometry">
-        <rect>
-         <x>830</x>
-         <y>40</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
+       <property name="title">
         <string>Grado de actuación</string>
        </property>
-      </widget>
-      <widget class="QLabel" name="label_98">
-       <property name="geometry">
-        <rect>
-         <x>830</x>
-         <y>79</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_99">
-       <property name="geometry">
-        <rect>
-         <x>830</x>
-         <y>119</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_100">
-       <property name="geometry">
-        <rect>
-         <x>830</x>
-         <y>156</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
+       <widget class="QLabel" name="label_60">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>35</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_62">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>114</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbCubIncFaldonAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>70</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>hasta 60</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_61">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>74</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbCubIncCompletaAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>31</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_63">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>151</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbCubIncEncParamVerAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>147</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbCubIncRematesAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>110</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupCubHor">
@@ -1920,359 +1772,334 @@
         <x>20</x>
         <y>30</y>
         <width>1121</width>
-        <height>191</height>
+        <height>221</height>
        </rect>
       </property>
       <property name="title">
        <string>Cubiertas horizontales</string>
       </property>
-      <widget class="QLabel" name="label_52">
+      <widget class="QGroupBox" name="groupBox_20">
        <property name="geometry">
         <rect>
-         <x>11</x>
-         <y>77</y>
-         <width>201</width>
-         <height>19</height>
+         <x>20</x>
+         <y>29</y>
+         <width>881</width>
+         <height>181</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Faldón</string>
+       <property name="title">
+        <string>Actuaciones</string>
        </property>
+       <widget class="QComboBox" name="cmbCubHorEncCazoletas">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>134</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación encuentros cazoletas</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbCubHorFaldon">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>63</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación faldón ≤60%</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_53">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>29</y>
+          <width>231</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Completa</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_55">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>102</y>
+          <width>331</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Encuentros paramentos verticales</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbCubHorEncParamVer">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>100</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación encuentros paramentos verticales</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_54">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>138</y>
+          <width>221</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Encuentros cazoletas</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbCubHorCom">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>26</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación faldón (superf.&gt;60%). Sustitución y reposición faldón completo. Rehab. energ. aislm. plancha EPS</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Reparación faldón (superf.&gt;60%). Sustitución y reposición faldón completo. Rehab. energ. aislm. lana de oveja</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_52">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>65</y>
+          <width>201</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Faldón</string>
+        </property>
+       </widget>
       </widget>
-      <widget class="QComboBox" name="cmbCubHorFaldon">
+      <widget class="QGroupBox" name="groupBox_21">
        <property name="geometry">
         <rect>
-         <x>270</x>
-         <y>77</y>
-         <width>521</width>
-         <height>25</height>
+         <x>930</x>
+         <y>29</y>
+         <width>181</width>
+         <height>181</height>
         </rect>
        </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación faldón &lt;60%
-</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_53">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>40</y>
-         <width>231</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Completa</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubHorCom">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>40</y>
-         <width>521</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación faldón ≥60%, sustitución y reposición con mejora energética.</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbCubHorEncCazoletas">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>148</y>
-         <width>521</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación encuentros cazoletas</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_54">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>148</y>
-         <width>221</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Encuentros cazoletas</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_55">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>114</y>
-         <width>241</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Encuentros paramentos verticales</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubHorEncParamVer">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>114</y>
-         <width>521</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reparación encuentros paramentos verticales</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbCubHorComAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>46</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_42">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>50</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubHorFaldonAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>83</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_43">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>87</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubHorEncParamVerAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>120</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_44">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>124</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_45">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>158</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCubHorEncCazoletasAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>154</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_93">
-       <property name="geometry">
-        <rect>
-         <x>830</x>
-         <y>48</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
+       <property name="title">
         <string>Grado de actuación</string>
        </property>
+       <widget class="QLabel" name="label_42">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>30</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbCubHorComAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>26</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbCubHorEncParamVerAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>100</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_45">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>138</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_43">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>67</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbCubHorEncCazoletasAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>134</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_44">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>104</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbCubHorFaldonAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>63</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+       </widget>
       </widget>
-      <widget class="QLabel" name="label_95">
-       <property name="geometry">
-        <rect>
-         <x>830</x>
-         <y>121</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_96">
-       <property name="geometry">
-        <rect>
-         <x>830</x>
-         <y>154</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_114">
-       <property name="geometry">
-        <rect>
-         <x>830</x>
-         <y>83</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
+      <zorder>groupBox_21</zorder>
+      <zorder>groupBox_20</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="Instalaciones">
@@ -2285,737 +2112,591 @@
         <x>20</x>
         <y>20</y>
         <width>1131</width>
-        <height>171</height>
+        <height>151</height>
        </rect>
       </property>
       <property name="title">
        <string>Climatización</string>
       </property>
-      <widget class="QComboBox" name="cmbClimatizacion">
+      <widget class="QGroupBox" name="groupBox_24">
        <property name="geometry">
         <rect>
-         <x>250</x>
-         <y>40</y>
-         <width>541</width>
-         <height>25</height>
+         <x>19</x>
+         <y>30</y>
+         <width>861</width>
+         <height>111</height>
         </rect>
        </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
+       <property name="title">
+        <string>Actuaciones</string>
+       </property>
+       <widget class="QComboBox" name="cmbRadiadores">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>70</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Nueva instalación</string>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nueva instalación</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_119">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>70</y>
+          <width>171</width>
+          <height>19</height>
+         </rect>
         </property>
-       </item>
+        <property name="text">
+         <string>Radiadores</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbClimatizacion">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>30</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nueva instalación</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_116">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>321</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Aparatos Climatización</string>
+        </property>
+       </widget>
       </widget>
-      <widget class="QComboBox" name="cmbClimatizacionAct">
+      <widget class="QGroupBox" name="groupBox_25">
        <property name="geometry">
         <rect>
-         <x>1000</x>
-         <y>46</y>
-         <width>81</width>
-         <height>25</height>
+         <x>899</x>
+         <y>30</y>
+         <width>181</width>
+         <height>111</height>
         </rect>
        </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_115">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>50</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_116">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>40</y>
-         <width>171</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Aparatos climatización</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_117">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>46</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
+       <property name="title">
         <string>Grado de actuación</string>
        </property>
-      </widget>
-      <widget class="QLabel" name="label_118">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>80</y>
-         <width>171</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Conductos</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_119">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>120</y>
-         <width>171</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Radiadores</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_120">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>90</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_121">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>86</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbConductosAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>86</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
+       <widget class="QLabel" name="label_122">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>74</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
         </property>
-       </item>
-       <item>
         <property name="text">
-         <string>1 a 30</string>
+         <string>%</string>
         </property>
-       </item>
-       <item>
+       </widget>
+       <widget class="QComboBox" name="cmbClimatizacionAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_115">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>34</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
         <property name="text">
-         <string>31 a 60</string>
+         <string>%</string>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
+       </widget>
+       <widget class="QComboBox" name="cmbRadiadoresAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>70</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
         </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbConductos">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>80</y>
-         <width>541</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Nueva instalación</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_122">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>130</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_123">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>126</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbRadiadoresAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>126</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbRadiadores">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>120</y>
-         <width>541</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Nueva instalación</string>
-        </property>
-       </item>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>100</string>
+         </property>
+        </item>
+       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>230</y>
+        <y>180</y>
         <width>1131</width>
-        <height>251</height>
+        <height>271</height>
        </rect>
       </property>
       <property name="title">
        <string>Electricidad</string>
       </property>
-      <widget class="QLabel" name="label_64">
+      <widget class="QGroupBox" name="groupBox_26">
        <property name="geometry">
         <rect>
-         <x>1090</x>
-         <y>40</y>
-         <width>31</width>
-         <height>19</height>
+         <x>19</x>
+         <y>29</y>
+         <width>861</width>
+         <height>231</height>
         </rect>
        </property>
-       <property name="text">
-        <string>%</string>
+       <property name="title">
+        <string>Actuaciones</string>
        </property>
+       <widget class="QLabel" name="label_20">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>211</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Circuitos</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbTomaCorriente">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>151</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbCircuitos">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>30</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_26">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>151</y>
+          <width>221</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Toma de corriente</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbPuntosLuz">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>110</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbConductorPuestaTierra">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>192</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_21">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>70</y>
+          <width>211</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Líneas y derivaciones</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbLineasYDerivaciones">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>70</y>
+          <width>561</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_27">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>192</y>
+          <width>271</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Conductor de puesta a tierra</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_22">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>110</y>
+          <width>231</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Puntos de luz</string>
+        </property>
+       </widget>
       </widget>
-      <widget class="QLabel" name="label_26">
+      <widget class="QGroupBox" name="groupBox_27">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>157</y>
-         <width>191</width>
-         <height>19</height>
+         <x>899</x>
+         <y>29</y>
+         <width>181</width>
+         <height>231</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Toma de corriente</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_102">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>116</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
+       <property name="title">
         <string>Grado de actuación</string>
        </property>
+       <widget class="QLabel" name="label_64">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>35</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_65">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>75</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_68">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>195</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbConductorPuestaTierraAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>191</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbTomaCorrienteAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>151</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbCircuitosAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>31</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_67">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>155</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_66">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>115</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbPuntosLuzAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>111</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbLineasYDerivacionesAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>71</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
       </widget>
-      <widget class="QComboBox" name="cmbTomaCorrienteAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>156</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbLineasYDerivaciones">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>76</y>
-         <width>541</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbTomaCorriente">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>157</y>
-         <width>541</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_101">
-       <property name="geometry">
-        <rect>
-         <x>819</x>
-         <y>76</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_20">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>36</y>
-         <width>171</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Circuitos</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_103">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>157</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCircuitos">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>36</y>
-         <width>541</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbConductorPuestaTierraAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>196</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_22">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>116</y>
-         <width>191</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Puntos de luz</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbLineasYDerivacionesAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>76</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_104">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>198</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_66">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>120</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_21">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>76</y>
-         <width>211</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Líneas y derivaciones</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_27">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>198</y>
-         <width>211</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Conductor de puesta a tierra</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbConductorPuestaTierra">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>198</y>
-         <width>541</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_94">
-       <property name="geometry">
-        <rect>
-         <x>820</x>
-         <y>36</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_67">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>160</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbPuntosLuz">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>116</y>
-         <width>541</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_68">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>200</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_65">
-       <property name="geometry">
-        <rect>
-         <x>1090</x>
-         <y>80</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCircuitosAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>36</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbPuntosLuzAct">
-       <property name="geometry">
-        <rect>
-         <x>1000</x>
-         <y>116</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
+      <zorder>groupBox_27</zorder>
+      <zorder>groupBox_26</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="InstalacionesII">
@@ -3034,465 +2715,426 @@
       <property name="title">
        <string>Fontanería</string>
       </property>
-      <widget class="QLabel" name="label_109">
+      <widget class="QGroupBox" name="groupBox_28">
        <property name="geometry">
         <rect>
-         <x>770</x>
-         <y>171</y>
-         <width>151</width>
-         <height>19</height>
+         <x>19</x>
+         <y>30</y>
+         <width>841</width>
+         <height>251</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Grado de actuación</string>
+       <property name="title">
+        <string>Actuaciones</string>
        </property>
+       <widget class="QComboBox" name="cmbCanalizacionesCal">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>40</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición en cobre</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición en polietileno</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_30">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>207</y>
+          <width>191</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Termos/calentadores</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_25">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>165</y>
+          <width>191</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Aparatos sanitarios</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_23">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>83</y>
+          <width>191</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Desagües</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbSanitarios">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>165</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbCanalizacionesAguaFria">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>123</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición en cobre</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición en polietileno</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_28">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>261</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Canalizaciones agua caliente</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_29">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>123</y>
+          <width>211</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Canalizaciones agua fría</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbTermos">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>207</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición con energa solar térmica apoyo con gas</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición con energía solar térmica apoyo con electricidad</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbDesagues">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>83</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>No hay actuaciones</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sustitución y reposición</string>
+         </property>
+        </item>
+       </widget>
       </widget>
-      <widget class="QComboBox" name="cmbCanalizacionesAguaFriaAct">
+      <widget class="QGroupBox" name="groupBox_29">
        <property name="geometry">
         <rect>
-         <x>950</x>
-         <y>127</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbCanalizacionesAguaFria">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>128</y>
-         <width>491</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición cobre</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición PVC/polietileno</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_105">
-       <property name="geometry">
-        <rect>
-         <x>770</x>
-         <y>46</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_71">
-       <property name="geometry">
-        <rect>
-         <x>1040</x>
-         <y>131</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCanalizacionesCal">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>45</y>
-         <width>491</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición cobre</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición PVC/polietileno</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_30">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>212</y>
+         <x>880</x>
+         <y>29</y>
          <width>191</width>
-         <height>19</height>
+         <height>251</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Termos/calentadores</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_25">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>170</y>
-         <width>191</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Aparatos sanitarios</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbDesaguesAct">
-       <property name="geometry">
-        <rect>
-         <x>950</x>
-         <y>87</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbTermosAct">
-       <property name="geometry">
-        <rect>
-         <x>950</x>
-         <y>211</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbDesagues">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>88</y>
-         <width>491</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_73">
-       <property name="geometry">
-        <rect>
-         <x>1040</x>
-         <y>172</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_74">
-       <property name="geometry">
-        <rect>
-         <x>1040</x>
-         <y>215</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_29">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>128</y>
-         <width>211</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Canalizaciones agua fría</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_110">
-       <property name="geometry">
-        <rect>
-         <x>770</x>
-         <y>213</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
+       <property name="title">
         <string>Grado de actuación</string>
        </property>
-      </widget>
-      <widget class="QComboBox" name="cmbSanitariosAct">
-       <property name="geometry">
-        <rect>
-         <x>950</x>
-         <y>168</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
+       <widget class="QLabel" name="label_74">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>213</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
         </property>
-       </item>
-       <item>
         <property name="text">
-         <string>1 a 30</string>
+         <string>%</string>
         </property>
-       </item>
-       <item>
+       </widget>
+       <widget class="QLabel" name="label_70">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>89</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
         <property name="text">
-         <string>31 a 60</string>
+         <string>%</string>
         </property>
-       </item>
-       <item>
+       </widget>
+       <widget class="QLabel" name="label_69">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>45</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
         <property name="text">
-         <string>61 a 100</string>
+         <string>%</string>
         </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_106">
-       <property name="geometry">
-        <rect>
-         <x>770</x>
-         <y>89</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_23">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>88</y>
-         <width>191</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Desagües</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbTermos">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>212</y>
-         <width>491</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
+       </widget>
+       <widget class="QLabel" name="label_73">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>170</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
         <property name="text">
-         <string>No hay actuaciones</string>
+         <string>%</string>
         </property>
-       </item>
-       <item>
+       </widget>
+       <widget class="QComboBox" name="cmbCanalizacionesAguaFriaAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>125</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbSanitariosAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>166</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_71">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>129</y>
+          <width>31</width>
+          <height>19</height>
+         </rect>
+        </property>
         <property name="text">
-         <string>Sustitución y reposición con energa solar térmica apoyo con gas</string>
+         <string>%</string>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición con energía solar térmica apoyo con electricidad</string>
+       </widget>
+       <widget class="QComboBox" name="cmbTermosAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>209</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
         </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_28">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>45</y>
-         <width>211</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Canalizaciones agua caliente</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_107">
-       <property name="geometry">
-        <rect>
-         <x>770</x>
-         <y>129</y>
-         <width>151</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Grado de actuación</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbCanalizacionesCalAct">
-       <property name="geometry">
-        <rect>
-         <x>950</x>
-         <y>43</y>
-         <width>81</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbCanalizacionesCalAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>41</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1 a 30</string>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="cmbDesaguesAct">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>85</y>
+          <width>81</width>
+          <height>25</height>
+         </rect>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>31 a 60</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>61 a 100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_69">
-       <property name="geometry">
-        <rect>
-         <x>1040</x>
-         <y>47</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cmbSanitarios">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>170</y>
-         <width>491</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>No hay actuaciones</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sustitución y reposición</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_70">
-       <property name="geometry">
-        <rect>
-         <x>1040</x>
-         <y>91</y>
-         <width>31</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>%</string>
-       </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1 a 30</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>31 a 60</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>61 a 100</string>
+         </property>
+        </item>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -3500,417 +3142,463 @@
      <attribute name="title">
       <string>Carpintería y elem. de seguridad y protección</string>
      </attribute>
-     <widget class="QLabel" name="label_113">
+     <widget class="QGroupBox" name="groupBox_30">
       <property name="geometry">
        <rect>
-        <x>830</x>
-        <y>87</y>
-        <width>151</width>
-        <height>19</height>
+        <x>30</x>
+        <y>30</y>
+        <width>861</width>
+        <height>151</height>
        </rect>
       </property>
-      <property name="text">
+      <property name="title">
+       <string>Actuaciones</string>
+      </property>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>43</y>
+         <width>231</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Carpintería Ligera</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbCarpLigera">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>43</y>
+         <width>631</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ventana abatible+Aluminio RPT+vidrio doble acristalamiento</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ventana abatible+Aluminio RPT+vidrio bajo emisivo</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ventana abatible+Aluminio RPT+vidrio control solar</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_40">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>90</y>
+         <width>231</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Carpintería Madera</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbCarpMadera">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>90</y>
+         <width>631</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ventana abatible+Madera+vidrio doble acristalamiento</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ventana abatible+Madera+vidrio bajo emisivo</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ventana abatible+Madera+vidrio control solar</string>
+        </property>
+       </item>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_31">
+      <property name="geometry">
+       <rect>
+        <x>910</x>
+        <y>30</y>
+        <width>191</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="title">
        <string>Grado de actuación</string>
       </property>
-     </widget>
-     <widget class="QLabel" name="label_77">
-      <property name="geometry">
-       <rect>
-        <x>1090</x>
-        <y>90</y>
-        <width>31</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>%</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbRejasAct">
-      <property name="geometry">
-       <rect>
-        <x>1000</x>
-        <y>86</y>
-        <width>81</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>0</string>
+      <widget class="QLabel" name="label_75">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>48</y>
+         <width>31</width>
+         <height>19</height>
+        </rect>
        </property>
-      </item>
-      <item>
        <property name="text">
-        <string>1 a 30</string>
+        <string>%</string>
        </property>
-      </item>
-      <item>
+      </widget>
+      <widget class="QComboBox" name="cmbCarpLigeraAct">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>44</y>
+         <width>81</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 a 30</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>31 a 60</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>61 a 100</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_78">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>94</y>
+         <width>31</width>
+         <height>19</height>
+        </rect>
+       </property>
        <property name="text">
-        <string>31 a 60</string>
+        <string>%</string>
        </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>61 a 100</string>
+      </widget>
+      <widget class="QComboBox" name="cmbCarpMaderaAct">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>90</y>
+         <width>81</width>
+         <height>25</height>
+        </rect>
        </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_51">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>87</y>
-        <width>231</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Rejas</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbRejas">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>87</y>
-        <width>601</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>No hay actuaciones</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sustitución y reposición</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Desmontado y reutilización</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="cmbCarpLigeraAct">
-      <property name="geometry">
-       <rect>
-        <x>1000</x>
-        <y>40</y>
-        <width>81</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>0</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>1 a 30</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>31 a 60</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>61 a 100</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_75">
-      <property name="geometry">
-       <rect>
-        <x>1090</x>
-        <y>44</y>
-        <width>31</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>%</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbCarpLigera">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>40</y>
-        <width>601</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>No hay actuaciones</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Ventana abatible+Aluminio RPT+vidrio doble acristalamiento</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_19">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>40</y>
-        <width>231</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Carpintería ligera</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_111">
-      <property name="geometry">
-       <rect>
-        <x>830</x>
-        <y>40</y>
-        <width>151</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Grado de actuación</string>
-      </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 a 30</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>31 a 60</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>61 a 100</string>
+        </property>
+       </item>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_7">
      <attribute name="title">
       <string>Accesibilidad</string>
      </attribute>
-     <widget class="QSpinBox" name="spbNumAscensores_4">
+     <widget class="QGroupBox" name="groupBox_32">
       <property name="geometry">
        <rect>
-        <x>680</x>
-        <y>189</y>
-        <width>71</width>
-        <height>25</height>
+        <x>50</x>
+        <y>30</y>
+        <width>761</width>
+        <height>221</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QLabel" name="label_124">
-      <property name="geometry">
-       <rect>
-        <x>640</x>
-        <y>56</y>
-        <width>31</width>
-        <height>19</height>
-       </rect>
+      <property name="title">
+       <string>Actuaciones</string>
       </property>
-      <property name="text">
-       <string>Nº</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="spbNumAscensores_3">
-      <property name="geometry">
-       <rect>
-        <x>680</x>
-        <y>142</y>
-        <width>71</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>56</y>
-        <width>181</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Ascensores nuevos</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="spbNumAscensores">
-      <property name="geometry">
-       <rect>
-        <x>680</x>
-        <y>53</y>
-        <width>71</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="spbNumAscensores_2">
-      <property name="geometry">
-       <rect>
-        <x>680</x>
-        <y>97</y>
-        <width>71</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_72">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>192</y>
-        <width>261</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Instalación de portero automático</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbAscensores_3">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>141</y>
-        <width>221</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>No</string>
+      <widget class="QComboBox" name="cmbAscensores">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>177</y>
+         <width>471</width>
+         <height>25</height>
+        </rect>
        </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sí</string>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Nueva instalación</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="cmbRampa">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>83</y>
+         <width>471</width>
+         <height>25</height>
+        </rect>
        </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_127">
-      <property name="geometry">
-       <rect>
-        <x>640</x>
-        <y>192</y>
-        <width>31</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Nº</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbAscensores">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>52</y>
-        <width>221</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>No</string>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Instalación de rampa</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="cmbEscalera">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>38</y>
+         <width>471</width>
+         <height>25</height>
+        </rect>
        </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sí</string>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sustitución y reposición de escalera en zonas comunes</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rectificación de peldañeado de escalera en zonas comunes</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_24">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>42</y>
+         <width>181</width>
+         <height>19</height>
+        </rect>
        </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_125">
-      <property name="geometry">
-       <rect>
-        <x>640</x>
-        <y>100</y>
-        <width>31</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Nº</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_126">
-      <property name="geometry">
-       <rect>
-        <x>640</x>
-        <y>145</y>
-        <width>31</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Nº</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmbAscensores_2">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>96</y>
-        <width>221</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
        <property name="text">
-        <string>No</string>
+        <string>Escalera</string>
        </property>
-      </item>
-      <item>
+      </widget>
+      <widget class="QComboBox" name="cmbPortero">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>130</y>
+         <width>471</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Nueva instalación</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_72">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>134</y>
+         <width>331</width>
+         <height>19</height>
+        </rect>
+       </property>
        <property name="text">
-        <string>Sí</string>
+        <string>Portero electrónico</string>
        </property>
-      </item>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>179</y>
+         <width>181</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ascensor</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_50">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>87</y>
+         <width>341</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Rampa minusválidos</string>
+       </property>
+      </widget>
+      <zorder>label_50</zorder>
+      <zorder>label_72</zorder>
+      <zorder>cmbPortero</zorder>
+      <zorder>label_24</zorder>
+      <zorder>cmbEscalera</zorder>
+      <zorder>cmbRampa</zorder>
+      <zorder>cmbAscensores</zorder>
+      <zorder>label</zorder>
      </widget>
-     <widget class="QLabel" name="label_50">
+     <widget class="QGroupBox" name="groupBox_33">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>145</y>
-        <width>261</width>
-        <height>19</height>
+        <x>830</x>
+        <y>30</y>
+        <width>211</width>
+        <height>221</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Rampa de acceso a minusválidos</string>
+      <property name="title">
+       <string>Grado de actuación</string>
       </property>
-     </widget>
-     <widget class="QComboBox" name="cmbAscensores_4">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>188</y>
-        <width>221</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>No</string>
+      <widget class="QComboBox" name="cmbAscensoresAct">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>177</y>
+         <width>121</width>
+         <height>25</height>
+        </rect>
        </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sí</string>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>100</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="cmbEscaleraAct">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>39</y>
+         <width>121</width>
+         <height>25</height>
+        </rect>
        </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_24">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>100</y>
-        <width>181</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Escalera</string>
-      </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>100</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="cmbRampaAct">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>84</y>
+         <width>121</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>100</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="cmbPorteroAct">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>130</y>
+         <width>121</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>100</string>
+        </property>
+       </item>
+      </widget>
+      <zorder>cmbRampaAct</zorder>
+      <zorder>cmbPorteroAct</zorder>
+      <zorder>cmbEscaleraAct</zorder>
+      <zorder>cmbAscensoresAct</zorder>
      </widget>
     </widget>
    </widget>

@@ -1,3 +1,4 @@
+# coding=utf-8
 from ParcelaService import ParcelaService
 from HuellaService import HuellaService
 from Ui_ProgressDialog import Ui_ProgressDialog

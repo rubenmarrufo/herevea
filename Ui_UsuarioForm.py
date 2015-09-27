@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Ui_UsuarioForm.ui'
 #
-# Created: Sat Sep 19 11:46:29 2015
+# Created: Sun Sep 27 12:15:23 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,11 +30,6 @@ class Ui_UsuarioForm(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("Herevea.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         UsuarioForm.setWindowIcon(icon)
-        self.buttonBox = QtGui.QDialogButtonBox(UsuarioForm)
-        self.buttonBox.setGeometry(QtCore.QRect(600, 400, 341, 32))
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
-        self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
         self.label_31 = QtGui.QLabel(UsuarioForm)
         self.label_31.setGeometry(QtCore.QRect(20, 20, 81, 20))
         self.label_31.setObjectName(_fromUtf8("label_31"))
@@ -123,9 +118,20 @@ class Ui_UsuarioForm(object):
         self.spbAlturaTotal.setFont(font)
         self.spbAlturaTotal.setMaximum(9999.99)
         self.spbAlturaTotal.setObjectName(_fromUtf8("spbAlturaTotal"))
-        self.pushButton = QtGui.QPushButton(UsuarioForm)
-        self.pushButton.setGeometry(QtCore.QRect(580, 399, 112, 34))
+        self.horizontalLayoutWidget = QtGui.QWidget(UsuarioForm)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(580, 400, 356, 36))
+        self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
+        self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setMargin(0)
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.pushButton = QtGui.QPushButton(self.horizontalLayoutWidget)
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.horizontalLayout.addWidget(self.pushButton)
+        self.buttonBox = QtGui.QDialogButtonBox(self.horizontalLayoutWidget)
+        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
+        self.horizontalLayout.addWidget(self.buttonBox)
 
         self.retranslateUi(UsuarioForm)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), UsuarioForm.accept)

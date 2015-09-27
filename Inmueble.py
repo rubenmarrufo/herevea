@@ -16,6 +16,7 @@ class Inmueble:
                 self.setDebi(inmuebleInfo['bi']['debi'])
         if any("lcons" in item for item in inmuebleInfo.keys()):           
             self.setLcons(inmuebleInfo['lcons'])
+            
     def setIdbi(self, idbi):
         self.tipoInmueble = idbi['cn']
         if(any("rc" in item for item in idbi.keys())): 

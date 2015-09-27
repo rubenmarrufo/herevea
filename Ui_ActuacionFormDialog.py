@@ -97,7 +97,6 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
       self.ui.cmbIntFisuras.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbIntGrietas.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbHumSuelo.currentText()!= 'No hay actuaciones' or \
-      self.ui.cmbHumTecho.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbCubHorCom.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbCubHorFaldon.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbCubHorEncParamVer.currentText()!= 'No hay actuaciones' or \
@@ -107,7 +106,6 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
       self.ui.cmbCubIncRemates.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbCubIncEncParamVer.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbClimatizacion.currentText()!= 'No hay actuaciones' or \
-      self.ui.cmbConductos.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbRadiadores.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbCircuitos.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbLineasYDerivaciones.currentText()!= 'No hay actuaciones' or \
@@ -117,7 +115,15 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
       self.ui.cmbCanalizacionesCal.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbDesagues.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbCanalizacionesAguaFria.currentText()!= 'No hay actuaciones' or \
-      self.ui.cmbSanitarios.currentText()!= 'No hay actuaciones' or self.ui.cmbTermos.currentText() != 'No hay actuaciones' or self.ui.cmbAscensores.currentText() != 'No' or self.ui.cmbCarpLigera.currentText()!= 'No hay actuaciones' or self.ui.cmbRejas.currentText()!= 'No hay actuaciones'
+      self.ui.cmbSanitarios.currentText()!= 'No hay actuaciones' or \
+      self.ui.cmbTermos.currentText() != 'No hay actuaciones' or \
+      self.ui.cmbCarpLigera.currentText()!= 'No hay actuaciones' or \
+      self.ui.cmbCarpMadera.currentText()!= 'No hay actuaciones' or \
+      self.ui.cmbAscensores.currentText() != 'No hay actuaciones' or \
+      self.ui.cmbEscalera.currentText() != 'No hay actuaciones' or \
+      self.ui.cmbPortero.currentText() != 'No hay actuaciones' or \
+      self.ui.cmbRampa.currentText() != 'No hay actuaciones'
+     
   def getValues(self):
     return {'Pilotes': self.ui.cmbPilotes.currentText(),'PilotesAct' : self.ui.cmbPilotesAct.currentText(), \
             'Arquetas': self.ui.cmbArquetas.currentText(), 'ArquetasAct': self.ui.cmbArquetasAct.currentText(), \
@@ -133,7 +139,6 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
             'IntFisuras': self.ui.cmbIntFisuras.currentText(), 'IntFisurasAct': self.ui.cmbIntFisurasAct.currentText(), \
             'IntGrietas': self.ui.cmbIntGrietas.currentText(), 'IntGrietasAct': self.ui.cmbIntGrietasAct.currentText(), \
             'HumSuelo': self.ui.cmbHumSuelo.currentText(), 'HumSueloAct': self.ui.cmbHumSueloAct.currentText(), \
-            'HumTecho': self.ui.cmbHumTecho.currentText(), 'HumTechoAct': self.ui.cmbHumTechoAct.currentText(), \
             'CubHorCom': self.ui.cmbCubHorCom.currentText(), 'CubHorComAct': self.ui.cmbCubHorComAct.currentText(), \
             'CubHorFaldon': self.ui.cmbCubHorFaldon.currentText(), 'CubHorFaldonAct': self.ui.cmbCubHorFaldonAct.currentText(), \
             'CubHorEncParamVer': self.ui.cmbCubHorEncParamVer.currentText(), 'CubHorEncParamVerAct': self.ui.cmbCubHorEncParamVerAct.currentText(), \
@@ -143,7 +148,6 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
             'CubIncRemates': self.ui.cmbCubIncRemates.currentText(), 'CubIncRematesAct': self.ui.cmbCubIncRematesAct.currentText(), \
             'CubIncEncParamVer': self.ui.cmbCubIncEncParamVer.currentText(), 'CubIncEncParamVerAct': self.ui.cmbCubIncEncParamVerAct.currentText(), \
             'Climatizacion': self.ui.cmbClimatizacion.currentText(), 'ClimatizacionAct': self.ui.cmbClimatizacionAct.currentText(), \
-            'Conductos': self.ui.cmbConductos.currentText(), 'ConductosAct': self.ui.cmbConductosAct.currentText(), \
             'Radiadores': self.ui.cmbRadiadores.currentText(), 'RadiadoresAct': self.ui.cmbRadiadoresAct.currentText(), \
             'Circuitos': self.ui.cmbCircuitos.currentText(), 'CircuitosAct': self.ui.cmbCircuitosAct.currentText(), \
             'LineasYDerivaciones': self.ui.cmbLineasYDerivaciones.currentText(), 'LineasYDerivacionesAct': self.ui.cmbLineasYDerivacionesAct.currentText(), \
@@ -155,5 +159,10 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
             'CanalizacionesAguaFria': self.ui.cmbCanalizacionesAguaFria.currentText(), 'CanalizacionesAguaFriaAct': self.ui.cmbCanalizacionesAguaFriaAct.currentText(), \
             'Sanitarios': self.ui.cmbSanitarios.currentText(), 'SanitariosAct': self.ui.cmbSanitariosAct.currentText(), \
             'Termos': self.ui.cmbTermos.currentText(), 'TermosAct': self.ui.cmbTermosAct.currentText(), \
-            'Ascensores': self.ui.cmbAscensores.currentText(), 'AscensoresAct': self.ui.spbNumAscensores.value(),'CarpLigera': self.ui.cmbCarpLigera.currentText(), 'CarpLigeraAct': self.ui.cmbCarpLigeraAct.currentText(),'Rejas': self.ui.cmbRejas.currentText(), 'RejasAct': self.ui.cmbRejasAct.currentText()
+            'CarpLigera': self.ui.cmbCarpLigera.currentText(), 'CarpLigeraAct': self.ui.cmbCarpLigeraAct.currentText(), \
+            'CarpMadera': self.ui.cmbCarpMadera.currentText(), 'CarpMaderaAct': self.ui.cmbCarpMaderaAct.currentText(), \
+            'Ascensores': self.ui.cmbAscensores.currentText(), 'AscensoresAct': self.ui.cmbAscensoresAct.currentText(), \
+            'Portero': self.ui.cmbPortero.currentText(), 'PorteroAct': self.ui.cmbPorteroAct.currentText(),\
+            'Escalera': self.ui.cmbEscalera.currentText(), 'EscaleraAct': self.ui.cmbEscaleraAct.currentText(),\
+            'Rampa': self.ui.cmbRampa.currentText(), 'RampaAct': self.ui.cmbRampaAct.currentText()            
             }       

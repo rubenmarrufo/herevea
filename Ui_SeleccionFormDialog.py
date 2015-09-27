@@ -51,18 +51,26 @@ class Ui_SeleccionFormDialog(QtGui.QDialog):
   def municipio(self):
     return self.ui.cmbMunicipio.currentText()
 
-  def coordenadas(self): 
-      try: 
-          dir = os.path.dirname(__file__)
-          filename = os.path.join(dir,'coordenadas.csv')    
-          with open(filename, 'rb') as csvfile:
-              data = [row for row in csv.reader(csvfile.read().splitlines(), delimiter=';')]          
-              row = next(x for x in data if x[0].lower() == self.municipio().lower())
-              print row
-              return QgsPoint(float(row[2].replace(',','.')),float(row[1].replace(',','.')))
-      except Exception as ex:  
-            return None  
-    
+  def coordenadas(self):
+      if self.parcelaService == None: 
+          try: 
+              dir = os.path.dirname(__file__)
+              filename = os.path.join(dir,'coordenadas.csv')    
+              with open(filename, 'rb') as csvfile:
+                  data = [row for row in csv.reader(csvfile.read().splitlines(), delimiter=';')]          
+                  row = next(x for x in data if x[0].lower() == self.municipio().lower())              
+                  return QgsPoint(float(row[2].replace(',','.')),float(row[1].replace(',','.')))
+          except Exception as ex:  
+                return None
+      else:
+          return QgsPoint(float(self.parcelaService.x),float(self.parcelaService.y))
+        
+  def zoom(self):
+      if self.parcelaService == None:
+          return 3000
+      else:
+          return 500
+      
   def dialogOk(self):    
     if self.ui.radCatastro.isChecked():
         self.parcelaService = ParcelaService(self,self.ui.cmbProvincia.currentText(), self.ui.cmbMunicipio.currentText())

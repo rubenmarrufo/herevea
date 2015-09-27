@@ -49,14 +49,13 @@ class HereveaMapTool(QgsMapToolEmitPoint):
         # Convert this point (QgsPoint) to a QgsGeometry
         return QgsGeometry.fromPoint(layerPoint)    
 
-    def canvasPressEvent(self, mouseEvent):
-        print "clicked"
+    def canvasPressEvent(self, mouseEvent):        
         layers = QgsMapLayerRegistry.instance().mapLayers()        
         for name, layer in layers.iteritems():
             if name.startswith('Catastro'):
                 layerPoint = self.toLayerCoordinates( layer, mouseEvent.pos() )
                 self.parcelaService = ParcelaService(self,self.provincia,self.municipio) 
-                self.parcelaService.initCoords(layerPoint.x(),layerPoint.y())                    
+                self.parcelaService.initCoords(layerPoint.x(),layerPoint.y())
                 self.launcher = UserInputLauncherService(self.iface,self.parcelaService,self.fin)
                 self.launcher.launch() 
                 

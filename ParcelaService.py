@@ -1,3 +1,4 @@
+# coding=utf-8
 import xmltodict
 import operator
 from PyQt4 import QtCore
@@ -10,26 +11,30 @@ class ParcelaService(QThread):
     procDone = QtCore.pyqtSignal(bool)  
     def __init__(self, parentThread, provincia, municipio):
         QThread.__init__(self, parentThread )
+        self.catastroService = CatastroService()
         self.provincia=provincia
         self.municipio=municipio  
         self.numCatastro=None     
-          
+        self.x=None
+        self.y=None
+                  
     def initCoords(self, x, y):
         self.x=x
         self.y=y
-        print x 
         
     def initRefCatastral(self, refCatastro):        
-        self.numCatastro=refCatastro
+        self.numCatastro=refCatastro        
+        xyInfo = self.catastroService.getParcelaCoords(self.numCatastro,self.provincia,self.municipio)
+        self.x = xyInfo['xcen']
+        self.y = xyInfo['ycen']
                 
     def run(self):
         try:            
-            catastroService = CatastroService()
             if self.numCatastro == None:
-                self.coordsInfo = catastroService.getCoordsInfo(self.x,self.y)
+                self.coordsInfo = self.catastroService.getCoordsInfo(self.x,self.y)
                 pc = self.coordsInfo['pc']
-                self.numCatastro = pc['pc1'] + pc['pc2']
-            self.parcelaInfo = catastroService.getParcelaInfo(self.numCatastro,self.provincia,self.municipio)
+                self.numCatastro = pc['pc1'] + pc['pc2']            
+            self.parcelaInfo = self.catastroService.getParcelaInfo(self.numCatastro,self.provincia,self.municipio)
             inmueblesService = InmueblesService(self.provincia,self.municipio)
             self.inmueblesList = inmueblesService.getInmueblesList(self.parcelaInfo)            
             if len(self.inmueblesList) == 0:
@@ -37,7 +42,7 @@ class ParcelaService(QThread):
             else:
                 self.procDone.emit(True)                                 
         except Exception as ex:  
-            print ex
+            print 'Exception' + ex
             self.procDone.emit(False)              
             
     def getDireccion(self):  
