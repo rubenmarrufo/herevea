@@ -10,7 +10,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Herevea.Reports;
 using Microsoft.Office.Interop.Excel;
+using Microsoft.Reporting.WinForms;
 using Newtonsoft.Json;
 using Application = System.Windows.Forms.Application;
 
@@ -28,13 +30,15 @@ namespace HereveaForm
         {
             InitializeComponent();
             path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            image = Image.FromFile(Path.Combine(path,"huellaPie.png"));
+            image = Image.FromFile(Path.Combine(path, "huellaPie.png"));
             pictureBox1.Image = image;
 
-            worker.DoWork += (sender,args) => Interop();
+            worker.DoWork += (sender, args) => Interop();
             worker.WorkerReportsProgress = true;
             worker.ProgressChanged += worker_ProgressChanged;
             worker.RunWorkerAsync();
+            Interop();
+
         }
 
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -46,7 +50,22 @@ namespace HereveaForm
         {
             try
             {
-                var file = new FileInfo(Path.Combine(path, "Huella.xlsx"));
+                var dataSource = new List<HuellaReportDTO>
+                {
+                    new HuellaReportDTO()
+                    {
+                        MaqEn = 333,
+                        Superficie = 22.34M,
+                        NumeroPlantas = 3,
+                        AlturaEdificio = 33,
+                    }
+                };
+                
+                GenerateReport(dataSource);
+
+                return;
+
+                var file = new FileInfo(Path.Combine(path, "Book1.xls"));
                 xlApp = new Microsoft.Office.Interop.Excel.Application { Visible = false };
                 wb = xlApp.Workbooks.Open(file.FullName);
                 worker.ReportProgress(25);
@@ -54,6 +73,11 @@ namespace HereveaForm
 
                 var data = File.ReadAllText(Path.Combine(path, "data.txt"));
                 dynamic dataObj = JsonConvert.DeserializeObject(data);
+
+
+                var s = (Worksheet) wb.Sheets["Sheet1"];
+                var val = s.Cells[1,1].Value;
+
 
                 var sheet = (Worksheet) wb.Sheets["Características_proyectos"];
                 var project = CalculateProject(dataObj, sheet);
@@ -67,6 +91,7 @@ namespace HereveaForm
                 var sheetPEM = (Worksheet) wb.Sheets["PEM Proyecto"];
                 sheetPEM.Calculate();
                 sheetHuella.Calculate();
+                
                 wb.Save();
                 worker.ReportProgress(75);
                 var result = new Dictionary<string, object>()
@@ -87,9 +112,9 @@ namespace HereveaForm
                     {"Materiales", sheetHuella.Cells[50,3].Value ?? 0},
                     {"Residuos RCD", sheetHuella.Cells[51,3].Value ?? 0},
 
-                    {"Rehabilitacion", sheetPEM.Cells[64, 8].Value ?? 0},
-                    {"Demolicion", sheetPEM.Cells[97, 7].Value ?? 0},
-                    {"Construccion", sheetPEM.Cells[108, 7].Value ?? 0},
+                    {"Rehabilitacion", sheetPEM.Cells[63, 8].Value ?? 0},
+                    {"Demolicion", sheetPEM.Cells[96, 7].Value ?? 0},
+                    {"Construccion", sheetPEM.Cells[107, 7].Value ?? 0},
                     {"HEDemolicion", sheetHuella.Cells[75, 4].Value ?? 0},
                     {"HEConstruccion", sheetHuella.Cells[81, 4].Value ?? 0}
                 };
@@ -97,7 +122,7 @@ namespace HereveaForm
                 string resultJson = JsonConvert.SerializeObject(result);
                 File.WriteAllText(Path.Combine(path, "result.txt"), resultJson);
                 Console.WriteLine("Huella total: " + sheetHuella.Cells[49, 3].Value.ToString());
-
+                
             }
             catch (Exception ex)
             {
@@ -105,9 +130,52 @@ namespace HereveaForm
             }
             finally
             {
-                worker.ReportProgress(100);
+                //worker.ReportProgress(100);
                 Application.Exit();    
             }
+        }
+
+        private void GenerateReport(IEnumerable<HuellaReportDTO> huellaReport)
+        {
+            var lr = new LocalReport
+            {
+                ReportPath = Path.Combine(path, "Report1.rdlc"),
+                EnableExternalImages = true
+            };
+            
+            lr.DataSources.Add(new ReportDataSource("DataSet1", huellaReport));
+
+            string mimeType, encoding, extension;
+
+            Warning[] warnings;
+            string[] streams;
+            var renderedBytes = lr.Render
+                (
+                    "PDF",
+                    @"<DeviceInfo><OutputFormat>PDF</OutputFormat><HumanReadablePDF>False</HumanReadablePDF></DeviceInfo>",
+                    out mimeType,
+                    out encoding,
+                    out extension,
+                    out streams,
+                    out warnings
+                );
+
+            var saveAs = string.Format("{0}.pdf", Path.Combine(path, "result"));
+
+            var idx = 0;
+            while (File.Exists(saveAs))
+            {
+                idx++;
+                saveAs = string.Format("{0}.{1}.pdf", Path.Combine(path, "myfilename"), idx);
+            }
+
+            using (var stream = new FileStream(saveAs, FileMode.Create, FileAccess.Write))
+            {
+                stream.Write(renderedBytes, 0, renderedBytes.Length);
+                stream.Close();
+            }
+
+            lr.Dispose();
         }
 
         private static void InsertData(Worksheet sheet, dynamic project, dynamic dataObj)
@@ -189,14 +257,16 @@ namespace HereveaForm
             sheet.Cells[64, 8].Value = dataObj.CarpLigeraAct;
             sheet.Cells[65, 7].Value = dataObj.CarpMadera;
             sheet.Cells[65, 8].Value = dataObj.CarpMaderaAct;
+            sheet.Cells[66, 7].Value = dataObj.Rejas;
+            sheet.Cells[66, 8].Value = dataObj.RejasAct;
             sheet.Cells[71, 7].Value = dataObj.Escalera;
-            sheet.Cells[71, 8].Value = dataObj.EscaleraAct;
+            sheet.Cells[71, 5].Value = dataObj.EscaleraAct;
             sheet.Cells[72, 7].Value = dataObj.Rampa;
-            sheet.Cells[72, 8].Value = dataObj.RampaAct;
+            sheet.Cells[72, 5].Value = dataObj.RampaAct;
             sheet.Cells[73, 7].Value = dataObj.Portero;
-            sheet.Cells[73, 8].Value = dataObj.PorteroAct;
+            sheet.Cells[73, 5].Value = dataObj.PorteroAct;
             sheet.Cells[74, 7].Value = dataObj.Ascensores;
-            sheet.Cells[74, 8].Value = dataObj.AscensoresAct;
+            sheet.Cells[16, 11].Value = dataObj.AscensoresAct;
         }
 
         private string CalculateProject(dynamic dataObj, Worksheet sheet)
@@ -205,40 +275,40 @@ namespace HereveaForm
             for (int i = 3; i < 99; i++)
             {
                 matchCaracteristicas[i] = 0;
-                if (dataObj.PlantasSobre != null && sheet.Cells[i, 2].Value != null && 
+                if (dataObj.PlantasSobre != null && sheet.Cells[i, 2].Value != null &&
                     PlantasEqual(dataObj.PlantasSobre.ToString(), sheet.Cells[i, 2].Value.ToString()))
                 {
                     matchCaracteristicas[i]++;
                 }
-                if (dataObj.PlantasBajo != null && sheet.Cells[i, 3].Value != null && 
+                if (dataObj.PlantasBajo != null && sheet.Cells[i, 3].Value != null &&
                     PlantasEqual(dataObj.PlantasBajo.ToString(), sheet.Cells[i, 3].Value.ToString()))
                 {
                     matchCaracteristicas[i]++;
                 }
-                if (dataObj.PlantaBajaViviendas != null && 
+                if (dataObj.PlantaBajaViviendas != null &&
                     (sheet.Cells[i, 7].Value == null && dataObj.PlantaBajaViviendas.ToString().Equals("no", StringComparison.InvariantCultureIgnoreCase)
                     || (sheet.Cells[i, 7].Value != null && dataObj.PlantaBajaViviendas.ToString().Equals(sheet.Cells[i, 7].Value.ToString(), StringComparison.InvariantCultureIgnoreCase))))
                 {
                     matchCaracteristicas[i]++;
                 }
-                if (dataObj.Cimentacion != null && sheet.Cells[i, 8].Value != null && 
+                if (dataObj.Cimentacion != null && sheet.Cells[i, 8].Value != null &&
                     dataObj.Cimentacion.ToString().Equals(sheet.Cells[i, 8].Value.ToString(), StringComparison.InvariantCultureIgnoreCase))
                 {
                     matchCaracteristicas[i]++;
                 }
-                if (dataObj.Estructura != null && sheet.Cells[i, 9].Value != null && 
+                if (dataObj.Estructura != null && sheet.Cells[i, 9].Value != null &&
                     dataObj.Estructura.ToString().Equals(sheet.Cells[i, 9].Value.ToString(), StringComparison.InvariantCultureIgnoreCase))
                 {
                     matchCaracteristicas[i]++;
                 }
-                if (dataObj.Cubierta != null && sheet.Cells[i, 10].Value != null && 
+                if (dataObj.Cubierta != null && sheet.Cells[i, 10].Value != null &&
                     dataObj.Cubierta.ToString().Equals(sheet.Cells[i, 10].Value.ToString(), StringComparison.InvariantCultureIgnoreCase))
                 {
                     matchCaracteristicas[i]++;
                 }
             }
             var projectIndex = matchCaracteristicas.Aggregate((l, r) => l.Value > r.Value ? l : r).Key;
-            return string.Format("c{0}",sheet.Cells[projectIndex, 1].Value.ToString().Trim('*'));
+            return string.Format("c{0}", sheet.Cells[projectIndex, 1].Value.ToString().Trim('*'));
         }
 
         private bool PlantasEqual(string plantasSobre, string excelValue)
