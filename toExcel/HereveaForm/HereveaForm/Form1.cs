@@ -39,7 +39,7 @@ namespace HereveaForm
             worker.WorkerReportsProgress = true;
             worker.ProgressChanged += worker_ProgressChanged;
             worker.RunWorkerAsync();
-            Interop();
+            //Interop();
         }
 
 
@@ -52,22 +52,14 @@ namespace HereveaForm
         {
             try
             {
-                var file = new FileInfo(Path.Combine(path, "Book1.xls"));
+                var data = File.ReadAllText(Path.Combine(path, "data.txt"));
+                dynamic dataObj = JsonConvert.DeserializeObject(data);
+
+                var file = new FileInfo(Path.Combine(path, "Huella.xlsx"));
                 xlApp = new Microsoft.Office.Interop.Excel.Application { Visible = false };
                 wb = xlApp.Workbooks.Open(file.FullName);
                 worker.ReportProgress(25);
                 Console.WriteLine("Calculando huella total...");
-
-                var data = File.ReadAllText(Path.Combine(path, "data.txt"));
-                dynamic dataObj = JsonConvert.DeserializeObject(data);
-                var reportCreator = new ReportCreator(path, dataObj);
-                reportCreator.CreateReport();
-
-                return;
-
-                var s = (Worksheet) wb.Sheets["Sheet1"];
-                var val = s.Cells[1,1].Value;
-
 
                 var sheet = (Worksheet) wb.Sheets["Características_proyectos"];
                 var project = CalculateProject(dataObj, sheet);
@@ -84,15 +76,16 @@ namespace HereveaForm
                 
                 wb.Save();
                 worker.ReportProgress(75);
-                var result = new Dictionary<string, decimal>()
+                var result = new Dictionary<string, object>()
                 {
-                    {"Total", sheetHuella.Cells[56, 3].Value ?? 0},
-                    {"Energia", sheetHuella.Cells[54, 3].Value ?? 0},
-                    {"Bosques", sheetHuella.Cells[54, 4].Value ?? 0},
-                    {"Pastos", sheetHuella.Cells[54, 5].Value ?? 0},
-                    {"Mar", sheetHuella.Cells[54, 6].Value ?? 0},
-                    {"Cultivos", sheetHuella.Cells[54, 7].Value ?? 0},
-                    {"SuperficieConsumida", sheetHuella.Cells[54, 8].Value ?? 0},
+                    {"Total", sheetHuella.Cells[56, 3].Value ?? 0M},
+                    {"Energia", sheetHuella.Cells[54, 3].Value ?? 0M},
+                    {"Bosques", sheetHuella.Cells[54, 4].Value ?? 0M},
+                    {"Pastos", sheetHuella.Cells[54, 5].Value ?? 0M},
+                    {"Mar", sheetHuella.Cells[54, 6].Value ?? 0M},
+                    {"Cultivos", sheetHuella.Cells[54, 7].Value ?? 0M},
+                    {"SuperficieConsumida", sheetHuella.Cells[54, 8].Value ?? 0M},
+
                     {"Maquinaria", sheetHuella.Cells[44,3].Value ?? 0},
                     {"Electricidad", sheetHuella.Cells[45,3].Value ?? 0},
                     {"Agua", sheetHuella.Cells[46,3].Value ?? 0},
@@ -101,6 +94,18 @@ namespace HereveaForm
                     {"Residuos RSU", sheetHuella.Cells[49,3].Value ?? 0},
                     {"Materiales", sheetHuella.Cells[50,3].Value ?? 0},
                     {"Residuos RCD", sheetHuella.Cells[51,3].Value ?? 0},
+                    {"MaqEn", sheetHuella.Cells[44,3].Value},
+                    {"EleEn", sheetHuella.Cells[45,3].Value},
+                    {"AgBo", sheetHuella.Cells[46,4].Value},
+                    {"AliEn", sheetHuella.Cells[47,3].Value},
+                    {"AliPa", sheetHuella.Cells[47,5].Value},
+                    {"AliMa", sheetHuella.Cells[47,6].Value},
+                    {"AliCu", sheetHuella.Cells[47,7].Value},
+                    {"MovEn", sheetHuella.Cells[48,3].Value},
+                    {"RsuEn", sheetHuella.Cells[49,3].Value},
+                    {"MatEn", sheetHuella.Cells[50,3].Value},
+                    {"RcdEn", sheetHuella.Cells[51,3].Value},
+                    {"OcuSu", sheetHuella.Cells[52,8].Value},
 
                     {"Rehabilitacion", sheetPEM.Cells[63, 8].Value ?? 0},
                     {"Demolicion", sheetPEM.Cells[96, 7].Value ?? 0},
@@ -108,6 +113,9 @@ namespace HereveaForm
                     {"HEDemolicion", sheetHuella.Cells[75, 4].Value ?? 0},
                     {"HEConstruccion", sheetHuella.Cells[81, 4].Value ?? 0}
                 };
+
+                var reportCreator = new ReportCreator(path, dataObj, result);
+                reportCreator.CreateReport();
 
                 string resultJson = JsonConvert.SerializeObject(result);
                 File.WriteAllText(Path.Combine(path, "result.txt"), resultJson);
@@ -130,6 +138,8 @@ namespace HereveaForm
             sheet.Cells[6, 12].Value = project;
             Console.WriteLine("Proyecto: " + project);
 
+            sheet.Cells[8, 11].Value = dataObj.Superficie;
+            
             sheet.Cells[14, 7].Value = dataObj.Pilotes;
             sheet.Cells[14, 8].Value = dataObj.PilotesAct;
             sheet.Cells[16, 7].Value = dataObj.Arquetas;
@@ -299,6 +309,5 @@ namespace HereveaForm
                 xlApp.Quit();
             }
         }
-
     }
 }

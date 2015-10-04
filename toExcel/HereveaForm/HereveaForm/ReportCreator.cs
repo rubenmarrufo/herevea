@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +11,7 @@ namespace HereveaForm
     {
         private readonly string _path;
         private readonly dynamic _data;
+        private readonly Dictionary<string, object> _result;
 
         public ReportCreator(string path, dynamic data)
         {
@@ -17,9 +19,16 @@ namespace HereveaForm
             _data = data;
         }
 
+        public ReportCreator(string path, dynamic dataObj, Dictionary<string, object> result)
+        {
+            _path = path;
+            _data = dataObj;
+            _result = result;
+        }
+
         public void CreateReport()
         {
-            var dataSets = GetTestDataSets();
+            var dataSets = GetDataSets();
 
             GenerateReport(dataSets);
         }
@@ -114,7 +123,83 @@ namespace HereveaForm
                     AscensoresAct = _data.AscensoresAct
                 }
             };
-            return new Dictionary<string, IEnumerable> {{"DataSet4", actuaciones}};
+            var reportDto = new List<HuellaReportDTO>
+            {
+                new HuellaReportDTO
+                {
+                    Direccion = _data.Direccion,
+                    RefCatastral = _data.RefCatastral,
+                    HuellaConstruccionSuperficie = SafeToDecimal(_result["HEConstruccion"]),
+                    HuellaConstruccion = SafeToDecimal(_result["HEConstruccion"]) * SafeToDecimal(_data.Superficie),
+                    HuellaDemolicionSuperficie = SafeToDecimal(_result["HEDemolicion"]),
+                    HuellaDemolicion = SafeToDecimal(_result["HEDemolicion"]) * SafeToDecimal(_data.Superficie),
+                    HuellaTotalSuperficie = SafeToDecimal(_result["Total"]),
+                    HuellaTotal = SafeToDecimal(_result["Total"]) * SafeToDecimal(_data.Superficie),
+                    MaqEn = SafeToDecimal(_result["MaqEn"]),
+                    EleEn = SafeToDecimal(_result["EleEn"]),
+                    AgBo =  SafeToDecimal(_result["AgBo"] ),
+                    AliEn = SafeToDecimal(_result["AliEn"]),
+                    AliPa = SafeToDecimal(_result["AliPa"]),
+                    AliMa = SafeToDecimal(_result["AliMa"]),
+                    AliCu = SafeToDecimal(_result["AliCu"]),
+                    MovEn = SafeToDecimal(_result["MovEn"]),
+                    RsuEn = SafeToDecimal(_result["RsuEn"]),
+                    MatEn = SafeToDecimal(_result["MatEn"]),
+                    RcdEn = SafeToDecimal(_result["RcdEn"]),
+                    OcuSu = SafeToDecimal(_result["OcuSu"]),
+
+                    HEEnSuperficie = SafeToDecimal(_result["Energia"]),
+                    HEBoSuperficie = SafeToDecimal(_result["Bosques"]),
+                    HEPaSuperficie = SafeToDecimal(_result["Pastos"]),
+                    HECuSuperficie = SafeToDecimal(_result["Cultivos"]),
+                    HEMaSuperficie = SafeToDecimal(_result["Mar"]),
+                    HESuSuperficie = SafeToDecimal(_result["SuperficieConsumida"]),
+
+                    HEEn = SafeToDecimal(_result["Energia"]) * SafeToDecimal(_data.Superficie),
+                    HEBo = SafeToDecimal(_result["Bosques"])* SafeToDecimal(_data.Superficie),
+                    HEPa = SafeToDecimal(_result["Pastos"])* SafeToDecimal(_data.Superficie),
+                    HECu = SafeToDecimal(_result["Cultivos"])* SafeToDecimal(_data.Superficie),
+                    HEMa = SafeToDecimal(_result["Mar"])* SafeToDecimal(_data.Superficie),
+                    HESu = SafeToDecimal(_result["SuperficieConsumida"])* SafeToDecimal(_data.Superficie),
+
+                    NumeroPlantas = SafeToInt(_data.PlantasSobre),
+                    AlturaEdificio = SafeToDecimal(_data.Altura),
+                    Superficie = SafeToDecimal(_data.Superficie),
+                }
+            };
+
+            var energiaTotal = SafeToDecimal(_result["Maquinaria"]) + SafeToDecimal(_result["Electricidad"]) +
+                               SafeToDecimal(_result["Agua"]) +
+                               SafeToDecimal(_result["Alimentos"]) + SafeToDecimal(_result["Movilidad"]) +
+                               SafeToDecimal(_result["Residuos RSU"]) + SafeToDecimal(_result["Materiales"]) +
+                               SafeToDecimal(_result["Residuos RCD"]);
+            var energias = new List<Energias>
+            {
+                new Energias {Categoria = "Maquinaria", Impacto = SafeToDecimal(_result["Maquinaria"])/energiaTotal},
+                new Energias {Categoria = "Electricidad", Impacto = SafeToDecimal(_result["Electricidad"])/energiaTotal},
+                new Energias {Categoria = "Agua", Impacto = SafeToDecimal(_result["Agua"])/energiaTotal},
+                new Energias {Categoria = "Alimentos", Impacto = SafeToDecimal(_result["Alimentos"])/energiaTotal},
+                new Energias {Categoria = "Movilidad", Impacto = SafeToDecimal(_result["Movilidad"])/energiaTotal},
+                new Energias {Categoria = "Residuos RSU", Impacto = SafeToDecimal(_result["Residuos RSU"])/energiaTotal},
+                new Energias {Categoria = "Materiales", Impacto = SafeToDecimal(_result["Materiales"])/energiaTotal},
+                new Energias {Categoria = "Residuos RCD", Impacto = SafeToDecimal(_result["Residuos RCD"])/energiaTotal}
+            };
+            var heParcial = new List<HEParcial>
+            {
+                new HEParcial {Categoria = "Energía", Valor = SafeToDecimal(_result["Energia"])},
+                new HEParcial {Categoria = "Bosques", Valor = SafeToDecimal(_result["Bosques"])},
+                new HEParcial {Categoria = "Pastos", Valor = SafeToDecimal(_result["Pastos"])},
+                new HEParcial {Categoria = "Mar", Valor = SafeToDecimal(_result["Mar"])},
+                new HEParcial {Categoria = "Cultivos", Valor = SafeToDecimal(_result["Cultivos"])},
+                new HEParcial {Categoria = "Superficie Consumida", Valor = SafeToDecimal(_result["SuperficieConsumida"])},
+            };
+            return new Dictionary<string, IEnumerable>
+            {
+                {"DataSet1", reportDto},
+                {"DataSet2", energias},
+                {"DataSet3", heParcial},
+                {"DataSet4", actuaciones}
+            };
         }
 
         private static Dictionary<string, IEnumerable> GetTestDataSets()
@@ -237,6 +322,30 @@ namespace HereveaForm
             }
 
             lr.Dispose();
+        }
+
+        public static decimal SafeToDecimal(object o)
+        {
+            try
+            {
+                return Convert.ToDecimal(o);
+            }
+            catch (Exception)
+            {
+                return 0M;
+            }
+        }
+
+        private int SafeToInt(object o)
+        {
+            try
+            {
+                return Convert.ToInt32(o);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
     }
 }

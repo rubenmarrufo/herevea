@@ -42,6 +42,9 @@ class Ui_ProyectoFormDialog(QtGui.QDialog):
     self.ui.tbxNInmuebles.setValue(parcelaService.numeroInmuebles())
     
   def getValues(self):
-    return {'PlantasBajo': self.ui.tbxPlantasBajoRasante.text(), \
+    return {'Direccion':self.ui.tbxDireccion.text(), \
+            'RefCatastral':self.ui.tbxRefCatastral.text(), \
+            'Superficie':self.ui.tbxSuperficie.value(), \
+            'PlantasBajo': self.ui.tbxPlantasBajoRasante.text(), \
             'PlantasSobre': self.ui.tbxPlantasSobreRasante.text(), \
             'PlantaBajaViviendas': 'si' if self.ui.radViviendas.isChecked() else 'no' }

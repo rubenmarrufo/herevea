@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,9 @@ namespace Herevea.Reports
 {
     public class HuellaReportDTO
     {
+        public string Direccion { get; set; }
+        public string RefCatastral { get; set; }
+
         public decimal Superficie { get; set; }
         public int NumeroPlantas { get; set; }
         public decimal AlturaEdificio { get; set; }
@@ -21,12 +25,19 @@ namespace Herevea.Reports
         public decimal HuellaConstruccionSuperficie { get; set; }
         public decimal HuellaConstruccion { get; set; }
 
-        public decimal HEEn { get { return MaqEn ?? 0 + EleEn ?? 0 + AgEn ?? 0 + AliEn ?? 0 + MovEn ?? 0 + RsuEn ?? 0 + MatEn ?? 0 + RcdEn ?? 0 + OcuEn ?? 0; } set{ } }
-        public decimal HEBo { get { return MaqBo ?? 0 + EleBo ?? 0 + AgBo ?? 0 + AliBo ?? 0 + MovBo ?? 0 + RsuBo ?? 0 + MatBo ?? 0 + RcdBo ?? 0 + OcuBo ?? 0; } }
-        public decimal HEPa { get { return MaqEn ?? 0 + EleEn ?? 0 + AgEn ?? 0 + AliEn ?? 0 + MovEn ?? 0 + RsuEn ?? 0 + MatEn ?? 0 + RcdEn ?? 0 + OcuEn ?? 0; } }
-        public decimal HEMa { get { return MaqMa ?? 0 + EleMa ?? 0 + AgMa ?? 0 + AliMa ?? 0 + MovMa ?? 0 + RsuMa ?? 0 + MatMa ?? 0 + RcdMa ?? 0 + OcuMa ?? 0; } }
-        public decimal HECu { get { return MaqCu ?? 0 + EleCu ?? 0 + AgCu ?? 0 + AliCu ?? 0 + MovCu ?? 0 + RsuCu ?? 0 + MatCu ?? 0 + RcdCu ?? 0 + OcuCu ?? 0; } }
-        public decimal HESu { get { return MaqSu ?? 0 + EleSu ?? 0 + AgSu ?? 0 + AliSu ?? 0 + MovSu ?? 0 + RsuSu ?? 0 + MatSu ?? 0 + RcdSu ?? 0 + OcuSu ?? 0; } }
+        public decimal HEEn { get; set; }
+        public decimal HEBo { get; set; }
+        public decimal HEPa { get; set; }
+        public decimal HEMa { get; set; }
+        public decimal HECu { get; set; }
+        public decimal HESu { get; set; }
+
+        public decimal HEEnSuperficie { get; set; }
+        public decimal HEBoSuperficie { get; set; }
+        public decimal HEPaSuperficie { get; set; }
+        public decimal HEMaSuperficie { get; set; }
+        public decimal HECuSuperficie { get; set; }
+        public decimal HESuSuperficie { get; set; }
 
         public decimal? MaqEn { get; set; }
         public decimal? MaqBo { get; set; }
@@ -106,6 +117,9 @@ namespace Herevea.Reports
 
     public class Actuaciones
     {
+        public string Direccion { get; set; }
+        public string RefCatastral { get; set; }
+
         public string Pilotes { get; set; }
         public string PilotesAct { get; set; }
         public string Arquetas { get; set; }
