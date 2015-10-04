@@ -113,7 +113,9 @@ class ParcelaService(QThread):
         if len(self.inmueblesList) == 0:
             return ''
         for inmueble in self.inmueblesList:
-            if inmueble.uso in usos:
+            if not hasattr(inmueble, 'uso') and not hasattr(inmueble, 'superficie'):
+                return ''
+            elif inmueble.uso in usos:
                 usos[inmueble.uso]+=float(inmueble.superficie)
             else:
                 usos[inmueble.uso]=float(inmueble.superficie)

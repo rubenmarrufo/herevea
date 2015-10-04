@@ -26,6 +26,8 @@ namespace HereveaForm
         private Image image;
         private int angle = 0;
         private string path;
+        private readonly ReportCreator _reportCreator;
+
         public Form1()
         {
             InitializeComponent();
@@ -38,8 +40,8 @@ namespace HereveaForm
             worker.ProgressChanged += worker_ProgressChanged;
             worker.RunWorkerAsync();
             Interop();
-
         }
+
 
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -50,21 +52,6 @@ namespace HereveaForm
         {
             try
             {
-                var dataSource = new List<HuellaReportDTO>
-                {
-                    new HuellaReportDTO()
-                    {
-                        MaqEn = 333,
-                        Superficie = 22.34M,
-                        NumeroPlantas = 3,
-                        AlturaEdificio = 33,
-                    }
-                };
-                
-                GenerateReport(dataSource);
-
-                return;
-
                 var file = new FileInfo(Path.Combine(path, "Book1.xls"));
                 xlApp = new Microsoft.Office.Interop.Excel.Application { Visible = false };
                 wb = xlApp.Workbooks.Open(file.FullName);
@@ -73,7 +60,10 @@ namespace HereveaForm
 
                 var data = File.ReadAllText(Path.Combine(path, "data.txt"));
                 dynamic dataObj = JsonConvert.DeserializeObject(data);
+                var reportCreator = new ReportCreator(path, dataObj);
+                reportCreator.CreateReport();
 
+                return;
 
                 var s = (Worksheet) wb.Sheets["Sheet1"];
                 var val = s.Cells[1,1].Value;
@@ -94,7 +84,7 @@ namespace HereveaForm
                 
                 wb.Save();
                 worker.ReportProgress(75);
-                var result = new Dictionary<string, object>()
+                var result = new Dictionary<string, decimal>()
                 {
                     {"Total", sheetHuella.Cells[56, 3].Value ?? 0},
                     {"Energia", sheetHuella.Cells[54, 3].Value ?? 0},
@@ -133,49 +123,6 @@ namespace HereveaForm
                 //worker.ReportProgress(100);
                 Application.Exit();    
             }
-        }
-
-        private void GenerateReport(IEnumerable<HuellaReportDTO> huellaReport)
-        {
-            var lr = new LocalReport
-            {
-                ReportPath = Path.Combine(path, "Report1.rdlc"),
-                EnableExternalImages = true
-            };
-            
-            lr.DataSources.Add(new ReportDataSource("DataSet1", huellaReport));
-
-            string mimeType, encoding, extension;
-
-            Warning[] warnings;
-            string[] streams;
-            var renderedBytes = lr.Render
-                (
-                    "PDF",
-                    @"<DeviceInfo><OutputFormat>PDF</OutputFormat><HumanReadablePDF>False</HumanReadablePDF></DeviceInfo>",
-                    out mimeType,
-                    out encoding,
-                    out extension,
-                    out streams,
-                    out warnings
-                );
-
-            var saveAs = string.Format("{0}.pdf", Path.Combine(path, "result"));
-
-            var idx = 0;
-            while (File.Exists(saveAs))
-            {
-                idx++;
-                saveAs = string.Format("{0}.{1}.pdf", Path.Combine(path, "myfilename"), idx);
-            }
-
-            using (var stream = new FileStream(saveAs, FileMode.Create, FileAccess.Write))
-            {
-                stream.Write(renderedBytes, 0, renderedBytes.Length);
-                stream.Close();
-            }
-
-            lr.Dispose();
         }
 
         private static void InsertData(Worksheet sheet, dynamic project, dynamic dataObj)

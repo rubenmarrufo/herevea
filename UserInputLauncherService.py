@@ -37,8 +37,10 @@ class UserInputLauncherService():
         if not result:
             self.iface.messageBar().pushMessage("Error", "No se obtuvo ningun resultado del catastro en el municipio seleccionado para esas coordenadas", level=QgsMessageBar.CRITICAL, duration=3)    
         else:            
-            print self.parcelaService.uso() 
-            if self.parcelaService.uso() != 'Residencial':
+            print self.parcelaService.uso()
+            if self.parcelaService.uso() == '':
+                self.iface.messageBar().pushMessage("Error", "No se obtuvo ningun resultado del catastro en el municipio seleccionado para esas coordenadas", level=QgsMessageBar.CRITICAL, duration=3)
+            elif self.parcelaService.uso() != 'Residencial':
                 self.iface.messageBar().pushMessage("Error", "HEREVEA solo analiza edificios de uso residencial", level=QgsMessageBar.CRITICAL, duration=3)                
             else:
                 self.ui_Usuario=Ui_UsuarioFormDialog(self.parcelaService)
@@ -61,6 +63,7 @@ class UserInputLauncherService():
             self.showUsuarioForm()
             
     def showActuacionForm(self):
+        self.ui_Actuacion.setDatosCatastro(self.ui_Proyecto.getValues())
         self.ui_Actuacion.setDatosUsuario(self.ui_Usuario.getValues())        
         self.ui_Actuacion.show()
         result = self.ui_Actuacion.exec_()

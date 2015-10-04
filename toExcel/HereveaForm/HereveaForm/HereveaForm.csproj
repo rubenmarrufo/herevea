@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportCreator.cs" />
     <Compile Include="Reports\HuellaReport.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -84,6 +85,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Herevea.Reports.Actuaciones.datasource" />
+    <None Include="Properties\DataSources\Herevea.Reports.Energias.datasource" />
+    <None Include="Properties\DataSources\Herevea.Reports.HEParcial.datasource" />
     <None Include="Properties\DataSources\Herevea.Reports.HuellaReport.datasource" />
     <None Include="Properties\DataSources\Herevea.Reports.HuellaReportDTO.datasource" />
     <None Include="Properties\Settings.settings">

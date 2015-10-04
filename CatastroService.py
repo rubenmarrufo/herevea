@@ -18,7 +18,7 @@ class CatastroService:
     def getCoordsInfo(self, x, y):
         my_http_proxy = {'http':'http://127.0.0.1:8888'}
         params = { "Coordenada_X": x, "Coordenada_Y": y, "SRS": self.defaultSRS }   
-        headers={'SOAPAction': self.baseSoapAction + '/OVCCoordenadas/Consulta_RCCOOR'}        
+        headers={ 'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'SOAPAction': self.baseSoapAction + '/OVCCoordenadas/Consulta_RCCOOR'}        
         url = self.baseUrl + self.consulta_RCOOR_Url
         
         response = requests.post(url, data=params, headers=headers)  
@@ -28,7 +28,7 @@ class CatastroService:
     def getParcelaCoords(self, numCatastro, provincia, municipio):
         my_http_proxy = {'http':'http://127.0.0.1:8888'}
         params = { "Provincia": provincia, "Municipio": municipio, "RC": numCatastro, "SRS": self.defaultSRS  }   
-        headers={'SOAPAction': self.baseSoapAction + '/OVCCoordenadas/Consulta_CPMRC'}        
+        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36','SOAPAction': self.baseSoapAction + '/OVCCoordenadas/Consulta_CPMRC'}        
         url = self.baseUrl + self.consulta_CPMRC_Url
         
         response = requests.post(url, data=params, headers=headers)  
@@ -38,7 +38,7 @@ class CatastroService:
     def getParcelaInfo(self, numCatastro, provincia, municipio):
         my_http_proxy = {'http':'http://127.0.0.1:8888'}        
         params = { "Provincia": provincia, "Municipio": municipio, "RC": numCatastro }        
-        headers={'SOAPAction': self.baseSoapAction + '/OVCCallejero/Consulta_DNPRC'}        
+        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36','SOAPAction': self.baseSoapAction + '/OVCCallejero/Consulta_DNPRC'}        
         url = self.baseUrl + self.consulta_DNPRC_Url
         
         response = requests.post(url, data=params, headers=headers)  
@@ -47,7 +47,7 @@ class CatastroService:
     
     def getProvincias(self):
         my_http_proxy = {'http':'http://127.0.0.1:8888'}           
-        headers={'SOAPAction': self.baseSoapAction + '/OVCCallejero/ConsultaProvincia'}        
+        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36','SOAPAction': self.baseSoapAction + '/OVCCallejero/ConsultaProvincia'}        
         url = self.baseUrl + self.consulta_Provincia_Url
         
         response = requests.post(url, headers=headers)  
@@ -57,7 +57,7 @@ class CatastroService:
     def getMunicipios(self, provincia):
         my_http_proxy = {'http':'http://127.0.0.1:8888'} 
         params = { "Provincia": provincia, "Municipio":'' }          
-        headers={'SOAPAction': self.baseSoapAction + '/OVCCallejero/ConsultaMunicipio'}        
+        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36','SOAPAction': self.baseSoapAction + '/OVCCallejero/ConsultaMunicipio'}        
         url = self.baseUrl + self.consulta_Municipio_Url
         
         response = requests.post(url, data=params, headers=headers)  

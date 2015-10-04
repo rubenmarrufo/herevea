@@ -3148,7 +3148,7 @@
         <x>30</x>
         <y>30</y>
         <width>861</width>
-        <height>151</height>
+        <height>191</height>
        </rect>
       </property>
       <property name="title">
@@ -3240,6 +3240,44 @@
         </property>
        </item>
       </widget>
+      <widget class="QLabel" name="label_77">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>138</y>
+         <width>231</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Rejas</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbRejas">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>138</y>
+         <width>631</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>No hay actuaciones</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sustitución y reposición</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Desmontado y reutilización</string>
+        </property>
+       </item>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_31">
       <property name="geometry">
@@ -3247,7 +3285,7 @@
         <x>910</x>
         <y>30</y>
         <width>191</width>
-        <height>151</height>
+        <height>191</height>
        </rect>
       </property>
       <property name="title">
@@ -3314,6 +3352,36 @@
         <rect>
          <x>30</x>
          <y>90</y>
+         <width>81</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 a 30</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>31 a 60</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>61 a 100</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="cmbRejasAct">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>138</y>
          <width>81</width>
          <height>25</height>
         </rect>
@@ -3508,97 +3576,82 @@
        <rect>
         <x>830</x>
         <y>30</y>
-        <width>211</width>
+        <width>281</width>
         <height>221</height>
        </rect>
       </property>
       <property name="title">
        <string>Grado de actuación</string>
       </property>
-      <widget class="QComboBox" name="cmbAscensoresAct">
+      <widget class="QSpinBox" name="spinRampaAct">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>177</y>
-         <width>121</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbEscaleraAct">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>39</y>
-         <width>121</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>100</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="cmbRampaAct">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
+         <x>130</x>
          <y>84</y>
          <width>121</width>
          <height>25</height>
         </rect>
        </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>100</string>
-        </property>
-       </item>
       </widget>
-      <widget class="QComboBox" name="cmbPorteroAct">
+      <widget class="QLabel" name="label_17">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>32</x>
+         <y>87</y>
+         <width>91</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Superficie</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_51">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>134</y>
+         <width>41</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Nº</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinPorteroAct">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
          <y>130</y>
          <width>121</width>
          <height>25</height>
         </rect>
        </property>
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>100</string>
-        </property>
-       </item>
       </widget>
-      <zorder>cmbRampaAct</zorder>
-      <zorder>cmbPorteroAct</zorder>
-      <zorder>cmbEscaleraAct</zorder>
-      <zorder>cmbAscensoresAct</zorder>
+      <widget class="QSpinBox" name="spinAscensorAct">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>177</y>
+         <width>121</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_76">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>181</y>
+         <width>41</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Nº</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>

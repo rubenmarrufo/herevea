@@ -59,6 +59,6 @@ class HereveaMapTool(QgsMapToolEmitPoint):
                 self.launcher = UserInputLauncherService(self.iface,self.parcelaService,self.fin)
                 self.launcher.launch() 
                 
-    def fin(self, result):        
+    def fin(self, result):       
         self.launcher.fin(result) 
                       

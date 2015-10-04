@@ -35,6 +35,8 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
     self.ui.pushButton.clicked.connect(self.backButton) 
     self.ui.cmbCubHorCom.currentIndexChanged.connect(self.cmbCubHorComChanged)
     self.ui.cmbCubIncCompleta.currentIndexChanged.connect(self.cmbCubIncComChanged)
+    self.ui.cmbCarpLigera.currentIndexChanged.connect(self.cmbCarpLigeraChanged)
+    self.ui.cmbCarpMadera.currentIndexChanged.connect(self.cmbCarpMaderaChanged)
 
   def calcular(self):
     if self.existActuaciones():
@@ -52,20 +54,46 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
       if(index != 0):
           self.ui.cmbCubHorFaldon.setCurrentIndex(0)          
           self.ui.cmbCubHorEncParamVer.setCurrentIndex(0)          
-          self.ui.cmbCubHorEncCazoletas.setCurrentIndex(0)                  
+          self.ui.cmbCubHorEncCazoletas.setCurrentIndex(0)
+          self.ui.cmbCubHorFaldonAct.setCurrentIndex(0)          
+          self.ui.cmbCubHorEncParamVerAct.setCurrentIndex(0)          
+          self.ui.cmbCubHorEncCazoletasAct.setCurrentIndex(0)                  
       self.ui.cmbCubHorFaldon.setEnabled(False if index != 0 else True)
       self.ui.cmbCubHorEncParamVer.setEnabled(False if index != 0 else True)
       self.ui.cmbCubHorEncCazoletas.setEnabled(False if index != 0 else True)
+      self.ui.cmbCubHorFaldonAct.setEnabled(False if index != 0 else True)
+      self.ui.cmbCubHorEncParamVerAct.setEnabled(False if index != 0 else True)
+      self.ui.cmbCubHorEncCazoletasAct.setEnabled(False if index != 0 else True)
 
   def cmbCubIncComChanged(self, index):
       if(index != 0):
           self.ui.cmbCubIncFaldon.setCurrentIndex(0)          
           self.ui.cmbCubIncEncParamVer.setCurrentIndex(0)          
-          self.ui.cmbCubIncRemates.setCurrentIndex(0)                  
+          self.ui.cmbCubIncRemates.setCurrentIndex(0)
+          self.ui.cmbCubIncFaldonAct.setCurrentIndex(0)          
+          self.ui.cmbCubIncEncParamVerAct.setCurrentIndex(0)          
+          self.ui.cmbCubIncRematesAct.setCurrentIndex(0)                  
       self.ui.cmbCubIncFaldon.setEnabled(False if index != 0 else True)
       self.ui.cmbCubIncEncParamVer.setEnabled(False if index != 0 else True)
       self.ui.cmbCubIncRemates.setEnabled(False if index != 0 else True)
-          
+      self.ui.cmbCubIncFaldonAct.setEnabled(False if index != 0 else True)
+      self.ui.cmbCubIncEncParamVerAct.setEnabled(False if index != 0 else True)
+      self.ui.cmbCubIncRematesAct.setEnabled(False if index != 0 else True)
+      
+  def cmbCarpLigeraChanged(self, index):
+      if index != 0:
+          self.ui.cmbCarpMadera.setCurrentIndex(0)          
+          self.ui.cmbCarpMaderaAct.setCurrentIndex(0)                  
+      self.ui.cmbCarpMadera.setEnabled(False if index != 0 else True)
+      self.ui.cmbCarpMaderaAct.setEnabled(False if index != 0 else True)
+
+  def cmbCarpMaderaChanged(self, index):
+      if index != 0:
+          self.ui.cmbCarpLigera.setCurrentIndex(0)          
+          self.ui.cmbCarpLigeraAct.setCurrentIndex(0)                  
+      self.ui.cmbCarpLigera.setEnabled(False if index != 0 else True)
+      self.ui.cmbCarpLigeraAct.setEnabled(False if index != 0 else True)
+                
   def setDatosUsuario(self, datosUsuario):
     if datosUsuario['Cubierta']=='Horizontal':
         self.ui.groupCubInc.setEnabled(False)
@@ -80,7 +108,10 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
         self.ui.cmbCubHorCom.setCurrentIndex(0)
         self.ui.cmbCubHorFaldon.setCurrentIndex(0)          
         self.ui.cmbCubHorEncParamVer.setCurrentIndex(0)          
-        self.ui.cmbCubHorEncCazoletas.setCurrentIndex(0) 
+        self.ui.cmbCubHorEncCazoletas.setCurrentIndex(0)
+        
+  def setDatosCatastro(self, datosCatastro):
+    self.plantas = datosCatastro['PlantasSobre']
     
   def existActuaciones(self):
     return self.ui.cmbPilotes.currentText() != 'No hay actuaciones' or \
@@ -119,6 +150,7 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
       self.ui.cmbTermos.currentText() != 'No hay actuaciones' or \
       self.ui.cmbCarpLigera.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbCarpMadera.currentText()!= 'No hay actuaciones' or \
+      self.ui.cmbRejas.currentText()!= 'No hay actuaciones' or \
       self.ui.cmbAscensores.currentText() != 'No hay actuaciones' or \
       self.ui.cmbEscalera.currentText() != 'No hay actuaciones' or \
       self.ui.cmbPortero.currentText() != 'No hay actuaciones' or \
@@ -161,8 +193,9 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
             'Termos': self.ui.cmbTermos.currentText(), 'TermosAct': self.ui.cmbTermosAct.currentText(), \
             'CarpLigera': self.ui.cmbCarpLigera.currentText(), 'CarpLigeraAct': self.ui.cmbCarpLigeraAct.currentText(), \
             'CarpMadera': self.ui.cmbCarpMadera.currentText(), 'CarpMaderaAct': self.ui.cmbCarpMaderaAct.currentText(), \
-            'Ascensores': self.ui.cmbAscensores.currentText(), 'AscensoresAct': self.ui.cmbAscensoresAct.currentText(), \
-            'Portero': self.ui.cmbPortero.currentText(), 'PorteroAct': self.ui.cmbPorteroAct.currentText(),\
-            'Escalera': self.ui.cmbEscalera.currentText(), 'EscaleraAct': self.ui.cmbEscaleraAct.currentText(),\
-            'Rampa': self.ui.cmbRampa.currentText(), 'RampaAct': self.ui.cmbRampaAct.currentText()            
+            'Rejas': self.ui.cmbRejas.currentText(), 'RejasAct': self.ui.cmbRejasAct.currentText(), \
+            'Ascensores': self.ui.cmbAscensores.currentText(), 'AscensoresAct': self.ui.spinAscensorAct.value(), \
+            'Portero': self.ui.cmbPortero.currentText(), 'PorteroAct': self.ui.spinPorteroAct.value(),\
+            'Escalera': self.ui.cmbEscalera.currentText(), 'EscaleraAct': self.plantas,\
+            'Rampa': self.ui.cmbRampa.currentText(), 'RampaAct': self.ui.spinRampaAct.value()            
             }       
