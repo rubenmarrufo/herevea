@@ -22,6 +22,9 @@ import locale
 import pyqtgraph as pg
 import numpy as np
 import math
+import subprocess
+import json
+import os
 
 class Ui_ResultFormDialog(QtGui.QDialog):
   def __init__(self, parcelaService, huellaResult): 
@@ -30,7 +33,8 @@ class Ui_ResultFormDialog(QtGui.QDialog):
     
     pg.setConfigOption('background', QtGui.QColor(0, 0, 0, 0))
     pg.setConfigOption('foreground', 'k')
-     
+    
+    self.huellaResult = huellaResult
     # Set up the user interface from Designer. 
     self.ui = Ui_ResultForm()
     self.ui.setupUi(self)
@@ -38,6 +42,7 @@ class Ui_ResultFormDialog(QtGui.QDialog):
     self.ui.tbxDireccion.setText(parcelaService.getDireccion())
     self.ui.tbxRefCatastral.setText(parcelaService.getNumCatastro())
     self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).setText('Generar Informe')
+    self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).connect(self.openReport)
 
     self.setStyles()    
     self.addEnergiaPieChart(huellaResult, parcelaService)
@@ -64,6 +69,11 @@ class Ui_ResultFormDialog(QtGui.QDialog):
     self.ui.tabPEMComp.setItem(0, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Rehabilitacion"],2)))
     self.ui.tabPEMComp.setItem(0, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Demolicion"] + huellaResult["Construccion"],2)))
 
+  def openReport(self):    
+    cmd = [self.huellaResult["ReportPath"]]
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=False)
+    process.wait()
+    
   def addEnergiaPieChart(self, huellaResult, parcelaService):    
     #maquinaria = 1
     #electricidad = 5
