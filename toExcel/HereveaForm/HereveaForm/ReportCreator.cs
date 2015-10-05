@@ -10,6 +10,7 @@ namespace HereveaForm
     public class ReportCreator
     {
         private readonly string _path;
+        private readonly string _reportPath;
         private readonly dynamic _data;
         private readonly Dictionary<string, object> _result;
 
@@ -19,18 +20,19 @@ namespace HereveaForm
             _data = data;
         }
 
-        public ReportCreator(string path, dynamic dataObj, Dictionary<string, object> result)
+        public ReportCreator(string path, string reportPath, dynamic dataObj, Dictionary<string, object> result)
         {
             _path = path;
+            _reportPath = reportPath;
             _data = dataObj;
             _result = result;
         }
 
-        public void CreateReport()
+        public string CreateReport()
         {
             var dataSets = GetDataSets();
 
-            GenerateReport(dataSets);
+            return GenerateReport(dataSets);
         }
 
         private Dictionary<string, IEnumerable> GetDataSets()
@@ -127,6 +129,8 @@ namespace HereveaForm
             {
                 new HuellaReportDTO
                 {
+                    Provincia = _data.Provincia,
+                    Municipio = _data.Municipio,
                     Direccion = _data.Direccion,
                     RefCatastral = _data.RefCatastral,
                     HuellaConstruccionSuperficie = SafeToDecimal(_result["HEConstruccion"]),
@@ -193,12 +197,33 @@ namespace HereveaForm
                 new HEParcial {Categoria = "Cultivos", Valor = SafeToDecimal(_result["Cultivos"])},
                 new HEParcial {Categoria = "Superficie Consumida", Valor = SafeToDecimal(_result["SuperficieConsumida"])},
             };
+            var pem = new List<PEM>
+            {
+                new PEM()
+                {
+                    Cimentaciones = SafeToDecimal(_result["Cimentaciones"]),
+                    Saneamiento = SafeToDecimal(_result["Saneamiento"]),  
+                    Estructuras = SafeToDecimal(_result["Estructuras"]),  
+                    Albañileria = SafeToDecimal(_result["Albañileria"]),  
+                    Cubiertas = SafeToDecimal(_result["Cubiertas"]),   
+                    Instalaciones = SafeToDecimal(_result["Instalaciones"]),
+                    Carpinteria = SafeToDecimal(_result["Carpinteria"]),
+                    Accesibilidad = SafeToDecimal(_result["Accesibilidad"]),
+
+                    Rehabilitacion = SafeToDecimal(_result["Rehabilitacion"]),
+                    DemolicionEdificio = SafeToDecimal(_result["DemolicionEdificio"]),
+                    DemolicionResiduos = SafeToDecimal(_result["DemolicionResiduos"]),
+                    Construccion = SafeToDecimal(_result["Construccion"]),
+                }
+            };
+
             return new Dictionary<string, IEnumerable>
             {
                 {"DataSet1", reportDto},
                 {"DataSet2", energias},
                 {"DataSet3", heParcial},
-                {"DataSet4", actuaciones}
+                {"DataSet4", actuaciones},
+                {"DataSet5", pem}
             };
         }
 
@@ -278,7 +303,7 @@ namespace HereveaForm
             };
         }
 
-        private void GenerateReport(Dictionary<string,IEnumerable> dataSets)
+        private string GenerateReport(Dictionary<string,IEnumerable> dataSets)
         {
             var lr = new LocalReport
             {
@@ -306,13 +331,13 @@ namespace HereveaForm
                     out warnings
                 );
 
-            var saveAs = string.Format("{0}.pdf", Path.Combine(_path, "result"));
+            var saveAs = string.Format("{0}.pdf", _reportPath);
 
             var idx = 0;
-            while (File.Exists(saveAs))
+            while (File.Exists(_reportPath))
             {
                 idx++;
-                saveAs = string.Format("{0}.{1}.pdf", Path.Combine(_path, "myfilename"), idx);
+                saveAs = string.Format("{0}.{1}.pdf", _reportPath, idx);
             }
 
             using (var stream = new FileStream(saveAs, FileMode.Create, FileAccess.Write))
@@ -322,6 +347,7 @@ namespace HereveaForm
             }
 
             lr.Dispose();
+            return saveAs;
         }
 
         public static decimal SafeToDecimal(object o)

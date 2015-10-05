@@ -25,6 +25,7 @@ class Ui_ProyectoFormDialog(QtGui.QDialog):
     # Set up the user interface from Designer. 
     self.ui = Ui_ProyectoForm()
     self.ui.setupUi(self)
+    self.parcelaService = parcelaService
     self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).setText('Siguiente >')
     
     self.ui.tbxDireccion.setText(parcelaService.getDireccion())
@@ -42,7 +43,9 @@ class Ui_ProyectoFormDialog(QtGui.QDialog):
     self.ui.tbxNInmuebles.setValue(parcelaService.numeroInmuebles())
     
   def getValues(self):
-    return {'Direccion':self.ui.tbxDireccion.text(), \
+    return {'Provincia':self.parcelaService.provincia, \
+            'Municipio':self.parcelaService.municipio, \
+            'Direccion':self.ui.tbxDireccion.text(), \
             'RefCatastral':self.ui.tbxRefCatastral.text(), \
             'Superficie':self.ui.tbxSuperficie.value(), \
             'PlantasBajo': self.ui.tbxPlantasBajoRasante.text(), \

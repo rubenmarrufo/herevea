@@ -39,7 +39,6 @@ namespace HereveaForm
             worker.WorkerReportsProgress = true;
             worker.ProgressChanged += worker_ProgressChanged;
             worker.RunWorkerAsync();
-            //Interop();
         }
 
 
@@ -76,6 +75,13 @@ namespace HereveaForm
                 
                 wb.Save();
                 worker.ReportProgress(75);
+
+                var reportFileName = string.Format("{0}_{1}_{2}", dataObj.RefCatastral, DateTime.Now.ToShortDateString().Replace("/",""), DateTime.Now.ToShortTimeString().Replace(":", ""));
+                var reportDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Herevea");
+                if (!Directory.Exists(reportDirectory))
+                    Directory.CreateDirectory(reportDirectory);
+                var reportPath = Path.Combine(reportDirectory, reportFileName);
+
                 var result = new Dictionary<string, object>()
                 {
                     {"Total", sheetHuella.Cells[56, 3].Value ?? 0M},
@@ -107,15 +113,30 @@ namespace HereveaForm
                     {"RcdEn", sheetHuella.Cells[51,3].Value},
                     {"OcuSu", sheetHuella.Cells[52,8].Value},
 
-                    {"Rehabilitacion", sheetPEM.Cells[63, 8].Value ?? 0},
+                    {"Cimentaciones", sheetPEM.Cells[67, 7].Value ?? 0},
+                    {"Saneamiento",   sheetPEM.Cells[68, 7].Value ?? 0},
+                    {"Estructuras",   sheetPEM.Cells[69, 7].Value ?? 0},
+                    {"Albañileria",   sheetPEM.Cells[70, 7].Value ?? 0},
+                    {"Cubiertas",     sheetPEM.Cells[71, 7].Value ?? 0},
+                    {"Instalaciones", sheetPEM.Cells[72, 7].Value ?? 0},
+                    {"Carpinteria",   sheetPEM.Cells[73, 7].Value ?? 0},
+                    {"Accesibilidad", sheetPEM.Cells[74, 7].Value ?? 0},
+                    
+                    {"Rehabilitacion", sheetPEM.Cells[76, 7].Value ?? 0},
+                    
+                    {"DemolicionEdificio", sheetPEM.Cells[93, 7].Value ?? 0},
+                    {"DemolicionResiduos", sheetPEM.Cells[94, 7].Value ?? 0},
+
                     {"Demolicion", sheetPEM.Cells[96, 7].Value ?? 0},
                     {"Construccion", sheetPEM.Cells[107, 7].Value ?? 0},
                     {"HEDemolicion", sheetHuella.Cells[75, 4].Value ?? 0},
-                    {"HEConstruccion", sheetHuella.Cells[81, 4].Value ?? 0}
+                    {"HEConstruccion", sheetHuella.Cells[81, 4].Value ?? 0},
                 };
 
-                var reportCreator = new ReportCreator(path, dataObj, result);
-                reportCreator.CreateReport();
+                var reportCreator = new ReportCreator(path, reportPath, dataObj, result);
+                reportPath = reportCreator.CreateReport();
+
+                result.Add("ReportPath", reportPath);
 
                 string resultJson = JsonConvert.SerializeObject(result);
                 File.WriteAllText(Path.Combine(path, "result.txt"), resultJson);

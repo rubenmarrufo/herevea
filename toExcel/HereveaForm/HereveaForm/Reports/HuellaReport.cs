@@ -9,6 +9,8 @@ namespace Herevea.Reports
 {
     public class HuellaReportDTO
     {
+        public string Provincia { get; set; }
+        public string Municipio { get; set; }
         public string Direccion { get; set; }
         public string RefCatastral { get; set; }
 
@@ -117,9 +119,6 @@ namespace Herevea.Reports
 
     public class Actuaciones
     {
-        public string Direccion { get; set; }
-        public string RefCatastral { get; set; }
-
         public string Pilotes { get; set; }
         public string PilotesAct { get; set; }
         public string Arquetas { get; set; }
@@ -204,14 +203,22 @@ namespace Herevea.Reports
         public string AscensoresAct { get; set; }
     }
 
-
-    public enum HuellaParcial
+    public class PEM
     {
-        Energia,
-        Bosques,
-        Pastos,
-        Mar,
-        Cultivos,
-        SuperficieConsumida,
+        public decimal Cimentaciones { get; set; }
+        public decimal Saneamiento { get; set; }
+        public decimal Estructuras { get; set; }
+        public decimal Albañileria { get; set; }
+        public decimal Cubiertas { get; set; }
+        public decimal Instalaciones { get; set; }
+        public decimal Carpinteria { get; set; }
+        public decimal Accesibilidad { get; set; }
+
+        public decimal Rehabilitacion { get; set; }
+
+        public decimal DemolicionEdificio { get; set; }
+        public decimal DemolicionResiduos { get; set; }
+
+        public decimal Construccion { get; set; }
     }
 }

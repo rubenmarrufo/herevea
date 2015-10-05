@@ -54,16 +54,16 @@ class CatastroService:
         responseDict = xmltodict.parse(response.content, process_namespaces=False, xml_attribs=False)
         return responseDict['consulta_provinciero']['provinciero']['prov']
 
-    def getMunicipios(self, provincia):
+    def getMunicipios(self, provincia):        
         my_http_proxy = {'http':'http://127.0.0.1:8888'} 
         params = { "Provincia": provincia, "Municipio":'' }          
         headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36','SOAPAction': self.baseSoapAction + '/OVCCallejero/ConsultaMunicipio'}        
         url = self.baseUrl + self.consulta_Municipio_Url
-        
+            
         response = requests.post(url, data=params, headers=headers)  
         responseDict = xmltodict.parse(response.content, process_namespaces=False, xml_attribs=False)
-        return responseDict['consulta_municipiero']['municipiero']['muni']
-        
+        return responseDict['consulta_municipiero']['municipiero']['muni']      
+            
     def getDireccionesInmuebles(self, listInmueblesDic):
         listInmuebles = []
         for inmueble in listInmueblesDic:

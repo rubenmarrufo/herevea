@@ -39,4 +39,5 @@ class Ui_UsuarioFormDialog(QtGui.QDialog):
   def getValues(self):
     return {'Cimentacion': self.ui.cbCimentacion.currentText(), \
             'Estructura': self.ui.cbEstructura.currentText(), \
-            'Cubierta': self.ui.cbCubierta.currentText() }
+            'Cubierta': self.ui.cbCubierta.currentText(), \
+            'Altura': self.ui.spbAlturaTotal.value() }

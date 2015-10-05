@@ -90,6 +90,7 @@
     <None Include="Properties\DataSources\Herevea.Reports.HEParcial.datasource" />
     <None Include="Properties\DataSources\Herevea.Reports.HuellaReport.datasource" />
     <None Include="Properties\DataSources\Herevea.Reports.HuellaReportDTO.datasource" />
+    <None Include="Properties\DataSources\Herevea.Reports.PEM.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

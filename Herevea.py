@@ -26,6 +26,7 @@ from qgis.gui import *
 # Initialize Qt resources from file resources.py
 import resources
 import os
+import requests
 # Import the code for the dialog
 from HereveaDialog import HereveaDialog
 from HereveaMapTool import HereveaMapTool
@@ -83,21 +84,24 @@ class Herevea:
     result = dlg.exec_() 
     # See if OK was pressed
     if result == 1:
-        self.addCatastroMap() 
-        if self.seleccionForm == None:
-            self.seleccionForm = Ui_SeleccionFormDialog(CatastroService())
-        self.seleccionForm.show()
-        result = self.seleccionForm.exec_()
-        if result == 1:
-            self.centrarMapa()
-            self.addMapToolIcon()             
-            if self.seleccionForm.parcelaService == None:                                
-                if hasattr(self, 'HereveaMapTool'):
-                    self.HereveaMapTool.provincia=self.seleccionForm.provincia()
-                    self.HereveaMapTool.municipio=self.seleccionForm.municipio()
-            else:             
-                self.launcher=UserInputLauncherService(self.iface, self.seleccionForm.parcelaService, self.fin)
-                self.launcher.launch()
+        try:
+            self.addCatastroMap() 
+            if self.seleccionForm == None:
+                self.seleccionForm = Ui_SeleccionFormDialog(CatastroService())
+            self.seleccionForm.show()
+            result = self.seleccionForm.exec_()
+            if result == 1:
+                self.centrarMapa()
+                self.addMapToolIcon()             
+                if self.seleccionForm.parcelaService == None:                                
+                    if hasattr(self, 'HereveaMapTool'):
+                        self.HereveaMapTool.provincia=self.seleccionForm.provincia()
+                        self.HereveaMapTool.municipio=self.seleccionForm.municipio()
+                else:             
+                    self.launcher=UserInputLauncherService(self.iface, self.seleccionForm.parcelaService, self.fin)
+                    self.launcher.launch()
+        except requests.ConnectionError as e:
+            self.iface.messageBar().pushMessage("Error", unicode("Herevea no pudo conectar con el catastro. Compruebe su conexión a internet y vuelva a intentarlo", "utf-8"), level=QgsMessageBar.CRITICAL, duration=3)
 
   def setMapTool(self):
     self.HereveaMapTool = HereveaMapTool(self.iface,self.seleccionForm.provincia(),self.seleccionForm.municipio())                
