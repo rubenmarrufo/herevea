@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Herevea.Reports
 {
@@ -213,6 +212,7 @@ namespace Herevea.Reports
         public decimal Instalaciones { get; set; }
         public decimal Carpinteria { get; set; }
         public decimal Accesibilidad { get; set; }
+        public decimal Residuos { get; set; }
 
         public decimal Rehabilitacion { get; set; }
 

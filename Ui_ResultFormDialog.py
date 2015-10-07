@@ -1,3 +1,4 @@
+# encoding=utf-8
 """
 /***************************************************************************
 Name			 	 : Herevea plugin
@@ -42,7 +43,7 @@ class Ui_ResultFormDialog(QtGui.QDialog):
     self.ui.tbxDireccion.setText(parcelaService.getDireccion())
     self.ui.tbxRefCatastral.setText(parcelaService.getNumCatastro())
     self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).setText('Generar Informe')
-    self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).connect(self.openReport)
+    self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).clicked.connect(self.openReport)
 
     self.setStyles()    
     self.addEnergiaPieChart(huellaResult, parcelaService)
@@ -70,8 +71,11 @@ class Ui_ResultFormDialog(QtGui.QDialog):
     self.ui.tabPEMComp.setItem(0, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Demolicion"] + huellaResult["Construccion"],2)))
 
   def openReport(self):    
-    cmd = [self.huellaResult["ReportPath"]]
-    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=False)
+    dir = os.path.dirname(__file__)
+    application = os.path.join(dir,'Informes/',self.huellaResult["ReportPath"])
+    cmd = [application]
+    print cmd
+    process = subprocess.Popen(cmd, shell=True)
     process.wait()
     
   def addEnergiaPieChart(self, huellaResult, parcelaService):    

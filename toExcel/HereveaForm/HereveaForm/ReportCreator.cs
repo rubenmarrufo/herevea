@@ -209,6 +209,7 @@ namespace HereveaForm
                     Instalaciones = SafeToDecimal(_result["Instalaciones"]),
                     Carpinteria = SafeToDecimal(_result["Carpinteria"]),
                     Accesibilidad = SafeToDecimal(_result["Accesibilidad"]),
+                    Residuos = SafeToDecimal(_result["Residuos"]),
 
                     Rehabilitacion = SafeToDecimal(_result["Rehabilitacion"]),
                     DemolicionEdificio = SafeToDecimal(_result["DemolicionEdificio"]),
@@ -347,7 +348,7 @@ namespace HereveaForm
             }
 
             lr.Dispose();
-            return saveAs;
+            return Path.GetFileName(saveAs);
         }
 
         public static decimal SafeToDecimal(object o)

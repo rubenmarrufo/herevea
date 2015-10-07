@@ -15589,7 +15589,16 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Informe de comparativa de Huella Ecológica</Value>
+                <Value>Informe de comparativa de Huella Ecológica y PEM</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Rehabilitación frente a Demolición y Nueva Construcción</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -15597,10 +15606,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox59</rd:DefaultName>
-        <Top>0.49248cm</Top>
-        <Left>0.44806cm</Left>
-        <Height>0.6cm</Height>
-        <Width>7.79769cm</Width>
+        <Top>0.30198cm</Top>
+        <Left>0.32106cm</Left>
+        <Height>0.96577cm</Height>
+        <Width>12.86005cm</Width>
         <ZIndex>17</ZIndex>
         <Style>
           <Border>
@@ -16257,6 +16266,82 @@
                 </TablixCell>
               </TablixCells>
             </TablixRow>
+            <TablixRow>
+              <Height>0.5cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox71">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>CAPÍTULO 17. GESTIÓN DE RESIDUOS</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox71</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>#bf7a8a</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Residuos">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Residuos.Value</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <Format>#,0.00'€';(#,0.00'€');'-'</Format>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Residuos</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>#bf7a8a</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                      </Style>
+                    </Textbox>
+                    <rd:Selected>true</rd:Selected>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
@@ -16278,6 +16363,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixMember>
           </TablixMembers>
@@ -16285,7 +16371,7 @@
         <DataSetName>DataSet5</DataSetName>
         <Top>34.03178cm</Top>
         <Left>0.5715cm</Left>
-        <Height>4cm</Height>
+        <Height>4.5cm</Height>
         <Width>13.82198cm</Width>
         <ZIndex>19</ZIndex>
         <Style>
@@ -16313,7 +16399,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>38.54578cm</Top>
+        <Top>38.86328cm</Top>
         <Left>0.57857cm</Left>
         <Height>0.6cm</Height>
         <Width>16.11485cm</Width>
@@ -16510,7 +16596,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet5</DataSetName>
-        <Top>39.37167cm</Top>
+        <Top>39.68917cm</Top>
         <Left>0.57857cm</Left>
         <Height>1cm</Height>
         <Width>13.82198cm</Width>
@@ -16627,7 +16713,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet5</DataSetName>
-        <Top>41.74675cm</Top>
+        <Top>42.06425cm</Top>
         <Left>0.57857cm</Left>
         <Height>0.5cm</Height>
         <Width>13.82198cm</Width>
@@ -16657,7 +16743,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>40.92086cm</Top>
+        <Top>41.23836cm</Top>
         <Left>0.57857cm</Left>
         <Height>0.6cm</Height>
         <Width>16.11485cm</Width>
@@ -16691,7 +16777,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
-        <Top>42.77206cm</Top>
+        <Top>43.08956cm</Top>
         <Left>0.5715cm</Left>
         <Height>0.6cm</Height>
         <Width>16.09578cm</Width>
@@ -16888,7 +16974,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet5</DataSetName>
-        <Top>43.54845cm</Top>
+        <Top>43.86595cm</Top>
         <Left>0.57857cm</Left>
         <Height>1cm</Height>
         <Width>13.82198cm</Width>
@@ -19057,6 +19143,10 @@
         </Field>
         <Field Name="Rehabilitacion">
           <DataField>Rehabilitacion</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Residuos">
+          <DataField>Residuos</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Saneamiento">

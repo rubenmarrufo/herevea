@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Herevea.Reports;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Reporting.WinForms;
-using Newtonsoft.Json;
 using Application = System.Windows.Forms.Application;
+using Newtonsoft.Json;
 
 namespace HereveaForm
 {
@@ -51,11 +51,13 @@ namespace HereveaForm
         {
             try
             {
+                Trace.TraceInformation("Calculando huella...");
+                File.Delete(Path.Combine(path, "result.txt"));
                 var data = File.ReadAllText(Path.Combine(path, "data.txt"));
                 dynamic dataObj = JsonConvert.DeserializeObject(data);
 
-                var file = new FileInfo(Path.Combine(path, "Huella.xlsx"));
-                xlApp = new Microsoft.Office.Interop.Excel.Application { Visible = false };
+                var file = new FileInfo(Path.Combine(path, "Huella.xls"));
+                xlApp = new Microsoft.Office.Interop.Excel.Application { Visible = false, DisplayAlerts = false };
                 wb = xlApp.Workbooks.Open(file.FullName);
                 worker.ReportProgress(25);
                 Console.WriteLine("Calculando huella total...");
@@ -73,65 +75,23 @@ namespace HereveaForm
                 sheetPEM.Calculate();
                 sheetHuella.Calculate();
                 
-                wb.Save();
                 worker.ReportProgress(75);
-
-                var reportFileName = string.Format("{0}_{1}_{2}", dataObj.RefCatastral, DateTime.Now.ToShortDateString().Replace("/",""), DateTime.Now.ToShortTimeString().Replace(":", ""));
-                var reportDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Herevea");
+                try
+                {
+                    wb.Save();
+                }
+                catch (Exception ex)
+                {
+                    Trace.TraceError("Error intentando guardar excel: " + ex);
+                }
+                
+                var reportFileName = string.Format("{0}_{1}", dataObj.RefCatastral, DateTime.Now.Ticks%1000000);
+                var reportDirectory = Path.Combine(Path.GetDirectoryName(path), "Informes");
                 if (!Directory.Exists(reportDirectory))
                     Directory.CreateDirectory(reportDirectory);
                 var reportPath = Path.Combine(reportDirectory, reportFileName);
 
-                var result = new Dictionary<string, object>()
-                {
-                    {"Total", sheetHuella.Cells[56, 3].Value ?? 0M},
-                    {"Energia", sheetHuella.Cells[54, 3].Value ?? 0M},
-                    {"Bosques", sheetHuella.Cells[54, 4].Value ?? 0M},
-                    {"Pastos", sheetHuella.Cells[54, 5].Value ?? 0M},
-                    {"Mar", sheetHuella.Cells[54, 6].Value ?? 0M},
-                    {"Cultivos", sheetHuella.Cells[54, 7].Value ?? 0M},
-                    {"SuperficieConsumida", sheetHuella.Cells[54, 8].Value ?? 0M},
-
-                    {"Maquinaria", sheetHuella.Cells[44,3].Value ?? 0},
-                    {"Electricidad", sheetHuella.Cells[45,3].Value ?? 0},
-                    {"Agua", sheetHuella.Cells[46,3].Value ?? 0},
-                    {"Alimentos", sheetHuella.Cells[47,3].Value ?? 0},
-                    {"Movilidad", sheetHuella.Cells[48,3].Value ?? 0},
-                    {"Residuos RSU", sheetHuella.Cells[49,3].Value ?? 0},
-                    {"Materiales", sheetHuella.Cells[50,3].Value ?? 0},
-                    {"Residuos RCD", sheetHuella.Cells[51,3].Value ?? 0},
-                    {"MaqEn", sheetHuella.Cells[44,3].Value},
-                    {"EleEn", sheetHuella.Cells[45,3].Value},
-                    {"AgBo", sheetHuella.Cells[46,4].Value},
-                    {"AliEn", sheetHuella.Cells[47,3].Value},
-                    {"AliPa", sheetHuella.Cells[47,5].Value},
-                    {"AliMa", sheetHuella.Cells[47,6].Value},
-                    {"AliCu", sheetHuella.Cells[47,7].Value},
-                    {"MovEn", sheetHuella.Cells[48,3].Value},
-                    {"RsuEn", sheetHuella.Cells[49,3].Value},
-                    {"MatEn", sheetHuella.Cells[50,3].Value},
-                    {"RcdEn", sheetHuella.Cells[51,3].Value},
-                    {"OcuSu", sheetHuella.Cells[52,8].Value},
-
-                    {"Cimentaciones", sheetPEM.Cells[67, 7].Value ?? 0},
-                    {"Saneamiento",   sheetPEM.Cells[68, 7].Value ?? 0},
-                    {"Estructuras",   sheetPEM.Cells[69, 7].Value ?? 0},
-                    {"Albañileria",   sheetPEM.Cells[70, 7].Value ?? 0},
-                    {"Cubiertas",     sheetPEM.Cells[71, 7].Value ?? 0},
-                    {"Instalaciones", sheetPEM.Cells[72, 7].Value ?? 0},
-                    {"Carpinteria",   sheetPEM.Cells[73, 7].Value ?? 0},
-                    {"Accesibilidad", sheetPEM.Cells[74, 7].Value ?? 0},
-                    
-                    {"Rehabilitacion", sheetPEM.Cells[76, 7].Value ?? 0},
-                    
-                    {"DemolicionEdificio", sheetPEM.Cells[93, 7].Value ?? 0},
-                    {"DemolicionResiduos", sheetPEM.Cells[94, 7].Value ?? 0},
-
-                    {"Demolicion", sheetPEM.Cells[96, 7].Value ?? 0},
-                    {"Construccion", sheetPEM.Cells[107, 7].Value ?? 0},
-                    {"HEDemolicion", sheetHuella.Cells[75, 4].Value ?? 0},
-                    {"HEConstruccion", sheetHuella.Cells[81, 4].Value ?? 0},
-                };
+                var result = GetResults(sheetHuella, sheetPEM);
 
                 var reportCreator = new ReportCreator(path, reportPath, dataObj, result);
                 reportPath = reportCreator.CreateReport();
@@ -145,11 +105,11 @@ namespace HereveaForm
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error:" + ex);
+                Trace.TraceError("Error:" + ex);
             }
             finally
             {
-                //worker.ReportProgress(100);
+                worker.ReportProgress(100);
                 Application.Exit();    
             }
         }
@@ -159,7 +119,7 @@ namespace HereveaForm
             sheet.Cells[6, 12].Value = project;
             Console.WriteLine("Proyecto: " + project);
 
-            sheet.Cells[8, 11].Value = dataObj.Superficie;
+            sheet.Cells[8, 12].Value = dataObj.Superficie;
             
             sheet.Cells[14, 7].Value = dataObj.Pilotes;
             sheet.Cells[14, 8].Value = dataObj.PilotesAct;
@@ -189,62 +149,119 @@ namespace HereveaForm
             sheet.Cells[36, 8].Value = dataObj.IntGrietasAct;
             sheet.Cells[37, 7].Value = dataObj.HumSuelo;
             sheet.Cells[37, 8].Value = dataObj.HumSueloAct;
-            sheet.Cells[41, 7].Value = dataObj.CubHorCom;
-            sheet.Cells[41, 8].Value = dataObj.CubHorComAct;
-            sheet.Cells[42, 7].Value = dataObj.CubHorFaldon;
-            sheet.Cells[42, 8].Value = dataObj.CubHorFaldonAct;
-            sheet.Cells[43, 7].Value = dataObj.CubHorEncParamVer;
-            sheet.Cells[43, 8].Value = dataObj.CubHorEncParamVerAct;
-            sheet.Cells[44, 7].Value = dataObj.CubHorEncCazoletas;
-            sheet.Cells[44, 8].Value = dataObj.CubHorEncCazoletasAct;
-            sheet.Cells[46, 7].Value = dataObj.CubIncCompleta;
-            sheet.Cells[46, 8].Value = dataObj.CubIncCompletaAct;
-            sheet.Cells[47, 7].Value = dataObj.CubIncFaldon;
-            sheet.Cells[47, 8].Value = dataObj.CubIncFaldonAct;
-            sheet.Cells[48, 7].Value = dataObj.CubIncRemates;
-            sheet.Cells[48, 8].Value = dataObj.CubIncRematesAct;
-            sheet.Cells[49, 7].Value = dataObj.CubIncEncParamVer;
-            sheet.Cells[49, 8].Value = dataObj.CubIncEncParamVerAct;
-            sheet.Cells[51, 7].Value = dataObj.Climatizacion;
-            sheet.Cells[51, 8].Value = dataObj.ClimatizacionAct;
-            sheet.Cells[52, 7].Value = dataObj.Radiadores;
-            sheet.Cells[52, 8].Value = dataObj.RadiadoresAct;
-            sheet.Cells[53, 7].Value = dataObj.Circuitos;
-            sheet.Cells[53, 8].Value = dataObj.CircuitosAct;
-            sheet.Cells[54, 7].Value = dataObj.LineasYDerivaciones;
-            sheet.Cells[54, 8].Value = dataObj.LineasYDerivacionesAct;
-            sheet.Cells[55, 7].Value = dataObj.PuntosLuz;
-            sheet.Cells[55, 8].Value = dataObj.PuntosLuzAct;
-            sheet.Cells[56, 7].Value = dataObj.TomaCorriente;
-            sheet.Cells[56, 8].Value = dataObj.TomaCorrienteAct;
-            sheet.Cells[57, 7].Value = dataObj.ConductorPuestaTierra;
-            sheet.Cells[57, 8].Value = dataObj.ConductorPuestaTierraAct;
-            sheet.Cells[58, 7].Value = dataObj.Canalizaciones;
-            sheet.Cells[58, 8].Value = dataObj.CanalizacionesAct;
-            sheet.Cells[59, 7].Value = dataObj.Desagues;
-            sheet.Cells[59, 8].Value = dataObj.DesaguesAct;
-            sheet.Cells[60, 7].Value = dataObj.CanalizacionesAguaFria;
-            sheet.Cells[60, 8].Value = dataObj.CanalizacionesAguaFriaAct;
-            sheet.Cells[61, 7].Value = dataObj.Sanitarios;
-            sheet.Cells[61, 8].Value = dataObj.SanitariosAct;
-            sheet.Cells[62, 7].Value = dataObj.Termos;
-            sheet.Cells[62, 8].Value = dataObj.TermosAct;
-            sheet.Cells[63, 7].Value = dataObj.Sanitarios;
-            sheet.Cells[63, 8].Value = dataObj.SanitariosAct;
-            sheet.Cells[64, 7].Value = dataObj.CarpLigera;
-            sheet.Cells[64, 8].Value = dataObj.CarpLigeraAct;
-            sheet.Cells[65, 7].Value = dataObj.CarpMadera;
-            sheet.Cells[65, 8].Value = dataObj.CarpMaderaAct;
+            sheet.Cells[40, 7].Value = dataObj.CubHorCom;
+            sheet.Cells[40, 8].Value = dataObj.CubHorComAct;
+            sheet.Cells[41, 7].Value = dataObj.CubHorFaldon;
+            sheet.Cells[41, 8].Value = dataObj.CubHorFaldonAct;
+            sheet.Cells[42, 7].Value = dataObj.CubHorEncParamVer;
+            sheet.Cells[42, 8].Value = dataObj.CubHorEncParamVerAct;
+            sheet.Cells[43, 7].Value = dataObj.CubHorEncCazoletas;
+            sheet.Cells[43, 8].Value = dataObj.CubHorEncCazoletasAct;
+            sheet.Cells[45, 7].Value = dataObj.CubIncCompleta;
+            sheet.Cells[45, 8].Value = dataObj.CubIncCompletaAct;
+            sheet.Cells[46, 7].Value = dataObj.CubIncFaldon;
+            sheet.Cells[46, 8].Value = dataObj.CubIncFaldonAct;
+            sheet.Cells[47, 7].Value = dataObj.CubIncRemates;
+            sheet.Cells[47, 8].Value = dataObj.CubIncRematesAct;
+            sheet.Cells[48, 7].Value = dataObj.CubIncEncParamVer;
+            sheet.Cells[48, 8].Value = dataObj.CubIncEncParamVerAct;
+
+            sheet.Cells[50, 7].Value = dataObj.Climatizacion;
+            sheet.Cells[50, 8].Value = dataObj.ClimatizacionAct;
+            sheet.Cells[51, 7].Value = dataObj.Radiadores;
+            sheet.Cells[51, 8].Value = dataObj.RadiadoresAct;
+            sheet.Cells[52, 7].Value = dataObj.Circuitos;
+            sheet.Cells[52, 8].Value = dataObj.CircuitosAct;
+            sheet.Cells[53, 7].Value = dataObj.LineasYDerivaciones;
+            sheet.Cells[53, 8].Value = dataObj.LineasYDerivacionesAct;
+            sheet.Cells[54, 7].Value = dataObj.PuntosLuz;
+            sheet.Cells[54, 8].Value = dataObj.PuntosLuzAct;
+            sheet.Cells[55, 7].Value = dataObj.TomaCorriente;
+            sheet.Cells[55, 8].Value = dataObj.TomaCorrienteAct;
+            sheet.Cells[56, 7].Value = dataObj.ConductorPuestaTierra;
+            sheet.Cells[56, 8].Value = dataObj.ConductorPuestaTierraAct;
+            sheet.Cells[57, 7].Value = dataObj.Canalizaciones;
+            sheet.Cells[57, 8].Value = dataObj.CanalizacionesAct;
+            sheet.Cells[58, 7].Value = dataObj.Desagues;
+            sheet.Cells[58, 8].Value = dataObj.DesaguesAct;
+            sheet.Cells[59, 7].Value = dataObj.CanalizacionesAguaFria;
+            sheet.Cells[59, 8].Value = dataObj.CanalizacionesAguaFriaAct;
+            sheet.Cells[60, 7].Value = dataObj.Sanitarios;
+            sheet.Cells[60, 8].Value = dataObj.SanitariosAct;
+            sheet.Cells[61, 7].Value = dataObj.Termos;
+            sheet.Cells[61, 8].Value = dataObj.TermosAct;
+            
+            sheet.Cells[63, 7].Value = dataObj.CarpLigera;
+            sheet.Cells[63, 8].Value = dataObj.CarpLigeraAct;
+            sheet.Cells[64, 7].Value = dataObj.CarpMadera;
+            sheet.Cells[64, 8].Value = dataObj.CarpMaderaAct;
             sheet.Cells[66, 7].Value = dataObj.Rejas;
             sheet.Cells[66, 8].Value = dataObj.RejasAct;
-            sheet.Cells[71, 7].Value = dataObj.Escalera;
-            sheet.Cells[71, 5].Value = dataObj.EscaleraAct;
-            sheet.Cells[72, 7].Value = dataObj.Rampa;
-            sheet.Cells[72, 5].Value = dataObj.RampaAct;
-            sheet.Cells[73, 7].Value = dataObj.Portero;
-            sheet.Cells[73, 5].Value = dataObj.PorteroAct;
-            sheet.Cells[74, 7].Value = dataObj.Ascensores;
+            
+            sheet.Cells[69, 7].Value = dataObj.Escalera;
+            sheet.Cells[69, 5].Value = dataObj.EscaleraAct;
+            sheet.Cells[70, 7].Value = dataObj.Rampa;
+            sheet.Cells[70, 5].Value = dataObj.RampaAct;
+            sheet.Cells[71, 7].Value = dataObj.Portero;
+            sheet.Cells[71, 5].Value = dataObj.PorteroAct;
+            sheet.Cells[72, 7].Value = dataObj.Ascensores;
             sheet.Cells[16, 11].Value = dataObj.AscensoresAct;
+        }
+
+        private static Dictionary<string, object> GetResults(Worksheet sheetHuella, Worksheet sheetPEM)
+        {
+            return new Dictionary<string, object>()
+            {
+                {"Total", sheetHuella.Cells[56, 3].Value ?? 0M},
+                {"Energia", sheetHuella.Cells[54, 3].Value ?? 0M},
+                {"Bosques", sheetHuella.Cells[54, 4].Value ?? 0M},
+                {"Pastos", sheetHuella.Cells[54, 5].Value ?? 0M},
+                {"Mar", sheetHuella.Cells[54, 6].Value ?? 0M},
+                {"Cultivos", sheetHuella.Cells[54, 7].Value ?? 0M},
+                {"SuperficieConsumida", sheetHuella.Cells[54, 8].Value ?? 0M},
+
+                {"Maquinaria", sheetHuella.Cells[44,3].Value ?? 0},
+                {"Electricidad", sheetHuella.Cells[45,3].Value ?? 0},
+                {"Agua", sheetHuella.Cells[46,3].Value ?? 0},
+                {"Alimentos", sheetHuella.Cells[47,3].Value ?? 0},
+                {"Movilidad", sheetHuella.Cells[48,3].Value ?? 0},
+                {"Residuos RSU", sheetHuella.Cells[49,3].Value ?? 0},
+                {"Materiales", sheetHuella.Cells[50,3].Value ?? 0},
+                {"Residuos RCD", sheetHuella.Cells[51,3].Value ?? 0},
+
+                {"MaqEn", sheetHuella.Cells[44,3].Value},
+                {"EleEn", sheetHuella.Cells[45,3].Value},
+                {"AgBo", sheetHuella.Cells[46,4].Value},
+                {"AliEn", sheetHuella.Cells[47,3].Value},
+                {"AliPa", sheetHuella.Cells[47,5].Value},
+                {"AliMa", sheetHuella.Cells[47,6].Value},
+                {"AliCu", sheetHuella.Cells[47,7].Value},
+                {"MovEn", sheetHuella.Cells[48,3].Value},
+                {"RsuEn", sheetHuella.Cells[49,3].Value},
+                {"MatEn", sheetHuella.Cells[50,3].Value},
+                {"RcdEn", sheetHuella.Cells[51,3].Value},
+                {"OcuSu", sheetHuella.Cells[52,8].Value},
+
+                {"Cimentaciones", sheetPEM.Cells[67, 7].Value ?? 0},
+                {"Saneamiento",   sheetPEM.Cells[68, 7].Value ?? 0},
+                {"Estructuras",   sheetPEM.Cells[69, 7].Value ?? 0},
+                {"Albañileria",   sheetPEM.Cells[70, 7].Value ?? 0},
+                {"Cubiertas",     sheetPEM.Cells[71, 7].Value ?? 0},
+                {"Instalaciones", sheetPEM.Cells[72, 7].Value ?? 0},
+                {"Carpinteria",   sheetPEM.Cells[73, 7].Value ?? 0},
+                {"Accesibilidad", sheetPEM.Cells[74, 7].Value ?? 0},
+                {"Residuos",      sheetPEM.Cells[75, 7].Value ?? 0},
+                    
+                {"Rehabilitacion", sheetPEM.Cells[77, 7].Value ?? 0},
+                    
+                {"DemolicionEdificio", sheetPEM.Cells[94, 7].Value ?? 0},
+                {"DemolicionResiduos", sheetPEM.Cells[95, 7].Value ?? 0},
+
+                {"Demolicion", sheetPEM.Cells[97, 7].Value ?? 0},
+                {"Construccion", sheetPEM.Cells[108, 7].Value ?? 0},
+                {"HEDemolicion", sheetHuella.Cells[75, 4].Value ?? 0},
+                {"HEConstruccion", sheetHuella.Cells[81, 4].Value ?? 0},
+            };
         }
 
         private string CalculateProject(dynamic dataObj, Worksheet sheet)

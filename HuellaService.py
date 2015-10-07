@@ -1,3 +1,4 @@
+# encoding=utf8
 import subprocess
 import json
 import os

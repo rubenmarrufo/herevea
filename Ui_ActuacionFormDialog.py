@@ -186,7 +186,7 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
             'PuntosLuz': self.ui.cmbPuntosLuz.currentText(), 'PuntosLuzAct': self.ui.cmbPuntosLuzAct.currentText(), \
             'TomaCorriente': self.ui.cmbTomaCorriente.currentText(), 'TomaCorrienteAct': self.ui.cmbTomaCorrienteAct.currentText(), \
             'ConductorPuestaTierra': self.ui.cmbConductorPuestaTierra.currentText(), 'ConductorPuestaTierraAct': self.ui.cmbConductorPuestaTierraAct.currentText(), \
-            'CanalizacionesCal': self.ui.cmbCanalizacionesCal.currentText(), 'CanalizacionesCalAct': self.ui.cmbCanalizacionesCalAct.currentText(), \
+            'Canalizaciones': self.ui.cmbCanalizacionesCal.currentText(), 'CanalizacionesAct': self.ui.cmbCanalizacionesCalAct.currentText(), \
             'Desagues': self.ui.cmbDesagues.currentText(), 'DesaguesAct': self.ui.cmbDesaguesAct.currentText(), \
             'CanalizacionesAguaFria': self.ui.cmbCanalizacionesAguaFria.currentText(), 'CanalizacionesAguaFriaAct': self.ui.cmbCanalizacionesAguaFriaAct.currentText(), \
             'Sanitarios': self.ui.cmbSanitarios.currentText(), 'SanitariosAct': self.ui.cmbSanitariosAct.currentText(), \

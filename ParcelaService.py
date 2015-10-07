@@ -42,15 +42,14 @@ class ParcelaService(QThread):
             else:
                 self.procDone.emit(True)                                 
         except Exception as ex:  
-            print 'Exception' + ex
             self.procDone.emit(False)              
             
     def getDireccion(self):  
         inmueble=self.inmueblesList[0]
         if hasattr(inmueble, 'localizacionUrbana') and hasattr(inmueble.localizacionUrbana, 'direccion'):
-            return str(inmueble.localizacionUrbana.direccion)
+            return unicode(inmueble.localizacionUrbana.direccion)
         else:            
-            return str(inmueble.direccion)
+            return unicode(inmueble.direccion)
     
     def getNumCatastro(self):        
         return self.numCatastro
@@ -119,6 +118,5 @@ class ParcelaService(QThread):
                 usos[inmueble.uso]+=float(inmueble.superficie)
             else:
                 usos[inmueble.uso]=float(inmueble.superficie)
-        print usos
         return max(usos.iteritems(), key=operator.itemgetter(1))[0]
     
