@@ -133,7 +133,7 @@
                               <Value>=Fields!NumeroPlantas.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <Format>f2</Format>
+                                <Format>f0</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -153,6 +153,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -16337,7 +16338,6 @@
                         <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

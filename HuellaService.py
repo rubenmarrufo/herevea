@@ -14,7 +14,7 @@ class HuellaService:
 			json.dump(proyecto, outfile)
 		application = os.path.join(dir,'toexcel/Herevea.exe')
 		cmd = [application]
-		process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=False)
+		process = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
 		process.wait()
 		with open(os.path.join(dir,'toexcel/result.txt')) as data_file:
 			data = json.load(data_file)

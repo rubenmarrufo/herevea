@@ -47,3 +47,12 @@ Temporary Items
 packages
 pyqtgraph
 /requests
+/toExcel/*.dll
+/toExcel/SqlServerTypes/x64/*.dll
+/toExcel/Microsoft.Office.Interop.Excel.xml
+/toExcel/SqlServerTypes/x86/*.dll
+/Ui_ActuacionForm.ui.autosave
+/toExcel/HereveaForm/HereveaForm/SqlServerTypes/readme.htm
+/toExcel/office.xml
+/toExcel/toExcel.log
+/*.pyc

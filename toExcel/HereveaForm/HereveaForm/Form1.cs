@@ -205,7 +205,7 @@ namespace HereveaForm
             sheet.Cells[71, 7].Value = dataObj.Portero;
             sheet.Cells[71, 5].Value = dataObj.PorteroAct;
             sheet.Cells[72, 7].Value = dataObj.Ascensores;
-            sheet.Cells[16, 11].Value = dataObj.AscensoresAct;
+            sheet.Cells[16, 12].Value = dataObj.AscensoresAct;
         }
 
         private static Dictionary<string, object> GetResults(Worksheet sheetHuella, Worksheet sheetPEM)
