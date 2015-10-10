@@ -190,12 +190,12 @@ namespace HereveaForm
             };
             var heParcial = new List<HEParcial>
             {
-                new HEParcial {Categoria = "Energía", Valor = SafeToDecimal(_result["Energia"])},
-                new HEParcial {Categoria = "Bosques", Valor = SafeToDecimal(_result["Bosques"])},
-                new HEParcial {Categoria = "Pastos", Valor = SafeToDecimal(_result["Pastos"])},
-                new HEParcial {Categoria = "Mar", Valor = SafeToDecimal(_result["Mar"])},
-                new HEParcial {Categoria = "Cultivos", Valor = SafeToDecimal(_result["Cultivos"])},
-                new HEParcial {Categoria = "Superficie Consumida", Valor = SafeToDecimal(_result["SuperficieConsumida"])},
+                new HEParcial {Categoria = "Energía", Valor = SafeToDecimal(_result["Energia"]) * SafeToDecimal(_data.Superficie)},
+                new HEParcial {Categoria = "Bosques", Valor = SafeToDecimal(_result["Bosques"]) * SafeToDecimal(_data.Superficie)},
+                new HEParcial {Categoria = "Pastos", Valor = SafeToDecimal(_result["Pastos"])* SafeToDecimal(_data.Superficie)},
+                new HEParcial {Categoria = "Mar", Valor = SafeToDecimal(_result["Mar"])* SafeToDecimal(_data.Superficie)},
+                new HEParcial {Categoria = "Cultivos", Valor = SafeToDecimal(_result["Cultivos"])* SafeToDecimal(_data.Superficie)},
+                new HEParcial {Categoria = "Superficie Consumida", Valor = SafeToDecimal(_result["SuperficieConsumida"])* SafeToDecimal(_data.Superficie)},
             };
             var pem = new List<PEM>
             {

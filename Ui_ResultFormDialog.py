@@ -26,6 +26,7 @@ import math
 import subprocess
 import json
 import os
+from collections import OrderedDict
 
 class Ui_ResultFormDialog(QtGui.QDialog):
   def __init__(self, parcelaService, huellaResult): 
@@ -41,9 +42,8 @@ class Ui_ResultFormDialog(QtGui.QDialog):
     self.ui.setupUi(self)
     self.ui.tabWidget.setCurrentIndex(0)
     self.ui.tbxDireccion.setText(parcelaService.getDireccion())
-    self.ui.tbxRefCatastral.setText(parcelaService.getNumCatastro())
-    self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).setText('Generar Informe')
-    self.ui.buttonBox.button(QtGui.QDialogButtonBox.Ok).clicked.connect(self.openReport)
+    self.ui.tbxRefCatastral.setText(parcelaService.getNumCatastro())    
+    self.ui.btnReport.clicked.connect(self.openReport)
 
     self.setStyles()    
     self.addEnergiaPieChart(huellaResult, parcelaService)
@@ -76,7 +76,6 @@ class Ui_ResultFormDialog(QtGui.QDialog):
     cmd = [application]
     print cmd
     process = subprocess.Popen(cmd, shell=True)
-    process.wait()
     
   def addEnergiaPieChart(self, huellaResult, parcelaService):    
     #maquinaria = 1
@@ -99,7 +98,7 @@ class Ui_ResultFormDialog(QtGui.QDialog):
     
     total=float(maquinaria+electricidad+agua+alimentos+movilidad+residuosRSU+materiales+residuosRCD)
     
-    pie = PieChartItem({'Maquinaria':maquinaria/total, 'Electricidad':electricidad/total, 'Agua':agua/total, 'Alimentos':alimentos/total, 'Movilidad':movilidad/total, 'Residuos RSU':residuosRSU/total, 'Materiales':materiales/total, 'Residuos RCD':residuosRCD/total })
+    pie = PieChartItem(OrderedDict([('Maquinaria',maquinaria/total), ('Electricidad',electricidad/total), ('Agua',agua/total), ('Alimentos',alimentos/total), ('Movilidad',movilidad/total), ('Residuos RSU',residuosRSU/total), ('Materiales',materiales/total), ('Residuos RCD',residuosRCD/total )]))
     self.ui.pieChart.addItem(pie)
   
   def addHEParcial(self, huellaResult, parcelaService):
@@ -226,21 +225,22 @@ class PieChartItem(pg.GraphicsObject):
         self.textList = list()
         set_angle = 0
         count1 = 0 
-        colours = [QtGui.QColor(102, 153, 0, 255), \
-                   QtGui.QColor(236, 118, 124, 255), \
-                   QtGui.QColor(255, 192, 0, 255), \
-                   QtGui.QColor(71, 75, 120, 255), \
-                   QtGui.QColor(23, 193, 0, 255),\
-                   QtGui.QColor(45, 162, 191, 255),\
-                   QtGui.QColor(57, 199, 157, 255),\
-                   QtGui.QColor(235, 100, 27, 255)]    
-        for d in self.data.keys():     
+        colours = {'Maquinaria':QtGui.QColor(102, 153, 0, 255), \
+                   'Electricidad':QtGui.QColor(236, 118, 124, 255), \
+                   'Agua':QtGui.QColor(255, 192, 0, 255), \
+                   'Alimentos':QtGui.QColor(71, 75, 120, 255), \
+                   'Movilidad':QtGui.QColor(23, 193, 0, 255),\
+                   'Residuos RSU':QtGui.QColor(45, 162, 191, 255),\
+                   'Materiales':QtGui.QColor(57, 199, 157, 255),\
+                   'Residuos RCD':QtGui.QColor(235, 100, 27, 255)}    
+        for d in self.data.keys():  
+            print d   
             angle = self.data[d] * 360 * 16
             ellipse = QtGui.QGraphicsEllipseItem(0, 0, 200, 200)
             ellipse.setPos(200, 0)
             ellipse.setStartAngle(set_angle)
             ellipse.setSpanAngle(angle)
-            ellipse.setBrush(colours[count1])
+            ellipse.setBrush(colours[d])
             set_angle = set_angle + angle
             
             count1 += 1

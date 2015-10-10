@@ -93,8 +93,9 @@ class ParcelaService(QThread):
     def plantaBajoViviendas(self):
         for inmueble in self.inmueblesList:
             if hasattr(inmueble, 'localizacionUrbana') and hasattr(inmueble.localizacionUrbana, 'localizacionInterna') \
-            and hasattr(inmueble.localizacionUrbana.localizacionInterna,'planta') and inmueble.localizacionUrbana.localizacionInterna.planta.isdigit() \
-            and int(float(inmueble.localizacionUrbana.localizacionInterna.planta))==0 and hasattr(inmueble, 'uso') and inmueble.uso == 'Residencial':                
+            and hasattr(inmueble.localizacionUrbana.localizacionInterna,'planta') and \
+            (inmueble.localizacionUrbana.localizacionInterna.planta.isdigit() and int(float(inmueble.localizacionUrbana.localizacionInterna.planta))==0 and hasattr(inmueble, 'uso') and inmueble.uso == 'Residencial') or \
+            (inmueble.localizacionUrbana.localizacionInterna.planta=='OD' and hasattr(inmueble, 'uso') and inmueble.uso == 'Residencial'):                
                 return True;
             if hasattr(inmueble, 'unidadesConstructivas'):
                 for cons in inmueble.unidadesConstructivas:

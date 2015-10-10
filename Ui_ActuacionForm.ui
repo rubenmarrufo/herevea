@@ -218,9 +218,9 @@
      <widget class="QGroupBox" name="groupBox_8">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>30</y>
-        <width>801</width>
+        <x>20</x>
+        <y>20</y>
+        <width>931</width>
         <height>181</height>
        </rect>
       </property>
@@ -230,9 +230,9 @@
       <widget class="QComboBox" name="cmbBajantes">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>150</x>
          <y>120</y>
-         <width>581</width>
+         <width>761</width>
          <height>25</height>
         </rect>
        </property>
@@ -255,9 +255,9 @@
       <widget class="QComboBox" name="cmbArquetas">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>150</x>
          <y>40</y>
-         <width>581</width>
+         <width>761</width>
          <height>25</height>
         </rect>
        </property>
@@ -268,24 +268,24 @@
        </item>
        <item>
         <property name="text">
-         <string>Reparación de impermeabilización</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
          <string>Sustitución y reposición</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Arqueta nueva (% de incremento en inst. existente)</string>
+         <string>Arqueta nueva (porcentaje de incremento en inst. existente)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Reparación de impermeabilización</string>
         </property>
        </item>
       </widget>
       <widget class="QLabel" name="label_9">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>20</x>
          <y>120</y>
          <width>231</width>
          <height>19</height>
@@ -298,7 +298,7 @@
       <widget class="QLabel" name="label_8">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>20</x>
          <y>80</y>
          <width>231</width>
          <height>19</height>
@@ -311,7 +311,7 @@
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>20</x>
          <y>40</y>
          <width>131</width>
          <height>19</height>
@@ -324,9 +324,9 @@
       <widget class="QComboBox" name="cmbColectores">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>150</x>
          <y>80</y>
-         <width>581</width>
+         <width>761</width>
          <height>25</height>
         </rect>
        </property>
@@ -355,9 +355,9 @@
      <widget class="QGroupBox" name="groupBox_9">
       <property name="geometry">
        <rect>
-        <x>850</x>
-        <y>30</y>
-        <width>251</width>
+        <x>970</x>
+        <y>20</y>
+        <width>181</width>
         <height>181</height>
        </rect>
       </property>
@@ -367,7 +367,7 @@
       <widget class="QLabel" name="label_59">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>110</x>
          <y>123</y>
          <width>31</width>
          <height>19</height>
@@ -380,7 +380,7 @@
       <widget class="QComboBox" name="cmbColectoresAct">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>20</x>
          <y>79</y>
          <width>81</width>
          <height>25</height>
@@ -410,7 +410,7 @@
       <widget class="QLabel" name="label_57">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>110</x>
          <y>44</y>
          <width>31</width>
          <height>19</height>
@@ -423,7 +423,7 @@
       <widget class="QComboBox" name="cmbArquetasAct">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>20</x>
          <y>40</y>
          <width>81</width>
          <height>25</height>
@@ -453,7 +453,7 @@
       <widget class="QComboBox" name="cmbBajantesAct">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>20</x>
          <y>119</y>
          <width>81</width>
          <height>25</height>
@@ -483,7 +483,7 @@
       <widget class="QLabel" name="label_58">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>110</x>
          <y>83</y>
          <width>31</width>
          <height>19</height>
@@ -527,9 +527,9 @@
       <widget class="QComboBox" name="cmbForjados">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>130</x>
          <y>36</y>
-         <width>591</width>
+         <width>671</width>
          <height>25</height>
         </rect>
        </property>
@@ -609,9 +609,9 @@
      <widget class="QGroupBox" name="groupBox_11">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>20</y>
-        <width>1111</width>
+        <width>1141</width>
         <height>161</height>
        </rect>
       </property>
@@ -623,7 +623,7 @@
         <rect>
          <x>20</x>
          <y>30</y>
-         <width>841</width>
+         <width>911</width>
          <height>111</height>
         </rect>
        </property>
@@ -633,9 +633,9 @@
        <widget class="QComboBox" name="cmbGrietas">
         <property name="geometry">
          <rect>
-          <x>260</x>
+          <x>220</x>
           <y>70</y>
-          <width>561</width>
+          <width>671</width>
           <height>25</height>
          </rect>
         </property>
@@ -651,7 +651,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación grietas en superficie &gt;60% (sustitución y reposición)</string>
+          <string>Reparación grietas en superficie &gt;60%. Sustitución completa</string>
          </property>
         </item>
        </widget>
@@ -671,9 +671,9 @@
        <widget class="QComboBox" name="cmbFisuras">
         <property name="geometry">
          <rect>
-          <x>260</x>
+          <x>220</x>
           <y>30</y>
-          <width>561</width>
+          <width>671</width>
           <height>25</height>
          </rect>
         </property>
@@ -684,7 +684,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación de fisuras</string>
+          <string>Con malla de fibra de vidrio</string>
          </property>
         </item>
        </widget>
@@ -705,7 +705,7 @@
       <widget class="QGroupBox" name="groupBox_15">
        <property name="geometry">
         <rect>
-         <x>870</x>
+         <x>940</x>
          <y>30</y>
          <width>191</width>
          <height>111</height>
@@ -756,12 +756,7 @@
         </item>
         <item>
          <property name="text">
-          <string>1 a 30</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>31 a 60</string>
+          <string>1 a 60</string>
          </property>
         </item>
         <item>
@@ -807,9 +802,9 @@
      <widget class="QGroupBox" name="groupBox_12">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>190</y>
-        <width>1111</width>
+        <width>1141</width>
         <height>251</height>
        </rect>
       </property>
@@ -819,9 +814,9 @@
       <widget class="QGroupBox" name="groupBox_16">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>20</x>
          <y>30</y>
-         <width>831</width>
+         <width>911</width>
          <height>201</height>
         </rect>
        </property>
@@ -831,9 +826,9 @@
        <widget class="QComboBox" name="cmbLadFisuras">
         <property name="geometry">
          <rect>
-          <x>270</x>
+          <x>220</x>
           <y>30</y>
-          <width>531</width>
+          <width>671</width>
           <height>25</height>
          </rect>
         </property>
@@ -844,7 +839,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación de fisuras</string>
+          <string>Con malla de fibra de vidrio</string>
          </property>
         </item>
        </widget>
@@ -864,9 +859,9 @@
        <widget class="QComboBox" name="cmbLadGrietas">
         <property name="geometry">
          <rect>
-          <x>270</x>
+          <x>220</x>
           <y>70</y>
-          <width>531</width>
+          <width>671</width>
           <height>25</height>
          </rect>
         </property>
@@ -877,31 +872,31 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación grietas en superficie ≤60%</string>
+          <string>Superficie dañada ≤60%</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Reparación grietas (&gt;60% superf. fach.). Rehab.energ. ext. Fach. Revest. continuo, aisl. EPS</string>
+          <string>Superf. dañada &gt;60%. Mejora energética con aislam. EPS. Cara ext. fach. Aplacado</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Reparación grietas (&gt;60% superf. fach.). Rehab.energ. ext. Fach. Ventilada, aisl. EPS</string>
+          <string>Superf. dañada &gt;60%. Mejora energética con aislam. EPS. Cara ext. fach. ventilada</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Reparación grietas (&gt;60% superf. fach.). Rehab.energ. ext. Fach. Ventilada, aisl. lana oveja</string>
+          <string>Superf. dañada &gt;60%. Mejora energ. con aislam. lana de oveja. Cara ext. fach. vent.</string>
          </property>
         </item>
        </widget>
        <widget class="QComboBox" name="cmbLadHumTecho">
         <property name="geometry">
          <rect>
-          <x>270</x>
+          <x>220</x>
           <y>150</y>
-          <width>531</width>
+          <width>671</width>
           <height>25</height>
          </rect>
         </property>
@@ -912,7 +907,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación humedades filtraciones encuentro de forjado con cerramiento</string>
+          <string>Encuentro de forjado con cerramiento. Tratamiento con resinas epoxi</string>
          </property>
         </item>
        </widget>
@@ -958,9 +953,9 @@
        <widget class="QComboBox" name="cmbLadHumSuelo">
         <property name="geometry">
          <rect>
-          <x>270</x>
+          <x>220</x>
           <y>110</y>
-          <width>531</width>
+          <width>671</width>
           <height>25</height>
          </rect>
         </property>
@@ -971,7 +966,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación humedades capilaridad</string>
+          <string>Barrera anticapilaridad, sistema electroosmosis-fóresis</string>
          </property>
         </item>
        </widget>
@@ -979,7 +974,7 @@
       <widget class="QGroupBox" name="groupBox_17">
        <property name="geometry">
         <rect>
-         <x>870</x>
+         <x>940</x>
          <y>30</y>
          <width>191</width>
          <height>201</height>
@@ -1133,7 +1128,7 @@
         </item>
         <item>
          <property name="text">
-          <string>hasta 60</string>
+          <string>1 a 60</string>
          </property>
         </item>
         <item>
@@ -1167,9 +1162,9 @@
      <widget class="QGroupBox" name="groupBox_13">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>1111</width>
+        <x>10</x>
+        <y>20</y>
+        <width>1141</width>
         <height>241</height>
        </rect>
       </property>
@@ -1179,9 +1174,9 @@
       <widget class="QGroupBox" name="groupBox_18">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>20</x>
          <y>37</y>
-         <width>841</width>
+         <width>921</width>
          <height>181</height>
         </rect>
        </property>
@@ -1191,9 +1186,9 @@
        <widget class="QComboBox" name="cmbIntFisuras">
         <property name="geometry">
          <rect>
-          <x>230</x>
+          <x>190</x>
           <y>30</y>
-          <width>561</width>
+          <width>711</width>
           <height>25</height>
          </rect>
         </property>
@@ -1204,14 +1199,14 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación de fisuras</string>
+          <string>Con malla de fibra de vidrio</string>
          </property>
         </item>
        </widget>
        <widget class="QLabel" name="label_38">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>20</x>
           <y>80</y>
           <width>201</width>
           <height>19</height>
@@ -1224,7 +1219,7 @@
        <widget class="QLabel" name="label_41">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>20</x>
           <y>129</y>
           <width>231</width>
           <height>19</height>
@@ -1237,9 +1232,9 @@
        <widget class="QComboBox" name="cmbHumSuelo">
         <property name="geometry">
          <rect>
-          <x>230</x>
+          <x>190</x>
           <y>125</y>
-          <width>561</width>
+          <width>711</width>
           <height>25</height>
          </rect>
         </property>
@@ -1250,14 +1245,14 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación humedades capilaridad</string>
+          <string>Barrera anticapilaridad, sistema electroosmosis-fóresis</string>
          </property>
         </item>
        </widget>
        <widget class="QLabel" name="label_39">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>20</x>
           <y>34</y>
           <width>231</width>
           <height>19</height>
@@ -1270,9 +1265,9 @@
        <widget class="QComboBox" name="cmbIntGrietas">
         <property name="geometry">
          <rect>
-          <x>230</x>
+          <x>190</x>
           <y>78</y>
-          <width>561</width>
+          <width>711</width>
           <height>25</height>
          </rect>
         </property>
@@ -1283,12 +1278,12 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación grietas en superficie ≤60%</string>
+          <string>Superficie dañada ≤60%</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Reparación grietas en superficie &gt;60% (sustitución y reposición)</string>
+          <string>Superficie dañada &gt;60%. Sustitución completa</string>
          </property>
         </item>
        </widget>
@@ -1296,7 +1291,7 @@
       <widget class="QGroupBox" name="groupBox_19">
        <property name="geometry">
         <rect>
-         <x>890</x>
+         <x>950</x>
          <y>37</y>
          <width>181</width>
          <height>181</height>
@@ -1321,7 +1316,7 @@
         </item>
         <item>
          <property name="text">
-          <string>hasta 60</string>
+          <string>1 a 60</string>
          </property>
         </item>
         <item>
@@ -1441,9 +1436,9 @@
      <widget class="QGroupBox" name="groupCubInc">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>260</y>
-        <width>1121</width>
+        <width>1141</width>
         <height>231</height>
        </rect>
       </property>
@@ -1453,9 +1448,9 @@
       <widget class="QGroupBox" name="groupBox_22">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>30</y>
-         <width>881</width>
+         <width>931</width>
          <height>191</height>
         </rect>
        </property>
@@ -1465,9 +1460,9 @@
        <widget class="QComboBox" name="cmbCubIncCompleta">
         <property name="geometry">
          <rect>
-          <x>321</x>
+          <x>311</x>
           <y>30</y>
-          <width>541</width>
+          <width>611</width>
           <height>25</height>
          </rect>
         </property>
@@ -1492,20 +1487,20 @@
          <rect>
           <x>20</x>
           <y>69</y>
-          <width>201</width>
+          <width>301</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Faldón</string>
+         <string>Reparación de faldón de cubierta</string>
         </property>
        </widget>
        <widget class="QComboBox" name="cmbCubIncRemates">
         <property name="geometry">
          <rect>
-          <x>321</x>
-          <y>109</y>
-          <width>541</width>
+          <x>311</x>
+          <y>149</y>
+          <width>611</width>
           <height>25</height>
          </rect>
         </property>
@@ -1516,16 +1511,16 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación remates</string>
+          <string>Cumbrera, limatesa, limahoya y alero</string>
          </property>
         </item>
        </widget>
        <widget class="QComboBox" name="cmbCubIncEncParamVer">
         <property name="geometry">
          <rect>
-          <x>321</x>
-          <y>146</y>
-          <width>541</width>
+          <x>311</x>
+          <y>109</y>
+          <width>611</width>
           <height>25</height>
          </rect>
         </property>
@@ -1536,16 +1531,16 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación encuentros paramentos verticales</string>
+          <string>Con paramentos verticales</string>
          </property>
         </item>
        </widget>
        <widget class="QComboBox" name="cmbCubIncFaldon">
         <property name="geometry">
          <rect>
-          <x>321</x>
+          <x>311</x>
           <y>69</y>
-          <width>541</width>
+          <width>611</width>
           <height>25</height>
          </rect>
         </property>
@@ -1556,7 +1551,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación faldón ≤60%</string>
+          <string>Superficie dañada ≤60%</string>
          </property>
         </item>
        </widget>
@@ -1564,26 +1559,26 @@
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>146</y>
+          <y>109</y>
           <width>311</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Encuentros paramentos verticales</string>
+         <string>Reparación de encuentros I</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_48">
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>109</y>
+          <y>149</y>
           <width>221</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Remates</string>
+         <string>Reparación de remates</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_47">
@@ -1591,19 +1586,19 @@
          <rect>
           <x>20</x>
           <y>30</y>
-          <width>231</width>
+          <width>301</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Completa</string>
+         <string>Reparación de cubierta completa</string>
         </property>
        </widget>
       </widget>
       <widget class="QGroupBox" name="groupBox_23">
        <property name="geometry">
         <rect>
-         <x>930</x>
+         <x>950</x>
          <y>29</y>
          <width>181</width>
          <height>191</height>
@@ -1654,7 +1649,7 @@
         </item>
         <item>
          <property name="text">
-          <string>hasta 60</string>
+          <string>1 a 60</string>
          </property>
         </item>
        </widget>
@@ -1708,7 +1703,7 @@
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>147</y>
+          <y>110</y>
           <width>81</width>
           <height>25</height>
          </rect>
@@ -1738,7 +1733,7 @@
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>110</y>
+          <y>150</y>
           <width>81</width>
           <height>25</height>
          </rect>
@@ -1769,9 +1764,9 @@
      <widget class="QGroupBox" name="groupCubHor">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>1121</width>
+        <x>10</x>
+        <y>20</y>
+        <width>1141</width>
         <height>221</height>
        </rect>
       </property>
@@ -1781,9 +1776,9 @@
       <widget class="QGroupBox" name="groupBox_20">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>29</y>
-         <width>881</width>
+         <width>931</width>
          <height>181</height>
         </rect>
        </property>
@@ -1793,9 +1788,9 @@
        <widget class="QComboBox" name="cmbCubHorEncCazoletas">
         <property name="geometry">
          <rect>
-          <x>320</x>
+          <x>310</x>
           <y>134</y>
-          <width>541</width>
+          <width>611</width>
           <height>25</height>
          </rect>
         </property>
@@ -1806,16 +1801,16 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación encuentros cazoletas</string>
+          <string>Con cazoletas</string>
          </property>
         </item>
        </widget>
        <widget class="QComboBox" name="cmbCubHorFaldon">
         <property name="geometry">
          <rect>
-          <x>320</x>
+          <x>310</x>
           <y>63</y>
-          <width>541</width>
+          <width>611</width>
           <height>25</height>
          </rect>
         </property>
@@ -1826,7 +1821,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación faldón ≤60%</string>
+          <string>Superficie dañada ≤60%</string>
          </property>
         </item>
        </widget>
@@ -1835,12 +1830,12 @@
          <rect>
           <x>20</x>
           <y>29</y>
-          <width>231</width>
+          <width>281</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Completa</string>
+         <string>Reparación de cubierta completa</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_55">
@@ -1853,15 +1848,15 @@
          </rect>
         </property>
         <property name="text">
-         <string>Encuentros paramentos verticales</string>
+         <string>Reparación de encuentros I</string>
         </property>
        </widget>
        <widget class="QComboBox" name="cmbCubHorEncParamVer">
         <property name="geometry">
          <rect>
-          <x>320</x>
+          <x>310</x>
           <y>100</y>
-          <width>541</width>
+          <width>611</width>
           <height>25</height>
          </rect>
         </property>
@@ -1872,7 +1867,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación encuentros paramentos verticales</string>
+          <string>Con paramentos verticales</string>
          </property>
         </item>
        </widget>
@@ -1881,20 +1876,20 @@
          <rect>
           <x>20</x>
           <y>138</y>
-          <width>221</width>
+          <width>281</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Encuentros cazoletas</string>
+         <string>Reparación de encuentros II</string>
         </property>
        </widget>
        <widget class="QComboBox" name="cmbCubHorCom">
         <property name="geometry">
          <rect>
-          <x>320</x>
+          <x>310</x>
           <y>26</y>
-          <width>541</width>
+          <width>611</width>
           <height>25</height>
          </rect>
         </property>
@@ -1905,12 +1900,12 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación faldón (superf.&gt;60%). Sustitución y reposición faldón completo. Rehab. energ. aislm. plancha EPS</string>
+          <string>Superf. dañada &gt;60%. Sustitución completa. Mejora energética con aislam. pl.EPS</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Reparación faldón (superf.&gt;60%). Sustitución y reposición faldón completo. Rehab. energ. aislm. lana de oveja</string>
+          <string>Superf.dañada &gt;60%. Sustitución completa. Mejora energ. con aislam. lana de oveja</string>
          </property>
         </item>
        </widget>
@@ -1919,19 +1914,19 @@
          <rect>
           <x>20</x>
           <y>65</y>
-          <width>201</width>
+          <width>321</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Faldón</string>
+         <string>Reparación de faldón de cubierta</string>
         </property>
        </widget>
       </widget>
       <widget class="QGroupBox" name="groupBox_21">
        <property name="geometry">
         <rect>
-         <x>930</x>
+         <x>950</x>
          <y>29</y>
          <width>181</width>
          <height>181</height>
@@ -2088,12 +2083,7 @@
         </item>
         <item>
          <property name="text">
-          <string>1 a 30</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>31 a 60</string>
+          <string>1 a 60</string>
          </property>
         </item>
        </widget>
@@ -2109,9 +2099,9 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>1131</width>
+        <x>10</x>
+        <y>14</y>
+        <width>1141</width>
         <height>151</height>
        </rect>
       </property>
@@ -2121,9 +2111,9 @@
       <widget class="QGroupBox" name="groupBox_24">
        <property name="geometry">
         <rect>
-         <x>19</x>
+         <x>10</x>
          <y>30</y>
-         <width>861</width>
+         <width>931</width>
          <height>111</height>
         </rect>
        </property>
@@ -2135,7 +2125,7 @@
          <rect>
           <x>270</x>
           <y>70</y>
-          <width>561</width>
+          <width>641</width>
           <height>25</height>
          </rect>
         </property>
@@ -2153,7 +2143,7 @@
        <widget class="QLabel" name="label_119">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>13</x>
           <y>70</y>
           <width>171</width>
           <height>19</height>
@@ -2168,7 +2158,7 @@
          <rect>
           <x>270</x>
           <y>30</y>
-          <width>561</width>
+          <width>641</width>
           <height>25</height>
          </rect>
         </property>
@@ -2186,7 +2176,7 @@
        <widget class="QLabel" name="label_116">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>13</x>
           <y>30</y>
           <width>321</width>
           <height>19</height>
@@ -2200,7 +2190,7 @@
       <widget class="QGroupBox" name="groupBox_25">
        <property name="geometry">
         <rect>
-         <x>899</x>
+         <x>950</x>
          <y>30</y>
          <width>181</width>
          <height>111</height>
@@ -2280,9 +2270,9 @@
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>180</y>
-        <width>1131</width>
+        <width>1141</width>
         <height>271</height>
        </rect>
       </property>
@@ -2292,9 +2282,9 @@
       <widget class="QGroupBox" name="groupBox_26">
        <property name="geometry">
         <rect>
-         <x>19</x>
+         <x>10</x>
          <y>29</y>
-         <width>861</width>
+         <width>931</width>
          <height>231</height>
         </rect>
        </property>
@@ -2304,7 +2294,7 @@
        <widget class="QLabel" name="label_20">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>15</x>
           <y>30</y>
           <width>211</width>
           <height>19</height>
@@ -2319,7 +2309,7 @@
          <rect>
           <x>270</x>
           <y>151</y>
-          <width>561</width>
+          <width>641</width>
           <height>25</height>
          </rect>
         </property>
@@ -2339,7 +2329,7 @@
          <rect>
           <x>270</x>
           <y>30</y>
-          <width>561</width>
+          <width>641</width>
           <height>25</height>
          </rect>
         </property>
@@ -2357,7 +2347,7 @@
        <widget class="QLabel" name="label_26">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>15</x>
           <y>151</y>
           <width>221</width>
           <height>19</height>
@@ -2372,7 +2362,7 @@
          <rect>
           <x>270</x>
           <y>110</y>
-          <width>561</width>
+          <width>641</width>
           <height>25</height>
          </rect>
         </property>
@@ -2392,7 +2382,7 @@
          <rect>
           <x>270</x>
           <y>192</y>
-          <width>561</width>
+          <width>641</width>
           <height>25</height>
          </rect>
         </property>
@@ -2403,14 +2393,14 @@
         </item>
         <item>
          <property name="text">
-          <string>Sustitución y reposición</string>
+          <string>Nueva instalación</string>
          </property>
         </item>
        </widget>
        <widget class="QLabel" name="label_21">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>15</x>
           <y>70</y>
           <width>211</width>
           <height>19</height>
@@ -2425,7 +2415,7 @@
          <rect>
           <x>270</x>
           <y>70</y>
-          <width>561</width>
+          <width>641</width>
           <height>25</height>
          </rect>
         </property>
@@ -2443,7 +2433,7 @@
        <widget class="QLabel" name="label_27">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>15</x>
           <y>192</y>
           <width>271</width>
           <height>19</height>
@@ -2456,7 +2446,7 @@
        <widget class="QLabel" name="label_22">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>15</x>
           <y>110</y>
           <width>231</width>
           <height>19</height>
@@ -2470,7 +2460,7 @@
       <widget class="QGroupBox" name="groupBox_27">
        <property name="geometry">
         <rect>
-         <x>899</x>
+         <x>950</x>
          <y>29</y>
          <width>181</width>
          <height>231</height>
@@ -2534,17 +2524,7 @@
         </item>
         <item>
          <property name="text">
-          <string>1 a 30</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>31 a 60</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>61 a 100</string>
+          <string>100</string>
          </property>
         </item>
        </widget>
@@ -2708,7 +2688,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>1111</width>
+        <width>1141</width>
         <height>301</height>
        </rect>
       </property>
@@ -2718,9 +2698,9 @@
       <widget class="QGroupBox" name="groupBox_28">
        <property name="geometry">
         <rect>
-         <x>19</x>
+         <x>10</x>
          <y>30</y>
-         <width>841</width>
+         <width>931</width>
          <height>251</height>
         </rect>
        </property>
@@ -2732,7 +2712,7 @@
          <rect>
           <x>280</x>
           <y>40</y>
-          <width>541</width>
+          <width>631</width>
           <height>25</height>
          </rect>
         </property>
@@ -2743,12 +2723,12 @@
         </item>
         <item>
          <property name="text">
-          <string>Sustitución y reposición en cobre</string>
+          <string>Sustitución y reposición en polietileno</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Sustitución y reposición en polietileno</string>
+          <string>Sustitución y reposición en cobre</string>
          </property>
         </item>
        </widget>
@@ -2796,7 +2776,7 @@
          <rect>
           <x>280</x>
           <y>165</y>
-          <width>541</width>
+          <width>631</width>
           <height>25</height>
          </rect>
         </property>
@@ -2816,7 +2796,7 @@
          <rect>
           <x>280</x>
           <y>123</y>
-          <width>541</width>
+          <width>631</width>
           <height>25</height>
          </rect>
         </property>
@@ -2867,7 +2847,7 @@
          <rect>
           <x>280</x>
           <y>207</y>
-          <width>541</width>
+          <width>631</width>
           <height>25</height>
          </rect>
         </property>
@@ -2878,12 +2858,12 @@
         </item>
         <item>
          <property name="text">
-          <string>Sustitución y reposición con energa solar térmica apoyo con gas</string>
+          <string>Sustitución y reposición de ACS con energía solar térmica</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Sustitución y reposición con energía solar térmica apoyo con electricidad</string>
+          <string>Sustitución y reposición de ACS y calefacción con energía solar térmica </string>
          </property>
         </item>
        </widget>
@@ -2892,7 +2872,7 @@
          <rect>
           <x>280</x>
           <y>83</y>
-          <width>541</width>
+          <width>631</width>
           <height>25</height>
          </rect>
         </property>
@@ -2911,9 +2891,9 @@
       <widget class="QGroupBox" name="groupBox_29">
        <property name="geometry">
         <rect>
-         <x>880</x>
+         <x>950</x>
          <y>29</y>
-         <width>191</width>
+         <width>181</width>
          <height>251</height>
         </rect>
        </property>
@@ -3145,9 +3125,9 @@
      <widget class="QGroupBox" name="groupBox_30">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>30</y>
-        <width>861</width>
+        <x>10</x>
+        <y>20</y>
+        <width>941</width>
         <height>191</height>
        </rect>
       </property>
@@ -3157,7 +3137,7 @@
       <widget class="QLabel" name="label_19">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>10</x>
          <y>43</y>
          <width>231</width>
          <height>19</height>
@@ -3170,9 +3150,9 @@
       <widget class="QComboBox" name="cmbCarpLigera">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>180</x>
          <y>43</y>
-         <width>631</width>
+         <width>741</width>
          <height>25</height>
         </rect>
        </property>
@@ -3183,24 +3163,24 @@
        </item>
        <item>
         <property name="text">
-         <string>Ventana abatible+Aluminio RPT+vidrio doble acristalamiento</string>
+         <string>Ventana abat. de aluminio con RPT y doble acristalamiento</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Ventana abatible+Aluminio RPT+vidrio bajo emisivo</string>
+         <string>Ventana abat. de aluminio con RPT y vidrio bajo emisivo</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Ventana abatible+Aluminio RPT+vidrio control solar</string>
+         <string>Ventana abat. de aluminio con RPT y vidrio control solar</string>
         </property>
        </item>
       </widget>
       <widget class="QLabel" name="label_40">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>10</x>
          <y>90</y>
          <width>231</width>
          <height>19</height>
@@ -3213,9 +3193,9 @@
       <widget class="QComboBox" name="cmbCarpMadera">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>180</x>
          <y>90</y>
-         <width>631</width>
+         <width>741</width>
          <height>25</height>
         </rect>
        </property>
@@ -3226,24 +3206,24 @@
        </item>
        <item>
         <property name="text">
-         <string>Ventana abatible+Madera+vidrio doble acristalamiento</string>
+         <string>Ventana abatible y doble acristalamiento</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Ventana abatible+Madera+vidrio bajo emisivo</string>
+         <string>Ventana abatible con RPT y vidrio bajo emisivo</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Ventana abatible+Madera+vidrio control solar</string>
+         <string>Ventana abatible con RPT y vidrio control solar</string>
         </property>
        </item>
       </widget>
       <widget class="QLabel" name="label_77">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>10</x>
          <y>138</y>
          <width>231</width>
          <height>19</height>
@@ -3256,9 +3236,9 @@
       <widget class="QComboBox" name="cmbRejas">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>180</x>
          <y>138</y>
-         <width>631</width>
+         <width>741</width>
          <height>25</height>
         </rect>
        </property>
@@ -3269,12 +3249,12 @@
        </item>
        <item>
         <property name="text">
-         <string>Sustitución y reposición</string>
+         <string>Desmontado y reutilización</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Desmontado y reutilización</string>
+         <string>Sustitución y reposición</string>
         </property>
        </item>
       </widget>
@@ -3282,8 +3262,8 @@
      <widget class="QGroupBox" name="groupBox_31">
       <property name="geometry">
        <rect>
-        <x>910</x>
-        <y>30</y>
+        <x>960</x>
+        <y>20</y>
         <width>191</width>
         <height>191</height>
        </rect>
@@ -3407,6 +3387,19 @@
         </property>
        </item>
       </widget>
+      <widget class="QLabel" name="label_80">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>140</y>
+         <width>31</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>%</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_7">
@@ -3416,9 +3409,9 @@
      <widget class="QGroupBox" name="groupBox_32">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>30</y>
-        <width>761</width>
+        <x>20</x>
+        <y>20</y>
+        <width>831</width>
         <height>221</height>
        </rect>
       </property>
@@ -3428,9 +3421,9 @@
       <widget class="QComboBox" name="cmbAscensores">
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>230</x>
          <y>177</y>
-         <width>471</width>
+         <width>581</width>
          <height>25</height>
         </rect>
        </property>
@@ -3448,9 +3441,9 @@
       <widget class="QComboBox" name="cmbRampa">
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>230</x>
          <y>83</y>
-         <width>471</width>
+         <width>581</width>
          <height>25</height>
         </rect>
        </property>
@@ -3468,9 +3461,9 @@
       <widget class="QComboBox" name="cmbEscalera">
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>230</x>
          <y>38</y>
-         <width>471</width>
+         <width>581</width>
          <height>25</height>
         </rect>
        </property>
@@ -3493,7 +3486,7 @@
       <widget class="QLabel" name="label_24">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>20</x>
          <y>42</y>
          <width>181</width>
          <height>19</height>
@@ -3506,9 +3499,9 @@
       <widget class="QComboBox" name="cmbPortero">
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>230</x>
          <y>130</y>
-         <width>471</width>
+         <width>581</width>
          <height>25</height>
         </rect>
        </property>
@@ -3526,7 +3519,7 @@
       <widget class="QLabel" name="label_72">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>20</x>
          <y>134</y>
          <width>331</width>
          <height>19</height>
@@ -3539,27 +3532,27 @@
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>20</x>
          <y>179</y>
          <width>181</width>
          <height>19</height>
         </rect>
        </property>
        <property name="text">
-        <string>Ascensor</string>
+        <string>Ascensores</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_50">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>20</x>
          <y>87</y>
          <width>341</width>
          <height>19</height>
         </rect>
        </property>
        <property name="text">
-        <string>Rampa minusválidos</string>
+        <string>Rampa de minusválidos</string>
        </property>
       </widget>
       <zorder>label_50</zorder>
@@ -3571,11 +3564,11 @@
       <zorder>cmbAscensores</zorder>
       <zorder>label</zorder>
      </widget>
-     <widget class="QGroupBox" name="groupBox_33">
+     <widget class="QGroupBox" name="groupGradoAct">
       <property name="geometry">
        <rect>
-        <x>830</x>
-        <y>30</y>
+        <x>870</x>
+        <y>20</y>
         <width>281</width>
         <height>221</height>
        </rect>
@@ -3583,16 +3576,6 @@
       <property name="title">
        <string>Grado de actuación</string>
       </property>
-      <widget class="QSpinBox" name="spinRampaAct">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>84</y>
-         <width>121</width>
-         <height>25</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_17">
        <property name="geometry">
         <rect>
@@ -3652,6 +3635,39 @@
         <string>Nº</string>
        </property>
       </widget>
+      <widget class="QLabel" name="label_79">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>40</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Plantas</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinEscaleraAct">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>38</y>
+         <width>121</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="spinRampaAct">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>83</y>
+         <width>121</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -3684,6 +3700,87 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_34">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>750</y>
+     <width>1071</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Energía incorporada de materiales</string>
+   </property>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>40</y>
+      <width>1011</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>200</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>35</number>
+    </attribute>
+    <attribute name="verticalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <column>
+     <property name="text">
+      <string>Código</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Unidad</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Descripción</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>MJ/unidad medida</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>MJ/kg</string>
+     </property>
+    </column>
+   </widget>
   </widget>
  </widget>
  <resources/>

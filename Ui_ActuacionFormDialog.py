@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 /***************************************************************************
 Name			 	 : Herevea plugin
@@ -40,9 +41,15 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
 
   def calcular(self):
     if self.existActuaciones():
-        self.accept()
+        val = self.validarGradoActuacion()
+        if val == '':
+            self.accept()
+        else:
+            ui_Error=Ui_ErrorDialog(val)
+            ui_Error.show()
+            ui_Error.exec_()
     else:
-        ui_Error=Ui_ErrorDialog('No se puede evaluar la Huella Ecologica ya que no se ha seleccionado ninguna actuacion')
+        ui_Error=Ui_ErrorDialog(u'No se puede evaluar la Huella Ecológica ya que no se ha seleccionado ninguna actuación')
         ui_Error.show()
         ui_Error.exec_()
     
@@ -109,9 +116,12 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
         self.ui.cmbCubHorFaldon.setCurrentIndex(0)          
         self.ui.cmbCubHorEncParamVer.setCurrentIndex(0)          
         self.ui.cmbCubHorEncCazoletas.setCurrentIndex(0)
+    if datosUsuario['Cimentacion']!='Zapatas aisladas':
+        self.ui.cmbPilotes.setEnabled(False)
+        self.ui.cmbPilotesAct.setEnabled(False)
         
   def setDatosCatastro(self, datosCatastro):
-    self.plantas = datosCatastro['PlantasSobre']
+    self.ui.spinEscaleraAct.setValue(int(datosCatastro['PlantasSobre']))
     
   def existActuaciones(self):
     return self.ui.cmbPilotes.currentText() != 'No hay actuaciones' or \
@@ -196,6 +206,92 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
             'Rejas': self.ui.cmbRejas.currentText(), 'RejasAct': self.ui.cmbRejasAct.currentText(), \
             'Ascensores': self.ui.cmbAscensores.currentText(), 'AscensoresAct': self.ui.spinAscensorAct.value(), \
             'Portero': self.ui.cmbPortero.currentText(), 'PorteroAct': self.ui.spinPorteroAct.value(),\
-            'Escalera': self.ui.cmbEscalera.currentText(), 'EscaleraAct': self.plantas,\
+            'Escalera': self.ui.cmbEscalera.currentText(), 'EscaleraAct': self.ui.spinEscaleraAct.value(),\
             'Rampa': self.ui.cmbRampa.currentText(), 'RampaAct': self.ui.spinRampaAct.value()            
-            }       
+            } 
+
+  def validarGradoActuacion(self):
+    validacion = ''
+    if self.ui.cmbPilotes.currentText() != 'No hay actuaciones' and self.ui.cmbPilotesAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Reparación con micropilotes\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbArquetas.currentText()!= 'No hay actuaciones' and self.ui.cmbArquetas.currentText()=='0':
+      validacion = validacion + u'La actuación \'Arquetas\' no tiene grado de actuación' + '\n'    
+    elif self.ui.cmbColectores.currentText()!= 'No hay actuaciones' and self.ui.cmbColectoresAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Colectores\' no tiene grado de actuación' + '\n'        
+    elif self.ui.cmbBajantes.currentText()!= 'No hay actuaciones' and self.ui.cmbBajantesAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Bajantes\' no tiene grado de actuación' + '\n'        
+    elif self.ui.cmbForjados.currentText()!= 'No hay actuaciones' and self.ui.cmbForjadosAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Forjados\' no tiene grado de actuación' + '\n'        
+    elif self.ui.cmbFisuras.currentText()!= 'No hay actuaciones' and self.ui.cmbFisurasAct.currentText() == '0':
+      validacion = validacion + u'La actuación \'Distr. Tabiquería - Fisuras\' no tiene grado de actuación' + '\n'                
+    elif self.ui.cmbGrietas.currentText()!= 'No hay actuaciones' and self.ui.cmbGrietasAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Distr. Tabiquería - Grietas\' no tiene grado de actuación' + '\n'      
+    elif self.ui.cmbLadFisuras.currentText()!= 'No hay actuaciones' and self.ui.cmbLadFisurasAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cerramientos de Ladrillo - Fisuras\' no tiene grado de actuación' + '\n'    
+    elif self.ui.cmbLadGrietas.currentText()!= 'No hay actuaciones' and self.ui.cmbLadGrietasAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cerramientos de Ladrillo - Grietas\' no tiene grado de actuación' + '\n'        
+    elif self.ui.cmbLadHumSuelo.currentText()!= 'No hay actuaciones' and self.ui.cmbLadHumSueloAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cerramientos de Ladrillo - Humedades en suelo\' no tiene grado de actuación' + '\n'        
+    elif self.ui.cmbLadHumTecho.currentText()!= 'No hay actuaciones' and self.ui.cmbLadHumTechoAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cerramientos de Ladrillo - Humedades en techo\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbIntFisuras.currentText()!= 'No hay actuaciones' and self.ui.cmbIntFisurasAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Fábricas interiores de Ladrillo - Fisuras\' no tiene grado de actuación' + '\n'        
+    elif self.ui.cmbIntGrietas.currentText()!= 'No hay actuaciones' and self.ui.cmbIntGrietasAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Fábricas interiores de Ladrillo - Grietas\' no tiene grado de actuación' + '\n'        
+    elif self.ui.cmbHumSuelo.currentText()!= 'No hay actuaciones' and self.ui.cmbHumSueloAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Fábricas interiores de Ladrillo - Humedades suelo\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbCubHorCom.currentText()!= 'No hay actuaciones' and self.ui.cmbCubHorComAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cubiertas horizontales - Completa\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbCubHorFaldon.currentText()!= 'No hay actuaciones' and self.ui.cmbCubHorFaldonAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cubiertas horizontales - Faldón\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbCubHorEncParamVer.currentText()!= 'No hay actuaciones' and self.ui.cmbCubHorEncParamVerAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cubiertas horizontales - Encuentros paramentos verticales\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbCubHorEncCazoletas.currentText()!= 'No hay actuaciones' and self.ui.cmbCubHorEncCazoletasAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cubiertas horizontales - Encuentros cazoletas\' no tiene grado de actuación' + '\n'         
+    elif self.ui.cmbCubIncCompleta.currentText()!= 'No hay actuaciones' and self.ui.cmbCubIncCompletaAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cubiertas inclinadas - Completa\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbCubIncFaldon.currentText()!= 'No hay actuaciones' and self.ui.cmbCubIncFaldonAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cubiertas inclinadas - Faldón\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbCubIncRemates.currentText()!= 'No hay actuaciones' and self.ui.cmbCubIncRematesAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cubiertas inclinadas - Remates\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbCubIncEncParamVer.currentText()!= 'No hay actuaciones' and self.ui.cmbCubIncEncParamVerAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Cubiertas inclinadas - Encuentros paramentos verticales\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbClimatizacion.currentText()!= 'No hay actuaciones' and self.ui.cmbClimatizacionAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Climatización\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbRadiadores.currentText()!= 'No hay actuaciones' and self.ui.cmbRadiadoresAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Radiadores\' no tiene grado de actuación' + '\n' 
+    elif self.ui.cmbCircuitos.currentText()!= 'No hay actuaciones' and self.ui.cmbCircuitosAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Circuitos\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbLineasYDerivaciones.currentText()!= 'No hay actuaciones' and self.ui.cmbLineasYDerivacionesAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Líneas y derivaciones\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbPuntosLuz.currentText()!= 'No hay actuaciones' and self.ui.cmbPuntosLuzAct.currentText() == '0':
+      validacion = validacion + u'La actuación \'Puntos de luz\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbTomaCorriente.currentText()!= 'No hay actuaciones' and self.ui.cmbTomaCorrienteAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Toma de corriente\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbConductorPuestaTierra.currentText()!= 'No hay actuaciones' and self.ui.cmbConductorPuestaTierraAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Conductor de puesta a tierra\' no tiene grado de actuación' + '\n'  
+    elif self.ui.cmbCanalizacionesCal.currentText()!= 'No hay actuaciones' and self.ui.cmbCanalizacionesCalAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Canalizaciones agua caliente\' no tiene grado de actuación' + '\n' 
+    elif self.ui.cmbDesagues.currentText()!= 'No hay actuaciones' and self.ui.cmbDesaguesAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Desgües\' no tiene grado de actuación' + '\n'   
+    elif self.ui.cmbCanalizacionesAguaFria.currentText()!= 'No hay actuaciones' and self.ui.cmbCanalizacionesAguaFriaAct.currentText()=='0': 
+      validacion = validacion + u'La actuación \'Canalizaciones agua fría\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbSanitarios.currentText()!= 'No hay actuaciones' and self.ui.cmbSanitariosAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Sanitarios\' no tiene grado de actuación' + '\n'   
+    elif self.ui.cmbTermos.currentText() != 'No hay actuaciones' and self.ui.cmbTermosAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Termos/calentadores\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbCarpLigera.currentText()!= 'No hay actuaciones' and self.ui.cmbCarpLigeraAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Carpintería ligera\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbCarpMadera.currentText()!= 'No hay actuaciones' and self.ui.cmbCarpMaderaAct.currentText()=='0':
+      validacion = validacion + u'La actuación \'Carpintería ligera\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbRejas.currentText()!= 'No hay actuaciones' and self.ui.cmbRejasAct.currentText()=='0': 
+      validacion = validacion + u'La actuación \'Rejas\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbAscensores.currentText() != 'No hay actuaciones' and self.ui.spinAscensorAct.value()==0:
+      validacion = validacion + u'La actuación \'Ascensores\' no tiene grado de actuación' + '\n'     
+    elif self.ui.cmbEscalera.currentText() != 'No hay actuaciones' and self.ui.spinEscaleraAct.value()==0:
+      validacion = validacion + u'La actuación \'Escalera\' no tiene grado de actuación' + '\n'
+    elif self.ui.cmbPortero.currentText() != 'No hay actuaciones' and self.ui.spinPorteroAct.value()==0:
+      validacion = validacion + u'La actuación \'Portero electrónico\' no tiene grado de actuación' + '\n'   
+    elif self.ui.cmbRampa.currentText() != 'No hay actuaciones' and self.ui.spinAscensorAct.value()==0:
+      validacion = validacion + u'La actuación \'Rampa minusválidos\' no tiene grado de actuación' + '\n'
+    return validacion

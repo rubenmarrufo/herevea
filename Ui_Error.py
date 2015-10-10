@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Ui_Error.ui'
 #
-# Created: Wed Sep 16 00:43:02 2015
+# Created: Sat Oct 10 18:24:49 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,7 +33,7 @@ class Ui_Error(object):
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Close)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
         self.label = QtGui.QLabel(Error)
-        self.label.setGeometry(QtCore.QRect(110, 30, 491, 61))
+        self.label.setGeometry(QtCore.QRect(110, 20, 491, 91))
         font = QtGui.QFont()
         font.setPointSize(9)
         self.label.setFont(font)

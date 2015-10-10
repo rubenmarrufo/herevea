@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Ui_ResultForm.ui'
 #
-# Created: Wed Sep 30 22:17:04 2015
+# Created: Sat Oct 10 20:43:05 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -32,11 +32,6 @@ class Ui_ResultForm(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("Herevea.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         ResultForm.setWindowIcon(icon)
-        self.buttonBox = QtGui.QDialogButtonBox(ResultForm)
-        self.buttonBox.setGeometry(QtCore.QRect(730, 530, 341, 32))
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Close|QtGui.QDialogButtonBox.Ok)
-        self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
         self.tbxDireccion = QtGui.QLineEdit(ResultForm)
         self.tbxDireccion.setGeometry(QtCore.QRect(100, 20, 461, 25))
         self.tbxDireccion.setReadOnly(True)
@@ -412,6 +407,20 @@ class Ui_ResultForm(object):
         self.tabPEMComp.verticalHeader().setDefaultSectionSize(40)
         self.tabPEMComp.verticalHeader().setStretchLastSection(True)
         self.tabWidget.addTab(self.tab_5, _fromUtf8(""))
+        self.widget = QtGui.QWidget(ResultForm)
+        self.widget.setGeometry(QtCore.QRect(830, 530, 252, 36))
+        self.widget.setObjectName(_fromUtf8("widget"))
+        self.horizontalLayout = QtGui.QHBoxLayout(self.widget)
+        self.horizontalLayout.setMargin(0)
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.btnReport = QtGui.QPushButton(self.widget)
+        self.btnReport.setObjectName(_fromUtf8("btnReport"))
+        self.horizontalLayout.addWidget(self.btnReport)
+        self.buttonBox = QtGui.QDialogButtonBox(self.widget)
+        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Close)
+        self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
+        self.horizontalLayout.addWidget(self.buttonBox)
 
         self.retranslateUi(ResultForm)
         self.tabWidget.setCurrentIndex(0)
@@ -518,5 +527,6 @@ class Ui_ResultForm(object):
         item.setText(_translate("ResultForm", "0", None))
         self.tabPEMComp.setSortingEnabled(__sortingEnabled)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate("ResultForm", "Comparativa de PEM", None))
+        self.btnReport.setText(_translate("ResultForm", "Generar Informe", None))
 
 from pyqtgraph import GraphicsView, PlotWidget

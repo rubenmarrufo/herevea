@@ -25,7 +25,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Superficie consumida (m2)</Value>
+                              <Value>Superficie construida (m2)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -153,7 +153,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -251,8 +250,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>5.60776cm</Top>
-        <Left>0.46426cm</Left>
+        <Top>5.13151cm</Top>
+        <Left>0.45686cm</Left>
         <Height>1.5cm</Height>
         <Width>6.40639cm</Width>
         <Style>
@@ -280,8 +279,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>4.82459cm</Top>
-        <Left>0.46426cm</Left>
+        <Top>4.31306cm</Top>
+        <Left>0.45686cm</Left>
         <Height>0.6cm</Height>
         <Width>16.16777cm</Width>
         <ZIndex>1</ZIndex>
@@ -314,8 +313,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>7.72442cm</Top>
-        <Left>0.46426cm</Left>
+        <Top>54.7497cm</Top>
+        <Left>0.46882cm</Left>
         <Height>0.6cm</Height>
         <Width>16.16777cm</Width>
         <ZIndex>2</ZIndex>
@@ -3628,8 +3627,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>8.63106cm</Top>
-        <Left>0.51718cm</Left>
+        <Top>55.65634cm</Top>
+        <Left>0.52174cm</Left>
         <Height>9.63528cm</Height>
         <Width>15.39166cm</Width>
         <ZIndex>3</ZIndex>
@@ -3648,11 +3647,6 @@
                   <GroupExpression>=Fields!Categoria.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!Categoria.Value</Value>
-                </SortExpression>
-              </SortExpressions>
               <Label>=Fields!Categoria.Value</Label>
             </ChartMember>
           </ChartMembers>
@@ -3680,7 +3674,12 @@
                     <UseValueAsLabel>=Fields!Impacto.Value&gt;0.03</UseValueAsLabel>
                     <Visible>true</Visible>
                   </ChartDataLabel>
-                  <Style />
+                  <Style>
+                    <Border>
+                      <Color>Black</Color>
+                      <Width>0.5pt</Width>
+                    </Border>
+                  </Style>
                   <ChartMarker>
                     <Style />
                   </ChartMarker>
@@ -3868,6 +3867,7 @@
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontSize>8pt</FontSize>
             </Style>
+            <Position>RightCenter</Position>
             <ChartLegendTitle>
               <Caption />
               <Style>
@@ -3891,7 +3891,17 @@
             </Style>
           </ChartTitle>
         </ChartTitles>
-        <Palette>EarthTones</Palette>
+        <Palette>Custom</Palette>
+        <ChartCustomPaletteColors>
+          <ChartCustomPaletteColor>#669900</ChartCustomPaletteColor>
+          <ChartCustomPaletteColor>#ec767c</ChartCustomPaletteColor>
+          <ChartCustomPaletteColor>#ffc000</ChartCustomPaletteColor>
+          <ChartCustomPaletteColor>#474b78</ChartCustomPaletteColor>
+          <ChartCustomPaletteColor>#17c100</ChartCustomPaletteColor>
+          <ChartCustomPaletteColor>#2da2bf</ChartCustomPaletteColor>
+          <ChartCustomPaletteColor>#39c79d</ChartCustomPaletteColor>
+          <ChartCustomPaletteColor>#eb6461</ChartCustomPaletteColor>
+        </ChartCustomPaletteColors>
         <ChartBorderSkin>
           <Style>
             <BackgroundColor>Gray</BackgroundColor>
@@ -3908,8 +3918,8 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DataSet2</DataSetName>
-        <Top>18.73814cm</Top>
-        <Left>8.51113cm</Left>
+        <Top>65.76342cm</Top>
+        <Left>8.59932cm</Left>
         <Height>6.05834cm</Height>
         <Width>7.39771cm</Width>
         <ZIndex>4</ZIndex>
@@ -3931,11 +3941,6 @@
                   <GroupExpression>=Fields!Categoria.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!Categoria.Value</Value>
-                </SortExpression>
-              </SortExpressions>
               <Label>=Fields!Categoria.Value</Label>
             </ChartMember>
           </ChartMembers>
@@ -3958,7 +3963,12 @@
                   <ChartDataLabel>
                     <Style />
                   </ChartDataLabel>
-                  <Style />
+                  <Style>
+                    <Border>
+                      <Color>Black</Color>
+                      <Width>0.5pt</Width>
+                    </Border>
+                  </Style>
                   <ChartMarker>
                     <Style />
                   </ChartMarker>
@@ -4170,8 +4180,8 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DataSet3</DataSetName>
-        <Top>18.73814cm</Top>
-        <Left>0.51718cm</Left>
+        <Top>65.76342cm</Top>
+        <Left>0.52174cm</Left>
         <Height>6.05834cm</Height>
         <Width>7.72857cm</Width>
         <ZIndex>5</ZIndex>
@@ -4202,8 +4212,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>25.47042cm</Top>
-        <Left>0.57778cm</Left>
+        <Top>72.4957cm</Top>
+        <Left>0.58234cm</Left>
         <Height>0.6cm</Height>
         <Width>16.11485cm</Width>
         <ZIndex>6</ZIndex>
@@ -4393,8 +4403,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>26.28759cm</Top>
-        <Left>0.57779cm</Left>
+        <Top>73.31287cm</Top>
+        <Left>0.58235cm</Left>
         <Height>1cm</Height>
         <Width>9.03105cm</Width>
         <ZIndex>7</ZIndex>
@@ -4422,8 +4432,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>27.75818cm</Top>
-        <Left>0.57778cm</Left>
+        <Top>74.78346cm</Top>
+        <Left>0.58234cm</Left>
         <Height>0.6cm</Height>
         <Width>16.09578cm</Width>
         <ZIndex>8</ZIndex>
@@ -4613,8 +4623,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>28.59765cm</Top>
-        <Left>0.57779cm</Left>
+        <Top>75.62293cm</Top>
+        <Left>0.58235cm</Left>
         <Height>1cm</Height>
         <Width>9.03105cm</Width>
         <ZIndex>9</ZIndex>
@@ -4642,8 +4652,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
-        <Top>30.09407cm</Top>
-        <Left>0.57778cm</Left>
+        <Top>77.11935cm</Top>
+        <Left>0.58234cm</Left>
         <Height>0.6cm</Height>
         <Width>16.09578cm</Width>
         <ZIndex>10</ZIndex>
@@ -4833,8 +4843,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>30.94186cm</Top>
-        <Left>0.57779cm</Left>
+        <Top>77.96714cm</Top>
+        <Left>0.58235cm</Left>
         <Height>1cm</Height>
         <Width>9.03105cm</Width>
         <ZIndex>11</ZIndex>
@@ -4862,10 +4872,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>51.37009cm</Top>
-        <Left>0.59543cm</Left>
+        <Top>6.93773cm</Top>
+        <Left>0.45686cm</Left>
         <Height>0.6cm</Height>
-        <Width>16.11484cm</Width>
+        <Width>16.13249cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -4882,7 +4892,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.71227cm</Width>
+              <Width>1.76519cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.3257cm</Width>
@@ -7798,14 +7808,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="HumSuelo">
+                    <Textbox Name="LadHumSuelo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!HumSuelo.Value</Value>
+                              <Value>=Fields!LadHumSuelo.Value</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>8pt</FontSize>
@@ -7818,7 +7828,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>HumSuelo</rd:DefaultName>
+                      <rd:DefaultName>LadHumSuelo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>White</Color>
@@ -7835,14 +7845,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="HumSueloAct">
+                    <Textbox Name="LadHumSueloAct">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!HumSueloAct.Value</Value>
+                              <Value>=Fields!LadHumSueloAct.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <Color>#1a4d93</Color>
@@ -7852,7 +7862,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>HumSueloAct</rd:DefaultName>
+                      <rd:DefaultName>LadHumSueloAct</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>White</Color>
@@ -15194,10 +15204,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet4</DataSetName>
-        <Top>52.19912cm</Top>
-        <Left>0.59542cm</Left>
+        <Top>7.85495cm</Top>
+        <Left>0.46216cm</Left>
         <Height>35.65244cm</Height>
-        <Width>16.11486cm</Width>
+        <Width>16.16778cm</Width>
         <ZIndex>13</ZIndex>
         <Style>
           <Border>
@@ -15224,7 +15234,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>1.49353cm</Top>
+        <Top>1.20778cm</Top>
         <Left>0.42511cm</Left>
         <Height>0.6cm</Height>
         <Width>16.16777cm</Width>
@@ -15557,8 +15567,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.28178cm</Top>
-        <Left>0.44806cm</Left>
+        <Top>1.98417cm</Top>
+        <Left>0.42511cm</Left>
         <Height>2cm</Height>
         <Width>9.19254cm</Width>
         <ZIndex>15</ZIndex>
@@ -15573,7 +15583,7 @@
         <Source>Embedded</Source>
         <Value>Herevea</Value>
         <Sizing>FitProportional</Sizing>
-        <Left>14.12275cm</Left>
+        <Left>13.48775cm</Left>
         <Height>1.5cm</Height>
         <Width>2.47014cm</Width>
         <ZIndex>16</ZIndex>
@@ -15607,7 +15617,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox59</rd:DefaultName>
-        <Top>0.30198cm</Top>
+        <Top>0.15875cm</Top>
         <Left>0.32106cm</Left>
         <Height>0.96577cm</Height>
         <Width>12.86005cm</Width>
@@ -15640,8 +15650,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>33.14828cm</Top>
-        <Left>0.57857cm</Left>
+        <Top>82.07856cm</Top>
+        <Left>0.58313cm</Left>
         <Height>0.6cm</Height>
         <Width>16.11485cm</Width>
         <ZIndex>18</ZIndex>
@@ -16369,8 +16379,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet5</DataSetName>
-        <Top>34.03178cm</Top>
-        <Left>0.5715cm</Left>
+        <Top>82.96206cm</Top>
+        <Left>0.57606cm</Left>
         <Height>4.5cm</Height>
         <Width>13.82198cm</Width>
         <ZIndex>19</ZIndex>
@@ -16399,8 +16409,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>38.86328cm</Top>
-        <Left>0.57857cm</Left>
+        <Top>87.79356cm</Top>
+        <Left>0.58313cm</Left>
         <Height>0.6cm</Height>
         <Width>16.11485cm</Width>
         <ZIndex>20</ZIndex>
@@ -16596,8 +16606,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet5</DataSetName>
-        <Top>39.68917cm</Top>
-        <Left>0.57857cm</Left>
+        <Top>88.61945cm</Top>
+        <Left>0.58313cm</Left>
         <Height>1cm</Height>
         <Width>13.82198cm</Width>
         <ZIndex>21</ZIndex>
@@ -16713,8 +16723,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet5</DataSetName>
-        <Top>42.06425cm</Top>
-        <Left>0.57857cm</Left>
+        <Top>90.99453cm</Top>
+        <Left>0.58313cm</Left>
         <Height>0.5cm</Height>
         <Width>13.82198cm</Width>
         <ZIndex>22</ZIndex>
@@ -16743,8 +16753,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>41.23836cm</Top>
-        <Left>0.57857cm</Left>
+        <Top>90.16864cm</Top>
+        <Left>0.58313cm</Left>
         <Height>0.6cm</Height>
         <Width>16.11485cm</Width>
         <ZIndex>23</ZIndex>
@@ -16777,8 +16787,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
-        <Top>43.08956cm</Top>
-        <Left>0.5715cm</Left>
+        <Top>92.01984cm</Top>
+        <Left>0.57606cm</Left>
         <Height>0.6cm</Height>
         <Width>16.09578cm</Width>
         <ZIndex>24</ZIndex>
@@ -16974,8 +16984,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet5</DataSetName>
-        <Top>43.86595cm</Top>
-        <Left>0.57857cm</Left>
+        <Top>92.79623cm</Top>
+        <Left>0.58313cm</Left>
         <Height>1cm</Height>
         <Width>13.82198cm</Width>
         <ZIndex>25</ZIndex>
@@ -17003,10 +17013,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>89.09002cm</Top>
-        <Left>0.57858cm</Left>
+        <Top>44.08291cm</Top>
+        <Left>0.51508cm</Left>
         <Height>0.6cm</Height>
-        <Width>16.11484cm</Width>
+        <Width>16.11486cm</Width>
         <ZIndex>26</ZIndex>
         <Style>
           <Border>
@@ -17023,7 +17033,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.71227cm</Width>
+              <Width>1.78031cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.3257cm</Width>
@@ -17038,7 +17048,7 @@
               <Width>4.61458cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.65333cm</Width>
+              <Width>1.58529cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -17956,8 +17966,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet4</DataSetName>
-        <Top>90.01055cm</Top>
-        <Left>0.57858cm</Left>
+        <Top>44.93994cm</Top>
+        <Left>0.51508cm</Left>
         <Height>3.82022cm</Height>
         <Width>16.11486cm</Width>
         <ZIndex>27</ZIndex>
@@ -17985,10 +17995,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>94.48752cm</Top>
-        <Left>0.57778cm</Left>
+        <Top>49.22641cm</Top>
+        <Left>0.51428cm</Left>
         <Height>0.6cm</Height>
-        <Width>16.11484cm</Width>
+        <Width>16.11566cm</Width>
         <ZIndex>28</ZIndex>
         <Style>
           <Border>
@@ -18020,7 +18030,7 @@
               <Width>4.61458cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.65333cm</Width>
+              <Width>1.65998cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -18340,10 +18350,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet4</DataSetName>
-        <Top>95.35916cm</Top>
-        <Left>0.57858cm</Left>
+        <Top>50.09805cm</Top>
+        <Left>0.51508cm</Left>
         <Height>1.64098cm</Height>
-        <Width>16.11486cm</Width>
+        <Width>16.12151cm</Width>
         <ZIndex>29</ZIndex>
         <Style>
           <Border>
@@ -18361,14 +18371,14 @@
       </Border>
     </Style>
   </Body>
-  <Width>7.2in</Width>
+  <Width>6.94414in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>1cm</LeftMargin>
     <RightMargin>1cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
