@@ -38,6 +38,7 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
     self.ui.cmbCubIncCompleta.currentIndexChanged.connect(self.cmbCubIncComChanged)
     self.ui.cmbCarpLigera.currentIndexChanged.connect(self.cmbCarpLigeraChanged)
     self.ui.cmbCarpMadera.currentIndexChanged.connect(self.cmbCarpMaderaChanged)
+    self.setTablaMaterialesStyles()
 
   def calcular(self):
     if self.existActuaciones():
@@ -295,3 +296,69 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
     elif self.ui.cmbRampa.currentText() != 'No hay actuaciones' and self.ui.spinAscensorAct.value()==0:
       validacion = validacion + u'La actuación \'Rampa minusválidos\' no tiene grado de actuación' + '\n'
     return validacion
+
+  def setTablaMaterialesStyles(self):
+    self.ui.tabSaneamiento.setCurrentIndex(0)
+    self.ui.tabMatColectores.horizontalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
+"color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(255, 255, 255);\n"
+"border-color: rgb(255, 255, 255);"); 
+    self.ui.tabMatColectores.setColumnWidth(0, 110);
+    self.ui.tabMatColectores.setColumnWidth(1, 70);
+    self.ui.tabMatColectores.setColumnWidth(2, 600);
+    self.ui.tabMatColectores.setColumnWidth(3, 150);
+    self.ui.tabMatColectores.setColumnWidth(4, 70);   
+    
+    self.ui.tabMatBajantes.horizontalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
+"color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(255, 255, 255);\n"
+"border-color: rgb(255, 255, 255);");
+    self.ui.tabMatBajantes.setColumnWidth(0, 110);
+    self.ui.tabMatBajantes.setColumnWidth(1, 70);
+    self.ui.tabMatBajantes.setColumnWidth(2, 600);
+    self.ui.tabMatBajantes.setColumnWidth(3, 150);
+    self.ui.tabMatBajantes.setColumnWidth(4, 70); 
+    
+    self.ui.tabAlbanileria.setCurrentIndex(0)
+    self.ui.tabMatAlbanileria.horizontalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
+"color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(255, 255, 255);\n"
+"border-color: rgb(255, 255, 255);");
+    self.ui.tabMatAlbanileria.setColumnWidth(0, 110);
+    self.ui.tabMatAlbanileria.setColumnWidth(1, 70);
+    self.ui.tabMatAlbanileria.setColumnWidth(2, 600);
+    self.ui.tabMatAlbanileria.setColumnWidth(3, 150);
+    self.ui.tabMatAlbanileria.setColumnWidth(4, 70); 
+    
+    self.ui.tabCubiertas.setCurrentIndex(0)
+    self.ui.tabMatCubiertas.horizontalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
+"color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(255, 255, 255);\n"
+"border-color: rgb(255, 255, 255);");
+    self.ui.tabMatCubiertas.setColumnWidth(0, 110);
+    self.ui.tabMatCubiertas.setColumnWidth(1, 70);
+    self.ui.tabMatCubiertas.setColumnWidth(2, 600);
+    self.ui.tabMatCubiertas.setColumnWidth(3, 150);
+    self.ui.tabMatCubiertas.setColumnWidth(4, 70);
+    
+    self.ui.tabInstalaciones.setCurrentIndex(0)
+    self.ui.tabMatInstalaciones.horizontalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
+"color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(255, 255, 255);\n"
+"border-color: rgb(255, 255, 255);");
+    self.ui.tabMatInstalaciones.setColumnWidth(0, 110);
+    self.ui.tabMatInstalaciones.setColumnWidth(1, 70);
+    self.ui.tabMatInstalaciones.setColumnWidth(2, 600);
+    self.ui.tabMatInstalaciones.setColumnWidth(3, 150);
+    self.ui.tabMatInstalaciones.setColumnWidth(4, 70);
+    
+    self.ui.tabCarpinteria.setCurrentIndex(0)
+    self.ui.tabMatCarpinteria.horizontalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
+"color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(255, 255, 255);\n"
+"border-color: rgb(255, 255, 255);");
+    self.ui.tabMatCarpinteria.setColumnWidth(0, 110);
+    self.ui.tabMatCarpinteria.setColumnWidth(1, 70);
+    self.ui.tabMatCarpinteria.setColumnWidth(2, 600);
+    self.ui.tabMatCarpinteria.setColumnWidth(3, 150);
+    self.ui.tabMatCarpinteria.setColumnWidth(4, 70);
