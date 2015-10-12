@@ -200,6 +200,47 @@ namespace Herevea.Reports
         public string PorteroAct { get; set; }
         public string Ascensores { get; set; }
         public string AscensoresAct { get; set; }
+        public string PilotesPUC { get; set; }
+        public string ArquetasPUC { get; set; }
+        public string ColectoresPUC { get; set; }
+        public string BajantesPUC { get; set; }
+        public string ForjadosPUC { get; set; }
+        public string FisurasPUC { get; set; }
+        public string GrietasPUC { get; set; }
+        public string LadFisurasPUC { get; set; }
+        public string LadGrietasPUC { get; set; }
+        public string LadHumSueloPUC { get; set; }
+        public string LadHumTechoPUC { get; set; }
+        public string IntFisurasPUC { get; set; }
+        public string IntGrietasPUC { get; set; }
+        public string HumSueloPUC { get; set; }
+        public string CubHorComPUC { get; set; }
+        public string CubHorFaldonPUC { get; set; }
+        public string CubHorEncParamVerPUC { get; set; }
+        public string CubHorEncCazoletasPUC { get; set; }
+        public string CubIncCompletaPUC { get; set; }
+        public string CubIncFaldonPUC { get; set; }
+        public string CubIncRematesPUC { get; set; }
+        public string CubIncEncParamVerPUC { get; set; }
+        public string ClimatizacionPUC { get; set; }
+        public string RadiadoresPUC { get; set; }
+        public string CircuitosPUC { get; set; }
+        public string LineasYDerivacionesPUC { get; set; }
+        public string PuntosLuzPUC { get; set; }
+        public string TomaCorrientePUC { get; set; }
+        public string ConductorPuestaTierraPUC { get; set; }
+        public string CanalizacionesPUC { get; set; }
+        public string DesaguesPUC { get; set; }
+        public string CanalizacionesAguaFriaPUC { get; set; }
+        public string TermosPUC { get; set; }
+        public string SanitariosPUC { get; set; }
+        public string CarpLigeraPUC { get; set; }
+        public string CarpMaderaPUC { get; set; }
+        public string RejasPUC { get; set; }
+        public string EscaleraPUC { get; set; }
+        public string RampaPUC { get; set; }
+        public string PorteroPUC { get; set; }
+        public string AscensoresPUC { get; set; }
     }
 
     public class PEM

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Herevea.Reports;
+using Microsoft.Office.Interop.Excel;
 using Microsoft.Reporting.WinForms;
 
 namespace HereveaForm
@@ -13,6 +14,7 @@ namespace HereveaForm
         private readonly string _reportPath;
         private readonly dynamic _data;
         private readonly Dictionary<string, object> _result;
+        private readonly Worksheet _sheetDespl;
 
         public ReportCreator(string path, dynamic data)
         {
@@ -20,12 +22,13 @@ namespace HereveaForm
             _data = data;
         }
 
-        public ReportCreator(string path, string reportPath, dynamic dataObj, Dictionary<string, object> result)
+        public ReportCreator(string path, string reportPath, dynamic dataObj, Dictionary<string, object> result, Worksheet sheetDespl)
         {
             _path = path;
             _reportPath = reportPath;
             _data = dataObj;
             _result = result;
+            _sheetDespl = sheetDespl;
         }
 
         public string CreateReport()
@@ -43,86 +46,127 @@ namespace HereveaForm
                 {
                     Pilotes = _data.Pilotes,
                     PilotesAct = _data.PilotesAct,
+                    PilotesPUC = CalculatePUC(_data.Pilotes, "Cimentaciones"),
                     Arquetas = _data.Arquetas,
                     ArquetasAct = _data.ArquetasAct,
+                    ArquetasPUC = CalculatePUC(_data.Arquetas, "Arquetas"),
                     Colectores = _data.Colectores,
                     ColectoresAct = _data.ColectoresAct,
+                    ColectoresPUC = CalculatePUC(_data.Colectores, "Colectores"),
                     Bajantes = _data.Bajantes,
                     BajantesAct = _data.BajantesAct,
+                    BajantesPUC = CalculatePUC(_data.Bajantes, "Bajantes"),
                     Forjados = _data.Forjados,
                     ForjadosAct = _data.ForjadosAct,
+                    ForjadosPUC = CalculatePUC(_data.Forjados, "Forjados"),
                     Fisuras = _data.Fisuras,
                     FisurasAct = _data.FisurasAct,
+                    FisurasPUC = CalculatePUC(_data.Fisuras, "Particiones"),
                     Grietas = _data.Grietas,
                     GrietasAct = _data.GrietasAct,
+                    GrietasPUC = CalculatePUC(_data.Grietas, "Particiones"),
                     LadFisuras = _data.LadFisuras,
                     LadFisurasAct = _data.LadFisurasAct,
+                    LadFisurasPUC = CalculatePUC(_data.LadFisuras, "Cerramientos"),
                     LadGrietas = _data.LadGrietas,
                     LadGrietasAct = _data.LadGrietasAct,
+                    LadGrietasPUC = CalculatePUC(_data.LadGrietas, "Cerramientos"),
                     LadHumSuelo = _data.LadHumSuelo,
                     LadHumSueloAct = _data.LadHumSueloAct,
+                    LadHumSueloPUC = CalculatePUC(_data.LadHumSuelo, "Cerramientos"),
                     LadHumTecho = _data.LadHumTecho,
                     LadHumTechoAct = _data.LadHumTechoAct,
+                    LadHumTechoPUC = CalculatePUC(_data.LadHumTecho, "Cerramientos"),
                     IntFisuras = _data.IntFisuras,
                     IntFisurasAct = _data.IntFisurasAct,
+                    IntFisurasPUC = CalculatePUC(_data.IntFisuras, "Fcas.interiores ladrillo"),
                     IntGrietas = _data.IntGrietas,
                     IntGrietasAct = _data.IntGrietasAct,
+                    IntGrietasPUC = CalculatePUC(_data.IntGrietas, "Fcas.interiores ladrillo"),
                     HumSuelo = _data.HumSuelo,
                     HumSueloAct = _data.HumSueloAct,
+                    HumSueloPUC = CalculatePUC(_data.HumSuelo, "Fcas.interiores ladrillo"),
                     CubHorCom = _data.CubHorCom,
                     CubHorComAct = _data.CubHorComAct,
+                    CubHorComPUC = CalculatePUC(_data.CubHorCom, "Horizontal"),
                     CubHorFaldon = _data.CubHorFaldon,
                     CubHorFaldonAct = _data.CubHorFaldonAct,
+                    CubHorFaldonPUC = CalculatePUC(_data.CubHorFaldon, "Horizontal"),
                     CubHorEncParamVer = _data.CubHorEncParamVer,
                     CubHorEncParamVerAct = _data.CubHorEncParamVerAct,
+                    CubHorEncParamVerPUC = CalculatePUC(_data.CubHorEncParamVer, "Horizontal"),
                     CubHorEncCazoletas = _data.CubHorEncCazoletas,
                     CubHorEncCazoletasAct = _data.CubHorEncCazoletasAct,
+                    CubHorEncCazoletasPUC = CalculatePUC(_data.CubHorEncCazoletas, "Horizontal"),
                     CubIncCompleta = _data.CubIncCompleta,
                     CubIncCompletaAct = _data.CubIncCompletaAct,
+                    CubIncCompletaPUC = CalculatePUC(_data.CubIncCompleta, "Inclinada"),
                     CubIncFaldon = _data.CubIncFaldon,
                     CubIncFaldonAct = _data.CubIncFaldonAct,
+                    CubIncFaldonPUC = CalculatePUC(_data.CubIncFaldon, "Inclinada"),
                     CubIncRemates = _data.CubIncRemates,
                     CubIncRematesAct = _data.CubIncRematesAct,
+                    CubIncRematesPUC = CalculatePUC(_data.CubIncRemates, "Inclinada"),
                     CubIncEncParamVer = _data.CubIncEncParamVer,
                     CubIncEncParamVerAct = _data.CubIncEncParamVerAct,
+                    CubIncEncParamVerPUC = CalculatePUC(_data.CubIncEncParamVer, "Inclinada"),
                     Climatizacion = _data.Climatizacion,
                     ClimatizacionAct = _data.ClimatizacionAct,
+                    ClimatizacionPUC = CalculatePUC(_data.Climatizacion, "Aparatos Climatización"),
                     Radiadores = _data.Radiadores,
                     RadiadoresAct = _data.RadiadoresAct,
+                    RadiadoresPUC = CalculatePUC(_data.Radiadores, "Radiadores"),
                     Circuitos = _data.Circuitos,
                     CircuitosAct = _data.CircuitosAct,
+                    CircuitosPUC = CalculatePUC(_data.Circuitos, "Circuitos"),
                     LineasYDerivaciones = _data.LineasYDerivaciones,
                     LineasYDerivacionesAct = _data.LineasYDerivacionesAct,
+                    LineasYDerivacionesPUC = CalculatePUC(_data.LineasYDerivaciones, "Líneas y Derivaciones"),
                     PuntosLuz = _data.PuntosLuz,
                     PuntosLuzAct = _data.PuntosLuzAct,
+                    PuntosLuzPUC = CalculatePUC(_data.PuntosLuz, "Puntos de luz"),
                     TomaCorriente = _data.TomaCorriente,
                     TomaCorrienteAct = _data.TomaCorrienteAct,
+                    TomaCorrientePUC = CalculatePUC(_data.TomaCorriente, "Toma de corriente"),
                     ConductorPuestaTierra = _data.ConductorPuestaTierra,
                     ConductorPuestaTierraAct = _data.ConductorPuestaTierraAct,
+                    ConductorPuestaTierraPUC = CalculatePUC(_data.ConductorPuestaTierra, "Conductor de Puesta a Tierra"),
                     Canalizaciones = _data.Canalizaciones,
                     CanalizacionesAct = _data.CanalizacionesAct,
+                    CanalizacionesPUC = CalculatePUC(_data.Canalizaciones, "Canalizaciones Agua Caliente"),
                     Desagues = _data.Desagues,
                     DesaguesAct = _data.DesaguesAct,
+                    DesaguesPUC = CalculatePUC(_data.Desagues, "Desagües"),
                     CanalizacionesAguaFria = _data.CanalizacionesAguaFria,
                     CanalizacionesAguaFriaAct = _data.CanalizacionesAguaFriaAct,
+                    CanalizacionesAguaFriaPUC = CalculatePUC(_data.CanalizacionesAguaFria, "Canalizaciones Agua Fría"),
                     Termos = _data.Termos,
                     TermosAct = _data.TermosAct,
+                    TermosPUC = CalculatePUC(_data.Termos, "Termos/calentadores"),
                     Sanitarios = _data.Sanitarios,
                     SanitariosAct = _data.SanitariosAct,
+                    SanitariosPUC = CalculatePUC(_data.Sanitarios, "Aparatos Sanitarios"),
                     CarpLigera = _data.CarpLigera,
                     CarpLigeraAct = _data.CarpLigeraAct,
+                    CarpLigeraPUC = CalculatePUC(_data.CarpLigera, "Carpintería ligera"),
                     CarpMadera = _data.CarpMadera,
                     CarpMaderaAct = _data.CarpMaderaAct,
+                    CarpMaderaPUC = CalculatePUC(_data.CarpMadera, "Carpintería madera. Ventanas"),
                     Rejas = _data.Rejas,
                     RejasAct = _data.RejasAct,
+                    RejasPUC = CalculatePUC(_data.Rejas, "Rejas"),
                     Escalera = _data.Escalera,
                     EscaleraAct = _data.EscaleraAct,
+                    EscaleraPUC = CalculatePUC(_data.Escalera, "Escalera"),
                     Rampa = _data.Rampa,
                     RampaAct = _data.RampaAct,
+                    RampaPUC = CalculatePUC(_data.Rampa, "Rampa de minusválidos"),
                     Portero = _data.Portero,
                     PorteroAct = _data.PorteroAct,
+                    PorteroPUC = CalculatePUC(_data.Portero, "Portero electrónico"),
                     Ascensores = _data.Ascensores,
-                    AscensoresAct = _data.AscensoresAct
+                    AscensoresAct = _data.AscensoresAct,
+                    AscensoresPUC = CalculatePUC(_data.Ascensores, "Ascensores")
                 }
             };
             var reportDto = new List<HuellaReportDTO>
@@ -373,6 +417,84 @@ namespace HereveaForm
             {
                 return 0;
             }
+        }
+
+        private string CalculatePUC(object actuacion, string apartado)
+        {
+            switch (apartado)
+            {
+                case "Cimentaciones":
+                    return BuscarCodigo(5, 5, actuacion.ToString());
+                case "Arquetas":
+                    return BuscarCodigo(7, 9, actuacion.ToString());
+                case "Colectores":
+                    return BuscarCodigo(11, 13, actuacion.ToString());
+                case "Bajantes":
+                    return BuscarCodigo(15, 16, actuacion.ToString());
+                case "Forjados":
+                    return BuscarCodigo(18, 18, actuacion.ToString());
+                case "Particiones":
+                    return BuscarCodigo(20, 23, actuacion.ToString());
+                case "Cerramientos":
+                    return BuscarCodigo(25, 34, actuacion.ToString());
+                case "Fcas.interiores ladrillo":
+                    return BuscarCodigo(36, 41, actuacion.ToString());
+                case "Horizontal":
+                    return BuscarCodigo(43, 50, actuacion.ToString());
+                case "Inclinada":
+                    return BuscarCodigo(52, 59, actuacion.ToString());
+                case "Aparatos Climatización":
+                    return BuscarCodigo(62, 62, actuacion.ToString());
+                case "Radiadores":
+                    return BuscarCodigo(64, 64, actuacion.ToString());
+                case "Circuitos":
+                    return BuscarCodigo(66, 66, actuacion.ToString());
+                case "Líneas y Derivaciones":
+                    return BuscarCodigo(68, 68, actuacion.ToString());
+                case "Puntos de luz":
+                    return BuscarCodigo(70, 70, actuacion.ToString());
+                case "Toma de corriente":
+                    return BuscarCodigo(72, 72, actuacion.ToString());
+                case "Conductor de Puesta a Tierra":
+                    return BuscarCodigo(74, 74, actuacion.ToString());
+                case "Canalizaciones Agua Caliente":
+                    return BuscarCodigo(76, 77, actuacion.ToString());
+                case "Desagües":
+                    return BuscarCodigo(79, 79, actuacion.ToString());
+                case "Canalizaciones Agua Fría":
+                    return BuscarCodigo(81, 82, actuacion.ToString());
+                case "Aparatos Sanitarios":
+                    return BuscarCodigo(84, 84, actuacion.ToString());
+                case "Termos/calentadores":
+                    return BuscarCodigo(86, 87, actuacion.ToString());
+                case "Carpintería ligera":
+                    return BuscarCodigo(89, 91, actuacion.ToString());
+                case "Carpintería madera. Ventanas":
+                    return BuscarCodigo(93, 95, actuacion.ToString());
+                case "Rejas":
+                    return BuscarCodigo(97, 98, actuacion.ToString());
+                case "Ascensores":
+                    return BuscarCodigo(100, 100, actuacion.ToString());
+                case "Escalera":
+                    return BuscarCodigo(102, 103, actuacion.ToString());
+                case "Rampa de minusválidos":
+                    return BuscarCodigo(105, 105, actuacion.ToString());
+                case "Portero electrónico":
+                    return BuscarCodigo(107, 107, actuacion.ToString());
+            }
+            return string.Empty;
+        }
+
+        private string BuscarCodigo(int y1, int y2, string actuacion)
+        {
+            for (int j = y1; j <= y2; j++)
+            {
+                if (_sheetDespl.Cells[j, 4].Value == actuacion)
+                {
+                    return _sheetDespl.Cells[j, 3].Value;
+                }
+            }
+            return string.Empty;
         }
     }
 }

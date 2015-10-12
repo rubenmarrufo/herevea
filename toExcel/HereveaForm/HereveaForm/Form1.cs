@@ -66,6 +66,8 @@ namespace HereveaForm
                 var project = CalculateProject(dataObj, sheet);
 
                 sheet = (Worksheet) wb.Sheets["Seleccion proyecto HEREVEA02"];
+                var sheetDespl = (Worksheet)wb.Sheets["Datos aux_desplegables"];
+                
                 worker.ReportProgress(50);
 
                 InsertData(sheet, project, dataObj);
@@ -93,7 +95,7 @@ namespace HereveaForm
 
                 var result = GetResults(sheetHuella, sheetPEM);
 
-                var reportCreator = new ReportCreator(path, reportPath, dataObj, result);
+                var reportCreator = new ReportCreator(path, reportPath, dataObj, result, sheetDespl);
                 reportPath = reportCreator.CreateReport();
 
                 result.Add("ReportPath", reportPath);

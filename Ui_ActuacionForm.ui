@@ -102,7 +102,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -228,7 +228,7 @@
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_8">
        <attribute name="title">
@@ -292,7 +292,7 @@
          </item>
          <item>
           <property name="text">
-           <string>Arqueta nueva (porcentaje de incremento en inst. existente)</string>
+           <string>Arqueta nueva (porcentaje de incremento en inst.existente)</string>
           </property>
          </item>
          <item>
@@ -377,7 +377,7 @@
           <x>950</x>
           <y>10</y>
           <width>181</width>
-          <height>181</height>
+          <height>171</height>
          </rect>
         </property>
         <property name="title">
@@ -1062,7 +1062,7 @@
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
@@ -1891,7 +1891,7 @@
         <rect>
          <x>20</x>
          <y>30</y>
-         <width>911</width>
+         <width>921</width>
          <height>111</height>
         </rect>
        </property>
@@ -1901,9 +1901,9 @@
        <widget class="QComboBox" name="cmbGrietas">
         <property name="geometry">
          <rect>
-          <x>220</x>
+          <x>190</x>
           <y>70</y>
-          <width>671</width>
+          <width>711</width>
           <height>25</height>
          </rect>
         </property>
@@ -1914,12 +1914,12 @@
         </item>
         <item>
          <property name="text">
-          <string>Reparación grietas en superficie ≤60%</string>
+          <string>Superficie dañada ≤60%</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Reparación grietas en superficie &gt;60%. Sustitución completa</string>
+          <string>Superficie dañada &gt;60%. Sustitución completa</string>
          </property>
         </item>
        </widget>
@@ -1939,9 +1939,9 @@
        <widget class="QComboBox" name="cmbFisuras">
         <property name="geometry">
          <rect>
-          <x>220</x>
+          <x>190</x>
           <y>30</y>
-          <width>671</width>
+          <width>711</width>
           <height>25</height>
          </rect>
         </property>
@@ -1973,9 +1973,9 @@
       <widget class="QGroupBox" name="groupBox_15">
        <property name="geometry">
         <rect>
-         <x>940</x>
+         <x>950</x>
          <y>30</y>
-         <width>191</width>
+         <width>181</width>
          <height>111</height>
         </rect>
        </property>
@@ -2085,7 +2085,7 @@
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_12">
        <attribute name="title">
@@ -2461,12 +2461,12 @@
           </item>
           <item>
            <property name="text">
-            <string>Reparación faldón (superf.&gt;60%). Sustitución y reposición faldón completo. Rehab. energ. aislm. plancha EPS</string>
+            <string>Superf. dañada &gt;60%. Sustitución completa. Mejora energética con aislam. pl.EPS</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Reparación faldón (superf.&gt;60%). Sustitución y reposición faldón completo. Rehab. energ. aislm. lana de oveja</string>
+            <string>Superf.dañada &gt;60%. Sustitución completa. Mejora energ. con aislam. lana de oveja</string>
            </property>
           </item>
          </widget>
