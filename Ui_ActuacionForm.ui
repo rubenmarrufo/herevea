@@ -102,7 +102,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -150,7 +150,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Reparación con micropilotes</string>
+        <string>Reparación de zapatas</string>
        </property>
       </widget>
      </widget>
@@ -1078,7 +1078,7 @@
          </rect>
         </property>
         <property name="title">
-         <string>Cerramientos de Ladrillo</string>
+         <string>Cerramientos de ladrillo</string>
         </property>
         <widget class="QGroupBox" name="groupBox_16">
          <property name="geometry">
@@ -1615,7 +1615,7 @@
        </rect>
       </property>
       <property name="title">
-       <string>Fábricas Interiores de Ladrillo</string>
+       <string>Fábricas interiores de ladrillo</string>
       </property>
       <widget class="QGroupBox" name="groupBox_18">
        <property name="geometry">
@@ -1884,7 +1884,7 @@
        </rect>
       </property>
       <property name="title">
-       <string>Distr. Tabiquería (Particiones)</string>
+       <string>Distribución de tabiquería (Particiones)</string>
       </property>
       <widget class="QGroupBox" name="groupBox_14">
        <property name="geometry">
@@ -5235,9 +5235,9 @@
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>860</x>
+     <x>925</x>
      <y>660</y>
-     <width>331</width>
+     <width>271</width>
      <height>41</height>
     </rect>
    </property>
@@ -5252,7 +5252,7 @@
     <item>
      <widget class="QPushButton" name="btnAccept">
       <property name="text">
-       <string>Calculo de Huella Ecológica</string>
+       <string>Siguiente &gt;</string>
       </property>
       <property name="default">
        <bool>true</bool>

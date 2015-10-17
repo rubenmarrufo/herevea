@@ -6,7 +6,9 @@ from Ui_ProyectoFormDialog import Ui_ProyectoFormDialog
 from Ui_UsuarioFormDialog import Ui_UsuarioFormDialog
 from Ui_ActuacionFormDialog import Ui_ActuacionFormDialog
 from Ui_ErrorDialog import Ui_ErrorDialog
+from Ui_IntroFormDialog import Ui_IntroFormDialog
 from Ui_ResultFormDialog import Ui_ResultFormDialog
+from Ui_DemolicionConstruccionDialog import Ui_DemolicionConstruccionDialog
 from ParcelaService import ParcelaService
 from PyQt4.QtGui import QCursor, QPixmap, QProgressBar
 from PyQt4 import QtGui, QtCore
@@ -45,33 +47,58 @@ class UserInputLauncherService():
             else:
                 self.ui_Usuario=Ui_UsuarioFormDialog(self.parcelaService)
                 self.ui_Proyecto=Ui_ProyectoFormDialog(self.parcelaService)
-                self.ui_Actuacion=Ui_ActuacionFormDialog(self.parcelaService)                                                        
+                self.ui_Actuacion=Ui_ActuacionFormDialog(self.parcelaService)   
+                self.ui_Intro=Ui_IntroFormDialog(self.parcelaService)
+                self.ui_DemolicionConstruccion=Ui_DemolicionConstruccionDialog(self.parcelaService)
                 self.showProyectoForm()
-                                                        
-    def showUsuarioForm(self):        
-        self.ui_Usuario.show()
-        result = self.ui_Usuario.exec_()
-        if result == 1:
-            self.showActuacionForm()
-        elif self.ui_Usuario.back == True:
-            self.showProyectoForm()           
     
     def showProyectoForm(self):        
         self.ui_Proyecto.show()
         result = self.ui_Proyecto.exec_()
         if result == 1:
             self.showUsuarioForm()
+                                                                    
+    def showUsuarioForm(self):        
+        self.ui_Usuario.show()
+        result = self.ui_Usuario.exec_()
+        if result == 1:
+            self.ui_Intro.toRehab()
+            self.showIntroForm()
+        elif self.ui_Usuario.back == True:
+            self.ui_Usuario.back=False
+            self.showProyectoForm()
             
+    def showIntroForm(self):
+        self.ui_Intro.show()
+        result = self.ui_Intro.exec_()
+        if result == 1:
+            if self.ui_Intro.rehab==True:
+                self.showActuacionForm()
+            elif self.ui_Intro.demCons==True:
+                self.showDemCons()
+                
     def showActuacionForm(self):
         self.ui_Actuacion.setDatosCatastro(self.ui_Proyecto.getValues())
         self.ui_Actuacion.setDatosUsuario(self.ui_Usuario.getValues())        
         self.ui_Actuacion.show()
         result = self.ui_Actuacion.exec_()
         if result == 1:
-            self.showResults()
+            self.ui_Intro.toDemCons()
+            self.showIntroForm()
         elif self.ui_Actuacion.back == True:
-            self.showUsuarioForm()
-            
+            self.ui_Actuacion.back = False
+            self.ui_Intro.toRehab()
+            self.showIntroForm()
+    
+    def showDemCons(self):
+        self.ui_DemolicionConstruccion.show()
+        result = self.ui_DemolicionConstruccion.exec_()
+        if result == 1:
+            self.showResults()
+        elif self.ui_DemolicionConstruccion.back==True:
+            self.ui_DemolicionConstruccion.back=False            
+            self.showIntroForm()
+        
     def showResults(self):
         proyValues=self.ui_Proyecto.getValues()
         userValues=self.ui_Usuario.getValues()

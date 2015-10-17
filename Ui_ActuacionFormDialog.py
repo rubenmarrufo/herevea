@@ -50,7 +50,7 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
             ui_Error.show()
             ui_Error.exec_()
     else:
-        ui_Error=Ui_ErrorDialog(u'No se puede evaluar la Huella Ecológica ya que no se ha seleccionado ninguna actuación')
+        ui_Error=Ui_ErrorDialog(u'No se puede continuar ya que no se ha seleccionado ninguna actuación')
         ui_Error.show()
         ui_Error.exec_()
     

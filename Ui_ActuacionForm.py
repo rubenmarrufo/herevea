@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Ui_ActuacionForm.ui'
 #
-# Created: Mon Oct 12 12:36:34 2015
+# Created: Mon Oct 12 20:16:21 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -1514,7 +1514,7 @@ class Ui_ActuacionForm(object):
         self.spinRampaAct.setObjectName(_fromUtf8("spinRampaAct"))
         self.tabWidget.addTab(self.tab_7, _fromUtf8(""))
         self.horizontalLayoutWidget = QtGui.QWidget(ActuacionForm)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(860, 660, 331, 41))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(925, 660, 271, 41))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setMargin(0)
@@ -2244,5 +2244,5 @@ class Ui_ActuacionForm(object):
         self.label_79.setText(_translate("ActuacionForm", "Plantas", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_7), _translate("ActuacionForm", "Accesibilidad", None))
         self.pushButton.setText(_translate("ActuacionForm", "< Atrás", None))
-        self.btnAccept.setText(_translate("ActuacionForm", "Calculo de Huella Ecológica", None))
+        self.btnAccept.setText(_translate("ActuacionForm", "Siguiente >", None))
 

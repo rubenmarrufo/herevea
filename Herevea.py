@@ -132,6 +132,15 @@ class Herevea:
     self.iface.actionZoomToSelected().trigger()
     self.iface.mapCanvas().zoomScale(zoom)
     self.iface.mapCanvas().setCenter(coord)
+
+  def addParcelaPoint(self):
+    layer =  QgsVectorLayer('Point', 'Herevea: Parcela XXXXXXXXXXXX' , "memory")
+    pr = layer.dataProvider() 
+    pt = QgsFeature()
+    point1 = QgsPoint(-6.002941,37.381429)
+    pt.setGeometry(QgsGeometry.fromPoint(point1))
+    pr.addFeatures([pt])
+    QgsMapLayerRegistry.instance().addMapLayers([layer])
     
   def fin(self, result):
     self.launcher.fin(result)       
