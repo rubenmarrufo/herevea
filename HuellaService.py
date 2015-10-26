@@ -5,11 +5,12 @@ import os
 
 class HuellaService:
 	
-	def Calculate(self, proyecto, usuario, actuaciones):
+	def Calculate(self, proyecto, usuario, actuaciones, demCons):
 		dir = os.path.dirname(__file__)
 		filename = os.path.join(dir,'toexcel/data.txt')
 		proyecto.update(usuario)
 		proyecto.update(actuaciones)
+		proyecto.update(demCons)
 		with open(filename, 'w+') as outfile:
 			json.dump(proyecto, outfile)
 		application = os.path.join(dir,'toexcel/Herevea.exe')

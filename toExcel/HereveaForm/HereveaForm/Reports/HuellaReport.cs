@@ -241,6 +241,7 @@ namespace Herevea.Reports
         public string RampaPUC { get; set; }
         public string PorteroPUC { get; set; }
         public string AscensoresPUC { get; set; }
+        public string Demolicion { get; set; }
     }
 
     public class PEM
@@ -261,5 +262,25 @@ namespace Herevea.Reports
         public decimal DemolicionResiduos { get; set; }
 
         public decimal Construccion { get; set; }
+        public decimal CimentacionesHE { get; set; }
+        public decimal SaneamientoHE { get; set; }
+        public decimal EstructurasHE { get; set; }
+        public decimal AlbañileriaHE { get; set; }
+        public decimal CubiertasHE { get; set; }
+        public decimal InstalacionesHE { get; set; }
+        public decimal CarpinteriaHE { get; set; }
+        public decimal AccesibilidadHE { get; set; }
+        public decimal ResiduosHE { get; set; }
+        public decimal RehabilitacionHE { get; set; }
+        public decimal DemolicionEdificioHE { get; set; }
+        public decimal DemolicionResiduosHE { get; set; }
+        public decimal ConstruccionHE { get; set; }
+    }
+
+    public class ComparativaCapitulo
+    {
+        public string Capitulo { get; set; }
+        public decimal Huella { get; set; }
+        public decimal PEM { get; set; }
     }
 }

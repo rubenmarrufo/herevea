@@ -40,4 +40,5 @@ class Ui_UsuarioFormDialog(QtGui.QDialog):
     return {'Cimentacion': self.ui.cbCimentacion.currentText(), \
             'Estructura': self.ui.cbEstructura.currentText(), \
             'Cubierta': self.ui.cbCubierta.currentText(), \
-            'Altura': self.ui.spbAlturaTotal.value() }
+            'Altura': self.ui.spbAlturaTotal.value(), \
+            'AlturaPlanta': self.ui.spbAlturaMedia.value() }

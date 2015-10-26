@@ -102,7 +102,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -113,7 +113,7 @@
        <rect>
         <x>20</x>
         <y>20</y>
-        <width>811</width>
+        <width>881</width>
         <height>91</height>
        </rect>
       </property>
@@ -123,9 +123,9 @@
       <widget class="QComboBox" name="cmbPilotes">
        <property name="geometry">
         <rect>
-         <x>300</x>
+         <x>280</x>
          <y>38</y>
-         <width>481</width>
+         <width>581</width>
          <height>25</height>
         </rect>
        </property>
@@ -143,23 +143,23 @@
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>20</x>
          <y>40</y>
          <width>281</width>
          <height>19</height>
         </rect>
        </property>
        <property name="text">
-        <string>Reparación de zapatas</string>
+        <string>Rehabilitación de zapatas</string>
        </property>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_7">
       <property name="geometry">
        <rect>
-        <x>840</x>
+        <x>920</x>
         <y>20</y>
-        <width>261</width>
+        <width>191</width>
         <height>91</height>
        </rect>
       </property>
@@ -169,7 +169,7 @@
       <widget class="QLabel" name="label_56">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>120</x>
          <y>40</y>
          <width>31</width>
          <height>19</height>
@@ -182,7 +182,7 @@
       <widget class="QComboBox" name="cmbPilotesAct">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>20</x>
          <y>36</y>
          <width>91</width>
          <height>25</height>
@@ -1085,7 +1085,7 @@
           <rect>
            <x>10</x>
            <y>30</y>
-           <width>911</width>
+           <width>921</width>
            <height>201</height>
           </rect>
          </property>
@@ -1095,9 +1095,9 @@
          <widget class="QComboBox" name="cmbLadFisuras">
           <property name="geometry">
            <rect>
-            <x>220</x>
+            <x>320</x>
             <y>30</y>
-            <width>671</width>
+            <width>591</width>
             <height>25</height>
            </rect>
           </property>
@@ -1115,22 +1115,22 @@
          <widget class="QLabel" name="label_35">
           <property name="geometry">
            <rect>
-            <x>20</x>
+            <x>10</x>
             <y>34</y>
             <width>231</width>
             <height>19</height>
            </rect>
           </property>
           <property name="text">
-           <string>Fisuras</string>
+           <string>Reparación de fisuras</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cmbLadGrietas">
           <property name="geometry">
            <rect>
-            <x>220</x>
+            <x>320</x>
             <y>70</y>
-            <width>671</width>
+            <width>591</width>
             <height>25</height>
            </rect>
           </property>
@@ -1163,9 +1163,9 @@
          <widget class="QComboBox" name="cmbLadHumTecho">
           <property name="geometry">
            <rect>
-            <x>220</x>
+            <x>320</x>
             <y>150</y>
-            <width>671</width>
+            <width>591</width>
             <height>25</height>
            </rect>
           </property>
@@ -1183,48 +1183,48 @@
          <widget class="QLabel" name="label_36">
           <property name="geometry">
            <rect>
-            <x>20</x>
+            <x>10</x>
             <y>152</y>
-            <width>261</width>
+            <width>301</width>
             <height>19</height>
            </rect>
           </property>
           <property name="text">
-           <string>Humedades en techo</string>
+           <string>Reparación de humedades en techo</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_37">
           <property name="geometry">
            <rect>
-            <x>20</x>
+            <x>10</x>
             <y>112</y>
-            <width>261</width>
+            <width>301</width>
             <height>19</height>
            </rect>
           </property>
           <property name="text">
-           <string>Humedades en suelo</string>
+           <string>Reparación de humedades en suelo</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_34">
           <property name="geometry">
            <rect>
-            <x>20</x>
+            <x>10</x>
             <y>73</y>
             <width>241</width>
             <height>19</height>
            </rect>
           </property>
           <property name="text">
-           <string>Grietas</string>
+           <string>Reparación de grietas</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cmbLadHumSuelo">
           <property name="geometry">
            <rect>
-            <x>220</x>
+            <x>320</x>
             <y>110</y>
-            <width>671</width>
+            <width>591</width>
             <height>25</height>
            </rect>
           </property>
@@ -1243,9 +1243,9 @@
         <widget class="QGroupBox" name="groupBox_17">
          <property name="geometry">
           <rect>
-           <x>930</x>
+           <x>940</x>
            <y>30</y>
-           <width>181</width>
+           <width>171</width>
            <height>201</height>
           </rect>
          </property>
@@ -1622,7 +1622,7 @@
         <rect>
          <x>20</x>
          <y>37</y>
-         <width>921</width>
+         <width>931</width>
          <height>181</height>
         </rect>
        </property>
@@ -1632,9 +1632,9 @@
        <widget class="QComboBox" name="cmbIntFisuras">
         <property name="geometry">
          <rect>
-          <x>190</x>
+          <x>320</x>
           <y>30</y>
-          <width>711</width>
+          <width>601</width>
           <height>25</height>
          </rect>
         </property>
@@ -1652,35 +1652,35 @@
        <widget class="QLabel" name="label_38">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>10</x>
           <y>80</y>
           <width>201</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Grietas</string>
+         <string>Reparación de grietas</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_41">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>129</y>
-          <width>231</width>
+          <x>10</x>
+          <y>127</y>
+          <width>331</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Humedades suelo</string>
+         <string>Reparación de humedades en suelo</string>
         </property>
        </widget>
        <widget class="QComboBox" name="cmbHumSuelo">
         <property name="geometry">
          <rect>
-          <x>190</x>
+          <x>320</x>
           <y>125</y>
-          <width>711</width>
+          <width>601</width>
           <height>25</height>
          </rect>
         </property>
@@ -1698,22 +1698,22 @@
        <widget class="QLabel" name="label_39">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>10</x>
           <y>34</y>
           <width>231</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Fisuras</string>
+         <string>Reparación de fisuras</string>
         </property>
        </widget>
        <widget class="QComboBox" name="cmbIntGrietas">
         <property name="geometry">
          <rect>
-          <x>190</x>
+          <x>320</x>
           <y>78</y>
-          <width>711</width>
+          <width>601</width>
           <height>25</height>
          </rect>
         </property>
@@ -1737,9 +1737,9 @@
       <widget class="QGroupBox" name="groupBox_19">
        <property name="geometry">
         <rect>
-         <x>950</x>
+         <x>960</x>
          <y>37</y>
-         <width>181</width>
+         <width>171</width>
          <height>181</height>
         </rect>
        </property>
@@ -1891,7 +1891,7 @@
         <rect>
          <x>20</x>
          <y>30</y>
-         <width>921</width>
+         <width>931</width>
          <height>111</height>
         </rect>
        </property>
@@ -1901,9 +1901,9 @@
        <widget class="QComboBox" name="cmbGrietas">
         <property name="geometry">
          <rect>
-          <x>190</x>
+          <x>320</x>
           <y>70</y>
-          <width>711</width>
+          <width>601</width>
           <height>25</height>
          </rect>
         </property>
@@ -1926,22 +1926,22 @@
        <widget class="QLabel" name="label_18">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>10</x>
           <y>72</y>
           <width>241</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Grietas</string>
+         <string>Reparación de grietas</string>
         </property>
        </widget>
        <widget class="QComboBox" name="cmbFisuras">
         <property name="geometry">
          <rect>
-          <x>190</x>
+          <x>320</x>
           <y>30</y>
-          <width>711</width>
+          <width>601</width>
           <height>25</height>
          </rect>
         </property>
@@ -1959,23 +1959,23 @@
        <widget class="QLabel" name="label_33">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>10</x>
           <y>32</y>
           <width>231</width>
           <height>19</height>
          </rect>
         </property>
         <property name="text">
-         <string>Fisuras</string>
+         <string>Reparación de fisuras</string>
         </property>
        </widget>
       </widget>
       <widget class="QGroupBox" name="groupBox_15">
        <property name="geometry">
         <rect>
-         <x>950</x>
+         <x>960</x>
          <y>30</y>
-         <width>181</width>
+         <width>171</width>
          <height>111</height>
         </rect>
        </property>
@@ -2235,7 +2235,7 @@
           </item>
           <item>
            <property name="text">
-            <string>Superf.dañada &gt;60%. Sustitución completa. Mejora energ. con aislam. lana de oveja</string>
+            <string>Superf.dañada &gt;60%. Sustitución completa. Mejora energ. con aislam. XPS</string>
            </property>
           </item>
          </widget>
@@ -2413,7 +2413,12 @@
           </item>
           <item>
            <property name="text">
-            <string>1 a 60</string>
+            <string>1 a 30</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>31 a 60</string>
            </property>
           </item>
          </widget>
@@ -2637,7 +2642,12 @@
           </item>
           <item>
            <property name="text">
-            <string>1 a 60</string>
+            <string>1 a 30</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>31 a 60</string>
            </property>
           </item>
          </widget>
@@ -2851,7 +2861,7 @@
         </column>
         <item row="0" column="0">
          <property name="text">
-          <string>XT14500</string>
+          <string>XT19000</string>
          </property>
          <property name="textAlignment">
           <set>AlignHCenter|AlignVCenter|AlignCenter</set>
@@ -2867,12 +2877,12 @@
         </item>
         <item row="0" column="2">
          <property name="text">
-          <string>POLIESTIRENO PLANCHAS RIGIDAS, DENS. 50 kg/m3</string>
+          <string>POLIESTIRENO EXPANDIDO EPS EN PLANCHA, RESIST. TERM. 1,6 m2K/W</string>
          </property>
         </item>
         <item row="0" column="3">
          <property name="text">
-          <string>5.835,00 MJ/m3</string>
+          <string>1.170,00 MJ/m3</string>
          </property>
          <property name="textAlignment">
           <set>AlignRight|AlignVCenter</set>
@@ -2880,7 +2890,7 @@
         </item>
         <item row="0" column="4">
          <property name="text">
-          <string>116,70</string>
+          <string>78,00</string>
          </property>
          <property name="textAlignment">
           <set>AlignRight|AlignVCenter</set>
@@ -2888,7 +2898,7 @@
         </item>
         <item row="1" column="0">
          <property name="text">
-          <string>XI90100</string>
+          <string>XT13825</string>
          </property>
          <property name="textAlignment">
           <set>AlignHCenter|AlignVCenter|AlignCenter</set>
@@ -2896,7 +2906,7 @@
         </item>
         <item row="1" column="1">
          <property name="text">
-          <string>m2</string>
+          <string>m3</string>
          </property>
          <property name="textAlignment">
           <set>AlignHCenter|AlignVCenter|AlignCenter</set>
@@ -2904,12 +2914,12 @@
         </item>
         <item row="1" column="2">
          <property name="text">
-          <string>LÁMINA LANA DE OVEJA 60mm</string>
+          <string>POLIESTIRENO EXTRUIDO EN PLANCHAS 60 mm</string>
          </property>
         </item>
         <item row="1" column="3">
          <property name="text">
-          <string>11,47 MJ/m2</string>
+          <string>2.334,00 MJ/m3</string>
          </property>
          <property name="textAlignment">
           <set>AlignRight|AlignVCenter</set>
@@ -2917,7 +2927,7 @@
         </item>
         <item row="1" column="4">
          <property name="text">
-          <string>14,16</string>
+          <string>116,70</string>
          </property>
          <property name="textAlignment">
           <set>AlignRight|AlignVCenter</set>
@@ -3130,7 +3140,7 @@
         <property name="geometry">
          <rect>
           <x>15</x>
-          <y>30</y>
+          <y>35</y>
           <width>211</width>
           <height>19</height>
          </rect>
@@ -3183,7 +3193,7 @@
         <property name="geometry">
          <rect>
           <x>15</x>
-          <y>151</y>
+          <y>154</y>
           <width>221</width>
           <height>19</height>
          </rect>
@@ -3236,7 +3246,7 @@
         <property name="geometry">
          <rect>
           <x>15</x>
-          <y>70</y>
+          <y>72</y>
           <width>211</width>
           <height>19</height>
          </rect>
@@ -3269,7 +3279,7 @@
         <property name="geometry">
          <rect>
           <x>15</x>
-          <y>192</y>
+          <y>195</y>
           <width>271</width>
           <height>19</height>
          </rect>
@@ -3282,7 +3292,7 @@
         <property name="geometry">
          <rect>
           <x>15</x>
-          <y>110</y>
+          <y>112</y>
           <width>231</width>
           <height>19</height>
          </rect>
@@ -3531,7 +3541,7 @@
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_14">
        <attribute name="title">
@@ -3702,17 +3712,7 @@
           </item>
           <item>
            <property name="text">
-            <string>1 a 30</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>31 a 60</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>61 a 100</string>
+            <string>100</string>
            </property>
           </item>
          </widget>
@@ -4633,7 +4633,7 @@
           <x>70</x>
           <y>40</y>
           <width>1000</width>
-          <height>185</height>
+          <height>151</height>
          </rect>
         </property>
         <property name="font">
@@ -4681,11 +4681,6 @@
         <attribute name="verticalHeaderStretchLastSection">
          <bool>true</bool>
         </attribute>
-        <row>
-         <property name="text">
-          <string>New Row</string>
-         </property>
-        </row>
         <row>
          <property name="text">
           <string>New Row</string>
@@ -4759,7 +4754,7 @@
         </item>
         <item row="0" column="3">
          <property name="text">
-          <string>2.108,79 MJ/m2</string>
+          <string>396,80 MJ/m2</string>
          </property>
          <property name="textAlignment">
           <set>AlignRight|AlignVCenter</set>
@@ -4767,7 +4762,7 @@
         </item>
         <item row="0" column="4">
          <property name="text">
-          <string>3.420,74</string>
+          <string>160,00</string>
          </property>
          <property name="textAlignment">
           <set>AlignRight|AlignVCenter</set>
@@ -4886,7 +4881,7 @@
         </item>
         <item row="4" column="0">
          <property name="text">
-          <string>VL05500</string>
+          <string>VL06500</string>
          </property>
          <property name="textAlignment">
           <set>AlignHCenter|AlignVCenter|AlignCenter</set>
@@ -4902,7 +4897,7 @@
         </item>
         <item row="4" column="2">
          <property name="text">
-          <string>DOBLE LUNA INCOLORA BAJA EMISIVIDAD 6 mm, CÁMARA AIRE 12 mm</string>
+          <string>DOBLE LUNA INCOLORA CONTROL SOLAR 6 mm, CÁMARA AIRE 12 mm</string>
          </property>
         </item>
         <item row="4" column="3">
@@ -4914,43 +4909,6 @@
          </property>
         </item>
         <item row="4" column="4">
-         <property name="text">
-          <string>12,90</string>
-         </property>
-         <property name="textAlignment">
-          <set>AlignRight|AlignVCenter</set>
-         </property>
-        </item>
-        <item row="5" column="0">
-         <property name="text">
-          <string>VL06500</string>
-         </property>
-         <property name="textAlignment">
-          <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-         </property>
-        </item>
-        <item row="5" column="1">
-         <property name="text">
-          <string>m2</string>
-         </property>
-         <property name="textAlignment">
-          <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-         </property>
-        </item>
-        <item row="5" column="2">
-         <property name="text">
-          <string>DOBLE LUNA INCOLORA CONTROL SOLAR 6 mm, CÁMARA AIRE 12 mm</string>
-         </property>
-        </item>
-        <item row="5" column="3">
-         <property name="text">
-          <string>39,49 MJ/m2</string>
-         </property>
-         <property name="textAlignment">
-          <set>AlignRight|AlignVCenter</set>
-         </property>
-        </item>
-        <item row="5" column="4">
          <property name="text">
           <string>12,90</string>
          </property>
@@ -5112,7 +5070,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Rampa de minusválidos</string>
+        <string>Rampa de acceso</string>
        </property>
       </widget>
       <zorder>label_50</zorder>

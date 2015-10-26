@@ -166,7 +166,8 @@ namespace HereveaForm
                     PorteroPUC = CalculatePUC(_data.Portero, "Portero electrónico"),
                     Ascensores = _data.Ascensores,
                     AscensoresAct = _data.AscensoresAct,
-                    AscensoresPUC = CalculatePUC(_data.Ascensores, "Ascensores")
+                    AscensoresPUC = CalculatePUC(_data.Ascensores, "Ascensores"),
+                    Demolicion = _data.Demolicion
                 }
             };
             var reportDto = new List<HuellaReportDTO>
@@ -177,10 +178,10 @@ namespace HereveaForm
                     Municipio = _data.Municipio,
                     Direccion = _data.Direccion,
                     RefCatastral = _data.RefCatastral,
-                    HuellaConstruccionSuperficie = SafeToDecimal(_result["HEConstruccion"]),
-                    HuellaConstruccion = SafeToDecimal(_result["HEConstruccion"]) * SafeToDecimal(_data.Superficie),
-                    HuellaDemolicionSuperficie = SafeToDecimal(_result["HEDemolicion"]),
-                    HuellaDemolicion = SafeToDecimal(_result["HEDemolicion"]) * SafeToDecimal(_data.Superficie),
+                    HuellaConstruccionSuperficie = SafeToDecimal(_result["ConstruccionHESuperficie"]),
+                    HuellaConstruccion = SafeToDecimal(_result["ConstruccionHE"]),
+                    HuellaDemolicionSuperficie = SafeToDecimal(_result["DemolicionHESuperficie"]),
+                    HuellaDemolicion = SafeToDecimal(_result["DemolicionHE"]),
                     HuellaTotalSuperficie = SafeToDecimal(_result["Total"]),
                     HuellaTotal = SafeToDecimal(_result["Total"]) * SafeToDecimal(_data.Superficie),
                     MaqEn = SafeToDecimal(_result["MaqEn"]),
@@ -228,9 +229,9 @@ namespace HereveaForm
                 new Energias {Categoria = "Agua", Impacto = SafeToDecimal(_result["Agua"])/energiaTotal},
                 new Energias {Categoria = "Alimentos", Impacto = SafeToDecimal(_result["Alimentos"])/energiaTotal},
                 new Energias {Categoria = "Movilidad", Impacto = SafeToDecimal(_result["Movilidad"])/energiaTotal},
-                new Energias {Categoria = "Residuos RSU", Impacto = SafeToDecimal(_result["Residuos RSU"])/energiaTotal},
+                new Energias {Categoria = "RSU", Impacto = SafeToDecimal(_result["Residuos RSU"])/energiaTotal},
                 new Energias {Categoria = "Materiales", Impacto = SafeToDecimal(_result["Materiales"])/energiaTotal},
-                new Energias {Categoria = "Residuos RCD", Impacto = SafeToDecimal(_result["Residuos RCD"])/energiaTotal}
+                new Energias {Categoria = "RCD", Impacto = SafeToDecimal(_result["Residuos RCD"])/energiaTotal}
             };
             var heParcial = new List<HEParcial>
             {
@@ -255,20 +256,46 @@ namespace HereveaForm
                     Accesibilidad = SafeToDecimal(_result["Accesibilidad"]),
                     Residuos = SafeToDecimal(_result["Residuos"]),
 
+                    CimentacionesHE = SafeToDecimal(_result["CimentacionesHE"]),
+                    SaneamientoHE = SafeToDecimal(_result["SaneamientoHE"]),  
+                    EstructurasHE = SafeToDecimal(_result["EstructurasHE"]),  
+                    AlbañileriaHE = SafeToDecimal(_result["AlbañileriaHE"]),  
+                    CubiertasHE = SafeToDecimal(_result["CubiertasHE"]),   
+                    InstalacionesHE = SafeToDecimal(_result["InstalacionesHE"]),
+                    CarpinteriaHE = SafeToDecimal(_result["CarpinteriaHE"]),
+                    AccesibilidadHE = SafeToDecimal(_result["AccesibilidadHE"]),
+                    ResiduosHE = SafeToDecimal(_result["ResiduosHE"]),
+
                     Rehabilitacion = SafeToDecimal(_result["Rehabilitacion"]),
+                    RehabilitacionHE = SafeToDecimal(_result["RehabilitacionHE"]),
                     DemolicionEdificio = SafeToDecimal(_result["DemolicionEdificio"]),
                     DemolicionResiduos = SafeToDecimal(_result["DemolicionResiduos"]),
                     Construccion = SafeToDecimal(_result["Construccion"]),
+                    DemolicionEdificioHE = SafeToDecimal(_result["DemolicionEdificioHE"]),
+                    DemolicionResiduosHE = SafeToDecimal(_result["DemolicionResiduosHE"]),
+                    ConstruccionHE = SafeToDecimal(_result["ConstruccionHE"]),
                 }
             };
-
+            var comparativa = new List<ComparativaCapitulo>()
+            {
+                new ComparativaCapitulo { Capitulo = "Cimentaciones", Huella = SafeToDecimal(_result["CimentacionesHE"]), PEM = SafeToDecimal(_result["Cimentaciones"])},
+                new ComparativaCapitulo { Capitulo = "Saneamiento", Huella = SafeToDecimal(_result["SaneamientoHE"]), PEM = SafeToDecimal(_result["Saneamiento"])},
+                new ComparativaCapitulo { Capitulo = "Estructuras", Huella = SafeToDecimal(_result["EstructurasHE"]), PEM = SafeToDecimal(_result["Estructuras"])},
+                new ComparativaCapitulo { Capitulo = "Albañilería", Huella = SafeToDecimal(_result["AlbañileriaHE"]), PEM = SafeToDecimal(_result["Albañileria"])},
+                new ComparativaCapitulo { Capitulo = "Cubiertas", Huella = SafeToDecimal(_result["CubiertasHE"]), PEM = SafeToDecimal(_result["Cubiertas"])},
+                new ComparativaCapitulo { Capitulo = "Instalaciones", Huella = SafeToDecimal(_result["InstalacionesHE"]), PEM = SafeToDecimal(_result["Instalaciones"])},
+                new ComparativaCapitulo { Capitulo = "Carpintería y elementos de seguridad y protección", Huella = SafeToDecimal(_result["CarpinteriaHE"]), PEM = SafeToDecimal(_result["Carpinteria"])},
+                new ComparativaCapitulo { Capitulo = "Accesibilidad", Huella = SafeToDecimal(_result["AccesibilidadHE"]), PEM = SafeToDecimal(_result["Accesibilidad"])},
+                new ComparativaCapitulo { Capitulo = "Residuos", Huella = SafeToDecimal(_result["ResiduosHE"]), PEM = SafeToDecimal(_result["Residuos"])},
+            };
             return new Dictionary<string, IEnumerable>
             {
                 {"DataSet1", reportDto},
                 {"DataSet2", energias},
                 {"DataSet3", heParcial},
                 {"DataSet4", actuaciones},
-                {"DataSet5", pem}
+                {"DataSet5", pem},
+                {"DataSet6", comparativa},
             };
         }
 

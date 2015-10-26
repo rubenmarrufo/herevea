@@ -11,6 +11,7 @@ class Ui_IntroFormDialog(QtGui.QDialog):
         QtGui.QDialog.__init__(self) 
         
         self.rehab=False
+        self.back=False
         self.demCons=False
         self.ui = Ui_IntroForm()
         self.ui.setupUi(self)
@@ -18,21 +19,28 @@ class Ui_IntroFormDialog(QtGui.QDialog):
         self.ui.tbxRefCatastral.setText(catastroService.getNumCatastro())
         self.ui.btnRehab.clicked.connect(self.rehabButton)    
         self.ui.btnDemCons.clicked.connect(self.demConsButton)
+        self.ui.pushButton.clicked.connect(self.backButton)    
+    
+    def backButton(self):
+        self.back=True
+        self.close()
     
     def rehabButton(self):    
-        self.rehab=True
-        self.demCons=False
+        self.toRehab()
         self.accept()
     
     def demConsButton(self):    
-        self.rehab=False
-        self.demCons=True
+        self.toDemCons()
         self.accept()
         
     def toRehab(self):
+        self.rehab=True
+        self.demCons=False
         self.ui.btnDemCons.setEnabled(False)
         self.ui.btnRehab.setEnabled(True)
     
     def toDemCons(self):
+        self.rehab=False
+        self.demCons=True
         self.ui.btnDemCons.setEnabled(True)
         self.ui.btnRehab.setEnabled(True)

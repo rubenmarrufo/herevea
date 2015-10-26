@@ -55,10 +55,10 @@ class HereveaMapTool(QgsMapToolEmitPoint):
             if name.startswith('Catastro'):
                 layerPoint = self.toLayerCoordinates( layer, mouseEvent.pos() )
                 self.parcelaService = ParcelaService(self,self.provincia,self.municipio) 
-                self.parcelaService.initCoords(layerPoint.x(),layerPoint.y())
+                self.parcelaService.initCoords(layerPoint.x(),layerPoint.y())                
                 self.launcher = UserInputLauncherService(self.iface,self.parcelaService,self.fin)
                 self.launcher.launch() 
-                
+    
     def fin(self, result):       
         self.launcher.fin(result) 
                       

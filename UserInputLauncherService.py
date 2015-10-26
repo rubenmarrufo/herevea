@@ -14,6 +14,7 @@ from PyQt4.QtGui import QCursor, QPixmap, QProgressBar
 from PyQt4 import QtGui, QtCore
 from qgis.gui import *
 from qgis.core import *
+from qgis.utils import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
@@ -23,7 +24,7 @@ class UserInputLauncherService():
         self.parcelaService = parcelaService
         self.callback = callback
    
-    def launch(self):
+    def launch(self):        
         progressMessageBar = self.iface.messageBar().createMessage("Obteniendo informacion del catastro...   ")
         progress = QProgressBar()
         progress.setMaximum(0)
@@ -45,12 +46,33 @@ class UserInputLauncherService():
             elif self.parcelaService.uso() != 'Residencial':
                 self.iface.messageBar().pushMessage("Error", "HEREVEA solo analiza edificios de uso residencial", level=QgsMessageBar.CRITICAL, duration=3)                
             else:
+                self.addParcelaPoint(self.parcelaService.numCatastro, self.parcelaService.x, self.parcelaService.y)
                 self.ui_Usuario=Ui_UsuarioFormDialog(self.parcelaService)
                 self.ui_Proyecto=Ui_ProyectoFormDialog(self.parcelaService)
                 self.ui_Actuacion=Ui_ActuacionFormDialog(self.parcelaService)   
                 self.ui_Intro=Ui_IntroFormDialog(self.parcelaService)
                 self.ui_DemolicionConstruccion=Ui_DemolicionConstruccionDialog(self.parcelaService)
                 self.showProyectoForm()
+                
+    def addParcelaPoint(self, numCatastro,x,y):
+        settings = QSettings()
+        # Take the "CRS for new layers" config, overwrite it while loading layers and...
+        oldProjValue = settings.value( "/Projections/defaultBehaviour", "prompt", type=str )
+        settings.setValue( "/Projections/defaultBehaviour", "useProject" )        
+        layers = QgsMapLayerRegistry.instance().mapLayers()
+        for lyr in QgsMapLayerRegistry.instance().mapLayers().values():
+            print lyr.name()
+            if lyr.name().startswith("Herevea: Parcela"):                
+                QgsMapLayerRegistry.instance().removeMapLayer(lyr.id())        
+        layer = QgsVectorLayer('Point?crs=EPSG:4326', 'Herevea: Parcela ' + numCatastro, "memory")  
+             
+        pr = layer.dataProvider() 
+        pt = QgsFeature()
+        point1 = QgsPoint(x,y)
+        pt.setGeometry(QgsGeometry.fromPoint(point1))
+        pr.addFeatures([pt])
+        QgsMapLayerRegistry.instance().addMapLayers([layer])
+        settings.setValue( "/Projections/defaultBehaviour", oldProjValue )
     
     def showProyectoForm(self):        
         self.ui_Proyecto.show()
@@ -76,7 +98,15 @@ class UserInputLauncherService():
                 self.showActuacionForm()
             elif self.ui_Intro.demCons==True:
                 self.showDemCons()
-                
+        elif self.ui_Intro.back == True:            
+            self.ui_Intro.back=False
+            if self.ui_Intro.rehab==True:
+                self.showUsuarioForm()
+            elif self.ui_Intro.demCons==True:
+                self.ui_Intro.rehab=True
+                self.ui_Intro.demCons=False
+                self.showActuacionForm()                
+            
     def showActuacionForm(self):
         self.ui_Actuacion.setDatosCatastro(self.ui_Proyecto.getValues())
         self.ui_Actuacion.setDatosUsuario(self.ui_Usuario.getValues())        
@@ -92,6 +122,7 @@ class UserInputLauncherService():
     
     def showDemCons(self):
         self.ui_DemolicionConstruccion.show()
+        self.ui_DemolicionConstruccion.setup(self.ui_Proyecto.getValues(),self.ui_Usuario.getValues())
         result = self.ui_DemolicionConstruccion.exec_()
         if result == 1:
             self.showResults()
@@ -103,9 +134,13 @@ class UserInputLauncherService():
         proyValues=self.ui_Proyecto.getValues()
         userValues=self.ui_Usuario.getValues()
         actValues = self.ui_Actuacion.getValues()
+        demConsValues = self.ui_DemolicionConstruccion.getValues()
         huellaService = HuellaService()
-        huellaResult = huellaService.Calculate(proyValues,userValues,actValues)
-        ui_Result=Ui_ResultFormDialog(self.parcelaService,huellaResult)
-        ui_Result.show()
-        ui_Result.exec_()                         
+        huellaResult = huellaService.Calculate(proyValues,userValues,actValues, demConsValues)
+        self.ui_Result=Ui_ResultFormDialog(self.parcelaService,huellaResult)
+        self.ui_Result.show()
+        result = self.ui_Result.exec_()
+        if self.ui_Result.back==True:
+            self.ui_Result.back=False            
+            self.showDemCons()                         
         

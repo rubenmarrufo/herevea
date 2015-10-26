@@ -67,8 +67,6 @@ class CatastroService:
     def getDireccionesInmuebles(self, listInmueblesDic):
         listInmuebles = []
         for inmueble in listInmueblesDic:
-            print(inmueble)
-            print(listInmueblesDic)
             inmuebleRefCatDic = inmueble['rc']
             inmuebleRefCat = inmuebleRefCatDic['pc1'] + inmuebleRefCatDic['pc2'] + inmuebleRefCatDic['car']
             direccionExtDic = inmueble['dt']['locs']['lous']['lourb']['dir']

@@ -38,6 +38,22 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
     self.ui.cmbCubIncCompleta.currentIndexChanged.connect(self.cmbCubIncComChanged)
     self.ui.cmbCarpLigera.currentIndexChanged.connect(self.cmbCarpLigeraChanged)
     self.ui.cmbCarpMadera.currentIndexChanged.connect(self.cmbCarpMaderaChanged)
+    
+    self.ui.cmbLadGrietasAct.currentIndexChanged.connect(self.cmbLadFisurasGrietasChanged)
+    self.ui.cmbLadGrietas.currentIndexChanged.connect(self.cmbLadFisurasGrietasChanged)
+    self.ui.cmbLadFisurasAct.currentIndexChanged.connect(self.cmbLadFisurasGrietasChanged)
+    self.ui.cmbLadFisuras.currentIndexChanged.connect(self.cmbLadFisurasGrietasChanged)
+    
+    self.ui.cmbGrietasAct.currentIndexChanged.connect(self.cmbFisurasGrietasChanged)
+    self.ui.cmbGrietas.currentIndexChanged.connect(self.cmbFisurasGrietasChanged)
+    self.ui.cmbFisurasAct.currentIndexChanged.connect(self.cmbFisurasGrietasChanged)
+    self.ui.cmbFisuras.currentIndexChanged.connect(self.cmbFisurasGrietasChanged)
+    
+    self.ui.cmbIntGrietasAct.currentIndexChanged.connect(self.cmbIntFisurasGrietasChanged)
+    self.ui.cmbIntGrietas.currentIndexChanged.connect(self.cmbIntFisurasGrietasChanged)
+    self.ui.cmbIntFisurasAct.currentIndexChanged.connect(self.cmbIntFisurasGrietasChanged)
+    self.ui.cmbIntFisuras.currentIndexChanged.connect(self.cmbIntFisurasGrietasChanged)
+    
     self.setTablaMaterialesStyles()
 
   def calcular(self):
@@ -101,7 +117,37 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
           self.ui.cmbCarpLigeraAct.setCurrentIndex(0)                  
       self.ui.cmbCarpLigera.setEnabled(False if index != 0 else True)
       self.ui.cmbCarpLigeraAct.setEnabled(False if index != 0 else True)
-                
+      
+  def cmbLadFisurasGrietasChanged(self, index):
+    self.handleFisurasGrietas(self.ui.cmbLadFisuras, self.ui.cmbLadFisurasAct, self.ui.cmbLadGrietas, self.ui.cmbLadGrietasAct)
+  
+  def cmbFisurasGrietasChanged(self, index):
+    self.handleFisurasGrietas(self.ui.cmbFisuras, self.ui.cmbFisurasAct, self.ui.cmbGrietas, self.ui.cmbGrietasAct)
+  
+  def cmbIntFisurasGrietasChanged(self, index):
+    self.handleFisurasGrietas(self.ui.cmbIntFisuras, self.ui.cmbIntFisurasAct, self.ui.cmbIntGrietas, self.ui.cmbIntGrietasAct)
+    
+  def handleFisurasGrietas(self, cmbFisuras, cmbFisurasAct, cmbGrietas, cmbGrietasAct):
+    print cmbFisurasAct.currentText()
+    print cmbFisuras.currentText()
+    if cmbFisurasAct.currentText()=='61 a 100' and cmbFisuras.currentText()!='No hay actuaciones': # 61 a 100%
+      cmbGrietas.setCurrentIndex(0)          
+      cmbGrietasAct.setCurrentIndex(0)
+      cmbGrietas.setEnabled(False)
+      cmbGrietasAct.setEnabled(False)
+    else:
+      cmbGrietas.setEnabled(True)
+      cmbGrietasAct.setEnabled(True) 
+              
+    if cmbGrietasAct.currentText()=='61 a 100' and cmbGrietas.currentText()!='No hay actuaciones': # 61 a 100%
+      cmbFisuras.setCurrentIndex(0)          
+      cmbFisurasAct.setCurrentIndex(0)
+      cmbFisuras.setEnabled(False)
+      cmbFisurasAct.setEnabled(False)
+    else:
+      cmbFisuras.setEnabled(True)
+      cmbFisurasAct.setEnabled(True)
+                  
   def setDatosUsuario(self, datosUsuario):
     if datosUsuario['Cubierta']=='Horizontal':
         self.ui.groupCubInc.setEnabled(False)
@@ -293,7 +339,7 @@ class Ui_ActuacionFormDialog(QtGui.QDialog):
       validacion = validacion + u'La actuación \'Escalera\' no tiene grado de actuación' + '\n'
     elif self.ui.cmbPortero.currentText() != 'No hay actuaciones' and self.ui.spinPorteroAct.value()==0:
       validacion = validacion + u'La actuación \'Portero electrónico\' no tiene grado de actuación' + '\n'   
-    elif self.ui.cmbRampa.currentText() != 'No hay actuaciones' and self.ui.spinAscensorAct.value()==0:
+    elif self.ui.cmbRampa.currentText() != 'No hay actuaciones' and self.ui.spinRampaAct.value()==0.0:
       validacion = validacion + u'La actuación \'Rampa minusválidos\' no tiene grado de actuación' + '\n'
     return validacion
 

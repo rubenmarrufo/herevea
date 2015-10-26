@@ -29,5 +29,4 @@ class Ui_AcercaDeDialog(QtGui.QDialog):
     self.ui.setupUi(self)
     dir = os.path.dirname(__file__)
     icon_path = os.path.join(dir,u'img\\all.png') 
-    print icon_path 
     self.ui.label_2.setPixmap(QtGui.QPixmap(icon_path))    

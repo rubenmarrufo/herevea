@@ -25,8 +25,8 @@ class ParcelaService(QThread):
     def initRefCatastral(self, refCatastro):        
         self.numCatastro=refCatastro        
         xyInfo = self.catastroService.getParcelaCoords(self.numCatastro,self.provincia,self.municipio)
-        self.x = xyInfo['xcen']
-        self.y = xyInfo['ycen']
+        self.x = float(xyInfo['xcen'])
+        self.y = float(xyInfo['ycen'])
                 
     def run(self):
         try:            

@@ -106,7 +106,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -115,21 +115,26 @@
     <widget class="QTableWidget" name="tabHERehTotal">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>20</y>
-       <width>631</width>
-       <height>91</height>
+       <x>200</x>
+       <y>30</y>
+       <width>671</width>
+       <height>71</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 176, 80);
-gridline-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);
-alternate-background-color: rgb(85, 255, 0);
-color: rgb(255, 255, 255);</string>
+      <string notr="true"/>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
      </property>
      <property name="selectionMode">
       <enum>QAbstractItemView::NoSelection</enum>
@@ -164,9 +169,25 @@ color: rgb(255, 255, 255);</string>
      </column>
      <column>
       <property name="text">
-       <string>Huella Ecológica (hag)</string>
+       <string>Huella Ecológica total (hag)</string>
       </property>
      </column>
+     <item row="0" column="0">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textAlignment">
+       <set>AlignRight|AlignVCenter</set>
+      </property>
+     </item>
+     <item row="0" column="1">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textAlignment">
+       <set>AlignRight|AlignVCenter</set>
+      </property>
+     </item>
     </widget>
     <widget class="PlotWidget" name="chartHEParcial">
      <property name="geometry">
@@ -193,13 +214,13 @@ color: rgb(255, 255, 255);</string>
       <rect>
        <x>540</x>
        <y>140</y>
-       <width>331</width>
+       <width>401</width>
        <height>20</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>7</pointsize>
+       <pointsize>8</pointsize>
       </font>
      </property>
      <property name="text">
@@ -217,7 +238,7 @@ color: rgb(255, 255, 255);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>7</pointsize>
+       <pointsize>8</pointsize>
       </font>
      </property>
      <property name="text">
@@ -238,7 +259,7 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_3">
         <property name="font">
          <font>
-          <pointsize>6</pointsize>
+          <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
@@ -303,7 +324,7 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_6">
         <property name="font">
          <font>
-          <pointsize>6</pointsize>
+          <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
@@ -315,7 +336,7 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_7">
         <property name="font">
          <font>
-          <pointsize>6</pointsize>
+          <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
@@ -352,7 +373,7 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_9">
         <property name="font">
          <font>
-          <pointsize>6</pointsize>
+          <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
@@ -389,7 +410,7 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_11">
         <property name="font">
          <font>
-          <pointsize>6</pointsize>
+          <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
@@ -426,11 +447,11 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_13">
         <property name="font">
          <font>
-          <pointsize>6</pointsize>
+          <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>Residuos RSU</string>
+         <string>RSU</string>
         </property>
        </widget>
       </item>
@@ -463,7 +484,7 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_15">
         <property name="font">
          <font>
-          <pointsize>6</pointsize>
+          <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
@@ -525,11 +546,11 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_18">
         <property name="font">
          <font>
-          <pointsize>6</pointsize>
+          <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>Residuos RCD</string>
+         <string>RCD</string>
         </property>
        </widget>
       </item>
@@ -546,21 +567,23 @@ color: rgb(255, 255, 255);</string>
        <x>150</x>
        <y>40</y>
        <width>751</width>
-       <height>121</height>
+       <height>111</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 176, 80);
-gridline-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);
-alternate-background-color: rgb(85, 255, 0);
-color: rgb(255, 255, 255);</string>
+      <string notr="true"/>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
      <property name="alternatingRowColors">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="selectionMode">
       <enum>QAbstractItemView::NoSelection</enum>
@@ -606,7 +629,7 @@ color: rgb(255, 255, 255);</string>
      </column>
      <column>
       <property name="text">
-       <string>Huella Ecológica (hag)</string>
+       <string>Huella Ecológica total (hag)</string>
       </property>
      </column>
      <item row="0" column="0">
@@ -639,178 +662,13 @@ color: rgb(255, 255, 255);</string>
       </property>
       <property name="textAlignment">
        <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-      </property>
-     </item>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="ComparativadeHuella">
-    <attribute name="title">
-     <string>Comparativa de Huella Ecológica</string>
-    </attribute>
-    <widget class="QTableWidget" name="tabHEComp">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>40</y>
-       <width>751</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 176, 80);
-gridline-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);
-alternate-background-color: rgb(85, 255, 0);
-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::NoSelection</enum>
-     </property>
-     <property name="showGrid">
-      <bool>false</bool>
-     </property>
-     <property name="gridStyle">
-      <enum>Qt::NoPen</enum>
-     </property>
-     <attribute name="horizontalHeaderCascadingSectionResizes">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>250</number>
-     </attribute>
-     <attribute name="horizontalHeaderStretchLastSection">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="verticalHeaderCascadingSectionResizes">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="verticalHeaderDefaultSectionSize">
-      <number>40</number>
-     </attribute>
-     <attribute name="verticalHeaderStretchLastSection">
-      <bool>true</bool>
-     </attribute>
-     <row>
-      <property name="text">
-       <string>Rehabilitación</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Demolición + Construcción</string>
-      </property>
-     </row>
-     <column>
-      <property name="text">
-       <string>Huella Ecológica (hag/m2)</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Huella Ecológica (hag)</string>
-      </property>
-     </column>
-     <item row="0" column="0">
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-      </property>
-     </item>
-     <item row="0" column="1">
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-      </property>
-     </item>
-     <item row="1" column="0">
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-      </property>
-     </item>
-     <item row="1" column="1">
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-      </property>
-     </item>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_3">
-    <attribute name="title">
-     <string>PEM Rehabilitacion</string>
-    </attribute>
-    <widget class="QTableWidget" name="tabPEMReh">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>40</y>
-       <width>381</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 176, 80);
-gridline-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);
-alternate-background-color: rgb(85, 255, 0);
-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::NoSelection</enum>
-     </property>
-     <property name="showGrid">
-      <bool>false</bool>
-     </property>
-     <property name="gridStyle">
-      <enum>Qt::NoPen</enum>
-     </property>
-     <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>320</number>
-     </attribute>
-     <attribute name="horizontalHeaderStretchLastSection">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="verticalHeaderDefaultSectionSize">
-      <number>40</number>
-     </attribute>
-     <attribute name="verticalHeaderStretchLastSection">
-      <bool>true</bool>
-     </attribute>
-     <row>
-      <property name="text">
-       <string>Rehabilitación</string>
-      </property>
-     </row>
-     <column>
-      <property name="text">
-       <string>PEM (€)</string>
-      </property>
-     </column>
-     <item row="0" column="0">
-      <property name="text">
-       <string>0</string>
       </property>
      </item>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
-     <string>PEM demolición y construcción</string>
+     <string>Evaluación económica de rehabilitación, demolición y nueva construcción</string>
     </attribute>
     <widget class="QTableWidget" name="tabPEMDemCons">
      <property name="geometry">
@@ -818,21 +676,23 @@ color: rgb(255, 255, 255);</string>
        <x>260</x>
        <y>40</y>
        <width>481</width>
-       <height>121</height>
+       <height>151</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 176, 80);
-gridline-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);
-alternate-background-color: rgb(85, 255, 0);
-color: rgb(255, 255, 255);</string>
+      <string notr="true"/>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
      <property name="alternatingRowColors">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="selectionMode">
       <enum>QAbstractItemView::NoSelection</enum>
@@ -863,6 +723,11 @@ color: rgb(255, 255, 255);</string>
      </attribute>
      <row>
       <property name="text">
+       <string>Rehabilitación</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
        <string>Demolición</string>
       </property>
      </row>
@@ -876,7 +741,7 @@ color: rgb(255, 255, 255);</string>
        <string>PEM (€)</string>
       </property>
      </column>
-     <item row="0" column="0">
+     <item row="1" column="0">
       <property name="text">
        <string>0</string>
       </property>
@@ -884,7 +749,7 @@ color: rgb(255, 255, 255);</string>
        <set>AlignHCenter|AlignVCenter|AlignCenter</set>
       </property>
      </item>
-     <item row="1" column="0">
+     <item row="2" column="0">
       <property name="text">
        <string>0</string>
       </property>
@@ -896,26 +761,31 @@ color: rgb(255, 255, 255);</string>
    </widget>
    <widget class="QWidget" name="tab_5">
     <attribute name="title">
-     <string>Comparativa de PEM</string>
+     <string>Comparativa económica y ambiental</string>
     </attribute>
     <widget class="QTableWidget" name="tabPEMComp">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>50</x>
        <y>40</y>
-       <width>581</width>
-       <height>121</height>
+       <width>961</width>
+       <height>111</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 176, 80);
-gridline-color: rgb(255, 255, 255);
-border-color: rgb(255, 255, 255);
-alternate-background-color: rgb(85, 255, 0);
-color: rgb(255, 255, 255);</string>
+      <string notr="true"/>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
      </property>
      <property name="selectionMode">
       <enum>QAbstractItemView::NoSelection</enum>
@@ -951,12 +821,17 @@ color: rgb(255, 255, 255);</string>
      </row>
      <row>
       <property name="text">
-       <string>Demolición + Construcción</string>
+       <string>Demolición y nueva construcción</string>
       </property>
      </row>
      <column>
       <property name="text">
        <string>PEM (€)</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Huella Ecológica total (hag)</string>
       </property>
      </column>
      <item row="0" column="0">
@@ -978,16 +853,23 @@ color: rgb(255, 255, 255);</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>830</x>
+     <x>706</x>
      <y>530</y>
-     <width>252</width>
+     <width>373</width>
      <height>36</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>&lt; Atrás</string>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="QPushButton" name="btnReport">
       <property name="text">

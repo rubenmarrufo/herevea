@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Ui_IntroForm.ui'
 #
-# Created: Thu Oct 15 23:18:53 2015
+# Created: Mon Oct 19 22:08:43 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_IntroForm(object):
     def setupUi(self, IntroForm):
         IntroForm.setObjectName(_fromUtf8("IntroForm"))
-        IntroForm.resize(957, 399)
+        IntroForm.resize(957, 412)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("Herevea.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         IntroForm.setWindowIcon(icon)
@@ -45,7 +45,7 @@ class Ui_IntroForm(object):
         self.label_32.setGeometry(QtCore.QRect(623, 20, 101, 20))
         self.label_32.setObjectName(_fromUtf8("label_32"))
         self.groupBox = QtGui.QGroupBox(IntroForm)
-        self.groupBox.setGeometry(QtCore.QRect(20, 70, 921, 311))
+        self.groupBox.setGeometry(QtCore.QRect(20, 70, 921, 271))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.groupBox.setFont(font)
@@ -98,6 +98,9 @@ class Ui_IntroForm(object):
         spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem1)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.pushButton = QtGui.QPushButton(IntroForm)
+        self.pushButton.setGeometry(QtCore.QRect(820, 360, 112, 34))
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
 
         self.retranslateUi(IntroForm)
         QtCore.QMetaObject.connectSlotsByName(IntroForm)
@@ -112,4 +115,5 @@ class Ui_IntroForm(object):
         self.btnDemCons.setText(_translate("IntroForm", "Demolición \n"
 "+\n"
 "Nueva Construcción", None))
+        self.pushButton.setText(_translate("IntroForm", "< Atrás", None))
 

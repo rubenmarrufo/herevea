@@ -121,6 +121,7 @@ namespace HereveaForm
             sheet.Cells[6, 12].Value = project;
             Console.WriteLine("Proyecto: " + project);
 
+            sheet.Cells[8, 7].Value = dataObj.Demolicion;
             sheet.Cells[8, 12].Value = dataObj.Superficie;
             
             sheet.Cells[14, 7].Value = dataObj.Pilotes;
@@ -244,43 +245,62 @@ namespace HereveaForm
                 {"RcdEn", sheetHuella.Cells[51,3].Value},
                 {"OcuSu", sheetHuella.Cells[52,8].Value},
 
-                {"Cimentaciones", sheetPEM.Cells[67, 7].Value ?? 0},
-                {"Saneamiento",   sheetPEM.Cells[68, 7].Value ?? 0},
-                {"Estructuras",   sheetPEM.Cells[69, 7].Value ?? 0},
-                {"Albañileria",   sheetPEM.Cells[70, 7].Value ?? 0},
-                {"Cubiertas",     sheetPEM.Cells[71, 7].Value ?? 0},
-                {"Instalaciones", sheetPEM.Cells[72, 7].Value ?? 0},
-                {"Carpinteria",   sheetPEM.Cells[73, 7].Value ?? 0},
-                {"Accesibilidad", sheetPEM.Cells[74, 7].Value ?? 0},
-                {"Residuos",      sheetPEM.Cells[75, 7].Value ?? 0},
-                    
-                {"Rehabilitacion", sheetPEM.Cells[77, 7].Value ?? 0},
-                    
-                {"DemolicionEdificio", sheetPEM.Cells[94, 7].Value ?? 0},
-                {"DemolicionResiduos", sheetPEM.Cells[95, 7].Value ?? 0},
+                {"Cimentaciones", sheetPEM.Cells[68, 5].Value ?? 0},
+                {"Saneamiento",   sheetPEM.Cells[69, 5].Value ?? 0},
+                {"Estructuras",   sheetPEM.Cells[70, 5].Value ?? 0},
+                {"Albañileria",   sheetPEM.Cells[71, 5].Value ?? 0},
+                {"Cubiertas",     sheetPEM.Cells[72, 5].Value ?? 0},
+                {"Instalaciones", sheetPEM.Cells[73, 5].Value ?? 0},
+                {"Carpinteria",   sheetPEM.Cells[74, 5].Value ?? 0},
+                {"Accesibilidad", sheetPEM.Cells[75, 5].Value ?? 0},
+                {"Residuos",      sheetPEM.Cells[76, 5].Value ?? 0},
 
-                {"Demolicion", sheetPEM.Cells[97, 7].Value ?? 0},
-                {"Construccion", sheetPEM.Cells[108, 7].Value ?? 0},
-                {"HEDemolicion", sheetHuella.Cells[75, 4].Value ?? 0},
-                {"HEConstruccion", sheetHuella.Cells[81, 4].Value ?? 0},
+                {"CimentacionesHE", sheetPEM.Cells[68, 6].Value ?? 0},
+                {"SaneamientoHE",   sheetPEM.Cells[69, 6].Value ?? 0},
+                {"EstructurasHE",   sheetPEM.Cells[70, 6].Value ?? 0},
+                {"AlbañileriaHE",   sheetPEM.Cells[71, 6].Value ?? 0},
+                {"CubiertasHE",     sheetPEM.Cells[72, 6].Value ?? 0},
+                {"InstalacionesHE", sheetPEM.Cells[73, 6].Value ?? 0},
+                {"CarpinteriaHE",   sheetPEM.Cells[74, 6].Value ?? 0},
+                {"AccesibilidadHE", sheetPEM.Cells[75, 6].Value ?? 0},
+                {"ResiduosHE",      sheetPEM.Cells[76, 6].Value ?? 0},
+                    
+                {"Rehabilitacion", sheetPEM.Cells[78, 5].Value ?? 0},
+                {"RehabilitacionHE", sheetPEM.Cells[78, 6].Value ?? 0},
+                    
+                {"DemolicionEdificio", sheetPEM.Cells[98, 5].Value ?? 0},
+                {"DemolicionResiduos", sheetPEM.Cells[99, 5].Value ?? 0},
+                {"Demolicion", (sheetPEM.Cells[98, 5].Value ?? 0) + (sheetPEM.Cells[99, 5].Value ?? 0)},
+                {"DemolicionEdificioHE", sheetPEM.Cells[98, 6].Value ?? 0},
+                {"DemolicionResiduosHE", sheetPEM.Cells[99, 6].Value ?? 0},
+                {"DemolicionHE", (sheetPEM.Cells[98, 6].Value ?? 0) + (sheetPEM.Cells[99, 6].Value ?? 0)},
+                {"DemolicionHESuperficie", sheetHuella.Cells[75, 4].Value ?? 0},
+                
+                {"Construccion", sheetPEM.Cells[103, 5].Value ?? 0},
+                {"ConstruccionHE", sheetPEM.Cells[103, 6].Value ?? 0},
+                {"ConstruccionHESuperficie", sheetHuella.Cells[81, 4].Value ?? 0},
             };
         }
 
         private string CalculateProject(dynamic dataObj, Worksheet sheet)
         {
             var matchCaracteristicas = new Dictionary<int, int>();
+            var proyectosMatchPlantas = new List<int>();
             for (int i = 3; i < 99; i++)
             {
                 matchCaracteristicas[i] = 0;
                 if (dataObj.PlantasSobre != null && sheet.Cells[i, 2].Value != null &&
                     PlantasEqual(dataObj.PlantasSobre.ToString(), sheet.Cells[i, 2].Value.ToString()))
                 {
-                    matchCaracteristicas[i]++;
+                    proyectosMatchPlantas.Add(i);
                 }
+            }
+            foreach(var i in proyectosMatchPlantas)
+            {
                 if (dataObj.PlantasBajo != null && sheet.Cells[i, 3].Value != null &&
                     PlantasEqual(dataObj.PlantasBajo.ToString(), sheet.Cells[i, 3].Value.ToString()))
                 {
-                    matchCaracteristicas[i]++;
+                    matchCaracteristicas[i]+=5; //Match of plantasBajo is more important than the rest of parameters
                 }
                 if (dataObj.PlantaBajaViviendas != null &&
                     (sheet.Cells[i, 7].Value == null && dataObj.PlantaBajaViviendas.ToString().Equals("no", StringComparison.InvariantCultureIgnoreCase)

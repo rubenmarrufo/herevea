@@ -97,7 +97,7 @@ class Herevea:
                     if hasattr(self, 'HereveaMapTool'):
                         self.HereveaMapTool.provincia=self.seleccionForm.provincia()
                         self.HereveaMapTool.municipio=self.seleccionForm.municipio()
-                else:             
+                else:   
                     self.launcher=UserInputLauncherService(self.iface, self.seleccionForm.parcelaService, self.fin)
                     self.launcher.launch()
         except requests.ConnectionError as e:
@@ -127,20 +127,11 @@ class Herevea:
         QgsMapLayerRegistry.instance().addMapLayer(rlayer)    
         
   def centrarMapa(self):
-    coord=self.seleccionForm.coordenadas()
+    coord=self.seleccionForm.coordenadas()    
     zoom = self.seleccionForm.zoom()
     self.iface.actionZoomToSelected().trigger()
     self.iface.mapCanvas().zoomScale(zoom)
-    self.iface.mapCanvas().setCenter(coord)
-
-  def addParcelaPoint(self):
-    layer =  QgsVectorLayer('Point', 'Herevea: Parcela XXXXXXXXXXXX' , "memory")
-    pr = layer.dataProvider() 
-    pt = QgsFeature()
-    point1 = QgsPoint(-6.002941,37.381429)
-    pt.setGeometry(QgsGeometry.fromPoint(point1))
-    pr.addFeatures([pt])
-    QgsMapLayerRegistry.instance().addMapLayers([layer])
+    self.iface.mapCanvas().setCenter(coord)    
     
   def fin(self, result):
     self.launcher.fin(result)       

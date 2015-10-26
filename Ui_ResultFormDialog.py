@@ -17,7 +17,9 @@ email                : ruben_marrufo@hotmail.com
  *                                                                         *
  ***************************************************************************/
 """
-from PyQt4 import QtCore, QtGui 
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+from PyQt4 import QtCore, QtGui
 from Ui_ResultForm import Ui_ResultForm
 import locale
 import pyqtgraph as pg
@@ -26,6 +28,7 @@ import math
 import subprocess
 import json
 import os
+import PyQt4
 from collections import OrderedDict
 
 class Ui_ResultFormDialog(QtGui.QDialog):
@@ -36,6 +39,7 @@ class Ui_ResultFormDialog(QtGui.QDialog):
     pg.setConfigOption('background', QtGui.QColor(0, 0, 0, 0))
     pg.setConfigOption('foreground', 'k')
     
+    self.back=False
     self.huellaResult = huellaResult
     # Set up the user interface from Designer. 
     self.ui = Ui_ResultForm()
@@ -51,30 +55,43 @@ class Ui_ResultFormDialog(QtGui.QDialog):
         
     self.ui.tabHERehTotal.setItem(0, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Total"],4)))
     self.ui.tabHERehTotal.setItem(0, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Total"] * parcelaService.getSuperficie(),3)))
+    self.ui.tabHERehTotal.item(0, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.tabHERehTotal.item(0, 1).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
     
-    self.ui.tabHEDemConsTotal.setItem(0, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["HEDemolicion"],4)))
-    self.ui.tabHEDemConsTotal.setItem(0, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["HEDemolicion"] * parcelaService.getSuperficie(),3)))
-    self.ui.tabHEDemConsTotal.setItem(1, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["HEConstruccion"],4)))
-    self.ui.tabHEDemConsTotal.setItem(1, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["HEConstruccion"] * parcelaService.getSuperficie(),3)))
+    self.ui.tabHEDemConsTotal.setItem(0, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["DemolicionHESuperficie"],4)))
+    self.ui.tabHEDemConsTotal.setItem(0, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["DemolicionHE"],3)))
+    self.ui.tabHEDemConsTotal.setItem(1, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["ConstruccionHESuperficie"],4)))
+    self.ui.tabHEDemConsTotal.setItem(1, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["ConstruccionHE"],3)))
+    self.ui.tabHEDemConsTotal.item(0, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.tabHEDemConsTotal.item(0, 1).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.tabHEDemConsTotal.item(1, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.tabHEDemConsTotal.item(1, 1).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
     
-    self.ui.tabHEComp.setItem(0, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Total"],4)))
-    self.ui.tabHEComp.setItem(0, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Total"] * parcelaService.getSuperficie(),3)))
-    self.ui.tabHEComp.setItem(1, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["HEConstruccion"] + huellaResult["HEDemolicion"],4)))
-    self.ui.tabHEComp.setItem(1, 1, QtGui.QTableWidgetItem(self.toSpanishFormat((huellaResult["HEConstruccion"] + huellaResult["HEDemolicion"]) * parcelaService.getSuperficie(),3)))
-        
-    self.ui.tabPEMReh.setItem(0, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Rehabilitacion"],2)))
+    self.ui.tabPEMDemCons.setItem(0, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Rehabilitacion"],2)))    
+    self.ui.tabPEMDemCons.setItem(1, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Demolicion"],2)))
+    self.ui.tabPEMDemCons.setItem(2, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Construccion"],2)))
+    self.ui.tabPEMDemCons.item(0, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.tabPEMDemCons.item(1, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.tabPEMDemCons.item(2, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
     
-    self.ui.tabPEMDemCons.setItem(0, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Demolicion"],2)))
-    self.ui.tabPEMDemCons.setItem(1, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Construccion"],2)))
-            
     self.ui.tabPEMComp.setItem(0, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Rehabilitacion"],2)))
-    self.ui.tabPEMComp.setItem(0, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Demolicion"] + huellaResult["Construccion"],2)))
-
+    self.ui.tabPEMComp.setItem(1, 0, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Demolicion"] + huellaResult["Construccion"],2)))
+    self.ui.tabPEMComp.setItem(0, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["Total"] * parcelaService.getSuperficie(),3)))
+    self.ui.tabPEMComp.setItem(1, 1, QtGui.QTableWidgetItem(self.toSpanishFormat(huellaResult["DemolicionHE"] + huellaResult["ConstruccionHE"],3)))
+    self.ui.tabPEMComp.item(0, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.tabPEMComp.item(1, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.tabPEMComp.item(0, 1).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.tabPEMComp.item(1, 1).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    self.ui.pushButton.clicked.connect(self.backButton)    
+    
+  def backButton(self):
+    self.back=True
+    self.close()
+    
   def openReport(self):    
     dir = os.path.dirname(__file__)
     application = os.path.join(dir,'Informes/',self.huellaResult["ReportPath"])
     cmd = [application]
-    print cmd
     process = subprocess.Popen(cmd, shell=True)
     
   def addEnergiaPieChart(self, huellaResult, parcelaService):    
@@ -162,29 +179,7 @@ class Ui_ResultFormDialog(QtGui.QDialog):
 "border-color: rgb(255, 255, 255);");
     self.ui.tabHEDemConsTotal.horizontalHeader().setVisible(True)
     self.ui.tabHEDemConsTotal.verticalHeader().setVisible(True)    
-    
-    self.ui.tabHEComp.horizontalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
-"color: rgb(255, 255, 255);\n"
-"gridline-color: rgb(255, 255, 255);\n"
-"border-color: rgb(255, 255, 255);");
-    self.ui.tabHEComp.verticalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
-"color: rgb(255, 255, 255);\n"
-"gridline-color: rgb(255, 255, 255);\n"
-"border-color: rgb(255, 255, 255);");
-    self.ui.tabHEComp.horizontalHeader().setVisible(True)
-    self.ui.tabHEComp.verticalHeader().setVisible(True)
-        
-    self.ui.tabPEMReh.horizontalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
-"color: rgb(255, 255, 255);\n"
-"gridline-color: rgb(255, 255, 255);\n"
-"border-color: rgb(255, 255, 255);");  
-    self.ui.tabPEMReh.verticalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
-"color: rgb(255, 255, 255);\n"
-"gridline-color: rgb(255, 255, 255);\n"
-"border-color: rgb(255, 255, 255);");  
-    self.ui.tabPEMReh.horizontalHeader().setVisible(True)
-    self.ui.tabPEMReh.verticalHeader().setVisible(True)
-    
+       
     self.ui.tabPEMDemCons.horizontalHeader().setStyleSheet("background-color: rgb(51, 153, 51);\n"
 "color: rgb(255, 255, 255);\n"
 "gridline-color: rgb(255, 255, 255);\n"
@@ -234,7 +229,6 @@ class PieChartItem(pg.GraphicsObject):
                    'Materiales':QtGui.QColor(57, 199, 157, 255),\
                    'Residuos RCD':QtGui.QColor(235, 100, 27, 255)}    
         for d in self.data.keys():  
-            print d   
             angle = self.data[d] * 360 * 16
             ellipse = QtGui.QGraphicsEllipseItem(0, 0, 200, 200)
             ellipse.setPos(200, 0)

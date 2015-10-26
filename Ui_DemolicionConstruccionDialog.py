@@ -34,6 +34,19 @@ class Ui_DemolicionConstruccionDialog(QtGui.QDialog):
     self.ui.pushButton.clicked.connect(self.backButton)
     self.ui.btnAccept.clicked.connect(self.calcular)
 
+  def setup(self, proyecto, usuario):
+    self.ui.lbCimentacion.setText(unicode(usuario["Cimentacion"]))
+    self.ui.lbEstructura.setText(unicode(usuario["Estructura"]))
+    self.ui.lbCubierta.setText(unicode(usuario["Cubierta"]))
+    self.ui.lbAlturaMedia.setText(unicode(usuario["AlturaPlanta"]))
+    self.ui.lbAlturaTotal.setText(unicode(usuario["Altura"]))
+    self.ui.lbSuperficie.setText(unicode(proyecto["Superficie"]))
+    self.ui.lbPlantasBajoRasante.setText(unicode(proyecto["PlantasBajo"]))
+    self.ui.lbPlantasSobreRasante.setText(unicode(proyecto["PlantasSobre"]))
+    
+  def getValues(self):
+    return {'Demolicion': self.ui.cmbDemolicion.currentText() }
+    
   def calcular(self):
     self.accept()
         
