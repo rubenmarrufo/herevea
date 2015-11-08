@@ -126,7 +126,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -155,12 +155,12 @@
       </property>
       <item>
        <property name="text">
-        <string>Edificio exento estructura muros fábrica m.mecánicos</string>
+        <string>Edificio con estructura de muros fábrica m.mecánicos</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Edificio exento estructura hormigón m.mecánicos</string>
+        <string>Edificio con estructura de hormigón m.mecánicos</string>
        </property>
       </item>
      </widget>

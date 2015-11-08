@@ -102,7 +102,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -1146,7 +1146,7 @@
           </item>
           <item>
            <property name="text">
-            <string>Superf. dañada &gt;60%. Mejora energética con aislam. EPS. Cara ext. fach. Aplacado</string>
+            <string>Superf. dañada &gt;60%. Mejora energética con aislam. EPS. Cara ext. fach. rev.cont.</string>
            </property>
           </item>
           <item>
@@ -4334,7 +4334,7 @@
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -4424,7 +4424,7 @@
          </item>
          <item>
           <property name="text">
-           <string>Ventana abatible y doble acristalamiento</string>
+           <string>Ventana abatible con RPT y doble acristalamiento</string>
           </property>
          </item>
          <item>
@@ -5030,7 +5030,7 @@
        </item>
        <item>
         <property name="text">
-         <string>Nueva instalación</string>
+         <string>Sustitución y reposición</string>
         </property>
        </item>
       </widget>

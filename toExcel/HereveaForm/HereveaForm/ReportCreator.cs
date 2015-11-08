@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 using Herevea.Reports;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Reporting.WinForms;
@@ -379,7 +380,7 @@ namespace HereveaForm
         {
             var lr = new LocalReport
             {
-                ReportPath = Path.Combine(_path, "Report1.rdlc"),
+                ReportPath = Path.Combine(_path, Form1.UseHeer ? "Report2.rdlc" : "Report1.rdlc"),
                 EnableExternalImages = true
             };
 

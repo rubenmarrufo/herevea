@@ -1,18 +1,11 @@
 [general]
 name=Herevea
-description=Herevea
+description=Comparativa económica y ambiental de la rehabilitación frente a la demolición y nueva construcción de edificios residenciales
 category=Web
-version=0.3.3
+version=1.0.0
 qgisMinimumVersion=2.0
-icon=images/icon.png
+icon=img/Her.png
 author=Ruben Jimenez Marrufo
-email=ruben_marrufo@hotmail.comtags=web,catalogue,service,metadata,csw
-homepage=https://hub.qgis.org/projects/MetaSearch
-tracker=https://hub.qgis.org/projects/MetaSearch/issues
-repository=https://github.com/qgis/QGIS/tree/master/python/plugins/MetaSearch
+email=ruben_marrufo@hotmail.com
 experimental=False
 deprecated=False
-changelog=Version 0.3.3 (2015-02-24)
-    - safeguard CSW connection names with '/'
-    - fix help link URL opening
-    - general fixes to support releasing from QGIS core

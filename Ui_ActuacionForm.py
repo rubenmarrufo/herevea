@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Ui_ActuacionForm.ui'
 #
-# Created: Mon Oct 26 23:54:02 2015
+# Created: Wed Oct 28 22:28:28 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -1512,12 +1512,12 @@ class Ui_ActuacionForm(object):
         self.horizontalLayout.addWidget(self.btnAccept)
 
         self.retranslateUi(ActuacionForm)
-        self.tabWidget.setCurrentIndex(5)
+        self.tabWidget.setCurrentIndex(9)
         self.tabSaneamiento.setCurrentIndex(0)
         self.tabAlbanileria.setCurrentIndex(0)
         self.tabCubiertas.setCurrentIndex(0)
         self.tabInstalaciones.setCurrentIndex(0)
-        self.tabCarpinteria.setCurrentIndex(1)
+        self.tabCarpinteria.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(ActuacionForm)
 
     def retranslateUi(self, ActuacionForm):
@@ -1676,7 +1676,7 @@ class Ui_ActuacionForm(object):
         self.label_35.setText(_translate("ActuacionForm", "Reparación de fisuras", None))
         self.cmbLadGrietas.setItemText(0, _translate("ActuacionForm", "No hay actuaciones", None))
         self.cmbLadGrietas.setItemText(1, _translate("ActuacionForm", "Superficie dañada ≤60%", None))
-        self.cmbLadGrietas.setItemText(2, _translate("ActuacionForm", "Superf. dañada >60%. Mejora energética con aislam. EPS. Cara ext. fach. Aplacado", None))
+        self.cmbLadGrietas.setItemText(2, _translate("ActuacionForm", "Superf. dañada >60%. Mejora energética con aislam. EPS. Cara ext. fach. rev.cont.", None))
         self.cmbLadGrietas.setItemText(3, _translate("ActuacionForm", "Superf. dañada >60%. Mejora energética con aislam. EPS. Cara ext. fach. ventilada", None))
         self.cmbLadGrietas.setItemText(4, _translate("ActuacionForm", "Superf. dañada >60%. Mejora energ. con aislam. lana de oveja. Cara ext. fach. vent.", None))
         self.cmbLadHumTecho.setItemText(0, _translate("ActuacionForm", "No hay actuaciones", None))
@@ -2096,7 +2096,7 @@ class Ui_ActuacionForm(object):
         self.cmbCarpLigera.setItemText(3, _translate("ActuacionForm", "Ventana abat. de aluminio con RPT y vidrio control solar", None))
         self.label_40.setText(_translate("ActuacionForm", "Carpintería Madera", None))
         self.cmbCarpMadera.setItemText(0, _translate("ActuacionForm", "No hay actuaciones", None))
-        self.cmbCarpMadera.setItemText(1, _translate("ActuacionForm", "Ventana abatible y doble acristalamiento", None))
+        self.cmbCarpMadera.setItemText(1, _translate("ActuacionForm", "Ventana abatible con RPT y doble acristalamiento", None))
         self.cmbCarpMadera.setItemText(2, _translate("ActuacionForm", "Ventana abatible con RPT y vidrio bajo emisivo", None))
         self.cmbCarpMadera.setItemText(3, _translate("ActuacionForm", "Ventana abatible con RPT y vidrio control solar", None))
         self.label_77.setText(_translate("ActuacionForm", "Rejas", None))
@@ -2205,7 +2205,7 @@ class Ui_ActuacionForm(object):
         self.cmbEscalera.setItemText(2, _translate("ActuacionForm", "Rectificación de peldañeado de escalera en zonas comunes", None))
         self.label_24.setText(_translate("ActuacionForm", "Escalera", None))
         self.cmbPortero.setItemText(0, _translate("ActuacionForm", "No hay actuaciones", None))
-        self.cmbPortero.setItemText(1, _translate("ActuacionForm", "Nueva instalación", None))
+        self.cmbPortero.setItemText(1, _translate("ActuacionForm", "Sustitución y reposición", None))
         self.label_72.setText(_translate("ActuacionForm", "Portero electrónico", None))
         self.label.setText(_translate("ActuacionForm", "Ascensores", None))
         self.label_50.setText(_translate("ActuacionForm", "Rampa de acceso", None))

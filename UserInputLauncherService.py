@@ -137,10 +137,17 @@ class UserInputLauncherService():
         demConsValues = self.ui_DemolicionConstruccion.getValues()
         huellaService = HuellaService()
         huellaResult = huellaService.Calculate(proyValues,userValues,actValues, demConsValues)
-        self.ui_Result=Ui_ResultFormDialog(self.parcelaService,huellaResult)
-        self.ui_Result.show()
-        result = self.ui_Result.exec_()
-        if self.ui_Result.back==True:
-            self.ui_Result.back=False            
-            self.showDemCons()                         
+        if huellaResult is None:
+            return           
+        elif 'error' in huellaResult:
+            ui_Error = Ui_ErrorDialog(u'Hubo un error intentando realizar el análisis: ' + unicode(huellaResult["error"]))
+            ui_Error.show()
+            ui_Error.exec_()
+        else:
+            self.ui_Result=Ui_ResultFormDialog(self.parcelaService,huellaResult)
+            self.ui_Result.show()
+            result = self.ui_Result.exec_()
+            if self.ui_Result.back==True:
+                self.ui_Result.back=False            
+                self.showDemCons()                         
         

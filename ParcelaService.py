@@ -22,12 +22,15 @@ class ParcelaService(QThread):
         self.x=x
         self.y=y
         
-    def initRefCatastral(self, refCatastro):        
-        self.numCatastro=refCatastro        
-        xyInfo = self.catastroService.getParcelaCoords(self.numCatastro,self.provincia,self.municipio)
-        self.x = float(xyInfo['xcen'])
-        self.y = float(xyInfo['ycen'])
-                
+    def initRefCatastral(self, refCatastro):
+        try:
+            self.numCatastro=refCatastro        
+            xyInfo = self.catastroService.getParcelaCoords(self.numCatastro,self.provincia,self.municipio)
+            self.x = float(xyInfo['xcen'])
+            self.y = float(xyInfo['ycen'])
+        except:
+            pass
+            
     def run(self):
         try:            
             if self.numCatastro == None:

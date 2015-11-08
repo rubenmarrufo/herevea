@@ -26,12 +26,15 @@ namespace HereveaForm
         private Image image;
         private int angle = 0;
         private string path;
+        private string _resultsPath;
         private readonly ReportCreator _reportCreator;
+
+        public static bool UseHeer = true;
 
         public Form1()
         {
             InitializeComponent();
-            path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            GetPath();
             image = Image.FromFile(Path.Combine(path, "huellaPie.png"));
             pictureBox1.Image = image;
 
@@ -41,6 +44,28 @@ namespace HereveaForm
             worker.RunWorkerAsync();
         }
 
+        private void GetPath()
+        {
+            path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            _resultsPath = Path.GetDirectoryName(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            try
+            {
+                var configPath = Path.Combine(_resultsPath, "config.txt");
+                if (File.Exists(configPath))
+                {
+                    var configContent = File.ReadAllText(configPath);
+                    var config = JsonConvert.DeserializeObject<Dictionary<string, string>>(configContent);
+                    if (config.ContainsKey("path"))
+                    {
+                        _resultsPath = config["path"];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError("Error reading config file. Error: {0}", ex);
+            }
+        }
 
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -52,13 +77,26 @@ namespace HereveaForm
             try
             {
                 Trace.TraceInformation("Calculando huella...");
-                File.Delete(Path.Combine(path, "result.txt"));
-                var data = File.ReadAllText(Path.Combine(path, "data.txt"));
+                var resultFile = Path.Combine(_resultsPath, "result.txt");
+                var dataFile = Path.Combine(_resultsPath, "data.txt");
+                if (File.Exists(resultFile))
+                    File.Delete(resultFile);
+                var data = File.ReadAllText(dataFile);
                 dynamic dataObj = JsonConvert.DeserializeObject(data);
 
                 var file = new FileInfo(Path.Combine(path, "Huella.xls"));
-                xlApp = new Microsoft.Office.Interop.Excel.Application { Visible = false, DisplayAlerts = false };
-                wb = xlApp.Workbooks.Open(file.FullName);
+                try
+                {
+                    xlApp = new Microsoft.Office.Interop.Excel.Application { Visible = false, DisplayAlerts = false };
+                    wb = xlApp.Workbooks.Open(file.FullName);
+                }
+                catch (Exception)
+                {
+                    File.WriteAllText(resultFile, 
+                        JsonConvert.SerializeObject(new Dictionary<string,string> 
+                        {{"error", "No se ha podido encontrar una instancia válida de Microsoft Excel instalada en el sistema."}}));
+                    return;
+                }
                 worker.ReportProgress(25);
                 Console.WriteLine("Calculando huella total...");
 
@@ -74,6 +112,7 @@ namespace HereveaForm
 
                 var sheetHuella = (Worksheet) wb.Sheets["HE Total"];
                 var sheetPEM = (Worksheet) wb.Sheets["PEM Proyecto"];
+                var sheetHeer = (Worksheet) wb.Sheets["HeER Proyecto"];
                 sheetPEM.Calculate();
                 sheetHuella.Calculate();
                 
@@ -88,12 +127,12 @@ namespace HereveaForm
                 }
                 
                 var reportFileName = string.Format("{0}_{1}", dataObj.RefCatastral, DateTime.Now.Ticks%1000000);
-                var reportDirectory = Path.Combine(Path.GetDirectoryName(path), "Informes");
+                var reportDirectory = Path.Combine(_resultsPath, "Informes");
                 if (!Directory.Exists(reportDirectory))
                     Directory.CreateDirectory(reportDirectory);
                 var reportPath = Path.Combine(reportDirectory, reportFileName);
 
-                var result = GetResults(sheetHuella, sheetPEM);
+                var result = GetResults(sheetHuella, sheetPEM, sheetHeer);
 
                 var reportCreator = new ReportCreator(path, reportPath, dataObj, result, sheetDespl);
                 reportPath = reportCreator.CreateReport();
@@ -101,9 +140,8 @@ namespace HereveaForm
                 result.Add("ReportPath", reportPath);
 
                 string resultJson = JsonConvert.SerializeObject(result);
-                File.WriteAllText(Path.Combine(path, "result.txt"), resultJson);
+                File.WriteAllText(resultFile, resultJson);
                 Console.WriteLine("Huella total: " + sheetHuella.Cells[49, 3].Value.ToString());
-                
             }
             catch (Exception ex)
             {
@@ -211,11 +249,12 @@ namespace HereveaForm
             sheet.Cells[16, 12].Value = dataObj.AscensoresAct;
         }
 
-        private static Dictionary<string, object> GetResults(Worksheet sheetHuella, Worksheet sheetPEM)
+        private static Dictionary<string, object> GetResults(Worksheet sheetHuella, Worksheet sheetPEM, Worksheet sheetHeer)
         {
+            double heer = (double)(UseHeer ? sheetPEM.Cells[103, 5].Value : 1);
             return new Dictionary<string, object>()
             {
-                {"Total", sheetHuella.Cells[56, 3].Value ?? 0M},
+                {"Total", sheetHuella.Cells[56, 3].Value  ?? 0M},
                 {"Energia", sheetHuella.Cells[54, 3].Value ?? 0M},
                 {"Bosques", sheetHuella.Cells[54, 4].Value ?? 0M},
                 {"Pastos", sheetHuella.Cells[54, 5].Value ?? 0M},
@@ -245,15 +284,15 @@ namespace HereveaForm
                 {"RcdEn", sheetHuella.Cells[51,3].Value},
                 {"OcuSu", sheetHuella.Cells[52,8].Value},
 
-                {"Cimentaciones", sheetPEM.Cells[68, 5].Value ?? 0},
-                {"Saneamiento",   sheetPEM.Cells[69, 5].Value ?? 0},
-                {"Estructuras",   sheetPEM.Cells[70, 5].Value ?? 0},
-                {"Albañileria",   sheetPEM.Cells[71, 5].Value ?? 0},
-                {"Cubiertas",     sheetPEM.Cells[72, 5].Value ?? 0},
-                {"Instalaciones", sheetPEM.Cells[73, 5].Value ?? 0},
-                {"Carpinteria",   sheetPEM.Cells[74, 5].Value ?? 0},
-                {"Accesibilidad", sheetPEM.Cells[75, 5].Value ?? 0},
-                {"Residuos",      sheetPEM.Cells[76, 5].Value ?? 0},
+                {"Cimentaciones", sheetPEM.Cells[68, 5].Value/ heer ?? 0},
+                {"Saneamiento",   sheetPEM.Cells[69, 5].Value/ heer ?? 0},
+                {"Estructuras",   sheetPEM.Cells[70, 5].Value/ heer ?? 0},
+                {"Albañileria",   sheetPEM.Cells[71, 5].Value/ heer ?? 0},
+                {"Cubiertas",     sheetPEM.Cells[72, 5].Value/ heer ?? 0},
+                {"Instalaciones", sheetPEM.Cells[73, 5].Value/ heer ?? 0},
+                {"Carpinteria",   sheetPEM.Cells[74, 5].Value/ heer ?? 0},
+                {"Accesibilidad", sheetPEM.Cells[75, 5].Value/ heer ?? 0},
+                {"Residuos",      sheetPEM.Cells[76, 5].Value/ heer ?? 0},
 
                 {"CimentacionesHE", sheetPEM.Cells[68, 6].Value ?? 0},
                 {"SaneamientoHE",   sheetPEM.Cells[69, 6].Value ?? 0},
@@ -265,18 +304,18 @@ namespace HereveaForm
                 {"AccesibilidadHE", sheetPEM.Cells[75, 6].Value ?? 0},
                 {"ResiduosHE",      sheetPEM.Cells[76, 6].Value ?? 0},
                     
-                {"Rehabilitacion", sheetPEM.Cells[78, 5].Value ?? 0},
+                {"Rehabilitacion", sheetPEM.Cells[78, 5].Value/ heer ?? 0},
                 {"RehabilitacionHE", sheetPEM.Cells[78, 6].Value ?? 0},
                     
-                {"DemolicionEdificio", sheetPEM.Cells[98, 5].Value ?? 0},
-                {"DemolicionResiduos", sheetPEM.Cells[99, 5].Value ?? 0},
-                {"Demolicion", (sheetPEM.Cells[98, 5].Value ?? 0) + (sheetPEM.Cells[99, 5].Value ?? 0)},
+                {"DemolicionEdificio", sheetPEM.Cells[98, 5].Value/ heer ?? 0},
+                {"DemolicionResiduos", sheetPEM.Cells[99, 5].Value/ heer ?? 0},
+                {"Demolicion", (sheetPEM.Cells[98, 5].Value/ heer ?? 0) + (sheetPEM.Cells[99, 5].Value/ heer ?? 0)},
                 {"DemolicionEdificioHE", sheetPEM.Cells[98, 6].Value ?? 0},
                 {"DemolicionResiduosHE", sheetPEM.Cells[99, 6].Value ?? 0},
                 {"DemolicionHE", (sheetPEM.Cells[98, 6].Value ?? 0) + (sheetPEM.Cells[99, 6].Value ?? 0)},
                 {"DemolicionHESuperficie", sheetHuella.Cells[75, 4].Value ?? 0},
                 
-                {"Construccion", sheetPEM.Cells[103, 5].Value ?? 0},
+                {"Construccion", sheetPEM.Cells[103, 5].Value/ heer ?? 0},
                 {"ConstruccionHE", sheetPEM.Cells[103, 6].Value ?? 0},
                 {"ConstruccionHESuperficie", sheetHuella.Cells[81, 4].Value ?? 0},
             };

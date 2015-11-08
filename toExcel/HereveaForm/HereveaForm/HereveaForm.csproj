@@ -110,11 +110,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc">
+    <EmbeddedResource Include="Report2.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report2.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <EmbeddedResource Include="Report1.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="Huella.xls" />
     <None Include="Huella.xlsx">
@@ -122,6 +122,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Herevea.Reports.Actuaciones.datasource" />
+    <None Include="Properties\DataSources\Herevea.Reports.ComparativaCapitulo.datasource" />
     <None Include="Properties\DataSources\Herevea.Reports.Energias.datasource" />
     <None Include="Properties\DataSources\Herevea.Reports.HEParcial.datasource" />
     <None Include="Properties\DataSources\Herevea.Reports.HuellaReport.datasource" />

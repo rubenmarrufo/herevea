@@ -35,6 +35,8 @@ from Ui_AcercaDeDialog import Ui_AcercaDeDialog
 from CatastroService import CatastroService
 from UserInputLauncherService import UserInputLauncherService 
 from Ui_ResultFormDialog import Ui_ResultFormDialog
+from Ui_ConfiguracionFormDialog import Ui_ConfiguracionFormDialog 
+from ConfigService import ConfigService
 
 class Herevea: 
 
@@ -53,6 +55,8 @@ class Herevea:
         "Herevea", self.iface.mainWindow())    
     self.acercaDeAction = QAction(QIcon(''), \
         "Acerca de...", self.iface.mainWindow())
+    self.configuracionAction = QAction(QIcon(''), \
+        u"Configuración", self.iface.mainWindow())
     icon_path_sel = os.path.join(dir,'img\HerSelect.png')
     self.seleccionAction = QAction(QIcon(icon_path_sel), \
         "Seleccionar parcela", self.iface.mainWindow())
@@ -60,9 +64,11 @@ class Herevea:
     # connect the action to the run method
     QObject.connect(self.hereveaAction, SIGNAL("activated()"), self.selection)
     QObject.connect(self.acercaDeAction, SIGNAL("activated()"), self.acercaDe)
+    QObject.connect(self.configuracionAction, SIGNAL("activated()"), self.configuracion)
     QObject.connect(self.seleccionAction, SIGNAL("activated()"), self.setMapTool)
     self.iface.addPluginToMenu("&Herevea", self.hereveaAction)
     self.iface.addPluginToMenu("&Herevea", self.acercaDeAction)  
+    self.iface.addPluginToMenu("&Herevea", self.configuracionAction)
     self.iface.addToolBarIcon(self.hereveaAction)
 
             
@@ -70,8 +76,10 @@ class Herevea:
     # Remove the plugin menu item and icon
     self.iface.removePluginMenu("&Herevea",self.acercaDeAction)
     self.iface.removePluginMenu("&Herevea",self.hereveaAction)
+    self.iface.removePluginMenu("&Herevea",self.configuracionAction)
     self.iface.removeToolBarIcon(self.seleccionAction)
     self.iface.removeToolBarIcon(self.hereveaAction)    
+    self.iface.removeToolBarIcon(self.configuracionAction)
         
   def selection(self):
     #uiResult = Ui_ResultFormDialog()  
@@ -90,14 +98,16 @@ class Herevea:
                 self.seleccionForm = Ui_SeleccionFormDialog(CatastroService())
             self.seleccionForm.show()
             result = self.seleccionForm.exec_()
-            if result == 1:
-                self.centrarMapa()
-                self.addMapToolIcon()             
-                if self.seleccionForm.parcelaService == None:                                
+            if result == 1:                
+                self.centrarMapa()                             
+                if self.seleccionForm.parcelaService == None:
+                    self.addMapToolIcon()                                
                     if hasattr(self, 'HereveaMapTool'):
                         self.HereveaMapTool.provincia=self.seleccionForm.provincia()
                         self.HereveaMapTool.municipio=self.seleccionForm.municipio()
-                else:   
+                elif self.seleccionForm.parcelaService.x==None or self.seleccionForm.parcelaService.y==None:
+                    self.iface.messageBar().pushMessage("Error", "No se pudo encontrar una parcela con esa referencia catastral en la localidad seleccionada", level=QgsMessageBar.CRITICAL, duration=3)
+                else:                      
                     self.launcher=UserInputLauncherService(self.iface, self.seleccionForm.parcelaService, self.fin)
                     self.launcher.launch()
         except requests.ConnectionError as e:
@@ -127,17 +137,23 @@ class Herevea:
         QgsMapLayerRegistry.instance().addMapLayer(rlayer)    
         
   def centrarMapa(self):
-    coord=self.seleccionForm.coordenadas()    
-    zoom = self.seleccionForm.zoom()
-    self.iface.actionZoomToSelected().trigger()
-    self.iface.mapCanvas().zoomScale(zoom)
-    self.iface.mapCanvas().setCenter(coord)    
+    coord=self.seleccionForm.coordenadas()   
+    if coord != None: 
+        zoom = self.seleccionForm.zoom()
+        self.iface.actionZoomToSelected().trigger()
+        self.iface.mapCanvas().zoomScale(zoom)
+        self.iface.mapCanvas().setCenter(coord)    
     
   def fin(self, result):
     self.launcher.fin(result)       
   
   def acercaDe(self):
     dlg = Ui_AcercaDeDialog()
+    dlg.show()
+    result = dlg.exec_()
+
+  def configuracion(self):
+    dlg = Ui_ConfiguracionFormDialog(ConfigService())
     dlg.show()
     result = dlg.exec_()
 

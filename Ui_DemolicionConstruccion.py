@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Ui_DemolicionConstruccion.ui'
 #
-# Created: Tue Oct 20 01:00:05 2015
+# Created: Wed Oct 28 22:30:07 2015
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -214,7 +214,7 @@ class Ui_DemolicionConstruccion(object):
         self.tabWidget.addTab(self.tab_2, _fromUtf8(""))
 
         self.retranslateUi(DemolicionConstruccion)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(DemolicionConstruccion)
 
     def retranslateUi(self, DemolicionConstruccion):
@@ -224,8 +224,8 @@ class Ui_DemolicionConstruccion(object):
         self.pushButton.setText(_translate("DemolicionConstruccion", "< Atrás", None))
         self.btnAccept.setText(_translate("DemolicionConstruccion", "Calculo de Huella Ecológica", None))
         self.groupBox_3.setTitle(_translate("DemolicionConstruccion", "Actuaciones", None))
-        self.cmbDemolicion.setItemText(0, _translate("DemolicionConstruccion", "Edificio exento estructura muros fábrica m.mecánicos", None))
-        self.cmbDemolicion.setItemText(1, _translate("DemolicionConstruccion", "Edificio exento estructura hormigón m.mecánicos", None))
+        self.cmbDemolicion.setItemText(0, _translate("DemolicionConstruccion", "Edificio con estructura de muros fábrica m.mecánicos", None))
+        self.cmbDemolicion.setItemText(1, _translate("DemolicionConstruccion", "Edificio con estructura de hormigón m.mecánicos", None))
         self.label_5.setText(_translate("DemolicionConstruccion", "Demolición Completa", None))
         self.groupBox_7.setTitle(_translate("DemolicionConstruccion", "Grado de actuación", None))
         self.label_56.setText(_translate("DemolicionConstruccion", "%", None))
